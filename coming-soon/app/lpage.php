@@ -49,7 +49,6 @@ function seedprod_lite_slug_exists() {
  */
 function seedprod_lite_new_lpage() {
 
-
 	$get_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	$get_id   = isset( $_GET['id'] ) ? sanitize_text_field( wp_unslash( $_GET['id'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
@@ -59,8 +58,8 @@ function seedprod_lite_new_lpage() {
 			wp_die();
 		}
 		// check nonce
-		if(wp_verify_nonce( $_GET['_wpnonce'], 'seedprod_nonce' ) === false) {
-			wp_die('nonce check failed'); 
+		if ( wp_verify_nonce( $_GET['_wpnonce'], 'seedprod_nonce' ) === false ) {
+			wp_die( 'nonce check failed' );
 		}
 		// get theme code
 		$id = absint( $get_id );
@@ -331,11 +330,11 @@ function seedprod_lite_lpage_datatable() {
 				continue; }
 
 			// Format Date
-			//$modified_at = date(get_option('date_format').' '.get_option('time_format'), strtotime($v->post_modified));
+			// $modified_at = date(get_option('date_format').' '.get_option('time_format'), strtotime($v->post_modified));
 
-			$modified_at = gmdate( get_option('date_format'), strtotime( $v->post_modified ) );
+			$modified_at = gmdate( get_option( 'date_format' ), strtotime( $v->post_modified ) );
 
-			$posted_at = gmdate( get_option('date_format'), strtotime( $v->post_date ) );
+			$posted_at = gmdate( get_option( 'date_format' ), strtotime( $v->post_date ) );
 
 			$url = get_permalink( $v->ID );
 
@@ -442,7 +441,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	$tablename      = $wpdb->prefix . 'posts';
 	$meta_tablename = $wpdb->prefix . 'postmeta';
 
-	//All link
+	// All link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
 	$sql .= ' WHERE 1 = 1 AND post_type = "page" AND post_status != "trash"  AND meta_key = "_seedprod_page"';
@@ -452,7 +451,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	$all_url      = remove_query_arg( 'filter' );
 	$views['all'] = $results;
 
-	//Published link
+	// Published link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
 	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "publish" ';
@@ -462,7 +461,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	$class              = ( 'publish' == $current ? ' class="current"' : '' );
 	$views['published'] = $results;
 
-	//Drafts link
+	// Drafts link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
 	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "draft" ';
@@ -472,7 +471,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	$class           = ( 'drafts' == $current ? ' class="current"' : '' );
 	$views['drafts'] = $results;
 
-	//Scheduled link
+	// Scheduled link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
 	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "future" ';
@@ -482,7 +481,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	$class              = ( 'scheduled' == $current ? ' class="current"' : '' );
 	$views['scheduled'] = $results;
 
-	//Trash link
+	// Trash link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
 	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "trash" ';
@@ -515,7 +514,7 @@ function seedprod_lite_duplicate_lpage() {
 			'comment_status' => 'closed',
 			'ping_status'    => 'closed',
 			'post_content'   => $post->post_content,
-			//'post_content_filtered' => $post->post_content_filtered,
+			// 'post_content_filtered' => $post->post_content_filtered,
 			'post_status'    => 'draft',
 			'post_title'     => $post->post_title . '- Copy',
 			'post_type'      => 'page',
@@ -548,8 +547,8 @@ function seedprod_lite_duplicate_lpage() {
 
 
 /**
-* Archive Selected lpage.
-*/
+ * Archive Selected lpage.
+ */
 function seedprod_lite_archive_selected_lpages() {
 	if ( check_ajax_referer( 'seedprod_lite_archive_selected_lpages' ) ) {
 		if ( current_user_can( apply_filters( 'seedprod_trash_pages_capability', 'list_users' ) ) ) {
@@ -566,8 +565,8 @@ function seedprod_lite_archive_selected_lpages() {
 }
 
 /**
-* Unarchive Selected lpage.
-*/
+ * Unarchive Selected lpage.
+ */
 function seedprod_lite_unarchive_selected_lpages( $ids ) {
 	if ( check_ajax_referer( 'seedprod_lite_unarchive_selected_lpages' ) ) {
 		if ( current_user_can( apply_filters( 'seedprod_unarchive_pages_capability', 'list_users' ) ) ) {
@@ -584,8 +583,8 @@ function seedprod_lite_unarchive_selected_lpages( $ids ) {
 }
 
 /**
-* Delete Archived lpage
-*/
+ * Delete Archived lpage
+ */
 function seedprod_lite_delete_archived_lpages() {
 	if ( check_ajax_referer( 'seedprod_lite_delete_archived_lpages' ) ) {
 		if ( current_user_can( apply_filters( 'seedprod_archive_pages_capability', 'list_users' ) ) ) {
@@ -612,7 +611,7 @@ function seedprod_lite_save_lpage() {
 		}
 
 		// unfiltered html check
-		if (current_user_can('unfiltered_html') && !defined('DISALLOW_UNFILTERED_HTML') || (defined('DISALLOW_UNFILTERED_HTML') && !DISALLOW_UNFILTERED_HTML)) {
+		if ( current_user_can( 'unfiltered_html' ) && ! defined( 'DISALLOW_UNFILTERED_HTML' ) || ( defined( 'DISALLOW_UNFILTERED_HTML' ) && ! DISALLOW_UNFILTERED_HTML ) ) {
 			$has_permission = true;
 		} else {
 			$has_permission = false;
@@ -689,7 +688,6 @@ function seedprod_lite_save_lpage() {
 		$lpage_slug        = sanitize_title( $sp_post['lpage_slug'] );
 		$lpage_post_status = sanitize_title( $sp_post['lpage_post_status'] );
 		$settings          = $sp_post['settings'];
-		//$settings = wp_json_encode(json_decode( stripslashes($sp_post['settings'])));
 
 		// set update array
 		$update       = array();
@@ -706,6 +704,7 @@ function seedprod_lite_save_lpage() {
 		if ( ! empty( $html ) ) {
 			$update['post_content'] = $html;
 		}
+
 		if ( ! empty( $settings ) ) {
 			$update['post_content_filtered'] = $settings;
 		}
@@ -713,17 +712,17 @@ function seedprod_lite_save_lpage() {
 		// validate json
 
 		$test_data = apply_filters( 'wp_insert_post_data', $update, $update, $update, false );
-		$test_data  = wp_unslash( $test_data );
-		update_option('seedprod_validate_json',$test_data['post_content_filtered']);
-		$test_json = get_option('seedprod_validate_json');
-		update_option('seedprod_validate_json',false);
+		$test_data = wp_unslash( $test_data );
+		update_option( 'seedprod_validate_json', $test_data['post_content_filtered'] );
+		$test_json = get_option( 'seedprod_validate_json' );
+		update_option( 'seedprod_validate_json', false );
 		$test_json_decoded = json_decode( $test_json, true );
-		if ($test_json_decoded === null && json_last_error() !== JSON_ERROR_NONE) {
+		if ( $test_json_decoded === null && json_last_error() !== JSON_ERROR_NONE ) {
 			$response = array(
 				'status' => '',
 				'id'     => $lpage_id,
-				'msg'	=> __('Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support.', 'coming-soon'),
-				'json' => $test_json,
+				'msg'    => __( 'Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support.', 'coming-soon' ),
+				'json'   => $test_json,
 			);
 			wp_send_json( $response, 422 );
 		}
@@ -772,7 +771,7 @@ function seedprod_lite_save_lpage() {
 		$response = array(
 			'status' => $status,
 			'id'     => $lpage_id,
-			//'revisions' => $revisions,
+			// 'revisions' => $revisions,
 		);
 
 		// clear any migration flags
@@ -859,7 +858,7 @@ function seedprod_lite_get_utc_offset() {
 		$ends      = isset( $_POST['ends'] ) ? sanitize_text_field( wp_unslash( $_POST['ends'] ) ) : null;
 		$ends_time = isset( $_POST['ends_time'] ) ? sanitize_text_field( wp_unslash( $_POST['ends_time'] ) ) : null;
 
-		//$ends = substr($ends, 0, strpos($ends, 'T'));
+		// $ends = substr($ends, 0, strpos($ends, 'T'));
 		$ends           = $ends . ' ' . $ends_time;
 		$ends_timestamp = strtotime( $ends . ' ' . $timezone );
 		$ends_utc       = gmdate( 'Y-m-d H:i:s', $ends_timestamp );
@@ -942,10 +941,10 @@ function seedprod_lite_save_template() {
 				if ( ! empty( $lpage->post_content ) ) {
 					require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 					$current_content = $lpage->post_content;
-					//if(empty($settings['document']['sections'])){
+					// if(empty($settings['document']['sections'])){
 						$settings['document']['sections'] = json_decode( $seedprod_current_content );
 						$settings['document']['sections'][0]->rows[0]->cols[0]->blocks[0]->settings->txt = preg_replace( '/<!--(.*?)-->/', '', $current_content );
-					//}
+					// }
 				}
 			}
 
@@ -963,12 +962,12 @@ function seedprod_lite_save_template() {
 
 			// save settings
 			// $r = wp_update_post(
-			//     array(
-			//         'ID' => $lpage_id,
-			//         'post_title'=>sanitize_text_field($_POST['lpage_name']),
-			//         'post_content_filtered'=> json_encode($settings),
-			//         'post_name' => sanitize_title($_POST['lpage_slug']),
-			//       )
+			// array(
+			// 'ID' => $lpage_id,
+			// 'post_title'=>sanitize_text_field($_POST['lpage_name']),
+			// 'post_content_filtered'=> json_encode($settings),
+			// 'post_name' => sanitize_title($_POST['lpage_slug']),
+			// )
 			// );
 
 			global $wpdb;
@@ -1026,9 +1025,9 @@ function seedprod_lite_get_template_code( $id ) {
 	} else {
 		$response_code = wp_remote_retrieve_response_code( $response );
 		if ( '200' == $response_code ) {
-			//set_transient('seedprod_template_code_'.$id,$response['body'],86400);
+			// set_transient('seedprod_template_code_'.$id,$response['body'],86400);
 			$code = $response['body'];
-			//error_log($code);
+			// error_log($code);
 		} else {
 			$code = __( "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>", 'coming-soon' );
 		}
@@ -1052,10 +1051,22 @@ function seedprod_lite_get_namespaced_custom_css() {
 			require_once SEEDPROD_PLUGIN_PATH . 'app/includes/seedprod_lessc.inc.php';
 			$less  = new seedprod_lessc();
 			$style = $less->parse( '.sp-html {' . $css . '}' );
-			//echo $style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			// echo $style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '';
 			exit();
 		}
 	}
 }
 
+
+function seedprod_lite_dehydrate( &$object ) {
+	foreach ( $object as $key => &$value ) {
+		if ( is_object( $value ) || is_array( $value ) ) {
+			// Recurse into objects and arrays.
+			seedprod_lite_dehydrate( $value );
+		} elseif ( $value === '' && $key != 'post_type' ) {
+			// Remove empty string values.
+			unset( $object->$key );
+		}
+	}
+}

@@ -562,6 +562,7 @@ if ( defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_seedprod_lite_get_widget_wpforms', 'seedprod_lite_get_widget_wpforms' );
 	add_action( 'wp_ajax_seedprod_lite_get_widget_wpresults', 'seedprod_lite_get_widget_wpresults' );
 
+	add_action( 'wp_ajax_seedprod_lite_get_envira_galleries', 'seedprod_lite_get_envira_galleries' );
 
 	add_action( 'wp_ajax_seedprod_lite_dismiss_upsell', 'seedprod_lite_dismiss_upsell' );
 

@@ -231,6 +231,16 @@ function seedprod_lite_block_options() {
 		),
 
 		array(
+			'name'   => __( 'Envira Gallery', 'coming-soon' ),
+			'is_pro' => false,
+			'cat'    => 'adv',
+			'type'   => 'envira-gallery',
+			'id'     => 25,
+			'icon'   => '<svg viewBox="0 0 40 40" class="sp-w-6 sp-fill-current" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.58007C14.5 2.83007 36.05 7.03006 30.25 29.8301L36.5 36.3301H34.25L29 31.0801C24 32.5801 12.8 32.7801 8 21.5801C6.4827 18.0397 5.77931 15.0173 4.87058 11.1125C4.36758 8.9512 3.80167 6.51953 3 3.58007ZM7.00001 6.33007C9.41667 6.83007 15.2 9.73007 19 17.3301C22.8 24.9301 26.9167 28.6634 28.5 29.5801C26.4167 29.1634 21.3 26.8801 17.5 20.0801C12.75 11.5801 10.75 8.58007 7.00001 6.33007Z" fill="evenodd"/></svg>
+',
+		),
+
+		array(
 			'name'   => __( 'Custom HTML', 'coming-soon' ),
 			'is_pro' => false,
 			'cat'    => 'adv',
@@ -1908,7 +1918,7 @@ function seedprod_lite_construct_font_str( $doc_settings ) {
 			}
 
 			$google_fonts_str .= $end;
-			$c++;
+			++$c;
 		}
 		$google_fonts_str .= '&display=swap';
 	}
@@ -2028,7 +2038,7 @@ function seedprod_lite_get_expire_times() {
 		'19'   => __( '19 Hours', 'coming-soon' ),
 		'20'   => __( '20 Hours', 'coming-soon' ),
 		'21'   => __( '21 Hours', 'coming-soon' ),
-		'21'   => __( '22 Hours', 'coming-soon' ),
+		'22'   => __( '22 Hours', 'coming-soon' ),
 		'23'   => __( '23 Hours', 'coming-soon' ),
 		'24'   => __( '1 Day', 'coming-soon' ),
 		'48'   => __( '2 Days', 'coming-soon' ),

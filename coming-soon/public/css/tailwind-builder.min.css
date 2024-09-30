@@ -2699,6 +2699,7 @@ div.wp-link-input input::placeholder{color:rgba(255,255,255,0.5)}
 .sp-template-preview-dark{padding:.5rem;margin-top:1rem;border-radius:.375rem;box-shadow:0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;width:100%;cursor:pointer;background-color:#a79ca6}
 .sp-giveaway-wrapper:not(.sp-has-form){background-color:#fcede9;color:#dd4a1f;text-align:center !important;padding:1rem;border-width:1px;border-color:#dd4a1f}
 .sp-form-wrapper:not(.sp-has-form){background-color:#fcede9;color:#dd4a1f;text-align:center !important;padding:1rem;border-width:1px;border-color:#dd4a1f}
+.sp-envira-wrapper:not(.sp-has-form){background-color:#fcede9;color:#dd4a1f;text-align:center !important;padding:1rem;border-width:1px;border-color:#dd4a1f}
 .sp-shortcode-wrapper{background-color:#fcede9;color:#dd4a1f;text-align:center !important;padding:1rem;border-width:1px;border-color:#dd4a1f}
 .sp-wccheckout-wrapper .sp-wccheckout-shortcode{display:none}
 .sp-edd-checkout-wrapper .sp-edd-checkout-shortcode{display:none}
@@ -2903,7 +2904,6 @@ to{opacity:0;-webkit-filter:blur(10px);filter:blur(10px)}
 .sp-mobile-view .sp-el-section,.sp-mobile-view .sp-el-row,.sp-mobile-view .sp-el-col,.sp-mobile-view .sp-el-block,.sp-mobile-view .sp-optin-wrapper,.sp-mobile-view .sp-testimonials-wrapper,.sp-mobile-view .sp-testimonial-wrapper{padding:8px !important}
 .sp-mobile-view img:not(".sp-testimonial-img"){height:auto !important}
 .sp-mobile-view h1,.sp-mobile-view h2,.sp-mobile-view h3,.sp-mobile-view h4,.sp-mobile-view h5,.sp-mobile-view h6{text-align:center !important}
-.sp-mobile-view .sp-socialprofiles-wrapper{text-align:center !important;justify-content:center !important}
 .sp-mobile-view .sp-feature-wrapper{text-align:center !important}
 .sp-mobile-view .sp-feature-wrapper img,.sp-mobile-view .sp-feature-wrapper i{margin:0 !important;margin-bottom:16px !important}
 .sp-mobile-view .sp-w-full{width:100% !important}

@@ -4,6 +4,72 @@
 
 require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 
+function seedprod_lite_rehydrate_settings( &$object, $seedprod_lite_block_templates ) {
+
+	// Decode the default block templates
+	$defaults = json_decode( $seedprod_lite_block_templates, true );
+
+	// Function to apply defaults to elements based on their type
+	function apply_defaults( &$element, $defaults ) {
+		$type             = $element['type'] ?? '';
+		$element_defaults = $defaults[ $type ] ?? array();
+		// $element['settings'] = $element_defaults;
+		$element['settings'] = array_replace_recursive( $element_defaults, $element['settings'] ?? array() );
+
+	}
+
+	if ( isset( $object['document'] ) ) {
+		$document_defaults              = $defaults['document'] ?? array();
+		$object['document']['settings'] = array_replace_recursive( $document_defaults, $object['document']['settings'] ?? array() );
+	}
+
+	// Iterate over document sections and apply defaults
+	if ( isset( $object['document']['sections'] ) && is_array( $object['document']['sections'] ) ) {
+
+		// $element_defaults = $defaults['document'] ?? [];
+		// $object['document']['settings'] = $element_defaults;
+
+		foreach ( $object['document']['sections'] as &$section ) {
+			if ( isset( $section['type'] ) && $section['type'] === 'section' ) {
+
+				// Apply section defaults
+				apply_defaults( $section, $defaults );
+
+				// Iterate over rows in the section
+				if ( isset( $section['rows'] ) && is_array( $section['rows'] ) ) {
+					foreach ( $section['rows'] as &$row ) {
+						if ( isset( $row['type'] ) && $row['type'] === 'row' ) {
+							// Apply row defaults
+							apply_defaults( $row, $defaults );
+
+							// Iterate over cols in the row
+							if ( isset( $row['cols'] ) && is_array( $row['cols'] ) ) {
+								foreach ( $row['cols'] as &$col ) {
+									if ( isset( $col['type'] ) && $col['type'] === 'col' ) {
+										// Apply col defaults
+										apply_defaults( $col, $defaults );
+
+										// Iterate over blocks in the col
+										if ( isset( $col['blocks'] ) && is_array( $col['blocks'] ) ) {
+											foreach ( $col['blocks'] as &$block ) {
+												if ( isset( $block['type'] ) ) {
+													// Apply block defaults
+													apply_defaults( $block, $defaults );
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
 
 global $wpdb;
 
@@ -88,10 +154,13 @@ if ( empty( $lpage->post_content_filtered ) ) {
 	if ( null === $settings && JSON_ERROR_NONE !== json_last_error() ) {
 		// JSON is invalid
 		// Handle the error or display an error message
-		//echo "<script>alert('JSON is invalid. Entering Recovery Mode'); </script>";
+		// echo "<script>alert('JSON is invalid. Entering Recovery Mode'); </script>";
 		require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 		$settings = json_decode( $seedprod_recovery, true );
 
+	} else {
+		// rehydrate settings if json is invalid
+		seedprod_lite_rehydrate_settings( $settings, $seedprod_lite_block_templates );
 	}
 }
 
@@ -133,7 +202,7 @@ $global_css_page_id  = get_option( 'seedprod_global_css_page_id' );
 
 
 // get preview link
-//$preview_link = get_preview_post_link( $lpage_id );
+// $preview_link = get_preview_post_link( $lpage_id );
 if ( 'lp' === $settings['page_type'] ) {
 	$preview_link = home_url() . "/?page_id=$lpage_id&preview_id=$lpage_id&preview_nonce=" . wp_create_nonce( 'post_preview_' . $lpage_id ) . '&preview=true';
 } else {
@@ -339,9 +408,9 @@ foreach ( $fontawesome_json as $v ) {
 		"'Comic Sans MS', cursive"              => 'Comic Sans',
 	);
 	$fonts['Google Fonts']   = json_decode( file_get_contents( $googlefonts_file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-	//$googlefonts_json = json_decode(file_get_contents($googlefonts_file));
+	// $googlefonts_json = json_decode(file_get_contents($googlefonts_file));
 
-	//get list of fonts to load
+	// get list of fonts to load
 	$google_fonts_str = seedprod_lite_construct_font_str( $settings['document'] );
 
 	?>
@@ -407,6 +476,9 @@ var seedprod_form_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspe
 <?php $url = seedprod_lite_get_plugins_install_url( 'pushengage' ); ?>
 var seedprod_push_notifications_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
 
+<?php $url = seedprod_lite_get_plugins_install_url( 'envira-gallery-lite' ); ?>
+var seedprod_envira_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
+
 <?php
 	$url = seedprod_lite_get_plugins_activate_url( 'pushengage/main.php' );
 ?>
@@ -436,6 +508,12 @@ var seedprod_analytics_pro_activate_link = <?php echo wp_json_encode( esc_url_ra
 ?>
 
 var seedprod_form_activate_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
+
+
+<?php
+	$url = seedprod_lite_get_plugins_activate_url( 'envira-gallery-lite/envira-gallery-lite.php' );
+?>
+var seedprod_envira_activate_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
 
 <?php
 	$url = seedprod_lite_get_plugins_activate_url( 'all-in-one-seo-pack/all_in_one_seo_pack.php' );
@@ -573,6 +651,10 @@ $seedprod_data = array(
 	'wplocale'                            => $wp_getlocale,
 );
 
+	$seedprod_data['envira'] = array(
+		'add_envira_gallery'  => admin_url( 'post-new.php?post_type=envira' ),
+		'placeholder'   => sprintf( '<img src="%s" width="180px" alt="Envira Gallery Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-envira.svg' ) ),
+	);
 
 	$seedprod_data['wpforms'] = array(
 		'edit_form_url' => admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' ),
@@ -603,11 +685,11 @@ $seedprod_data = array(
 		$seedprod_data['acf_active'] = true;
 
 		// Get ACF options.
-		$seedprod_data['acf_groups'] = [];
+		$seedprod_data['acf_groups'] = array();
 
 	} else {
 		$seedprod_data['acf_active'] = false;
-		$seedprod_data['acf_groups'] = [];
+		$seedprod_data['acf_groups'] = array();
 	}
 
 	// Check if Easy Digital Downloads is active

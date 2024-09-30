@@ -2,47 +2,47 @@
 /* THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY. */
 $generated_i18n_strings = array(
 	// Reference: src/components/PostsOptions.vue:2244
-	// Reference: src/components/TestimonialOptions.vue:618
+	// Reference: src/components/TestimonialOptions.vue:620
 	__( '1', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2245
-	// Reference: src/components/TestimonialOptions.vue:619
+	// Reference: src/components/TestimonialOptions.vue:621
 	__( '2', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2246
-	// Reference: src/components/TestimonialOptions.vue:620
+	// Reference: src/components/TestimonialOptions.vue:622
 	__( '3', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2247
-	// Reference: src/components/TestimonialOptions.vue:621
+	// Reference: src/components/TestimonialOptions.vue:623
 	__( '4', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2248
-	// Reference: src/components/TestimonialOptions.vue:622
+	// Reference: src/components/TestimonialOptions.vue:624
 	__( '5', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2249
-	// Reference: src/components/TestimonialOptions.vue:623
+	// Reference: src/components/TestimonialOptions.vue:625
 	__( '6', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2250
-	// Reference: src/components/TestimonialOptions.vue:624
+	// Reference: src/components/TestimonialOptions.vue:626
 	__( '7', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2251
-	// Reference: src/components/TestimonialOptions.vue:625
+	// Reference: src/components/TestimonialOptions.vue:627
 	__( '8', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2252
-	// Reference: src/components/TestimonialOptions.vue:626
+	// Reference: src/components/TestimonialOptions.vue:628
 	__( '9', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2253
-	// Reference: src/components/TestimonialOptions.vue:627
+	// Reference: src/components/TestimonialOptions.vue:629
 	__( '10', 'coming-soon' ),
 
 	// Reference: src/App.vue:238
-	// Reference: src/views/Setup.vue:1703
+	// Reference: src/views/Setup.vue:1733
 	__( 'Changes not saved, are you sure you want to leave?', 'coming-soon' ),
 
 	// Reference: src/admin/Aboutus.vue:36
@@ -103,11 +103,11 @@ $generated_i18n_strings = array(
 	__( 'Subscribers', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:366
-	// Reference: src/components/CountdownOptions.vue:851
+	// Reference: src/components/CountdownOptions.vue:853
 	// Reference: src/components/CounterOptions.vue:329
 	// Reference: src/components/CustomHTMLOptions.vue:201
-	// Reference: src/components/EDDAddToCartOptions.vue:840
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:870
+	// Reference: src/components/EDDAddToCartOptions.vue:842
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:872
 	// Reference: src/components/EDDDownloadsGridOptions.vue:977
 	// Reference: src/components/FormOptions.vue:178
 	// Reference: src/components/NavOptions.vue:572
@@ -115,7 +115,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/ProductRelatedOptions.vue:610
 	// Reference: src/components/ShortcodeOptions.vue:145
 	// Reference: src/components/TemplatetagOptions.vue:151
-	// Reference: src/components/WCAddToCartOptions.vue:737
+	// Reference: src/components/WCAddToCartOptions.vue:739
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1080
 	// Reference: src/views/Layoutnav.vue:1495
 	__( 'Settings', 'coming-soon' ),
@@ -175,31 +175,31 @@ $generated_i18n_strings = array(
 	__( 'See quick links', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:470
-	// Reference: src/mixins/helpers.js:1954
+	// Reference: src/mixins/helpers.js:1969
 	__( 'Upgrade to PRO', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:472
-	// Reference: src/mixins/helpers.js:1955
+	// Reference: src/mixins/helpers.js:1970
 	__( 'Increase traffic, engagement, and get more email subscribers. Click below to learn more about all our awesome features.', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:474
-	// Reference: src/mixins/helpers.js:1903
+	// Reference: src/mixins/helpers.js:1918
 	__( ' is a PRO Feature', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:476
-	// Reference: src/mixins/helpers.js:1963
+	// Reference: src/mixins/helpers.js:1978
 	__( 'We\'re sorry, the ', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:478
-	// Reference: src/mixins/helpers.js:1907
+	// Reference: src/mixins/helpers.js:1922
 	__( ' feature is not available on your plan. Please upgrade to the PRO plan to unlock all these awesome features.', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:487
-	// Reference: src/mixins/helpers.js:1921
+	// Reference: src/mixins/helpers.js:1936
 	__( 'UPGRADE TO PRO', 'coming-soon' ),
 
 	// Reference: src/admin/App.vue:493
-	// Reference: src/mixins/helpers.js:1938
+	// Reference: src/mixins/helpers.js:1953
 	__( 'Thanks for your interest in SeedProd Lite!<br>If you have any questions or issues just <a href=\'https://www.seedprod.com/?contact=1\' target=\'_blank\'>let us know</a>.<br><br>After purchasing SeedProd Lite, you\'ll need to download and install the Pro version of the plugin, and then remove the free plugin. <br><br>(Don\'t worry, all your settings will be preserved.)', 'coming-soon' ),
 
 	// Reference: src/admin/CustomCode.vue:133
@@ -266,7 +266,7 @@ $generated_i18n_strings = array(
 	__( 'WPCode makes it easy and safe to add custom WordPress features through code snippets, so you can reduce the number of plugins on your site.', 'coming-soon' ),
 
 	// Reference: src/admin/CustomCode.vue:255
-	// Reference: src/admin/GrowthTools.vue:382
+	// Reference: src/admin/GrowthTools.vue:396
 	// Reference: src/admin/Popups.vue:239
 	__( 'Opening plugin installation page...', 'coming-soon' ),
 
@@ -424,8 +424,8 @@ $generated_i18n_strings = array(
 	// Reference: src/admin/Subscribers-Lite.vue:308
 	// Reference: src/components/AnchorOptions.vue:76
 	// Reference: src/components/PostauthorboxOptions.vue:340
-	// Reference: src/components/TeamMemberOptions.vue:1057
-	// Reference: src/components/TestimonialOptions.vue:607
+	// Reference: src/components/TeamMemberOptions.vue:1059
+	// Reference: src/components/TestimonialOptions.vue:609
 	__( 'Name', 'coming-soon' ),
 
 	// Reference: src/admin/Dashboard-Lite.vue:727
@@ -538,7 +538,7 @@ $generated_i18n_strings = array(
 	__( 'The #1 Stripe payments plugin for WordPress. Start accepting one-time and recurring payments on your WordPress site without setting up a shopping cart. No code required.', 'coming-soon' ),
 
 	// Reference: src/admin/GrowthTools.vue:298
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1427
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1432
 	__( 'Easy Digital Downloads', 'coming-soon' ),
 
 	// Reference: src/admin/GrowthTools.vue:300
@@ -556,18 +556,24 @@ $generated_i18n_strings = array(
 	// Reference: src/admin/GrowthTools.vue:329
 	__( 'The #1 affiliate management plugin for WordPress. Easily create an affiliate program for your eCommerce store or membership site within minutes and start growing your sales with the power of referral marketing.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:444
+	// Reference: src/admin/GrowthTools.vue:342
+	__( 'Envira Gallery', 'coming-soon' ),
+
+	// Reference: src/admin/GrowthTools.vue:344
+	__( 'Envira Gallery is the best responsive WordPress gallery plugin. Envira gallery is a perfect solution for photographers, designers, bloggers, and small businesses.', 'coming-soon' ),
+
+	// Reference: src/admin/GrowthTools.vue:458
 	__( 'Plugin Installed, click Activate', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:539
+	// Reference: src/admin/GrowthTools.vue:553
 	// Reference: src/views/SettingsAnalytics.vue:124
 	// Reference: src/views/SettingsSEO.vue:192
 	__( 'Install', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:542
+	// Reference: src/admin/GrowthTools.vue:556
 	__( 'Deactivate', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:545
+	// Reference: src/admin/GrowthTools.vue:559
 	// Reference: src/views/SettingsAnalytics.vue:125
 	// Reference: src/views/SettingsSEO.vue:193
 	__( 'Activate', 'coming-soon' ),
@@ -629,7 +635,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/admin/Settings.vue:19
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1055
-	// Reference: src/components/TeamMemberOptions.vue:1053
+	// Reference: src/components/TeamMemberOptions.vue:1055
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1158
 	// Reference: src/views/SettingsGeneral.vue:273
 	// Reference: src/views/SetupSettings.vue:253
@@ -713,26 +719,26 @@ $generated_i18n_strings = array(
 	__( 'Disable SeedProd Notifications', 'coming-soon' ),
 
 	// Reference: src/admin/SettingsGeneral.vue:381
-	// Reference: src/components/AlertBoxOptions.vue:765
+	// Reference: src/components/AlertBoxOptions.vue:769
 	// Reference: src/components/BeforeAfterToggleOptions.vue:547
 	// Reference: src/components/BusinessHoursOptions.vue:746
-	// Reference: src/components/ContentToggleOptions.vue:613
+	// Reference: src/components/ContentToggleOptions.vue:617
 	// Reference: src/components/PostsOptions.vue:2255
-	// Reference: src/components/PriceListOptions.vue:935
-	// Reference: src/components/TeamMemberOptions.vue:1109
-	// Reference: src/components/TestimonialOptions.vue:612
+	// Reference: src/components/PriceListOptions.vue:937
+	// Reference: src/components/TeamMemberOptions.vue:1111
+	// Reference: src/components/TestimonialOptions.vue:614
 	// Reference: src/views/SettingsAccess-Lite.vue:325
 	__( 'Yes', 'coming-soon' ),
 
 	// Reference: src/admin/SettingsGeneral.vue:382
-	// Reference: src/components/AlertBoxOptions.vue:766
+	// Reference: src/components/AlertBoxOptions.vue:770
 	// Reference: src/components/BeforeAfterToggleOptions.vue:548
 	// Reference: src/components/BusinessHoursOptions.vue:747
-	// Reference: src/components/ContentToggleOptions.vue:614
+	// Reference: src/components/ContentToggleOptions.vue:618
 	// Reference: src/components/PostsOptions.vue:2256
-	// Reference: src/components/PriceListOptions.vue:936
-	// Reference: src/components/TeamMemberOptions.vue:1110
-	// Reference: src/components/TestimonialOptions.vue:613
+	// Reference: src/components/PriceListOptions.vue:938
+	// Reference: src/components/TeamMemberOptions.vue:1112
+	// Reference: src/components/TestimonialOptions.vue:615
 	// Reference: src/views/SettingsAccess-Lite.vue:326
 	__( 'No', 'coming-soon' ),
 
@@ -741,7 +747,7 @@ $generated_i18n_strings = array(
 	__( 'Could not be saved. Please contact Support if you continue to experience this issue.', 'coming-soon' ),
 
 	// Reference: src/admin/SettingsGeneral.vue:570
-	// Reference: src/views/Setup.vue:1597
+	// Reference: src/views/Setup.vue:1627
 	__( 'Saved!', 'coming-soon' ),
 
 	// Reference: src/admin/SettingsGeneral.vue:591
@@ -870,7 +876,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/admin/Subscribers-Lite.vue:304
 	// Reference: src/components/DynamicTagsControl.vue:1000
-	// Reference: src/components/SocialProfilesOptions.vue:685
+	// Reference: src/components/SocialProfilesOptions.vue:687
 	__( 'Email', 'coming-soon' ),
 
 	// Reference: src/admin/Subscribers-Lite.vue:318
@@ -939,7 +945,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/admin/ThemeChooser.vue:810
 	// Reference: src/admin/ThemeTemplates-Lite.vue:823
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1425
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1430
 	__( 'WooCommerce', 'coming-soon' ),
 
 	// Reference: src/admin/ThemeChooser.vue:811
@@ -954,14 +960,14 @@ $generated_i18n_strings = array(
 	// Reference: src/components/EDDCartOptions.vue:403
 	// Reference: src/components/EDDCheckoutOptions.vue:690
 	// Reference: src/components/FontControl.vue:25
-	// Reference: src/components/ImageOptions.vue:779
+	// Reference: src/components/ImageOptions.vue:789
 	// Reference: src/components/PostinfoOptions.vue:605
 	// Reference: src/components/PostsOptions.vue:2219
-	// Reference: src/components/PriceListOptions.vue:963
+	// Reference: src/components/PriceListOptions.vue:965
 	// Reference: src/components/ProductMetaOptions.vue:339
 	// Reference: src/components/RowOptions.vue:697
-	// Reference: src/components/SocialProfilesOptions.vue:688
-	// Reference: src/components/TeamMemberOptions.vue:1135
+	// Reference: src/components/SocialProfilesOptions.vue:690
+	// Reference: src/components/TeamMemberOptions.vue:1137
 	// Reference: src/components/WCCartOptions.vue:546
 	// Reference: src/components/WCCheckoutOptions.vue:816
 	__( 'Default', 'coming-soon' ),
@@ -979,7 +985,7 @@ $generated_i18n_strings = array(
 	__( 'Oldest to Newest', 'coming-soon' ),
 
 	// Reference: src/admin/ThemeTemplates-Lite.vue:825
-	// Reference: src/components/LiteCTABuilder.vue:107
+	// Reference: src/components/LiteCTABuilder.vue:110
 	// Reference: src/components/LiteCTASubscribers.vue:250
 	// Reference: src/components/LiteCTATemplates.vue:90
 	// Reference: src/components/SettingsLiteCTA.vue:264
@@ -1017,45 +1023,46 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/admin/Welcome-Lite.vue:161
 	__( 'Are you sure you want to exit the setup wizard? 😬', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:604
-	// Reference: src/components/AddToCartOptions.vue:1070
+	// Reference: src/components/AccordionOptions.vue:608
+	// Reference: src/components/AddToCartOptions.vue:1072
 	// Reference: src/components/AdditionalInformationOptions.vue:131
-	// Reference: src/components/AlertBoxOptions.vue:772
+	// Reference: src/components/AlertBoxOptions.vue:776
 	// Reference: src/components/BeforeAfterToggleOptions.vue:536
-	// Reference: src/components/BulletListOptions.vue:498
+	// Reference: src/components/BulletListOptions.vue:500
 	// Reference: src/components/BusinessHoursOptions.vue:716
-	// Reference: src/components/ButtonOptions.vue:1225
+	// Reference: src/components/ButtonOptions.vue:1230
 	// Reference: src/components/ColOptions.vue:664
 	// Reference: src/components/ContactFormOptions.vue:293
-	// Reference: src/components/ContentToggleOptions.vue:602
-	// Reference: src/components/CountdownOptions.vue:848
+	// Reference: src/components/ContentToggleOptions.vue:606
+	// Reference: src/components/CountdownOptions.vue:850
 	// Reference: src/components/CounterOptions.vue:326
 	// Reference: src/components/CustomHTMLOptions.vue:199
 	// Reference: src/components/DividerOptions.vue:361
-	// Reference: src/components/EDDAddToCartOptions.vue:786
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:815
+	// Reference: src/components/EDDAddToCartOptions.vue:788
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:817
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:640
 	// Reference: src/components/EDDDownloadPriceOptions.vue:103
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1025
-	// Reference: src/components/FeatureOptions.vue:571
+	// Reference: src/components/EnviraGalleryOptions.vue:215
+	// Reference: src/components/FeatureOptions.vue:575
 	// Reference: src/components/FormOptions.vue:176
 	// Reference: src/components/GiveawayOptions.vue:165
 	// Reference: src/components/GoogleMapsOptions.vue:234
-	// Reference: src/components/HeaderOptions.vue:527
-	// Reference: src/components/IconFeatureOptions.vue:549
+	// Reference: src/components/HeaderOptions.vue:529
+	// Reference: src/components/IconFeatureOptions.vue:553
 	// Reference: src/components/IconOptions.vue:272
-	// Reference: src/components/ImageOptions.vue:738
+	// Reference: src/components/ImageOptions.vue:748
 	// Reference: src/components/LoginOptions.vue:878
 	// Reference: src/components/MenuCartOptions.vue:184
 	// Reference: src/components/NavOptions.vue:570
-	// Reference: src/components/OptinFormOptions.vue:848
+	// Reference: src/components/OptinFormOptions.vue:850
 	// Reference: src/components/PostauthorboxOptions.vue:338
-	// Reference: src/components/PostcommentsOptions.vue:184
+	// Reference: src/components/PostcommentsOptions.vue:186
 	// Reference: src/components/PostfeaturedimageOptions.vue:640
 	// Reference: src/components/PostinfoOptions.vue:594
 	// Reference: src/components/PostnavigationOptions.vue:95
-	// Reference: src/components/PriceListOptions.vue:898
-	// Reference: src/components/PricingTableOptions.vue:1286
+	// Reference: src/components/PriceListOptions.vue:900
+	// Reference: src/components/PricingTableOptions.vue:1290
 	// Reference: src/components/ProductDataTabsOptions.vue:344
 	// Reference: src/components/ProductFeaturedImageOptions.vue:640
 	// Reference: src/components/ProductGalleryImagesOptions.vue:215
@@ -1066,63 +1073,64 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/RowOptions.vue:663
 	// Reference: src/components/SectionOptions.vue:393
 	// Reference: src/components/ShortcodeOptions.vue:143
-	// Reference: src/components/SocialProfilesOptions.vue:718
-	// Reference: src/components/SocialSharingOptions.vue:399
+	// Reference: src/components/SocialProfilesOptions.vue:720
+	// Reference: src/components/SocialSharingOptions.vue:401
 	// Reference: src/components/StarRatingOptions.vue:297
-	// Reference: src/components/StripepaymentOptions.vue:1675
-	// Reference: src/components/TeamMemberOptions.vue:1047
+	// Reference: src/components/StripepaymentOptions.vue:1677
+	// Reference: src/components/TeamMemberOptions.vue:1049
 	// Reference: src/components/TemplatetagOptions.vue:149
-	// Reference: src/components/TestimonialOptions.vue:601
-	// Reference: src/components/TextOptions.vue:369
+	// Reference: src/components/TestimonialOptions.vue:603
+	// Reference: src/components/TextOptions.vue:371
 	// Reference: src/components/VideoOptions.vue:231
-	// Reference: src/components/VideoPopUpOptions.vue:1125
-	// Reference: src/components/WCAddToCartOptions.vue:688
+	// Reference: src/components/VideoPopUpOptions.vue:1127
+	// Reference: src/components/WCAddToCartOptions.vue:690
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1128
 	// Reference: src/components/WpWidgetBlockOptions.vue:215
 	__( 'Content', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:605
-	// Reference: src/components/AddToCartOptions.vue:1071
+	// Reference: src/components/AccordionOptions.vue:609
+	// Reference: src/components/AddToCartOptions.vue:1073
 	// Reference: src/components/AdditionalInformationOptions.vue:132
-	// Reference: src/components/AlertBoxOptions.vue:722
+	// Reference: src/components/AlertBoxOptions.vue:726
 	// Reference: src/components/BeforeAfterToggleOptions.vue:537
-	// Reference: src/components/BulletListOptions.vue:499
+	// Reference: src/components/BulletListOptions.vue:501
 	// Reference: src/components/BusinessHoursOptions.vue:721
-	// Reference: src/components/ButtonOptions.vue:1226
+	// Reference: src/components/ButtonOptions.vue:1231
 	// Reference: src/components/ColOptions.vue:681
 	// Reference: src/components/ContactFormOptions.vue:294
-	// Reference: src/components/ContentToggleOptions.vue:603
-	// Reference: src/components/CountdownOptions.vue:850
+	// Reference: src/components/ContentToggleOptions.vue:607
+	// Reference: src/components/CountdownOptions.vue:852
 	// Reference: src/components/CounterOptions.vue:328
 	// Reference: src/components/CustomHTMLOptions.vue:200
 	// Reference: src/components/DividerOptions.vue:362
-	// Reference: src/components/EDDAddToCartOptions.vue:787
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:816
+	// Reference: src/components/EDDAddToCartOptions.vue:789
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:818
 	// Reference: src/components/EDDCartOptions.vue:360
 	// Reference: src/components/EDDCheckoutOptions.vue:637
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:642
 	// Reference: src/components/EDDDownloadPriceOptions.vue:104
 	// Reference: src/components/EDDDownloadsGridOptions.vue:978
-	// Reference: src/components/FeatureOptions.vue:572
+	// Reference: src/components/EnviraGalleryOptions.vue:216
+	// Reference: src/components/FeatureOptions.vue:576
 	// Reference: src/components/FormOptions.vue:177
 	// Reference: src/components/GiveawayOptions.vue:166
 	// Reference: src/components/GoogleMapsOptions.vue:235
-	// Reference: src/components/HeaderOptions.vue:528
-	// Reference: src/components/IconFeatureOptions.vue:550
+	// Reference: src/components/HeaderOptions.vue:530
+	// Reference: src/components/IconFeatureOptions.vue:554
 	// Reference: src/components/IconOptions.vue:273
-	// Reference: src/components/ImageOptions.vue:740
+	// Reference: src/components/ImageOptions.vue:750
 	// Reference: src/components/LoginOptions.vue:879
 	// Reference: src/components/MenuCartOptions.vue:185
 	// Reference: src/components/NavOptions.vue:571
-	// Reference: src/components/OptinFormOptions.vue:850
+	// Reference: src/components/OptinFormOptions.vue:852
 	// Reference: src/components/PostauthorboxOptions.vue:339
-	// Reference: src/components/PostcommentsOptions.vue:185
+	// Reference: src/components/PostcommentsOptions.vue:187
 	// Reference: src/components/PostfeaturedimageOptions.vue:642
 	// Reference: src/components/PostinfoOptions.vue:595
 	// Reference: src/components/PostnavigationOptions.vue:96
 	// Reference: src/components/PostsOptions.vue:2216
-	// Reference: src/components/PriceListOptions.vue:903
-	// Reference: src/components/PricingTableOptions.vue:1287
+	// Reference: src/components/PriceListOptions.vue:905
+	// Reference: src/components/PricingTableOptions.vue:1291
 	// Reference: src/components/ProductDataTabsOptions.vue:345
 	// Reference: src/components/ProductFeaturedImageOptions.vue:642
 	// Reference: src/components/ProductGalleryImagesOptions.vue:216
@@ -1133,156 +1141,156 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/RowOptions.vue:680
 	// Reference: src/components/SectionOptions.vue:394
 	// Reference: src/components/ShortcodeOptions.vue:144
-	// Reference: src/components/SocialProfilesOptions.vue:720
-	// Reference: src/components/SocialSharingOptions.vue:400
+	// Reference: src/components/SocialProfilesOptions.vue:722
+	// Reference: src/components/SocialSharingOptions.vue:402
 	// Reference: src/components/StarRatingOptions.vue:298
-	// Reference: src/components/StripepaymentOptions.vue:1676
-	// Reference: src/components/TeamMemberOptions.vue:1052
+	// Reference: src/components/StripepaymentOptions.vue:1678
+	// Reference: src/components/TeamMemberOptions.vue:1054
 	// Reference: src/components/TemplatetagOptions.vue:150
-	// Reference: src/components/TestimonialOptions.vue:602
-	// Reference: src/components/TextOptions.vue:370
+	// Reference: src/components/TestimonialOptions.vue:604
+	// Reference: src/components/TextOptions.vue:372
 	// Reference: src/components/VideoOptions.vue:232
-	// Reference: src/components/VideoPopUpOptions.vue:1126
-	// Reference: src/components/WCAddToCartOptions.vue:689
+	// Reference: src/components/VideoPopUpOptions.vue:1128
+	// Reference: src/components/WCAddToCartOptions.vue:691
 	// Reference: src/components/WCCartOptions.vue:499
 	// Reference: src/components/WCCheckoutOptions.vue:768
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1081
 	// Reference: src/components/WpWidgetBlockOptions.vue:216
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1421
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1426
 	__( 'Advanced', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:606
+	// Reference: src/components/AccordionOptions.vue:610
 	__( 'Accordion', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:607
-	// Reference: src/components/BulletListOptions.vue:501
+	// Reference: src/components/AccordionOptions.vue:611
+	// Reference: src/components/BulletListOptions.vue:503
 	// Reference: src/components/BusinessHoursOptions.vue:723
 	// Reference: src/components/FormOptions.vue:179
 	// Reference: src/components/NavOptions.vue:573
-	// Reference: src/components/PriceListOptions.vue:905
-	// Reference: src/components/PricingTableOptions.vue:1289
-	// Reference: src/components/TeamMemberOptions.vue:1075
+	// Reference: src/components/PriceListOptions.vue:907
+	// Reference: src/components/PricingTableOptions.vue:1293
+	// Reference: src/components/TeamMemberOptions.vue:1077
 	__( 'Add New Item', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:608
-	// Reference: src/components/BulletListOptions.vue:502
+	// Reference: src/components/AccordionOptions.vue:612
+	// Reference: src/components/BulletListOptions.vue:504
 	// Reference: src/components/FontSizeControl.vue:114
-	// Reference: src/components/HeaderOptions.vue:533
+	// Reference: src/components/HeaderOptions.vue:535
 	// Reference: src/components/NavOptions.vue:574
-	// Reference: src/components/OptinFormOptions.vue:898
+	// Reference: src/components/OptinFormOptions.vue:900
 	// Reference: src/components/ProductGalleryImagesOptions.vue:223
-	// Reference: src/components/TextOptions.vue:374
+	// Reference: src/components/TextOptions.vue:376
 	// Reference: src/components/TypographyControl.vue:317
 	__( 'Font Size', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:609
-	// Reference: src/components/AddToCartOptions.vue:1074
+	// Reference: src/components/AccordionOptions.vue:613
+	// Reference: src/components/AddToCartOptions.vue:1076
 	// Reference: src/components/BusinessHoursOptions.vue:726
 	// Reference: src/components/ColOptions.vue:693
-	// Reference: src/components/CountdownOptions.vue:878
+	// Reference: src/components/CountdownOptions.vue:880
 	// Reference: src/components/NavOptions.vue:575
 	// Reference: src/components/PostinfoOptions.vue:592
-	// Reference: src/components/PriceListOptions.vue:908
-	// Reference: src/components/PricingTableOptions.vue:1350
+	// Reference: src/components/PriceListOptions.vue:910
+	// Reference: src/components/PricingTableOptions.vue:1354
 	// Reference: src/components/ProductMetaOptions.vue:331
 	// Reference: src/components/ProductPriceOptions.vue:188
 	// Reference: src/components/RowOptions.vue:692
-	// Reference: src/components/SocialProfilesOptions.vue:697
-	// Reference: src/components/SocialSharingOptions.vue:421
+	// Reference: src/components/SocialProfilesOptions.vue:699
+	// Reference: src/components/SocialSharingOptions.vue:423
 	// Reference: src/components/SpaceBetweenControl.vue:111
 	// Reference: src/components/StarRatingOptions.vue:305
-	// Reference: src/components/TeamMemberOptions.vue:1085
+	// Reference: src/components/TeamMemberOptions.vue:1087
 	__( 'Space Between', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:610
-	// Reference: src/components/AddToCartOptions.vue:1076
-	// Reference: src/components/AlertBoxOptions.vue:724
-	// Reference: src/components/BulletListOptions.vue:503
+	// Reference: src/components/AccordionOptions.vue:614
+	// Reference: src/components/AddToCartOptions.vue:1078
+	// Reference: src/components/AlertBoxOptions.vue:728
+	// Reference: src/components/BulletListOptions.vue:505
 	// Reference: src/components/BusinessHoursOptions.vue:729
-	// Reference: src/components/ButtonOptions.vue:1230
-	// Reference: src/components/CountdownOptions.vue:888
+	// Reference: src/components/ButtonOptions.vue:1235
+	// Reference: src/components/CountdownOptions.vue:890
 	// Reference: src/components/CounterOptions.vue:349
 	// Reference: src/components/DividerOptions.vue:364
-	// Reference: src/components/EDDAddToCartOptions.vue:792
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:821
+	// Reference: src/components/EDDAddToCartOptions.vue:794
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:823
 	// Reference: src/components/EDDCartOptions.vue:358
 	// Reference: src/components/EDDCheckoutOptions.vue:635
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:645
 	// Reference: src/components/EDDDownloadsGridOptions.vue:976
-	// Reference: src/components/FeatureOptions.vue:576
+	// Reference: src/components/FeatureOptions.vue:580
 	// Reference: src/components/GoogleMapsOptions.vue:236
-	// Reference: src/components/HeaderOptions.vue:530
-	// Reference: src/components/IconFeatureOptions.vue:553
+	// Reference: src/components/HeaderOptions.vue:532
+	// Reference: src/components/IconFeatureOptions.vue:557
 	// Reference: src/components/IconOptions.vue:274
-	// Reference: src/components/ImageOptions.vue:744
+	// Reference: src/components/ImageOptions.vue:754
 	// Reference: src/components/MenuCartOptions.vue:187
 	// Reference: src/components/PostauthorboxOptions.vue:358
 	// Reference: src/components/PostfeaturedimageOptions.vue:646
 	// Reference: src/components/PostsOptions.vue:2214
-	// Reference: src/components/PriceListOptions.vue:912
+	// Reference: src/components/PriceListOptions.vue:914
 	// Reference: src/components/ProductFeaturedImageOptions.vue:645
 	// Reference: src/components/ProductGalleryImagesOptions.vue:219
 	// Reference: src/components/ProductRelatedOptions.vue:609
 	// Reference: src/components/ProgressBarOptions.vue:342
 	// Reference: src/components/RowOptions.vue:666
-	// Reference: src/components/SocialProfilesOptions.vue:704
-	// Reference: src/components/SocialSharingOptions.vue:403
+	// Reference: src/components/SocialProfilesOptions.vue:706
+	// Reference: src/components/SocialSharingOptions.vue:405
 	// Reference: src/components/StarRatingOptions.vue:300
-	// Reference: src/components/StripepaymentOptions.vue:1680
-	// Reference: src/components/TeamMemberOptions.vue:1088
-	// Reference: src/components/TestimonialOptions.vue:633
-	// Reference: src/components/TextOptions.vue:372
+	// Reference: src/components/StripepaymentOptions.vue:1682
+	// Reference: src/components/TeamMemberOptions.vue:1090
+	// Reference: src/components/TestimonialOptions.vue:635
+	// Reference: src/components/TextOptions.vue:374
 	// Reference: src/components/VideoOptions.vue:234
-	// Reference: src/components/VideoPopUpOptions.vue:1128
-	// Reference: src/components/WCAddToCartOptions.vue:693
+	// Reference: src/components/VideoPopUpOptions.vue:1130
+	// Reference: src/components/WCAddToCartOptions.vue:695
 	// Reference: src/components/WCCartOptions.vue:497
 	// Reference: src/components/WCCheckoutOptions.vue:766
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1079
 	// Reference: src/components/WpWidgetBlockOptions.vue:218
 	__( 'Styles', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:611
-	// Reference: src/components/BulletListOptions.vue:504
+	// Reference: src/components/AccordionOptions.vue:615
+	// Reference: src/components/BulletListOptions.vue:506
 	// Reference: src/components/BusinessHoursOptions.vue:730
 	// Reference: src/components/NavOptions.vue:577
-	// Reference: src/components/PriceListOptions.vue:913
-	// Reference: src/components/TeamMemberOptions.vue:1089
+	// Reference: src/components/PriceListOptions.vue:915
+	// Reference: src/components/TeamMemberOptions.vue:1091
 	__( 'List Layout', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:612
+	// Reference: src/components/AccordionOptions.vue:616
 	// Reference: src/components/BeforeAfterToggleOptions.vue:540
-	// Reference: src/components/BulletListOptions.vue:505
+	// Reference: src/components/BulletListOptions.vue:507
 	// Reference: src/components/BusinessHoursOptions.vue:731
 	// Reference: src/components/ColOptions.vue:683
-	// Reference: src/components/ContentToggleOptions.vue:606
+	// Reference: src/components/ContentToggleOptions.vue:610
 	// Reference: src/components/NavOptions.vue:578
-	// Reference: src/components/PriceListOptions.vue:914
+	// Reference: src/components/PriceListOptions.vue:916
 	// Reference: src/components/RowOptions.vue:682
 	// Reference: src/components/ShadowControl.vue:143
-	// Reference: src/components/TeamMemberOptions.vue:1090
+	// Reference: src/components/TeamMemberOptions.vue:1092
 	__( 'Vertical', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:613
+	// Reference: src/components/AccordionOptions.vue:617
 	// Reference: src/components/BeforeAfterToggleOptions.vue:541
-	// Reference: src/components/BulletListOptions.vue:506
+	// Reference: src/components/BulletListOptions.vue:508
 	// Reference: src/components/BusinessHoursOptions.vue:732
 	// Reference: src/components/ColOptions.vue:682
-	// Reference: src/components/ContentToggleOptions.vue:607
+	// Reference: src/components/ContentToggleOptions.vue:611
 	// Reference: src/components/NavOptions.vue:579
-	// Reference: src/components/PriceListOptions.vue:915
+	// Reference: src/components/PriceListOptions.vue:917
 	// Reference: src/components/RowOptions.vue:681
 	// Reference: src/components/ShadowControl.vue:142
-	// Reference: src/components/TeamMemberOptions.vue:1091
+	// Reference: src/components/TeamMemberOptions.vue:1093
 	__( 'Horizontal', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:614
+	// Reference: src/components/AccordionOptions.vue:618
 	// Reference: src/components/AdditionalInformationOptions.vue:129
-	// Reference: src/components/BulletListOptions.vue:507
+	// Reference: src/components/BulletListOptions.vue:509
 	// Reference: src/components/ContactFormOptions.vue:297
 	// Reference: src/components/DividerOptions.vue:393
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1020
+	// Reference: src/components/EnviraGalleryOptions.vue:219
 	// Reference: src/components/GiveawayOptions.vue:169
-	// Reference: src/components/NavOptions.vue:580
 	// Reference: src/components/PostinfoOptions.vue:618
 	// Reference: src/components/ProductDataTabsOptions.vue:335
 	// Reference: src/components/ProductGalleryImagesOptions.vue:206
@@ -1294,338 +1302,338 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/WpWidgetBlockOptions.vue:213
 	__( 'Text Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:615
-	// Reference: src/components/BulletListOptions.vue:508
+	// Reference: src/components/AccordionOptions.vue:619
+	// Reference: src/components/BulletListOptions.vue:510
 	// Reference: src/components/BusinessHoursOptions.vue:734
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1027
-	// Reference: src/components/PriceListOptions.vue:917
+	// Reference: src/components/PriceListOptions.vue:919
 	// Reference: src/components/SpacingSectionControl.vue:74
-	// Reference: src/components/TeamMemberOptions.vue:1093
+	// Reference: src/components/TeamMemberOptions.vue:1095
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1130
 	__( 'Spacing', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:616
-	// Reference: src/components/BulletListOptions.vue:509
+	// Reference: src/components/AccordionOptions.vue:620
+	// Reference: src/components/BulletListOptions.vue:511
 	// Reference: src/components/BusinessHoursOptions.vue:735
-	// Reference: src/components/PriceListOptions.vue:918
+	// Reference: src/components/PriceListOptions.vue:920
 	// Reference: src/components/SpacingSectionControl.vue:75
-	// Reference: src/components/TeamMemberOptions.vue:1094
+	// Reference: src/components/TeamMemberOptions.vue:1096
 	__( 'Top Margin', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:617
+	// Reference: src/components/AccordionOptions.vue:621
 	// Reference: src/components/BeforeAfterToggleOptions.vue:532
-	// Reference: src/components/BulletListOptions.vue:510
-	// Reference: src/components/ContentToggleOptions.vue:592
+	// Reference: src/components/BulletListOptions.vue:512
+	// Reference: src/components/ContentToggleOptions.vue:596
 	// Reference: src/components/DividerOptions.vue:384
-	// Reference: src/components/FeatureOptions.vue:567
-	// Reference: src/components/HeaderOptions.vue:532
-	// Reference: src/components/IconFeatureOptions.vue:545
+	// Reference: src/components/FeatureOptions.vue:571
+	// Reference: src/components/HeaderOptions.vue:534
+	// Reference: src/components/IconFeatureOptions.vue:549
 	// Reference: src/components/NavOptions.vue:581
 	// Reference: src/components/PostsOptions.vue:2291
-	// Reference: src/components/PricingTableOptions.vue:1300
-	// Reference: src/components/TestimonialOptions.vue:603
-	// Reference: src/components/TextOptions.vue:373
+	// Reference: src/components/PricingTableOptions.vue:1304
+	// Reference: src/components/TestimonialOptions.vue:605
+	// Reference: src/components/TextOptions.vue:375
 	// Reference: src/components/WpWidgetBlockOptions.vue:222
 	// Reference: src/views/GlobalCSS.vue:2180
 	// Reference: src/views/SetupDesign-Lite.vue:746
 	__( 'Text', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:618
-	// Reference: src/components/AlertBoxOptions.vue:755
+	// Reference: src/components/AccordionOptions.vue:622
+	// Reference: src/components/AlertBoxOptions.vue:759
 	// Reference: src/components/BeforeAfterToggleOptions.vue:526
-	// Reference: src/components/BulletListOptions.vue:511
-	// Reference: src/components/ContentToggleOptions.vue:582
+	// Reference: src/components/BulletListOptions.vue:513
+	// Reference: src/components/ContentToggleOptions.vue:586
 	// Reference: src/components/DividerOptions.vue:383
-	// Reference: src/components/FeatureOptions.vue:562
-	// Reference: src/components/IconFeatureOptions.vue:540
+	// Reference: src/components/FeatureOptions.vue:566
+	// Reference: src/components/IconFeatureOptions.vue:544
 	// Reference: src/components/IconOptions.vue:275
 	// Reference: src/components/PostinfoOptions.vue:609
-	// Reference: src/components/PricingTableOptions.vue:1301
-	// Reference: src/components/SocialProfilesOptions.vue:703
-	// Reference: src/components/TeamMemberOptions.vue:1095
-	// Reference: src/components/TestimonialOptions.vue:595
+	// Reference: src/components/PricingTableOptions.vue:1305
+	// Reference: src/components/SocialProfilesOptions.vue:705
+	// Reference: src/components/TeamMemberOptions.vue:1097
+	// Reference: src/components/TestimonialOptions.vue:597
 	__( 'Icon', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:619
-	// Reference: src/components/AddToCartOptions.vue:1086
-	// Reference: src/components/AlertBoxOptions.vue:774
-	// Reference: src/components/BulletListOptions.vue:512
+	// Reference: src/components/AccordionOptions.vue:623
+	// Reference: src/components/AddToCartOptions.vue:1088
+	// Reference: src/components/AlertBoxOptions.vue:778
+	// Reference: src/components/BulletListOptions.vue:514
 	// Reference: src/components/BusinessHoursOptions.vue:739
-	// Reference: src/components/ButtonOptions.vue:1243
-	// Reference: src/components/CountdownOptions.vue:874
-	// Reference: src/components/EDDAddToCartOptions.vue:804
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:833
+	// Reference: src/components/ButtonOptions.vue:1248
+	// Reference: src/components/CountdownOptions.vue:876
+	// Reference: src/components/EDDAddToCartOptions.vue:806
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:835
 	// Reference: src/components/EDDCartOptions.vue:366
 	// Reference: src/components/EDDCheckoutOptions.vue:645
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:653
 	// Reference: src/components/EDDDownloadsGridOptions.vue:986
-	// Reference: src/components/ImageOptions.vue:753
-	// Reference: src/components/OptinFormOptions.vue:874
+	// Reference: src/components/ImageOptions.vue:763
+	// Reference: src/components/OptinFormOptions.vue:876
 	// Reference: src/components/PostfeaturedimageOptions.vue:654
-	// Reference: src/components/PriceListOptions.vue:927
+	// Reference: src/components/PriceListOptions.vue:929
 	// Reference: src/components/ProductFeaturedImageOptions.vue:653
 	// Reference: src/components/ProgressBarOptions.vue:328
-	// Reference: src/components/SocialProfilesOptions.vue:672
-	// Reference: src/components/StripepaymentOptions.vue:1693
-	// Reference: src/components/TeamMemberOptions.vue:1099
-	// Reference: src/components/WCAddToCartOptions.vue:706
+	// Reference: src/components/SocialProfilesOptions.vue:674
+	// Reference: src/components/StripepaymentOptions.vue:1695
+	// Reference: src/components/TeamMemberOptions.vue:1101
+	// Reference: src/components/WCAddToCartOptions.vue:708
 	// Reference: src/components/WCCartOptions.vue:507
 	// Reference: src/components/WCCheckoutOptions.vue:776
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1089
 	__( 'Choose Your Style', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:620
+	// Reference: src/components/AccordionOptions.vue:624
 	__( 'Closed Icon Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:621
+	// Reference: src/components/AccordionOptions.vue:625
 	__( 'Closed Icon', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:622
+	// Reference: src/components/AccordionOptions.vue:626
 	__( 'Open Icon Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:623
+	// Reference: src/components/AccordionOptions.vue:627
 	__( 'Open Icon', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:624
+	// Reference: src/components/AccordionOptions.vue:628
 	// Reference: src/components/AdditionalInformationOptions.vue:128
 	// Reference: src/components/EDDCartOptions.vue:377
 	// Reference: src/components/EDDCheckoutOptions.vue:656
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1024
-	// Reference: src/components/FeatureOptions.vue:570
-	// Reference: src/components/IconFeatureOptions.vue:548
+	// Reference: src/components/FeatureOptions.vue:574
+	// Reference: src/components/IconFeatureOptions.vue:552
 	// Reference: src/components/WCCartOptions.vue:545
 	// Reference: src/components/WCCheckoutOptions.vue:814
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1127
 	// Reference: src/views/GlobalCSS.vue:2206
 	__( 'Header Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:625
-	// Reference: src/components/PricingTableOptions.vue:1308
+	// Reference: src/components/AccordionOptions.vue:629
+	// Reference: src/components/PricingTableOptions.vue:1312
 	__( 'Header Open Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:626
+	// Reference: src/components/AccordionOptions.vue:630
 	// Reference: src/components/BusinessHoursOptions.vue:753
-	// Reference: src/components/PricingTableOptions.vue:1309
+	// Reference: src/components/PricingTableOptions.vue:1313
 	// Reference: src/components/ProductMetaOptions.vue:349
-	// Reference: src/components/TeamMemberOptions.vue:1116
+	// Reference: src/components/TeamMemberOptions.vue:1118
 	__( 'Divider Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:627
-	// Reference: src/components/AddToCartOptions.vue:1105
-	// Reference: src/components/AlertBoxOptions.vue:749
+	// Reference: src/components/AccordionOptions.vue:631
+	// Reference: src/components/AddToCartOptions.vue:1107
+	// Reference: src/components/AlertBoxOptions.vue:753
 	// Reference: src/components/BackgroundControl.vue:473
 	// Reference: src/components/BeforeAfterToggleOptions.vue:533
 	// Reference: src/components/BusinessHoursOptions.vue:743
-	// Reference: src/components/ButtonOptions.vue:1262
+	// Reference: src/components/ButtonOptions.vue:1267
 	// Reference: src/components/ColOptions.vue:675
-	// Reference: src/components/ContentToggleOptions.vue:593
-	// Reference: src/components/EDDAddToCartOptions.vue:823
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:852
+	// Reference: src/components/ContentToggleOptions.vue:597
+	// Reference: src/components/EDDAddToCartOptions.vue:825
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:854
 	// Reference: src/components/EDDCartOptions.vue:392
 	// Reference: src/components/EDDCheckoutOptions.vue:677
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1019
-	// Reference: src/components/FeatureOptions.vue:568
-	// Reference: src/components/HeaderOptions.vue:547
-	// Reference: src/components/IconFeatureOptions.vue:546
-	// Reference: src/components/OptinFormOptions.vue:885
+	// Reference: src/components/FeatureOptions.vue:572
+	// Reference: src/components/HeaderOptions.vue:549
+	// Reference: src/components/IconFeatureOptions.vue:550
+	// Reference: src/components/OptinFormOptions.vue:887
 	// Reference: src/components/PostauthorboxOptions.vue:362
 	// Reference: src/components/PostsOptions.vue:2364
-	// Reference: src/components/PriceListOptions.vue:932
-	// Reference: src/components/PricingTableOptions.vue:1346
+	// Reference: src/components/PriceListOptions.vue:934
+	// Reference: src/components/PricingTableOptions.vue:1350
 	// Reference: src/components/ProductDataTabsOptions.vue:336
 	// Reference: src/components/ProductGalleryImagesOptions.vue:225
 	// Reference: src/components/ProgressBarOptions.vue:341
 	// Reference: src/components/RowOptions.vue:677
 	// Reference: src/components/SectionOptions.vue:391
-	// Reference: src/components/SocialProfilesOptions.vue:717
-	// Reference: src/components/StripepaymentOptions.vue:1712
-	// Reference: src/components/TeamMemberOptions.vue:1105
-	// Reference: src/components/TestimonialOptions.vue:598
-	// Reference: src/components/TextOptions.vue:384
-	// Reference: src/components/WCAddToCartOptions.vue:725
+	// Reference: src/components/SocialProfilesOptions.vue:719
+	// Reference: src/components/StripepaymentOptions.vue:1714
+	// Reference: src/components/TeamMemberOptions.vue:1107
+	// Reference: src/components/TestimonialOptions.vue:600
+	// Reference: src/components/TextOptions.vue:386
+	// Reference: src/components/WCAddToCartOptions.vue:727
 	// Reference: src/components/WCCartOptions.vue:540
 	// Reference: src/components/WCCheckoutOptions.vue:809
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1122
 	__( 'Background Color', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:629
-	// Reference: src/components/AddToCartOptions.vue:1112
-	// Reference: src/components/AlertBoxOptions.vue:775
-	// Reference: src/components/BulletListOptions.vue:515
+	// Reference: src/components/AccordionOptions.vue:633
+	// Reference: src/components/AddToCartOptions.vue:1114
+	// Reference: src/components/AlertBoxOptions.vue:779
+	// Reference: src/components/BulletListOptions.vue:517
 	// Reference: src/components/BusinessHoursOptions.vue:762
-	// Reference: src/components/ButtonOptions.vue:1271
+	// Reference: src/components/ButtonOptions.vue:1276
 	// Reference: src/components/ColOptions.vue:667
-	// Reference: src/components/EDDAddToCartOptions.vue:830
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:859
-	// Reference: src/components/HeaderOptions.vue:553
+	// Reference: src/components/EDDAddToCartOptions.vue:832
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:861
+	// Reference: src/components/HeaderOptions.vue:555
 	// Reference: src/components/IconOptions.vue:289
 	// Reference: src/components/NavOptions.vue:603
-	// Reference: src/components/PriceListOptions.vue:971
-	// Reference: src/components/PricingTableOptions.vue:1375
+	// Reference: src/components/PriceListOptions.vue:973
+	// Reference: src/components/PricingTableOptions.vue:1379
 	// Reference: src/components/ProgressBarOptions.vue:343
-	// Reference: src/components/StripepaymentOptions.vue:1721
-	// Reference: src/components/TeamMemberOptions.vue:1155
-	// Reference: src/components/TextOptions.vue:389
-	// Reference: src/components/WCAddToCartOptions.vue:726
+	// Reference: src/components/StripepaymentOptions.vue:1723
+	// Reference: src/components/TeamMemberOptions.vue:1157
+	// Reference: src/components/TextOptions.vue:391
+	// Reference: src/components/WCAddToCartOptions.vue:728
 	__( 'Text Shadow', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:637
-	// Reference: src/components/BulletListOptions.vue:523
+	// Reference: src/components/AccordionOptions.vue:641
+	// Reference: src/components/BulletListOptions.vue:525
 	// Reference: src/components/BusinessHoursOptions.vue:770
 	// Reference: src/components/PaddingControl.vue:454
-	// Reference: src/components/PriceListOptions.vue:979
-	// Reference: src/components/PricingTableOptions.vue:1383
-	// Reference: src/components/TeamMemberOptions.vue:1163
+	// Reference: src/components/PriceListOptions.vue:981
+	// Reference: src/components/PricingTableOptions.vue:1387
+	// Reference: src/components/TeamMemberOptions.vue:1165
 	__( 'Padding', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:638
+	// Reference: src/components/AccordionOptions.vue:642
 	// Reference: src/components/AnimationEffectControl.vue:273
 	// Reference: src/components/BorderRadiusControl.vue:150
 	// Reference: src/components/BorderWidthControl.vue:142
-	// Reference: src/components/BulletListOptions.vue:524
+	// Reference: src/components/BulletListOptions.vue:526
 	// Reference: src/components/BusinessHoursOptions.vue:771
 	// Reference: src/components/DisplaySectionControl.vue:194
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:647
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1085
-	// Reference: src/components/ImageOptions.vue:746
+	// Reference: src/components/ImageOptions.vue:756
 	// Reference: src/components/MarginControl.vue:482
 	// Reference: src/components/PaddingControl.vue:455
 	// Reference: src/components/ParticlesBackgroundControl.vue:311
 	// Reference: src/components/PostfeaturedimageOptions.vue:648
 	// Reference: src/components/PostsOptions.vue:2379
-	// Reference: src/components/PriceListOptions.vue:980
-	// Reference: src/components/PricingTableOptions.vue:1384
+	// Reference: src/components/PriceListOptions.vue:982
+	// Reference: src/components/PricingTableOptions.vue:1388
 	// Reference: src/components/ProductFeaturedImageOptions.vue:647
 	// Reference: src/components/ProductRelatedOptions.vue:655
 	// Reference: src/components/ShapeDividerControl.vue:347
-	// Reference: src/components/TeamMemberOptions.vue:1164
+	// Reference: src/components/TeamMemberOptions.vue:1166
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1188
 	__( 'Top', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:639
+	// Reference: src/components/AccordionOptions.vue:643
 	// Reference: src/components/AnimationEffectControl.vue:272
 	// Reference: src/components/BorderRadiusControl.vue:153
 	// Reference: src/components/BorderWidthControl.vue:144
-	// Reference: src/components/BulletListOptions.vue:525
+	// Reference: src/components/BulletListOptions.vue:527
 	// Reference: src/components/BusinessHoursOptions.vue:772
 	// Reference: src/components/DisplaySectionControl.vue:196
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:649
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1087
-	// Reference: src/components/ImageOptions.vue:748
+	// Reference: src/components/ImageOptions.vue:758
 	// Reference: src/components/MarginControl.vue:484
 	// Reference: src/components/PaddingControl.vue:457
 	// Reference: src/components/ParticlesBackgroundControl.vue:312
 	// Reference: src/components/PostfeaturedimageOptions.vue:650
 	// Reference: src/components/PostsOptions.vue:2380
-	// Reference: src/components/PriceListOptions.vue:981
-	// Reference: src/components/PricingTableOptions.vue:1385
+	// Reference: src/components/PriceListOptions.vue:983
+	// Reference: src/components/PricingTableOptions.vue:1389
 	// Reference: src/components/ProductFeaturedImageOptions.vue:649
 	// Reference: src/components/ProductRelatedOptions.vue:657
 	// Reference: src/components/ShapeDividerControl.vue:348
-	// Reference: src/components/TeamMemberOptions.vue:1165
+	// Reference: src/components/TeamMemberOptions.vue:1167
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1190
 	__( 'Bottom', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:640
+	// Reference: src/components/AccordionOptions.vue:644
 	// Reference: src/components/BorderRadiusControl.vue:152
 	// Reference: src/components/BorderWidthControl.vue:143
-	// Reference: src/components/BulletListOptions.vue:526
+	// Reference: src/components/BulletListOptions.vue:528
 	// Reference: src/components/BusinessHoursOptions.vue:773
 	// Reference: src/components/DisplaySectionControl.vue:195
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:648
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1086
-	// Reference: src/components/ImageOptions.vue:747
+	// Reference: src/components/ImageOptions.vue:757
 	// Reference: src/components/MarginControl.vue:483
 	// Reference: src/components/PaddingControl.vue:456
 	// Reference: src/components/ParticlesBackgroundControl.vue:314
 	// Reference: src/components/PostfeaturedimageOptions.vue:649
 	// Reference: src/components/PostsOptions.vue:2381
-	// Reference: src/components/PriceListOptions.vue:982
-	// Reference: src/components/PricingTableOptions.vue:1386
+	// Reference: src/components/PriceListOptions.vue:984
+	// Reference: src/components/PricingTableOptions.vue:1390
 	// Reference: src/components/ProductFeaturedImageOptions.vue:648
 	// Reference: src/components/ProductRelatedOptions.vue:656
-	// Reference: src/components/TeamMemberOptions.vue:1166
+	// Reference: src/components/TeamMemberOptions.vue:1168
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1189
 	__( 'Right', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:641
+	// Reference: src/components/AccordionOptions.vue:645
 	// Reference: src/components/BorderRadiusControl.vue:151
 	// Reference: src/components/BorderWidthControl.vue:145
-	// Reference: src/components/BulletListOptions.vue:527
+	// Reference: src/components/BulletListOptions.vue:529
 	// Reference: src/components/BusinessHoursOptions.vue:774
 	// Reference: src/components/DisplaySectionControl.vue:197
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:650
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1088
-	// Reference: src/components/ImageOptions.vue:749
+	// Reference: src/components/ImageOptions.vue:759
 	// Reference: src/components/MarginControl.vue:485
 	// Reference: src/components/PaddingControl.vue:458
 	// Reference: src/components/ParticlesBackgroundControl.vue:313
 	// Reference: src/components/PostfeaturedimageOptions.vue:651
 	// Reference: src/components/PostsOptions.vue:2382
-	// Reference: src/components/PriceListOptions.vue:983
-	// Reference: src/components/PricingTableOptions.vue:1387
+	// Reference: src/components/PriceListOptions.vue:985
+	// Reference: src/components/PricingTableOptions.vue:1391
 	// Reference: src/components/ProductFeaturedImageOptions.vue:650
 	// Reference: src/components/ProductRelatedOptions.vue:658
-	// Reference: src/components/TeamMemberOptions.vue:1167
+	// Reference: src/components/TeamMemberOptions.vue:1169
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1191
 	__( 'Left', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:642
-	// Reference: src/components/AddToCartOptions.vue:1104
-	// Reference: src/components/ButtonOptions.vue:1261
-	// Reference: src/components/CountdownOptions.vue:880
+	// Reference: src/components/AccordionOptions.vue:646
+	// Reference: src/components/AddToCartOptions.vue:1106
+	// Reference: src/components/ButtonOptions.vue:1266
+	// Reference: src/components/CountdownOptions.vue:882
 	// Reference: src/components/DividerOptions.vue:373
-	// Reference: src/components/EDDAddToCartOptions.vue:822
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:851
+	// Reference: src/components/EDDAddToCartOptions.vue:824
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:853
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:654
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1070
 	// Reference: src/components/GoogleMapsOptions.vue:238
 	// Reference: src/components/IconOptions.vue:277
-	// Reference: src/components/ImageOptions.vue:754
+	// Reference: src/components/ImageOptions.vue:764
 	// Reference: src/components/PostfeaturedimageOptions.vue:655
 	// Reference: src/components/PostsOptions.vue:2316
-	// Reference: src/components/PricingTableOptions.vue:1388
+	// Reference: src/components/PricingTableOptions.vue:1392
 	// Reference: src/components/ProductFeaturedImageOptions.vue:654
 	// Reference: src/components/ProductRelatedOptions.vue:640
 	// Reference: src/components/ProgressBarOptions.vue:339
 	// Reference: src/components/RowOptions.vue:669
 	// Reference: src/components/SectionOptions.vue:378
 	// Reference: src/components/ShadowControl.vue:132
-	// Reference: src/components/SocialProfilesOptions.vue:698
-	// Reference: src/components/SocialSharingOptions.vue:422
-	// Reference: src/components/StripepaymentOptions.vue:1711
-	// Reference: src/components/TextOptions.vue:383
+	// Reference: src/components/SocialProfilesOptions.vue:700
+	// Reference: src/components/SocialSharingOptions.vue:424
+	// Reference: src/components/StripepaymentOptions.vue:1713
+	// Reference: src/components/TextOptions.vue:385
 	// Reference: src/components/VideoOptions.vue:241
-	// Reference: src/components/VideoPopUpOptions.vue:1135
-	// Reference: src/components/WCAddToCartOptions.vue:724
+	// Reference: src/components/VideoPopUpOptions.vue:1137
+	// Reference: src/components/WCAddToCartOptions.vue:726
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1173
 	__( 'Shadow', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:643
-	// Reference: src/components/AddToCartOptions.vue:1113
-	// Reference: src/components/AlertBoxOptions.vue:738
-	// Reference: src/components/BulletListOptions.vue:516
+	// Reference: src/components/AccordionOptions.vue:647
+	// Reference: src/components/AddToCartOptions.vue:1115
+	// Reference: src/components/AlertBoxOptions.vue:742
+	// Reference: src/components/BulletListOptions.vue:518
 	// Reference: src/components/BusinessHoursOptions.vue:763
-	// Reference: src/components/ButtonOptions.vue:1272
+	// Reference: src/components/ButtonOptions.vue:1278
 	// Reference: src/components/ColOptions.vue:668
-	// Reference: src/components/CountdownOptions.vue:881
+	// Reference: src/components/CountdownOptions.vue:883
 	// Reference: src/components/DividerOptions.vue:381
 	// Reference: src/components/DynamicTagsControl.vue:1013
-	// Reference: src/components/EDDAddToCartOptions.vue:831
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:860
+	// Reference: src/components/EDDAddToCartOptions.vue:833
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:862
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:655
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1075
 	// Reference: src/components/GoogleMapsOptions.vue:239
-	// Reference: src/components/HeaderOptions.vue:540
+	// Reference: src/components/HeaderOptions.vue:542
 	// Reference: src/components/IconOptions.vue:278
-	// Reference: src/components/ImageOptions.vue:777
+	// Reference: src/components/ImageOptions.vue:787
 	// Reference: src/components/NavOptions.vue:604
 	// Reference: src/components/PostauthorboxOptions.vue:355
 	// Reference: src/components/PostfeaturedimageOptions.vue:656
 	// Reference: src/components/PostinfoOptions.vue:610
 	// Reference: src/components/PostsOptions.vue:2321
-	// Reference: src/components/PriceListOptions.vue:972
-	// Reference: src/components/PricingTableOptions.vue:1389
+	// Reference: src/components/PriceListOptions.vue:974
+	// Reference: src/components/PricingTableOptions.vue:1393
 	// Reference: src/components/ProductFeaturedImageOptions.vue:655
 	// Reference: src/components/ProductRelatedOptions.vue:645
 	// Reference: src/components/ProgressBarOptions.vue:332
@@ -1633,676 +1641,676 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/SectionOptions.vue:379
 	// Reference: src/components/ShadowControl.vue:133
 	// Reference: src/components/ShapeDividerControl.vue:350
-	// Reference: src/components/SocialProfilesOptions.vue:699
-	// Reference: src/components/SocialSharingOptions.vue:414
-	// Reference: src/components/StripepaymentOptions.vue:1722
-	// Reference: src/components/TeamMemberOptions.vue:1156
-	// Reference: src/components/TextOptions.vue:376
+	// Reference: src/components/SocialProfilesOptions.vue:701
+	// Reference: src/components/SocialSharingOptions.vue:416
+	// Reference: src/components/StripepaymentOptions.vue:1724
+	// Reference: src/components/TeamMemberOptions.vue:1158
+	// Reference: src/components/TextOptions.vue:378
 	// Reference: src/components/VideoOptions.vue:242
-	// Reference: src/components/VideoPopUpOptions.vue:1136
-	// Reference: src/components/WCAddToCartOptions.vue:727
+	// Reference: src/components/VideoPopUpOptions.vue:1138
+	// Reference: src/components/WCAddToCartOptions.vue:729
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1178
 	__( 'None', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:644
-	// Reference: src/components/AddToCartOptions.vue:1114
-	// Reference: src/components/AlertBoxOptions.vue:739
-	// Reference: src/components/BulletListOptions.vue:517
+	// Reference: src/components/AccordionOptions.vue:648
+	// Reference: src/components/AddToCartOptions.vue:1116
+	// Reference: src/components/AlertBoxOptions.vue:743
+	// Reference: src/components/BulletListOptions.vue:519
 	// Reference: src/components/BusinessHoursOptions.vue:764
-	// Reference: src/components/ButtonOptions.vue:1273
+	// Reference: src/components/ButtonOptions.vue:1279
 	// Reference: src/components/ColOptions.vue:669
-	// Reference: src/components/CountdownOptions.vue:882
+	// Reference: src/components/CountdownOptions.vue:884
 	// Reference: src/components/DividerOptions.vue:375
-	// Reference: src/components/EDDAddToCartOptions.vue:832
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:861
+	// Reference: src/components/EDDAddToCartOptions.vue:834
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:863
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:656
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1076
 	// Reference: src/components/GoogleMapsOptions.vue:240
-	// Reference: src/components/HeaderOptions.vue:541
+	// Reference: src/components/HeaderOptions.vue:543
 	// Reference: src/components/IconOptions.vue:279
-	// Reference: src/components/ImageOptions.vue:756
+	// Reference: src/components/ImageOptions.vue:766
 	// Reference: src/components/NavOptions.vue:605
 	// Reference: src/components/PostfeaturedimageOptions.vue:657
 	// Reference: src/components/PostsOptions.vue:2322
-	// Reference: src/components/PriceListOptions.vue:973
-	// Reference: src/components/PricingTableOptions.vue:1390
+	// Reference: src/components/PriceListOptions.vue:975
+	// Reference: src/components/PricingTableOptions.vue:1394
 	// Reference: src/components/ProductFeaturedImageOptions.vue:656
 	// Reference: src/components/ProductRelatedOptions.vue:646
 	// Reference: src/components/ProgressBarOptions.vue:333
 	// Reference: src/components/RowOptions.vue:671
 	// Reference: src/components/SectionOptions.vue:380
 	// Reference: src/components/ShadowControl.vue:134
-	// Reference: src/components/SocialProfilesOptions.vue:700
-	// Reference: src/components/SocialSharingOptions.vue:415
-	// Reference: src/components/StripepaymentOptions.vue:1723
-	// Reference: src/components/TeamMemberOptions.vue:1157
-	// Reference: src/components/TextOptions.vue:377
+	// Reference: src/components/SocialProfilesOptions.vue:702
+	// Reference: src/components/SocialSharingOptions.vue:417
+	// Reference: src/components/StripepaymentOptions.vue:1725
+	// Reference: src/components/TeamMemberOptions.vue:1159
+	// Reference: src/components/TextOptions.vue:379
 	// Reference: src/components/VideoOptions.vue:243
-	// Reference: src/components/VideoPopUpOptions.vue:1137
-	// Reference: src/components/WCAddToCartOptions.vue:728
+	// Reference: src/components/VideoPopUpOptions.vue:1139
+	// Reference: src/components/WCAddToCartOptions.vue:730
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1179
 	__( 'Hairline', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:645
-	// Reference: src/components/AddToCartOptions.vue:1115
-	// Reference: src/components/AlertBoxOptions.vue:740
-	// Reference: src/components/BulletListOptions.vue:518
+	// Reference: src/components/AccordionOptions.vue:649
+	// Reference: src/components/AddToCartOptions.vue:1117
+	// Reference: src/components/AlertBoxOptions.vue:744
+	// Reference: src/components/BulletListOptions.vue:520
 	// Reference: src/components/BusinessHoursOptions.vue:765
-	// Reference: src/components/ButtonOptions.vue:1274
+	// Reference: src/components/ButtonOptions.vue:1280
 	// Reference: src/components/ColOptions.vue:670
-	// Reference: src/components/ContentToggleOptions.vue:628
-	// Reference: src/components/CountdownOptions.vue:883
+	// Reference: src/components/ContentToggleOptions.vue:632
+	// Reference: src/components/CountdownOptions.vue:885
 	// Reference: src/components/DividerOptions.vue:376
-	// Reference: src/components/EDDAddToCartOptions.vue:833
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:862
+	// Reference: src/components/EDDAddToCartOptions.vue:835
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:864
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:657
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1077
 	// Reference: src/components/GoogleMapsOptions.vue:241
-	// Reference: src/components/HeaderOptions.vue:542
+	// Reference: src/components/HeaderOptions.vue:544
 	// Reference: src/components/IconOptions.vue:280
-	// Reference: src/components/ImageOptions.vue:757
+	// Reference: src/components/ImageOptions.vue:767
 	// Reference: src/components/LoginOptions.vue:924
 	// Reference: src/components/NavOptions.vue:606
-	// Reference: src/components/OptinFormOptions.vue:862
+	// Reference: src/components/OptinFormOptions.vue:864
 	// Reference: src/components/PostfeaturedimageOptions.vue:658
 	// Reference: src/components/PostsOptions.vue:2323
-	// Reference: src/components/PriceListOptions.vue:974
-	// Reference: src/components/PricingTableOptions.vue:1391
+	// Reference: src/components/PriceListOptions.vue:976
+	// Reference: src/components/PricingTableOptions.vue:1395
 	// Reference: src/components/ProductFeaturedImageOptions.vue:657
 	// Reference: src/components/ProductRelatedOptions.vue:647
 	// Reference: src/components/ProgressBarOptions.vue:334
 	// Reference: src/components/RowOptions.vue:672
 	// Reference: src/components/SectionOptions.vue:381
 	// Reference: src/components/ShadowControl.vue:135
-	// Reference: src/components/SocialProfilesOptions.vue:691
-	// Reference: src/components/SocialSharingOptions.vue:416
-	// Reference: src/components/StripepaymentOptions.vue:1724
-	// Reference: src/components/TeamMemberOptions.vue:1158
-	// Reference: src/components/TextOptions.vue:378
+	// Reference: src/components/SocialProfilesOptions.vue:693
+	// Reference: src/components/SocialSharingOptions.vue:418
+	// Reference: src/components/StripepaymentOptions.vue:1726
+	// Reference: src/components/TeamMemberOptions.vue:1160
+	// Reference: src/components/TextOptions.vue:380
 	// Reference: src/components/VideoOptions.vue:244
-	// Reference: src/components/VideoPopUpOptions.vue:1138
-	// Reference: src/components/WCAddToCartOptions.vue:729
+	// Reference: src/components/VideoPopUpOptions.vue:1140
+	// Reference: src/components/WCAddToCartOptions.vue:731
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1180
 	__( 'Small', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:646
-	// Reference: src/components/AddToCartOptions.vue:1116
-	// Reference: src/components/AlertBoxOptions.vue:741
-	// Reference: src/components/BulletListOptions.vue:519
+	// Reference: src/components/AccordionOptions.vue:650
+	// Reference: src/components/AddToCartOptions.vue:1118
+	// Reference: src/components/AlertBoxOptions.vue:745
+	// Reference: src/components/BulletListOptions.vue:521
 	// Reference: src/components/BusinessHoursOptions.vue:766
-	// Reference: src/components/ButtonOptions.vue:1275
+	// Reference: src/components/ButtonOptions.vue:1281
 	// Reference: src/components/ColOptions.vue:671
-	// Reference: src/components/ContentToggleOptions.vue:627
-	// Reference: src/components/CountdownOptions.vue:884
+	// Reference: src/components/ContentToggleOptions.vue:631
+	// Reference: src/components/CountdownOptions.vue:886
 	// Reference: src/components/DividerOptions.vue:377
-	// Reference: src/components/EDDAddToCartOptions.vue:834
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:863
+	// Reference: src/components/EDDAddToCartOptions.vue:836
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:865
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:658
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1078
 	// Reference: src/components/GoogleMapsOptions.vue:242
-	// Reference: src/components/HeaderOptions.vue:543
+	// Reference: src/components/HeaderOptions.vue:545
 	// Reference: src/components/IconOptions.vue:281
-	// Reference: src/components/ImageOptions.vue:758
+	// Reference: src/components/ImageOptions.vue:768
 	// Reference: src/components/LoginOptions.vue:925
 	// Reference: src/components/NavOptions.vue:607
-	// Reference: src/components/OptinFormOptions.vue:863
+	// Reference: src/components/OptinFormOptions.vue:865
 	// Reference: src/components/PostfeaturedimageOptions.vue:659
 	// Reference: src/components/PostsOptions.vue:2324
-	// Reference: src/components/PriceListOptions.vue:975
-	// Reference: src/components/PricingTableOptions.vue:1392
+	// Reference: src/components/PriceListOptions.vue:977
+	// Reference: src/components/PricingTableOptions.vue:1396
 	// Reference: src/components/ProductFeaturedImageOptions.vue:658
 	// Reference: src/components/ProductRelatedOptions.vue:648
 	// Reference: src/components/ProgressBarOptions.vue:335
 	// Reference: src/components/RowOptions.vue:673
 	// Reference: src/components/SectionOptions.vue:382
 	// Reference: src/components/ShadowControl.vue:136
-	// Reference: src/components/SocialProfilesOptions.vue:706
-	// Reference: src/components/SocialSharingOptions.vue:417
-	// Reference: src/components/StripepaymentOptions.vue:1725
-	// Reference: src/components/TeamMemberOptions.vue:1159
-	// Reference: src/components/TextOptions.vue:379
+	// Reference: src/components/SocialProfilesOptions.vue:708
+	// Reference: src/components/SocialSharingOptions.vue:419
+	// Reference: src/components/StripepaymentOptions.vue:1727
+	// Reference: src/components/TeamMemberOptions.vue:1161
+	// Reference: src/components/TextOptions.vue:381
 	// Reference: src/components/VideoOptions.vue:245
-	// Reference: src/components/VideoPopUpOptions.vue:1139
-	// Reference: src/components/WCAddToCartOptions.vue:730
+	// Reference: src/components/VideoPopUpOptions.vue:1141
+	// Reference: src/components/WCAddToCartOptions.vue:732
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1181
 	__( 'Medium', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:647
-	// Reference: src/components/AddToCartOptions.vue:1117
-	// Reference: src/components/AlertBoxOptions.vue:742
-	// Reference: src/components/BulletListOptions.vue:520
+	// Reference: src/components/AccordionOptions.vue:651
+	// Reference: src/components/AddToCartOptions.vue:1119
+	// Reference: src/components/AlertBoxOptions.vue:746
+	// Reference: src/components/BulletListOptions.vue:522
 	// Reference: src/components/BusinessHoursOptions.vue:767
-	// Reference: src/components/ButtonOptions.vue:1276
+	// Reference: src/components/ButtonOptions.vue:1282
 	// Reference: src/components/ColOptions.vue:672
-	// Reference: src/components/ContentToggleOptions.vue:626
-	// Reference: src/components/CountdownOptions.vue:885
+	// Reference: src/components/ContentToggleOptions.vue:630
+	// Reference: src/components/CountdownOptions.vue:887
 	// Reference: src/components/DividerOptions.vue:378
-	// Reference: src/components/EDDAddToCartOptions.vue:835
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:864
+	// Reference: src/components/EDDAddToCartOptions.vue:837
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:866
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:659
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1079
 	// Reference: src/components/GoogleMapsOptions.vue:243
-	// Reference: src/components/HeaderOptions.vue:544
+	// Reference: src/components/HeaderOptions.vue:546
 	// Reference: src/components/IconOptions.vue:282
-	// Reference: src/components/ImageOptions.vue:759
+	// Reference: src/components/ImageOptions.vue:769
 	// Reference: src/components/LoginOptions.vue:926
 	// Reference: src/components/NavOptions.vue:608
-	// Reference: src/components/OptinFormOptions.vue:864
+	// Reference: src/components/OptinFormOptions.vue:866
 	// Reference: src/components/PostfeaturedimageOptions.vue:660
 	// Reference: src/components/PostsOptions.vue:2325
-	// Reference: src/components/PriceListOptions.vue:976
-	// Reference: src/components/PricingTableOptions.vue:1393
+	// Reference: src/components/PriceListOptions.vue:978
+	// Reference: src/components/PricingTableOptions.vue:1397
 	// Reference: src/components/ProductFeaturedImageOptions.vue:659
 	// Reference: src/components/ProductRelatedOptions.vue:649
 	// Reference: src/components/ProgressBarOptions.vue:336
 	// Reference: src/components/RowOptions.vue:674
 	// Reference: src/components/SectionOptions.vue:383
 	// Reference: src/components/ShadowControl.vue:137
-	// Reference: src/components/SocialProfilesOptions.vue:693
-	// Reference: src/components/SocialSharingOptions.vue:418
-	// Reference: src/components/StripepaymentOptions.vue:1726
-	// Reference: src/components/TeamMemberOptions.vue:1160
-	// Reference: src/components/TextOptions.vue:380
+	// Reference: src/components/SocialProfilesOptions.vue:695
+	// Reference: src/components/SocialSharingOptions.vue:420
+	// Reference: src/components/StripepaymentOptions.vue:1728
+	// Reference: src/components/TeamMemberOptions.vue:1162
+	// Reference: src/components/TextOptions.vue:382
 	// Reference: src/components/VideoOptions.vue:246
-	// Reference: src/components/VideoPopUpOptions.vue:1140
-	// Reference: src/components/WCAddToCartOptions.vue:731
+	// Reference: src/components/VideoPopUpOptions.vue:1142
+	// Reference: src/components/WCAddToCartOptions.vue:733
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1182
 	__( 'Large', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:648
-	// Reference: src/components/AddToCartOptions.vue:1118
-	// Reference: src/components/AlertBoxOptions.vue:743
-	// Reference: src/components/BulletListOptions.vue:521
+	// Reference: src/components/AccordionOptions.vue:652
+	// Reference: src/components/AddToCartOptions.vue:1120
+	// Reference: src/components/AlertBoxOptions.vue:747
+	// Reference: src/components/BulletListOptions.vue:523
 	// Reference: src/components/BusinessHoursOptions.vue:768
-	// Reference: src/components/ButtonOptions.vue:1277
+	// Reference: src/components/ButtonOptions.vue:1283
 	// Reference: src/components/ColOptions.vue:673
-	// Reference: src/components/CountdownOptions.vue:886
-	// Reference: src/components/EDDAddToCartOptions.vue:836
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:865
+	// Reference: src/components/CountdownOptions.vue:888
+	// Reference: src/components/EDDAddToCartOptions.vue:838
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:867
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:660
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1080
 	// Reference: src/components/GoogleMapsOptions.vue:244
-	// Reference: src/components/HeaderOptions.vue:545
+	// Reference: src/components/HeaderOptions.vue:547
 	// Reference: src/components/IconOptions.vue:283
-	// Reference: src/components/ImageOptions.vue:760
+	// Reference: src/components/ImageOptions.vue:770
 	// Reference: src/components/LoginOptions.vue:927
 	// Reference: src/components/NavOptions.vue:609
-	// Reference: src/components/OptinFormOptions.vue:865
+	// Reference: src/components/OptinFormOptions.vue:867
 	// Reference: src/components/PostfeaturedimageOptions.vue:661
 	// Reference: src/components/PostsOptions.vue:2326
-	// Reference: src/components/PriceListOptions.vue:977
-	// Reference: src/components/PricingTableOptions.vue:1394
+	// Reference: src/components/PriceListOptions.vue:979
+	// Reference: src/components/PricingTableOptions.vue:1398
 	// Reference: src/components/ProductFeaturedImageOptions.vue:660
 	// Reference: src/components/ProductRelatedOptions.vue:650
 	// Reference: src/components/ProgressBarOptions.vue:337
 	// Reference: src/components/RowOptions.vue:675
 	// Reference: src/components/SectionOptions.vue:384
 	// Reference: src/components/ShadowControl.vue:138
-	// Reference: src/components/SocialProfilesOptions.vue:701
-	// Reference: src/components/SocialSharingOptions.vue:419
-	// Reference: src/components/StripepaymentOptions.vue:1727
-	// Reference: src/components/TeamMemberOptions.vue:1161
-	// Reference: src/components/TextOptions.vue:381
+	// Reference: src/components/SocialProfilesOptions.vue:703
+	// Reference: src/components/SocialSharingOptions.vue:421
+	// Reference: src/components/StripepaymentOptions.vue:1729
+	// Reference: src/components/TeamMemberOptions.vue:1163
+	// Reference: src/components/TextOptions.vue:383
 	// Reference: src/components/VideoOptions.vue:247
-	// Reference: src/components/VideoPopUpOptions.vue:1141
-	// Reference: src/components/WCAddToCartOptions.vue:732
+	// Reference: src/components/VideoPopUpOptions.vue:1143
+	// Reference: src/components/WCAddToCartOptions.vue:734
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1183
 	__( 'X Large', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:649
-	// Reference: src/components/AddToCartOptions.vue:1119
-	// Reference: src/components/AlertBoxOptions.vue:744
-	// Reference: src/components/BulletListOptions.vue:522
+	// Reference: src/components/AccordionOptions.vue:653
+	// Reference: src/components/AddToCartOptions.vue:1121
+	// Reference: src/components/AlertBoxOptions.vue:748
+	// Reference: src/components/BulletListOptions.vue:524
 	// Reference: src/components/BusinessHoursOptions.vue:769
-	// Reference: src/components/ButtonOptions.vue:1278
+	// Reference: src/components/ButtonOptions.vue:1284
 	// Reference: src/components/ColOptions.vue:674
-	// Reference: src/components/CountdownOptions.vue:887
-	// Reference: src/components/EDDAddToCartOptions.vue:837
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:866
+	// Reference: src/components/CountdownOptions.vue:889
+	// Reference: src/components/EDDAddToCartOptions.vue:839
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:868
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:661
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1081
 	// Reference: src/components/GoogleMapsOptions.vue:245
-	// Reference: src/components/HeaderOptions.vue:546
+	// Reference: src/components/HeaderOptions.vue:548
 	// Reference: src/components/IconOptions.vue:284
-	// Reference: src/components/ImageOptions.vue:761
+	// Reference: src/components/ImageOptions.vue:771
 	// Reference: src/components/LoginOptions.vue:928
 	// Reference: src/components/NavOptions.vue:610
-	// Reference: src/components/OptinFormOptions.vue:866
+	// Reference: src/components/OptinFormOptions.vue:868
 	// Reference: src/components/PostfeaturedimageOptions.vue:662
 	// Reference: src/components/PostsOptions.vue:2327
-	// Reference: src/components/PriceListOptions.vue:978
-	// Reference: src/components/PricingTableOptions.vue:1395
+	// Reference: src/components/PriceListOptions.vue:980
+	// Reference: src/components/PricingTableOptions.vue:1399
 	// Reference: src/components/ProductFeaturedImageOptions.vue:661
 	// Reference: src/components/ProductRelatedOptions.vue:651
 	// Reference: src/components/ProgressBarOptions.vue:338
 	// Reference: src/components/RowOptions.vue:676
 	// Reference: src/components/SectionOptions.vue:385
 	// Reference: src/components/ShadowControl.vue:139
-	// Reference: src/components/SocialSharingOptions.vue:420
-	// Reference: src/components/StripepaymentOptions.vue:1728
-	// Reference: src/components/TeamMemberOptions.vue:1162
-	// Reference: src/components/TextOptions.vue:382
+	// Reference: src/components/SocialSharingOptions.vue:422
+	// Reference: src/components/StripepaymentOptions.vue:1730
+	// Reference: src/components/TeamMemberOptions.vue:1164
+	// Reference: src/components/TextOptions.vue:384
 	// Reference: src/components/VideoOptions.vue:248
-	// Reference: src/components/VideoPopUpOptions.vue:1142
-	// Reference: src/components/WCAddToCartOptions.vue:733
+	// Reference: src/components/VideoPopUpOptions.vue:1144
+	// Reference: src/components/WCAddToCartOptions.vue:735
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1184
 	__( '2X Large', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:650
+	// Reference: src/components/AccordionOptions.vue:654
 	// Reference: src/components/AdditionalInformationOptions.vue:130
 	// Reference: src/components/DividerOptions.vue:395
 	// Reference: src/components/EDDCheckoutOptions.vue:683
-	// Reference: src/components/FeatureOptions.vue:577
-	// Reference: src/components/IconFeatureOptions.vue:554
+	// Reference: src/components/FeatureOptions.vue:581
+	// Reference: src/components/IconFeatureOptions.vue:558
 	__( 'Header Typography', 'coming-soon' ),
 
-	// Reference: src/components/AccordionOptions.vue:693
+	// Reference: src/components/AccordionOptions.vue:697
 	__( 'Accordion ', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1072
-	// Reference: src/components/ButtonOptions.vue:1227
-	// Reference: src/components/EDDAddToCartOptions.vue:788
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:817
+	// Reference: src/components/AddToCartOptions.vue:1074
+	// Reference: src/components/ButtonOptions.vue:1232
+	// Reference: src/components/EDDAddToCartOptions.vue:790
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:819
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1060
 	// Reference: src/components/LoginOptions.vue:904
-	// Reference: src/components/OptinFormOptions.vue:856
+	// Reference: src/components/OptinFormOptions.vue:858
 	// Reference: src/components/ProductRelatedOptions.vue:630
-	// Reference: src/components/StripepaymentOptions.vue:1677
-	// Reference: src/components/WCAddToCartOptions.vue:690
+	// Reference: src/components/StripepaymentOptions.vue:1679
+	// Reference: src/components/WCAddToCartOptions.vue:692
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1163
 	// Reference: src/views/GlobalCSS.vue:2250
 	__( 'Button', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1073
-	// Reference: src/components/ButtonOptions.vue:1228
-	// Reference: src/components/EDDAddToCartOptions.vue:789
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:818
+	// Reference: src/components/AddToCartOptions.vue:1075
+	// Reference: src/components/ButtonOptions.vue:1233
+	// Reference: src/components/EDDAddToCartOptions.vue:791
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:820
 	// Reference: src/components/LoginOptions.vue:889
-	// Reference: src/components/StripepaymentOptions.vue:1678
-	// Reference: src/components/WCAddToCartOptions.vue:691
+	// Reference: src/components/StripepaymentOptions.vue:1680
+	// Reference: src/components/WCAddToCartOptions.vue:693
 	__( 'Button Text', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1075
+	// Reference: src/components/AddToCartOptions.vue:1077
 	__( 'Quantity Typography', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1077
+	// Reference: src/components/AddToCartOptions.vue:1079
 	// Reference: src/components/BackgroundControl.vue:492
 	// Reference: src/components/BeforeAfterToggleOptions.vue:528
-	// Reference: src/components/ButtonOptions.vue:1234
-	// Reference: src/components/ContentToggleOptions.vue:588
-	// Reference: src/components/CountdownOptions.vue:859
-	// Reference: src/components/EDDAddToCartOptions.vue:795
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:824
-	// Reference: src/components/FeatureOptions.vue:564
-	// Reference: src/components/IconFeatureOptions.vue:542
-	// Reference: src/components/IconOptions.vue:276
-	// Reference: src/components/OptinFormOptions.vue:860
-	// Reference: src/components/PostinfoOptions.vue:590
-	// Reference: src/components/SocialProfilesOptions.vue:690
-	// Reference: src/components/SocialSharingOptions.vue:413
-	// Reference: src/components/StarRatingOptions.vue:304
-	// Reference: src/components/StripepaymentOptions.vue:1684
-	// Reference: src/components/TestimonialOptions.vue:597
-	// Reference: src/components/WCAddToCartOptions.vue:697
-	__( 'Size', 'coming-soon' ),
-
-	// Reference: src/components/AddToCartOptions.vue:1078
-	// Reference: src/components/ButtonOptions.vue:1235
-	// Reference: src/components/EDDAddToCartOptions.vue:796
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:825
-	// Reference: src/components/StripepaymentOptions.vue:1685
-	// Reference: src/components/WCAddToCartOptions.vue:698
-	__( 'Vertical Padding', 'coming-soon' ),
-
-	// Reference: src/components/AddToCartOptions.vue:1079
-	// Reference: src/components/ButtonOptions.vue:1236
+	// Reference: src/components/ButtonOptions.vue:1239
+	// Reference: src/components/ContentToggleOptions.vue:592
+	// Reference: src/components/CountdownOptions.vue:861
 	// Reference: src/components/EDDAddToCartOptions.vue:797
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:826
+	// Reference: src/components/FeatureOptions.vue:568
+	// Reference: src/components/IconFeatureOptions.vue:546
+	// Reference: src/components/IconOptions.vue:276
+	// Reference: src/components/OptinFormOptions.vue:862
+	// Reference: src/components/PostinfoOptions.vue:590
+	// Reference: src/components/SocialProfilesOptions.vue:692
+	// Reference: src/components/SocialSharingOptions.vue:415
+	// Reference: src/components/StarRatingOptions.vue:304
 	// Reference: src/components/StripepaymentOptions.vue:1686
+	// Reference: src/components/TestimonialOptions.vue:599
 	// Reference: src/components/WCAddToCartOptions.vue:699
-	__( 'Horizontal Padding', 'coming-soon' ),
+	__( 'Size', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1080
-	// Reference: src/components/BorderRadiusControl.vue:149
-	// Reference: src/components/BorderSectionControl.vue:107
-	// Reference: src/components/ButtonOptions.vue:1237
-	// Reference: src/components/CountdownOptions.vue:879
+	// Reference: src/components/ButtonOptions.vue:1240
 	// Reference: src/components/EDDAddToCartOptions.vue:798
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:827
+	// Reference: src/components/StripepaymentOptions.vue:1687
+	// Reference: src/components/WCAddToCartOptions.vue:700
+	__( 'Vertical Padding', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1081
+	// Reference: src/components/ButtonOptions.vue:1241
+	// Reference: src/components/EDDAddToCartOptions.vue:799
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:828
+	// Reference: src/components/StripepaymentOptions.vue:1688
+	// Reference: src/components/WCAddToCartOptions.vue:701
+	__( 'Horizontal Padding', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1082
+	// Reference: src/components/BorderRadiusControl.vue:149
+	// Reference: src/components/BorderSectionControl.vue:107
+	// Reference: src/components/ButtonOptions.vue:1242
+	// Reference: src/components/CountdownOptions.vue:881
+	// Reference: src/components/EDDAddToCartOptions.vue:800
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:829
 	// Reference: src/components/EDDCartOptions.vue:391
 	// Reference: src/components/EDDCheckoutOptions.vue:666
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:663
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1018
-	// Reference: src/components/ImageOptions.vue:763
-	// Reference: src/components/OptinFormOptions.vue:876
+	// Reference: src/components/ImageOptions.vue:773
+	// Reference: src/components/OptinFormOptions.vue:878
 	// Reference: src/components/PostfeaturedimageOptions.vue:664
 	// Reference: src/components/PostsOptions.vue:2362
-	// Reference: src/components/PricingTableOptions.vue:1310
+	// Reference: src/components/PricingTableOptions.vue:1314
 	// Reference: src/components/ProductDataTabsOptions.vue:339
 	// Reference: src/components/ProductFeaturedImageOptions.vue:663
 	// Reference: src/components/ProductGalleryImagesOptions.vue:210
 	// Reference: src/components/ProductRelatedOptions.vue:616
 	// Reference: src/components/ProgressBarOptions.vue:330
 	// Reference: src/components/SectionOptions.vue:386
-	// Reference: src/components/SocialProfilesOptions.vue:695
-	// Reference: src/components/StripepaymentOptions.vue:1687
-	// Reference: src/components/WCAddToCartOptions.vue:700
+	// Reference: src/components/SocialProfilesOptions.vue:697
+	// Reference: src/components/StripepaymentOptions.vue:1689
+	// Reference: src/components/WCAddToCartOptions.vue:702
 	// Reference: src/components/WCCartOptions.vue:539
 	// Reference: src/components/WCCheckoutOptions.vue:808
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1121
 	__( 'Border Radius', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1081
-	// Reference: src/components/AlertBoxOptions.vue:725
-	// Reference: src/components/ButtonOptions.vue:1238
-	// Reference: src/components/EDDAddToCartOptions.vue:799
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:828
-	// Reference: src/components/HeaderOptions.vue:531
-	// Reference: src/components/StripepaymentOptions.vue:1688
-	// Reference: src/components/WCAddToCartOptions.vue:701
-	__( 'Icons', 'coming-soon' ),
-
-	// Reference: src/components/AddToCartOptions.vue:1082
-	// Reference: src/components/AlertBoxOptions.vue:746
-	// Reference: src/components/ButtonOptions.vue:1239
-	// Reference: src/components/EDDAddToCartOptions.vue:800
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:829
-	// Reference: src/components/HeaderOptions.vue:548
-	// Reference: src/components/OptinFormOptions.vue:883
-	// Reference: src/components/StripepaymentOptions.vue:1689
-	// Reference: src/components/WCAddToCartOptions.vue:702
-	__( 'Before Text Icon', 'coming-soon' ),
-
 	// Reference: src/components/AddToCartOptions.vue:1083
-	// Reference: src/components/AlertBoxOptions.vue:747
-	// Reference: src/components/ButtonOptions.vue:1240
+	// Reference: src/components/AlertBoxOptions.vue:729
+	// Reference: src/components/ButtonOptions.vue:1243
 	// Reference: src/components/EDDAddToCartOptions.vue:801
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:830
-	// Reference: src/components/HeaderOptions.vue:549
-	// Reference: src/components/OptinFormOptions.vue:884
+	// Reference: src/components/HeaderOptions.vue:533
 	// Reference: src/components/StripepaymentOptions.vue:1690
 	// Reference: src/components/WCAddToCartOptions.vue:703
-	__( 'After Text Icon', 'coming-soon' ),
+	__( 'Icons', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1084
-	// Reference: src/components/AlertBoxOptions.vue:773
-	// Reference: src/components/BusinessHoursOptions.vue:717
-	// Reference: src/components/ButtonOptions.vue:1241
-	// Reference: src/components/CountdownOptions.vue:849
-	// Reference: src/components/CounterOptions.vue:327
+	// Reference: src/components/AlertBoxOptions.vue:750
+	// Reference: src/components/ButtonOptions.vue:1244
 	// Reference: src/components/EDDAddToCartOptions.vue:802
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:831
+	// Reference: src/components/HeaderOptions.vue:550
+	// Reference: src/components/OptinFormOptions.vue:885
+	// Reference: src/components/StripepaymentOptions.vue:1691
+	// Reference: src/components/WCAddToCartOptions.vue:704
+	__( 'Before Text Icon', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1085
+	// Reference: src/components/AlertBoxOptions.vue:751
+	// Reference: src/components/ButtonOptions.vue:1245
+	// Reference: src/components/EDDAddToCartOptions.vue:803
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:832
+	// Reference: src/components/HeaderOptions.vue:551
+	// Reference: src/components/OptinFormOptions.vue:886
+	// Reference: src/components/StripepaymentOptions.vue:1692
+	// Reference: src/components/WCAddToCartOptions.vue:705
+	__( 'After Text Icon', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1086
+	// Reference: src/components/AlertBoxOptions.vue:777
+	// Reference: src/components/BusinessHoursOptions.vue:717
+	// Reference: src/components/ButtonOptions.vue:1246
+	// Reference: src/components/CountdownOptions.vue:851
+	// Reference: src/components/CounterOptions.vue:327
+	// Reference: src/components/EDDAddToCartOptions.vue:804
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:833
 	// Reference: src/components/EDDCartOptions.vue:359
 	// Reference: src/components/EDDCheckoutOptions.vue:636
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:641
-	// Reference: src/components/ImageOptions.vue:739
+	// Reference: src/components/ImageOptions.vue:749
 	// Reference: src/components/LoginOptions.vue:930
-	// Reference: src/components/OptinFormOptions.vue:849
+	// Reference: src/components/OptinFormOptions.vue:851
 	// Reference: src/components/PostfeaturedimageOptions.vue:641
-	// Reference: src/components/PriceListOptions.vue:899
+	// Reference: src/components/PriceListOptions.vue:901
 	// Reference: src/components/ProductFeaturedImageOptions.vue:641
 	// Reference: src/components/ProgressBarOptions.vue:323
-	// Reference: src/components/SocialProfilesOptions.vue:719
-	// Reference: src/components/StripepaymentOptions.vue:1691
-	// Reference: src/components/TeamMemberOptions.vue:1048
-	// Reference: src/components/WCAddToCartOptions.vue:704
+	// Reference: src/components/SocialProfilesOptions.vue:721
+	// Reference: src/components/StripepaymentOptions.vue:1693
+	// Reference: src/components/TeamMemberOptions.vue:1050
+	// Reference: src/components/WCAddToCartOptions.vue:706
 	// Reference: src/components/WCCartOptions.vue:498
 	// Reference: src/components/WCCheckoutOptions.vue:767
 	__( 'Templates', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1085
-	// Reference: src/components/ButtonOptions.vue:1242
-	// Reference: src/components/CountdownOptions.vue:860
-	// Reference: src/components/OptinFormOptions.vue:861
-	// Reference: src/components/StripepaymentOptions.vue:1692
-	// Reference: src/components/WCAddToCartOptions.vue:705
-	__( 'Tiny', 'coming-soon' ),
-
 	// Reference: src/components/AddToCartOptions.vue:1087
-	// Reference: src/components/ButtonOptions.vue:1244
-	// Reference: src/components/EDDAddToCartOptions.vue:805
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:834
+	// Reference: src/components/ButtonOptions.vue:1247
+	// Reference: src/components/CountdownOptions.vue:862
+	// Reference: src/components/OptinFormOptions.vue:863
 	// Reference: src/components/StripepaymentOptions.vue:1694
 	// Reference: src/components/WCAddToCartOptions.vue:707
-	__( 'Pill Button', 'coming-soon' ),
-
-	// Reference: src/components/AddToCartOptions.vue:1088
-	// Reference: src/components/ButtonOptions.vue:1245
-	// Reference: src/components/EDDAddToCartOptions.vue:806
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:835
-	// Reference: src/components/StripepaymentOptions.vue:1695
-	// Reference: src/components/WCAddToCartOptions.vue:708
-	__( 'Flat Button', 'coming-soon' ),
+	__( 'Tiny', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1089
-	// Reference: src/components/ButtonOptions.vue:1246
+	// Reference: src/components/ButtonOptions.vue:1249
 	// Reference: src/components/EDDAddToCartOptions.vue:807
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:836
 	// Reference: src/components/StripepaymentOptions.vue:1696
 	// Reference: src/components/WCAddToCartOptions.vue:709
-	__( 'Blue Button', 'coming-soon' ),
+	__( 'Pill Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1090
-	// Reference: src/components/ButtonOptions.vue:1247
+	// Reference: src/components/ButtonOptions.vue:1250
 	// Reference: src/components/EDDAddToCartOptions.vue:808
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:837
 	// Reference: src/components/StripepaymentOptions.vue:1697
 	// Reference: src/components/WCAddToCartOptions.vue:710
-	__( 'Light Green Button', 'coming-soon' ),
+	__( 'Flat Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1091
-	// Reference: src/components/ButtonOptions.vue:1248
+	// Reference: src/components/ButtonOptions.vue:1251
 	// Reference: src/components/EDDAddToCartOptions.vue:809
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:838
 	// Reference: src/components/StripepaymentOptions.vue:1698
 	// Reference: src/components/WCAddToCartOptions.vue:711
-	__( 'Green Button', 'coming-soon' ),
+	__( 'Blue Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1092
-	// Reference: src/components/ButtonOptions.vue:1249
+	// Reference: src/components/ButtonOptions.vue:1252
 	// Reference: src/components/EDDAddToCartOptions.vue:810
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:839
 	// Reference: src/components/StripepaymentOptions.vue:1699
 	// Reference: src/components/WCAddToCartOptions.vue:712
-	__( 'Orange Button', 'coming-soon' ),
+	__( 'Light Green Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1093
-	// Reference: src/components/ButtonOptions.vue:1250
+	// Reference: src/components/ButtonOptions.vue:1253
 	// Reference: src/components/EDDAddToCartOptions.vue:811
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:840
 	// Reference: src/components/StripepaymentOptions.vue:1700
 	// Reference: src/components/WCAddToCartOptions.vue:713
-	__( 'Red Button', 'coming-soon' ),
+	__( 'Green Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1094
-	// Reference: src/components/ButtonOptions.vue:1251
+	// Reference: src/components/ButtonOptions.vue:1254
 	// Reference: src/components/EDDAddToCartOptions.vue:812
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:841
 	// Reference: src/components/StripepaymentOptions.vue:1701
 	// Reference: src/components/WCAddToCartOptions.vue:714
-	__( 'Yellow Button', 'coming-soon' ),
+	__( 'Orange Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1095
-	// Reference: src/components/ButtonOptions.vue:1252
+	// Reference: src/components/ButtonOptions.vue:1255
 	// Reference: src/components/EDDAddToCartOptions.vue:813
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:842
 	// Reference: src/components/StripepaymentOptions.vue:1702
 	// Reference: src/components/WCAddToCartOptions.vue:715
-	__( 'White Button', 'coming-soon' ),
+	__( 'Red Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1096
-	// Reference: src/components/ButtonOptions.vue:1253
+	// Reference: src/components/ButtonOptions.vue:1256
 	// Reference: src/components/EDDAddToCartOptions.vue:814
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:843
 	// Reference: src/components/StripepaymentOptions.vue:1703
 	// Reference: src/components/WCAddToCartOptions.vue:716
-	__( 'Grey Button', 'coming-soon' ),
+	__( 'Yellow Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1097
-	// Reference: src/components/ButtonOptions.vue:1254
+	// Reference: src/components/ButtonOptions.vue:1257
 	// Reference: src/components/EDDAddToCartOptions.vue:815
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:844
 	// Reference: src/components/StripepaymentOptions.vue:1704
 	// Reference: src/components/WCAddToCartOptions.vue:717
-	__( 'Black Button', 'coming-soon' ),
+	__( 'White Button', 'coming-soon' ),
 
 	// Reference: src/components/AddToCartOptions.vue:1098
-	// Reference: src/components/ButtonOptions.vue:1255
+	// Reference: src/components/ButtonOptions.vue:1258
 	// Reference: src/components/EDDAddToCartOptions.vue:816
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:845
+	// Reference: src/components/StripepaymentOptions.vue:1705
+	// Reference: src/components/WCAddToCartOptions.vue:718
+	__( 'Grey Button', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1099
+	// Reference: src/components/ButtonOptions.vue:1259
+	// Reference: src/components/EDDAddToCartOptions.vue:817
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:846
+	// Reference: src/components/StripepaymentOptions.vue:1706
+	// Reference: src/components/WCAddToCartOptions.vue:719
+	__( 'Black Button', 'coming-soon' ),
+
+	// Reference: src/components/AddToCartOptions.vue:1100
+	// Reference: src/components/ButtonOptions.vue:1260
+	// Reference: src/components/EDDAddToCartOptions.vue:818
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:847
 	// Reference: src/components/EDDCartOptions.vue:381
 	// Reference: src/components/EDDCheckoutOptions.vue:664
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1061
-	// Reference: src/components/OptinFormOptions.vue:878
+	// Reference: src/components/OptinFormOptions.vue:880
 	// Reference: src/components/ProductRelatedOptions.vue:631
-	// Reference: src/components/StripepaymentOptions.vue:1705
-	// Reference: src/components/WCAddToCartOptions.vue:718
+	// Reference: src/components/StripepaymentOptions.vue:1707
+	// Reference: src/components/WCAddToCartOptions.vue:720
 	// Reference: src/components/WCCartOptions.vue:526
 	// Reference: src/components/WCCheckoutOptions.vue:795
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1164
 	__( 'Button Style', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1099
-	// Reference: src/components/ButtonOptions.vue:1256
-	// Reference: src/components/EDDAddToCartOptions.vue:817
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:846
+	// Reference: src/components/AddToCartOptions.vue:1101
+	// Reference: src/components/ButtonOptions.vue:1261
+	// Reference: src/components/EDDAddToCartOptions.vue:819
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:848
 	// Reference: src/components/EDDCartOptions.vue:384
 	// Reference: src/components/EDDCheckoutOptions.vue:667
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1008
-	// Reference: src/components/OptinFormOptions.vue:879
+	// Reference: src/components/OptinFormOptions.vue:881
 	// Reference: src/components/ProductRelatedOptions.vue:617
-	// Reference: src/components/StripepaymentOptions.vue:1706
-	// Reference: src/components/WCAddToCartOptions.vue:719
+	// Reference: src/components/StripepaymentOptions.vue:1708
+	// Reference: src/components/WCAddToCartOptions.vue:721
 	// Reference: src/components/WCCartOptions.vue:529
 	// Reference: src/components/WCCheckoutOptions.vue:798
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1111
 	__( 'Flat', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1100
-	// Reference: src/components/ButtonOptions.vue:1257
-	// Reference: src/components/EDDAddToCartOptions.vue:818
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:847
+	// Reference: src/components/AddToCartOptions.vue:1102
+	// Reference: src/components/ButtonOptions.vue:1262
+	// Reference: src/components/EDDAddToCartOptions.vue:820
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:849
 	// Reference: src/components/EDDCartOptions.vue:385
 	// Reference: src/components/EDDCheckoutOptions.vue:668
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1009
-	// Reference: src/components/OptinFormOptions.vue:881
+	// Reference: src/components/OptinFormOptions.vue:883
 	// Reference: src/components/ProductRelatedOptions.vue:618
-	// Reference: src/components/StripepaymentOptions.vue:1707
-	// Reference: src/components/WCAddToCartOptions.vue:720
+	// Reference: src/components/StripepaymentOptions.vue:1709
+	// Reference: src/components/WCAddToCartOptions.vue:722
 	// Reference: src/components/WCCartOptions.vue:530
 	// Reference: src/components/WCCheckoutOptions.vue:799
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1112
 	__( '2D', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1101
-	// Reference: src/components/ButtonOptions.vue:1258
-	// Reference: src/components/EDDAddToCartOptions.vue:819
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:848
+	// Reference: src/components/AddToCartOptions.vue:1103
+	// Reference: src/components/ButtonOptions.vue:1263
+	// Reference: src/components/EDDAddToCartOptions.vue:821
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:850
 	// Reference: src/components/EDDCartOptions.vue:386
 	// Reference: src/components/EDDCheckoutOptions.vue:669
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1010
-	// Reference: src/components/OptinFormOptions.vue:882
+	// Reference: src/components/OptinFormOptions.vue:884
 	// Reference: src/components/ProductRelatedOptions.vue:619
-	// Reference: src/components/StripepaymentOptions.vue:1708
-	// Reference: src/components/WCAddToCartOptions.vue:721
+	// Reference: src/components/StripepaymentOptions.vue:1710
+	// Reference: src/components/WCAddToCartOptions.vue:723
 	// Reference: src/components/WCCartOptions.vue:531
 	// Reference: src/components/WCCheckoutOptions.vue:800
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1113
 	__( 'Vintage', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1102
-	// Reference: src/components/ButtonOptions.vue:1259
-	// Reference: src/components/EDDAddToCartOptions.vue:820
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:849
+	// Reference: src/components/AddToCartOptions.vue:1104
+	// Reference: src/components/ButtonOptions.vue:1264
+	// Reference: src/components/EDDAddToCartOptions.vue:822
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:851
 	// Reference: src/components/EDDCartOptions.vue:387
 	// Reference: src/components/EDDCheckoutOptions.vue:670
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1011
-	// Reference: src/components/OptinFormOptions.vue:880
+	// Reference: src/components/OptinFormOptions.vue:882
 	// Reference: src/components/ProductRelatedOptions.vue:620
-	// Reference: src/components/StripepaymentOptions.vue:1709
-	// Reference: src/components/WCAddToCartOptions.vue:722
+	// Reference: src/components/StripepaymentOptions.vue:1711
+	// Reference: src/components/WCAddToCartOptions.vue:724
 	// Reference: src/components/WCCartOptions.vue:532
 	// Reference: src/components/WCCheckoutOptions.vue:801
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1114
 	__( 'Ghost', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1106
-	// Reference: src/components/ButtonOptions.vue:1263
+	// Reference: src/components/AddToCartOptions.vue:1108
+	// Reference: src/components/ButtonOptions.vue:1268
 	// Reference: src/components/LoginOptions.vue:896
-	// Reference: src/components/StripepaymentOptions.vue:1713
+	// Reference: src/components/StripepaymentOptions.vue:1715
 	// Reference: src/views/GlobalCSS.vue:2252
 	__( 'Button Text Color', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1107
-	// Reference: src/components/ButtonOptions.vue:1264
-	// Reference: src/components/StripepaymentOptions.vue:1714
+	// Reference: src/components/AddToCartOptions.vue:1109
+	// Reference: src/components/ButtonOptions.vue:1269
+	// Reference: src/components/StripepaymentOptions.vue:1716
 	// Reference: src/views/GlobalCSS.vue:2257
 	__( 'Button Background Style', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1108
+	// Reference: src/components/AddToCartOptions.vue:1110
 	// Reference: src/components/BackgroundControl.vue:446
 	// Reference: src/components/BorderSectionControl.vue:109
 	// Reference: src/components/BusinessHoursOptions.vue:750
-	// Reference: src/components/ButtonOptions.vue:1265
+	// Reference: src/components/ButtonOptions.vue:1270
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:665
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1072
-	// Reference: src/components/ImageOptions.vue:765
+	// Reference: src/components/ImageOptions.vue:775
 	// Reference: src/components/PostfeaturedimageOptions.vue:666
 	// Reference: src/components/PostsOptions.vue:2318
-	// Reference: src/components/PriceListOptions.vue:939
-	// Reference: src/components/PricingTableOptions.vue:1366
+	// Reference: src/components/PriceListOptions.vue:941
+	// Reference: src/components/PricingTableOptions.vue:1370
 	// Reference: src/components/ProductFeaturedImageOptions.vue:665
 	// Reference: src/components/ProductRelatedOptions.vue:642
 	// Reference: src/components/SectionOptions.vue:388
-	// Reference: src/components/StripepaymentOptions.vue:1715
-	// Reference: src/components/TeamMemberOptions.vue:1113
+	// Reference: src/components/StripepaymentOptions.vue:1717
+	// Reference: src/components/TeamMemberOptions.vue:1115
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1175
 	// Reference: src/views/GlobalCSS.vue:2255
 	__( 'Solid', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1109
+	// Reference: src/components/AddToCartOptions.vue:1111
 	// Reference: src/components/BackgroundControl.vue:447
-	// Reference: src/components/ButtonOptions.vue:1266
-	// Reference: src/components/StripepaymentOptions.vue:1716
+	// Reference: src/components/ButtonOptions.vue:1271
+	// Reference: src/components/StripepaymentOptions.vue:1718
 	// Reference: src/views/GlobalCSS.vue:2268
 	__( 'Gradient', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1110
-	// Reference: src/components/ButtonOptions.vue:1269
+	// Reference: src/components/AddToCartOptions.vue:1112
+	// Reference: src/components/ButtonOptions.vue:1274
 	// Reference: src/components/ProductDataTabsOptions.vue:333
 	// Reference: src/components/ProductGalleryImagesOptions.vue:204
-	// Reference: src/components/StripepaymentOptions.vue:1719
+	// Reference: src/components/StripepaymentOptions.vue:1721
 	// Reference: src/components/TypographyControl.vue:323
 	// Reference: src/views/GlobalCSS.vue:2223
 	__( 'Normal', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1111
-	// Reference: src/components/ButtonOptions.vue:1270
-	// Reference: src/components/StripepaymentOptions.vue:1720
+	// Reference: src/components/AddToCartOptions.vue:1113
+	// Reference: src/components/ButtonOptions.vue:1275
+	// Reference: src/components/StripepaymentOptions.vue:1722
 	// Reference: src/views/GlobalCSS.vue:2224
 	__( 'Hover', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1120
-	// Reference: src/components/ButtonOptions.vue:1279
+	// Reference: src/components/AddToCartOptions.vue:1122
+	// Reference: src/components/ButtonOptions.vue:1285
 	// Reference: src/components/DynamicTagsControl.vue:960
-	// Reference: src/components/EDDAddToCartOptions.vue:838
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:867
+	// Reference: src/components/EDDAddToCartOptions.vue:840
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:869
 	// Reference: src/components/EDDCartOptions.vue:388
 	// Reference: src/components/EDDCheckoutOptions.vue:671
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:671
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1012
-	// Reference: src/components/HeaderOptions.vue:554
+	// Reference: src/components/HeaderOptions.vue:556
 	// Reference: src/components/IconOptions.vue:288
-	// Reference: src/components/ImageOptions.vue:771
+	// Reference: src/components/ImageOptions.vue:781
 	// Reference: src/components/PostauthorboxOptions.vue:354
 	// Reference: src/components/PostfeaturedimageOptions.vue:672
 	// Reference: src/components/PostinfoOptions.vue:591
-	// Reference: src/components/PriceListOptions.vue:925
+	// Reference: src/components/PriceListOptions.vue:927
 	// Reference: src/components/ProductFeaturedImageOptions.vue:671
 	// Reference: src/components/ProductRelatedOptions.vue:621
-	// Reference: src/components/StripepaymentOptions.vue:1729
-	// Reference: src/components/TeamMemberOptions.vue:1097
-	// Reference: src/components/WCAddToCartOptions.vue:734
+	// Reference: src/components/StripepaymentOptions.vue:1731
+	// Reference: src/components/TeamMemberOptions.vue:1099
+	// Reference: src/components/WCAddToCartOptions.vue:736
 	// Reference: src/components/WCCartOptions.vue:533
 	// Reference: src/components/WCCheckoutOptions.vue:802
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1115
@@ -2310,361 +2318,363 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/views/SettingsGeneral.vue:266
 	__( 'Link', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1121
+	// Reference: src/components/AddToCartOptions.vue:1123
 	// Reference: src/components/BackgroundControl.vue:448
-	// Reference: src/components/ButtonOptions.vue:1280
-	// Reference: src/components/StripepaymentOptions.vue:1735
+	// Reference: src/components/ButtonOptions.vue:1286
+	// Reference: src/components/StripepaymentOptions.vue:1737
 	// Reference: src/views/GlobalCSS.vue:2269
 	__( 'Gradient Type', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1122
+	// Reference: src/components/AddToCartOptions.vue:1124
 	// Reference: src/components/BackgroundControl.vue:449
-	// Reference: src/components/ButtonOptions.vue:1281
-	// Reference: src/components/StripepaymentOptions.vue:1736
+	// Reference: src/components/ButtonOptions.vue:1287
+	// Reference: src/components/StripepaymentOptions.vue:1738
 	// Reference: src/views/GlobalCSS.vue:2270
 	__( 'Radial', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1123
+	// Reference: src/components/AddToCartOptions.vue:1125
 	// Reference: src/components/BackgroundControl.vue:450
-	// Reference: src/components/ButtonOptions.vue:1282
-	// Reference: src/components/StripepaymentOptions.vue:1737
+	// Reference: src/components/ButtonOptions.vue:1288
+	// Reference: src/components/StripepaymentOptions.vue:1739
 	// Reference: src/views/GlobalCSS.vue:2271
 	__( 'Linear', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1124
+	// Reference: src/components/AddToCartOptions.vue:1126
 	// Reference: src/components/BackgroundControl.vue:451
-	// Reference: src/components/ButtonOptions.vue:1283
-	// Reference: src/components/StripepaymentOptions.vue:1738
+	// Reference: src/components/ButtonOptions.vue:1289
+	// Reference: src/components/StripepaymentOptions.vue:1740
 	// Reference: src/views/GlobalCSS.vue:2272
 	__( 'Angle', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1125
+	// Reference: src/components/AddToCartOptions.vue:1127
 	// Reference: src/components/BackgroundControl.vue:481
-	// Reference: src/components/ButtonOptions.vue:1284
+	// Reference: src/components/ButtonOptions.vue:1290
 	// Reference: src/components/DisplaySectionControl.vue:188
 	// Reference: src/components/ShadowControl.vue:146
-	// Reference: src/components/StripepaymentOptions.vue:1739
-	// Reference: src/components/TeamMemberOptions.vue:1067
+	// Reference: src/components/StripepaymentOptions.vue:1741
+	// Reference: src/components/TeamMemberOptions.vue:1069
 	// Reference: src/views/GlobalCSS.vue:2273
 	__( 'Position', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1126
+	// Reference: src/components/AddToCartOptions.vue:1128
 	// Reference: src/components/BackgroundControl.vue:453
-	// Reference: src/components/ButtonOptions.vue:1285
-	// Reference: src/components/StripepaymentOptions.vue:1740
+	// Reference: src/components/ButtonOptions.vue:1291
+	// Reference: src/components/StripepaymentOptions.vue:1742
 	// Reference: src/views/GlobalCSS.vue:2274
 	__( 'Top Center', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1127
+	// Reference: src/components/AddToCartOptions.vue:1129
 	// Reference: src/components/BackgroundControl.vue:454
-	// Reference: src/components/ButtonOptions.vue:1286
+	// Reference: src/components/ButtonOptions.vue:1292
 	// Reference: src/components/ParticlesBackgroundControl.vue:315
 	// Reference: src/components/PostsOptions.vue:2337
-	// Reference: src/components/StripepaymentOptions.vue:1741
+	// Reference: src/components/StripepaymentOptions.vue:1743
 	// Reference: src/views/GlobalCSS.vue:2275
 	__( 'Top Left', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1128
+	// Reference: src/components/AddToCartOptions.vue:1130
 	// Reference: src/components/BackgroundControl.vue:455
-	// Reference: src/components/ButtonOptions.vue:1287
+	// Reference: src/components/ButtonOptions.vue:1293
 	// Reference: src/components/ParticlesBackgroundControl.vue:316
 	// Reference: src/components/PostsOptions.vue:2336
-	// Reference: src/components/StripepaymentOptions.vue:1742
+	// Reference: src/components/StripepaymentOptions.vue:1744
 	// Reference: src/views/GlobalCSS.vue:2276
 	__( 'Top Right', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1129
+	// Reference: src/components/AddToCartOptions.vue:1131
 	// Reference: src/components/BackgroundControl.vue:456
-	// Reference: src/components/ButtonOptions.vue:1288
-	// Reference: src/components/StripepaymentOptions.vue:1743
+	// Reference: src/components/ButtonOptions.vue:1294
+	// Reference: src/components/StripepaymentOptions.vue:1745
 	// Reference: src/views/GlobalCSS.vue:2277
 	__( 'Center Center', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1130
+	// Reference: src/components/AddToCartOptions.vue:1132
 	// Reference: src/components/BackgroundControl.vue:457
-	// Reference: src/components/ButtonOptions.vue:1289
-	// Reference: src/components/StripepaymentOptions.vue:1744
+	// Reference: src/components/ButtonOptions.vue:1295
+	// Reference: src/components/StripepaymentOptions.vue:1746
 	// Reference: src/views/GlobalCSS.vue:2278
 	__( 'Center Left', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1131
+	// Reference: src/components/AddToCartOptions.vue:1133
 	// Reference: src/components/BackgroundControl.vue:458
-	// Reference: src/components/ButtonOptions.vue:1290
-	// Reference: src/components/StripepaymentOptions.vue:1745
+	// Reference: src/components/ButtonOptions.vue:1296
+	// Reference: src/components/StripepaymentOptions.vue:1747
 	// Reference: src/views/GlobalCSS.vue:2279
 	__( 'Center Right', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1132
+	// Reference: src/components/AddToCartOptions.vue:1134
 	// Reference: src/components/BackgroundControl.vue:459
-	// Reference: src/components/ButtonOptions.vue:1291
-	// Reference: src/components/StripepaymentOptions.vue:1746
+	// Reference: src/components/ButtonOptions.vue:1297
+	// Reference: src/components/StripepaymentOptions.vue:1748
 	// Reference: src/views/GlobalCSS.vue:2280
 	__( 'Bottom Center', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1133
+	// Reference: src/components/AddToCartOptions.vue:1135
 	// Reference: src/components/BackgroundControl.vue:460
-	// Reference: src/components/ButtonOptions.vue:1292
+	// Reference: src/components/ButtonOptions.vue:1298
 	// Reference: src/components/ParticlesBackgroundControl.vue:317
 	// Reference: src/components/PostsOptions.vue:2339
-	// Reference: src/components/StripepaymentOptions.vue:1747
+	// Reference: src/components/StripepaymentOptions.vue:1749
 	// Reference: src/views/GlobalCSS.vue:2281
 	__( 'Bottom Left', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1134
+	// Reference: src/components/AddToCartOptions.vue:1136
 	// Reference: src/components/BackgroundControl.vue:461
-	// Reference: src/components/ButtonOptions.vue:1293
+	// Reference: src/components/ButtonOptions.vue:1299
 	// Reference: src/components/ParticlesBackgroundControl.vue:318
 	// Reference: src/components/PostsOptions.vue:2338
-	// Reference: src/components/StripepaymentOptions.vue:1748
+	// Reference: src/components/StripepaymentOptions.vue:1750
 	// Reference: src/views/GlobalCSS.vue:2282
 	__( 'Bottom Right', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1135
+	// Reference: src/components/AddToCartOptions.vue:1137
 	// Reference: src/components/BackgroundControl.vue:462
-	// Reference: src/components/ButtonOptions.vue:1294
-	// Reference: src/components/StripepaymentOptions.vue:1749
+	// Reference: src/components/ButtonOptions.vue:1300
+	// Reference: src/components/StripepaymentOptions.vue:1751
 	// Reference: src/views/GlobalCSS.vue:2283
 	__( 'First Color Location', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1136
+	// Reference: src/components/AddToCartOptions.vue:1138
 	// Reference: src/components/BackgroundControl.vue:463
-	// Reference: src/components/ButtonOptions.vue:1295
-	// Reference: src/components/StripepaymentOptions.vue:1750
+	// Reference: src/components/ButtonOptions.vue:1301
+	// Reference: src/components/StripepaymentOptions.vue:1752
 	// Reference: src/views/GlobalCSS.vue:2284
 	__( 'Second Color Location', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1137
+	// Reference: src/components/AddToCartOptions.vue:1139
 	// Reference: src/components/BackgroundControl.vue:471
-	// Reference: src/components/ButtonOptions.vue:1296
-	// Reference: src/components/StripepaymentOptions.vue:1751
+	// Reference: src/components/ButtonOptions.vue:1302
+	// Reference: src/components/StripepaymentOptions.vue:1753
 	// Reference: src/views/GlobalCSS.vue:2285
 	__( 'First Color', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1138
+	// Reference: src/components/AddToCartOptions.vue:1140
 	// Reference: src/components/BackgroundControl.vue:472
-	// Reference: src/components/ButtonOptions.vue:1297
-	// Reference: src/components/StripepaymentOptions.vue:1752
+	// Reference: src/components/ButtonOptions.vue:1303
+	// Reference: src/components/StripepaymentOptions.vue:1754
 	// Reference: src/views/GlobalCSS.vue:2286
 	__( 'Second Color', 'coming-soon' ),
 
-	// Reference: src/components/AddToCartOptions.vue:1139
+	// Reference: src/components/AddToCartOptions.vue:1141
 	// Reference: src/components/BackgroundControl.vue:496
-	// Reference: src/components/ButtonOptions.vue:1298
+	// Reference: src/components/ButtonOptions.vue:1304
 	// Reference: src/components/DynamicTagsControl.vue:973
 	// Reference: src/components/ParticlesBackgroundControl.vue:307
 	// Reference: src/components/PostinfoOptions.vue:606
 	// Reference: src/components/PostsOptions.vue:2220
-	// Reference: src/components/PriceListOptions.vue:966
-	// Reference: src/components/PricingTableOptions.vue:1330
+	// Reference: src/components/PriceListOptions.vue:968
+	// Reference: src/components/PricingTableOptions.vue:1334
 	// Reference: src/components/ProductMetaOptions.vue:340
 	// Reference: src/components/ShadowControl.vue:140
-	// Reference: src/components/SocialProfilesOptions.vue:715
-	// Reference: src/components/StripepaymentOptions.vue:1753
-	// Reference: src/components/TeamMemberOptions.vue:1138
+	// Reference: src/components/SocialProfilesOptions.vue:717
+	// Reference: src/components/StripepaymentOptions.vue:1755
+	// Reference: src/components/TeamMemberOptions.vue:1140
 	// Reference: src/components/VideoOptions.vue:237
-	// Reference: src/components/VideoPopUpOptions.vue:1131
+	// Reference: src/components/VideoPopUpOptions.vue:1133
 	__( 'Custom', 'coming-soon' ),
 
 	// Reference: src/components/AdditionalInformationOptions.vue:127
-	// Reference: src/components/PricingTableOptions.vue:1293
+	// Reference: src/components/PricingTableOptions.vue:1297
 	__( 'Header', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:723
+	// Reference: src/components/AlertBoxOptions.vue:727
 	__( 'Alert', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:726
+	// Reference: src/components/AlertBoxOptions.vue:730
 	// Reference: src/components/CounterOptions.vue:337
 	// Reference: src/components/DynamicTagsControl.vue:1004
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1098
 	// Reference: src/components/PostsOptions.vue:2238
-	// Reference: src/components/PriceListOptions.vue:931
+	// Reference: src/components/PriceListOptions.vue:933
 	// Reference: src/components/ProductRelatedOptions.vue:668
-	// Reference: src/components/TeamMemberOptions.vue:1096
-	// Reference: src/components/TestimonialOptions.vue:608
+	// Reference: src/components/TeamMemberOptions.vue:1098
+	// Reference: src/components/TestimonialOptions.vue:610
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1201
 	__( 'Title', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:727
+	// Reference: src/components/AlertBoxOptions.vue:731
 	// Reference: src/components/DynamicTagsControl.vue:1007
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1057
-	// Reference: src/components/PriceListOptions.vue:930
-	// Reference: src/components/PricingTableOptions.vue:1336
-	// Reference: src/components/TeamMemberOptions.vue:1140
+	// Reference: src/components/PriceListOptions.vue:932
+	// Reference: src/components/PricingTableOptions.vue:1340
+	// Reference: src/components/TeamMemberOptions.vue:1142
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1160
 	__( 'Description', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:728
+	// Reference: src/components/AlertBoxOptions.vue:732
 	__( 'Title Font Size', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:729
+	// Reference: src/components/AlertBoxOptions.vue:733
 	// Reference: src/components/CounterOptions.vue:344
 	__( 'Title Align', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:730
-	// Reference: src/components/TeamMemberOptions.vue:1131
+	// Reference: src/components/AlertBoxOptions.vue:734
+	// Reference: src/components/TeamMemberOptions.vue:1133
 	__( 'Description Align', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:731
+	// Reference: src/components/AlertBoxOptions.vue:735
 	// Reference: src/components/PostsOptions.vue:2268
-	// Reference: src/components/TeamMemberOptions.vue:1141
+	// Reference: src/components/TeamMemberOptions.vue:1143
 	__( 'Title Tag', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:732
+	// Reference: src/components/AlertBoxOptions.vue:736
 	__( 'Description Font Size', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:733
-	// Reference: src/components/HeaderOptions.vue:535
+	// Reference: src/components/AlertBoxOptions.vue:737
+	// Reference: src/components/HeaderOptions.vue:537
 	__( 'h1', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:734
-	// Reference: src/components/HeaderOptions.vue:536
+	// Reference: src/components/AlertBoxOptions.vue:738
+	// Reference: src/components/HeaderOptions.vue:538
 	__( 'h2', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:735
-	// Reference: src/components/HeaderOptions.vue:537
+	// Reference: src/components/AlertBoxOptions.vue:739
+	// Reference: src/components/HeaderOptions.vue:539
 	__( 'h3', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:736
-	// Reference: src/components/HeaderOptions.vue:538
+	// Reference: src/components/AlertBoxOptions.vue:740
+	// Reference: src/components/HeaderOptions.vue:540
 	__( 'h4', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:748
+	// Reference: src/components/AlertBoxOptions.vue:752
 	// Reference: src/components/BeforeAfterToggleOptions.vue:534
-	// Reference: src/components/ContentToggleOptions.vue:597
+	// Reference: src/components/ContentToggleOptions.vue:601
 	// Reference: src/components/DividerOptions.vue:379
 	// Reference: src/components/EDDDownloadPriceOptions.vue:105
-	// Reference: src/components/FeatureOptions.vue:569
-	// Reference: src/components/HeaderOptions.vue:550
-	// Reference: src/components/IconFeatureOptions.vue:547
+	// Reference: src/components/FeatureOptions.vue:573
+	// Reference: src/components/HeaderOptions.vue:552
+	// Reference: src/components/IconFeatureOptions.vue:551
 	// Reference: src/components/IconOptions.vue:285
 	// Reference: src/components/MenuCartOptions.vue:189
 	// Reference: src/components/ParticlesBackgroundControl.vue:325
 	// Reference: src/components/PostnavigationOptions.vue:97
 	// Reference: src/components/PostsOptions.vue:2363
-	// Reference: src/components/PriceListOptions.vue:933
+	// Reference: src/components/PriceListOptions.vue:935
 	// Reference: src/components/ProductPriceOptions.vue:185
 	// Reference: src/components/ProgressBarOptions.vue:340
 	// Reference: src/components/ShadowControl.vue:141
 	// Reference: src/components/ShapeDividerControl.vue:369
-	// Reference: src/components/SocialProfilesOptions.vue:716
-	// Reference: src/components/TeamMemberOptions.vue:1073
-	// Reference: src/components/TestimonialOptions.vue:599
-	// Reference: src/components/TextOptions.vue:385
+	// Reference: src/components/SocialProfilesOptions.vue:718
+	// Reference: src/components/TeamMemberOptions.vue:1075
+	// Reference: src/components/TestimonialOptions.vue:601
+	// Reference: src/components/TextOptions.vue:387
 	__( 'Color', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:750
+	// Reference: src/components/AlertBoxOptions.vue:754
 	// Reference: src/components/EDDCheckoutOptions.vue:654
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1131
-	// Reference: src/components/PriceListOptions.vue:929
-	// Reference: src/components/PricingTableOptions.vue:1345
-	// Reference: src/components/TeamMemberOptions.vue:1102
+	// Reference: src/components/PriceListOptions.vue:931
+	// Reference: src/components/PricingTableOptions.vue:1349
+	// Reference: src/components/TeamMemberOptions.vue:1104
 	__( 'Description Color', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:751
+	// Reference: src/components/AlertBoxOptions.vue:755
 	__( 'Title Background', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:752
+	// Reference: src/components/AlertBoxOptions.vue:756
 	__( 'Dismiss Color', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:753
+	// Reference: src/components/AlertBoxOptions.vue:757
 	// Reference: src/components/DividerOptions.vue:390
-	// Reference: src/components/HeaderOptions.vue:551
+	// Reference: src/components/HeaderOptions.vue:553
 	// Reference: src/components/PostauthorboxOptions.vue:349
 	// Reference: src/components/PostsOptions.vue:2273
-	// Reference: src/components/TeamMemberOptions.vue:1146
+	// Reference: src/components/TeamMemberOptions.vue:1148
 	__( 'H5', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:754
+	// Reference: src/components/AlertBoxOptions.vue:758
 	// Reference: src/components/DividerOptions.vue:391
-	// Reference: src/components/HeaderOptions.vue:552
+	// Reference: src/components/HeaderOptions.vue:554
 	// Reference: src/components/PostauthorboxOptions.vue:350
 	// Reference: src/components/PostsOptions.vue:2274
-	// Reference: src/components/TeamMemberOptions.vue:1147
+	// Reference: src/components/TeamMemberOptions.vue:1149
 	__( 'H6', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:756
+	// Reference: src/components/AlertBoxOptions.vue:760
 	__( 'Show Icon', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:757
+	// Reference: src/components/AlertBoxOptions.vue:761
 	// Reference: src/components/BeforeAfterToggleOptions.vue:519
-	// Reference: src/components/ContentToggleOptions.vue:572
+	// Reference: src/components/ContentToggleOptions.vue:576
 	// Reference: src/components/DynamicTagsControl.vue:987
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1033
-	// Reference: src/components/FeatureOptions.vue:560
-	// Reference: src/components/IconFeatureOptions.vue:538
+	// Reference: src/components/FeatureOptions.vue:564
+	// Reference: src/components/IconFeatureOptions.vue:542
 	// Reference: src/components/PostinfoOptions.vue:596
 	// Reference: src/components/ProductMetaOptions.vue:335
 	// Reference: src/components/ShapeDividerControl.vue:349
-	// Reference: src/components/TestimonialOptions.vue:593
+	// Reference: src/components/TestimonialOptions.vue:595
 	// Reference: src/components/VideoOptions.vue:235
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1136
 	__( 'Type', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:758
+	// Reference: src/components/AlertBoxOptions.vue:762
 	__( 'Info', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:759
+	// Reference: src/components/AlertBoxOptions.vue:763
 	__( 'Success', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:760
+	// Reference: src/components/AlertBoxOptions.vue:764
 	// Reference: src/views/SettingsGeneral.vue:285
 	__( 'Warning', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:761
+	// Reference: src/components/AlertBoxOptions.vue:765
 	__( 'Danger', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:762
+	// Reference: src/components/AlertBoxOptions.vue:766
 	__( 'Dismiss Button', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:763
+	// Reference: src/components/AlertBoxOptions.vue:767
 	// Reference: src/components/ContactFormOptions.vue:301
+	// Reference: src/components/EnviraGalleryOptions.vue:222
 	// Reference: src/components/GiveawayOptions.vue:173
 	// Reference: src/views/SettingsGeneral.vue:267
 	__( 'Show', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:764
+	// Reference: src/components/AlertBoxOptions.vue:768
 	// Reference: src/components/ContactFormOptions.vue:302
+	// Reference: src/components/EnviraGalleryOptions.vue:223
 	// Reference: src/components/GiveawayOptions.vue:174
 	__( 'Hide', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:767
+	// Reference: src/components/AlertBoxOptions.vue:771
 	// Reference: src/components/BusinessHoursOptions.vue:749
 	// Reference: src/components/DividerOptions.vue:365
 	// Reference: src/components/ParticlesBackgroundControl.vue:300
-	// Reference: src/components/PriceListOptions.vue:938
-	// Reference: src/components/SocialProfilesOptions.vue:687
-	// Reference: src/components/TeamMemberOptions.vue:1112
+	// Reference: src/components/PriceListOptions.vue:940
+	// Reference: src/components/SocialProfilesOptions.vue:689
+	// Reference: src/components/TeamMemberOptions.vue:1114
 	// Reference: src/components/TypographyControl.vue:320
 	__( 'Style', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:768
+	// Reference: src/components/AlertBoxOptions.vue:772
 	__( 'Style 1', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:769
+	// Reference: src/components/AlertBoxOptions.vue:773
 	__( 'Style 2', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:770
+	// Reference: src/components/AlertBoxOptions.vue:774
 	__( 'Style 3', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:771
+	// Reference: src/components/AlertBoxOptions.vue:775
 	__( 'Style 4', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:776
+	// Reference: src/components/AlertBoxOptions.vue:780
 	// Reference: src/components/PostinfoOptions.vue:633
 	// Reference: src/components/ProductMetaOptions.vue:350
 	// Reference: src/components/WpWidgetBlockOptions.vue:223
 	__( 'Text Typography', 'coming-soon' ),
 
-	// Reference: src/components/AlertBoxOptions.vue:777
+	// Reference: src/components/AlertBoxOptions.vue:781
 	// Reference: src/components/DynamicTextControl.vue:314
-	// Reference: src/components/HeaderOptions.vue:557
-	// Reference: src/components/PostcommentsOptions.vue:188
-	// Reference: src/components/TextOptions.vue:386
+	// Reference: src/components/HeaderOptions.vue:559
+	// Reference: src/components/PostcommentsOptions.vue:190
+	// Reference: src/components/TextOptions.vue:388
 	__( 'Insert Dynamic Text', 'coming-soon' ),
 
 	// Reference: src/components/AlignControl.vue:499
 	// Reference: src/components/BeforeAfterToggleOptions.vue:529
-	// Reference: src/components/ContentToggleOptions.vue:589
+	// Reference: src/components/ContentToggleOptions.vue:593
 	__( 'Align', 'coming-soon' ),
 
 	// Reference: src/components/AnchorOptions.vue:75
@@ -2717,10 +2727,10 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/AnimationEffectControl.vue:283
 	// Reference: src/components/BeforeAfterToggleOptions.vue:531
-	// Reference: src/components/ContentToggleOptions.vue:591
-	// Reference: src/components/FeatureOptions.vue:566
-	// Reference: src/components/HeaderOptions.vue:534
-	// Reference: src/components/IconFeatureOptions.vue:544
+	// Reference: src/components/ContentToggleOptions.vue:595
+	// Reference: src/components/FeatureOptions.vue:570
+	// Reference: src/components/HeaderOptions.vue:536
+	// Reference: src/components/IconFeatureOptions.vue:548
 	__( 'Level', 'coming-soon' ),
 
 	// Reference: src/components/AnimationEffectControl.vue:284
@@ -2747,7 +2757,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Opposite', 'coming-soon' ),
 
 	// Reference: src/components/AnimationEffectControl.vue:291
-	// Reference: src/components/OpenAIControl.vue:827
+	// Reference: src/components/OpenAIControl.vue:829
 	__( 'Direct', 'coming-soon' ),
 
 	// Reference: src/components/AnimationEffectControl.vue:292
@@ -3007,32 +3017,32 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:493
 	// Reference: src/components/DisplaySectionControl.vue:203
-	// Reference: src/components/VideoPopUpOptions.vue:1160
+	// Reference: src/components/VideoPopUpOptions.vue:1162
 	__( 'Auto', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:494
-	// Reference: src/components/ImageOptions.vue:781
+	// Reference: src/components/ImageOptions.vue:791
 	__( 'Cover', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:495
-	// Reference: src/components/ImageOptions.vue:782
+	// Reference: src/components/ImageOptions.vue:792
 	__( 'Contain', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:497
 	// Reference: src/components/DividerOptions.vue:370
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:644
-	// Reference: src/components/FeatureOptions.vue:574
-	// Reference: src/components/IconFeatureOptions.vue:551
-	// Reference: src/components/ImageOptions.vue:742
-	// Reference: src/components/OptinFormOptions.vue:858
+	// Reference: src/components/FeatureOptions.vue:578
+	// Reference: src/components/IconFeatureOptions.vue:555
+	// Reference: src/components/ImageOptions.vue:752
+	// Reference: src/components/OptinFormOptions.vue:860
 	// Reference: src/components/PostfeaturedimageOptions.vue:644
-	// Reference: src/components/PriceListOptions.vue:967
+	// Reference: src/components/PriceListOptions.vue:969
 	// Reference: src/components/ProductFeaturedImageOptions.vue:644
 	// Reference: src/components/RowOptions.vue:667
 	// Reference: src/components/ShapeDividerControl.vue:370
-	// Reference: src/components/TeamMemberOptions.vue:1081
+	// Reference: src/components/TeamMemberOptions.vue:1083
 	// Reference: src/components/VideoOptions.vue:240
-	// Reference: src/components/VideoPopUpOptions.vue:1134
+	// Reference: src/components/VideoPopUpOptions.vue:1136
 	__( 'Width', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:498
@@ -3046,38 +3056,38 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/BackgroundControl.vue:499
 	// Reference: src/components/BeforeAfterToggleOptions.vue:543
 	// Reference: src/components/ColOptions.vue:701
-	// Reference: src/components/ContentToggleOptions.vue:609
+	// Reference: src/components/ContentToggleOptions.vue:613
 	// Reference: src/components/RowOptions.vue:704
 	// Reference: src/components/SectionOptions.vue:400
 	__( 'Overlay Color', 'coming-soon' ),
 
 	// Reference: src/components/BackgroundControl.vue:500
 	// Reference: src/components/BeforeAfterToggleOptions.vue:525
-	// Reference: src/components/FeatureOptions.vue:579
-	// Reference: src/components/ImageOptions.vue:752
-	// Reference: src/components/PriceListOptions.vue:926
-	// Reference: src/components/SocialSharingOptions.vue:412
-	// Reference: src/components/TeamMemberOptions.vue:1062
-	// Reference: src/components/TestimonialOptions.vue:605
-	// Reference: src/components/VideoPopUpOptions.vue:1209
+	// Reference: src/components/FeatureOptions.vue:583
+	// Reference: src/components/ImageOptions.vue:762
+	// Reference: src/components/PriceListOptions.vue:928
+	// Reference: src/components/SocialSharingOptions.vue:414
+	// Reference: src/components/TeamMemberOptions.vue:1064
+	// Reference: src/components/TestimonialOptions.vue:607
+	// Reference: src/components/VideoPopUpOptions.vue:1211
 	__( 'Image Src', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:520
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:643
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1069
-	// Reference: src/components/FeatureOptions.vue:561
-	// Reference: src/components/IconFeatureOptions.vue:539
-	// Reference: src/components/ImageOptions.vue:741
+	// Reference: src/components/FeatureOptions.vue:565
+	// Reference: src/components/IconFeatureOptions.vue:543
+	// Reference: src/components/ImageOptions.vue:751
 	// Reference: src/components/PostfeaturedimageOptions.vue:643
 	// Reference: src/components/PostinfoOptions.vue:613
 	// Reference: src/components/PostsOptions.vue:2315
-	// Reference: src/components/PriceListOptions.vue:924
+	// Reference: src/components/PriceListOptions.vue:926
 	// Reference: src/components/ProductFeaturedImageOptions.vue:643
 	// Reference: src/components/ProductMetaOptions.vue:336
 	// Reference: src/components/ProductRelatedOptions.vue:639
-	// Reference: src/components/SocialSharingOptions.vue:411
-	// Reference: src/components/TeamMemberOptions.vue:1054
-	// Reference: src/components/TestimonialOptions.vue:604
+	// Reference: src/components/SocialSharingOptions.vue:413
+	// Reference: src/components/TeamMemberOptions.vue:1056
+	// Reference: src/components/TestimonialOptions.vue:606
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1172
 	__( 'Image', 'coming-soon' ),
 
@@ -3088,33 +3098,33 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'After Image', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:523
-	// Reference: src/components/ContentToggleOptions.vue:580
+	// Reference: src/components/ContentToggleOptions.vue:584
 	__( 'Before Label', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:524
-	// Reference: src/components/ContentToggleOptions.vue:581
+	// Reference: src/components/ContentToggleOptions.vue:585
 	__( 'After Label', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:527
-	// Reference: src/components/ContentToggleOptions.vue:587
+	// Reference: src/components/ContentToggleOptions.vue:591
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:652
-	// Reference: src/components/FeatureOptions.vue:563
-	// Reference: src/components/IconFeatureOptions.vue:541
-	// Reference: src/components/ImageOptions.vue:751
+	// Reference: src/components/FeatureOptions.vue:567
+	// Reference: src/components/IconFeatureOptions.vue:545
+	// Reference: src/components/ImageOptions.vue:761
 	// Reference: src/components/PostfeaturedimageOptions.vue:653
 	// Reference: src/components/ProductFeaturedImageOptions.vue:652
-	// Reference: src/components/TeamMemberOptions.vue:1063
-	// Reference: src/components/VideoPopUpOptions.vue:1166
+	// Reference: src/components/TeamMemberOptions.vue:1065
+	// Reference: src/components/VideoPopUpOptions.vue:1168
 	__( 'Image Size', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:530
-	// Reference: src/components/ContentToggleOptions.vue:590
-	// Reference: src/components/FeatureOptions.vue:565
-	// Reference: src/components/IconFeatureOptions.vue:543
+	// Reference: src/components/ContentToggleOptions.vue:594
+	// Reference: src/components/FeatureOptions.vue:569
+	// Reference: src/components/IconFeatureOptions.vue:547
 	__( 'Header Text', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:535
-	// Reference: src/components/CountdownOptions.vue:890
+	// Reference: src/components/CountdownOptions.vue:892
 	// Reference: src/components/EDDCartOptions.vue:378
 	// Reference: src/components/EDDCheckoutOptions.vue:661
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1002
@@ -3125,43 +3135,43 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Label Color', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:538
-	// Reference: src/components/ContentToggleOptions.vue:604
+	// Reference: src/components/ContentToggleOptions.vue:608
 	__( 'Orientation', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:539
-	// Reference: src/components/ContentToggleOptions.vue:605
+	// Reference: src/components/ContentToggleOptions.vue:609
 	__( 'Slider Orientation', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:542
-	// Reference: src/components/ContentToggleOptions.vue:608
+	// Reference: src/components/ContentToggleOptions.vue:612
 	__( 'Move on Hover', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:544
-	// Reference: src/components/ContentToggleOptions.vue:610
+	// Reference: src/components/ContentToggleOptions.vue:614
 	__( 'Comparison Handle', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:545
-	// Reference: src/components/ContentToggleOptions.vue:611
+	// Reference: src/components/ContentToggleOptions.vue:615
 	__( 'Handle Initial Offset', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:546
-	// Reference: src/components/ContentToggleOptions.vue:612
+	// Reference: src/components/ContentToggleOptions.vue:616
 	__( 'Handle Color', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:549
-	// Reference: src/components/ContentToggleOptions.vue:615
+	// Reference: src/components/ContentToggleOptions.vue:619
 	__( 'Handle Thickness', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:550
-	// Reference: src/components/ContentToggleOptions.vue:616
+	// Reference: src/components/ContentToggleOptions.vue:620
 	__( 'Circle Width', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:551
-	// Reference: src/components/ContentToggleOptions.vue:617
+	// Reference: src/components/ContentToggleOptions.vue:621
 	__( 'Circle Radius', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:552
-	// Reference: src/components/ContentToggleOptions.vue:618
+	// Reference: src/components/ContentToggleOptions.vue:622
 	__( 'Triangle Size', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:553
@@ -3181,10 +3191,10 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/BorderSectionControl.vue:108
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:664
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1071
-	// Reference: src/components/ImageOptions.vue:764
+	// Reference: src/components/ImageOptions.vue:774
 	// Reference: src/components/PostfeaturedimageOptions.vue:665
 	// Reference: src/components/PostsOptions.vue:2317
-	// Reference: src/components/PricingTableOptions.vue:1365
+	// Reference: src/components/PricingTableOptions.vue:1369
 	// Reference: src/components/ProductFeaturedImageOptions.vue:664
 	// Reference: src/components/ProductRelatedOptions.vue:641
 	// Reference: src/components/SectionOptions.vue:387
@@ -3196,15 +3206,15 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:367
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:666
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1073
-	// Reference: src/components/ImageOptions.vue:766
+	// Reference: src/components/ImageOptions.vue:776
 	// Reference: src/components/PostfeaturedimageOptions.vue:667
 	// Reference: src/components/PostsOptions.vue:2319
-	// Reference: src/components/PriceListOptions.vue:940
-	// Reference: src/components/PricingTableOptions.vue:1367
+	// Reference: src/components/PriceListOptions.vue:942
+	// Reference: src/components/PricingTableOptions.vue:1371
 	// Reference: src/components/ProductFeaturedImageOptions.vue:666
 	// Reference: src/components/ProductRelatedOptions.vue:643
 	// Reference: src/components/SectionOptions.vue:389
-	// Reference: src/components/TeamMemberOptions.vue:1114
+	// Reference: src/components/TeamMemberOptions.vue:1116
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1176
 	// Reference: src/views/GlobalCSS.vue:2237
 	__( 'Dotted', 'coming-soon' ),
@@ -3214,25 +3224,25 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:368
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:667
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1074
-	// Reference: src/components/ImageOptions.vue:767
+	// Reference: src/components/ImageOptions.vue:777
 	// Reference: src/components/PostfeaturedimageOptions.vue:668
 	// Reference: src/components/PostsOptions.vue:2320
-	// Reference: src/components/PriceListOptions.vue:941
-	// Reference: src/components/PricingTableOptions.vue:1368
+	// Reference: src/components/PriceListOptions.vue:943
+	// Reference: src/components/PricingTableOptions.vue:1372
 	// Reference: src/components/ProductFeaturedImageOptions.vue:667
 	// Reference: src/components/ProductRelatedOptions.vue:644
 	// Reference: src/components/SectionOptions.vue:390
-	// Reference: src/components/TeamMemberOptions.vue:1115
+	// Reference: src/components/TeamMemberOptions.vue:1117
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1177
 	// Reference: src/views/GlobalCSS.vue:2238
 	__( 'Dashed', 'coming-soon' ),
 
 	// Reference: src/components/BorderSectionControl.vue:112
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:670
-	// Reference: src/components/ImageOptions.vue:770
+	// Reference: src/components/ImageOptions.vue:780
 	// Reference: src/components/PostfeaturedimageOptions.vue:671
 	// Reference: src/components/PostsOptions.vue:2305
-	// Reference: src/components/PricingTableOptions.vue:1369
+	// Reference: src/components/PricingTableOptions.vue:1373
 	// Reference: src/components/ProductDataTabsOptions.vue:337
 	// Reference: src/components/ProductFeaturedImageOptions.vue:670
 	// Reference: src/components/ProductGalleryImagesOptions.vue:208
@@ -3242,59 +3252,59 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/BorderSectionControl.vue:113
 	// Reference: src/components/BorderWidthControl.vue:141
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:668
-	// Reference: src/components/ImageOptions.vue:768
+	// Reference: src/components/ImageOptions.vue:778
 	// Reference: src/components/PostfeaturedimageOptions.vue:669
 	// Reference: src/components/PostsOptions.vue:2306
-	// Reference: src/components/PricingTableOptions.vue:1370
+	// Reference: src/components/PricingTableOptions.vue:1374
 	// Reference: src/components/ProductDataTabsOptions.vue:346
 	// Reference: src/components/ProductFeaturedImageOptions.vue:668
 	// Reference: src/components/ProductGalleryImagesOptions.vue:217
 	__( 'Border Width', 'coming-soon' ),
 
-	// Reference: src/components/BulletListOptions.vue:500
+	// Reference: src/components/BulletListOptions.vue:502
 	__( 'List', 'coming-soon' ),
 
-	// Reference: src/components/BulletListOptions.vue:513
+	// Reference: src/components/BulletListOptions.vue:515
 	// Reference: src/components/BusinessHoursOptions.vue:740
 	// Reference: src/components/DividerOptions.vue:394
 	// Reference: src/components/PostinfoOptions.vue:619
-	// Reference: src/components/PriceListOptions.vue:928
-	// Reference: src/components/PricingTableOptions.vue:1349
+	// Reference: src/components/PriceListOptions.vue:930
+	// Reference: src/components/PricingTableOptions.vue:1353
 	// Reference: src/components/ProductGalleryImagesOptions.vue:224
-	// Reference: src/components/SocialProfilesOptions.vue:702
-	// Reference: src/components/TeamMemberOptions.vue:1106
-	// Reference: src/components/VideoPopUpOptions.vue:1188
+	// Reference: src/components/SocialProfilesOptions.vue:704
+	// Reference: src/components/TeamMemberOptions.vue:1108
+	// Reference: src/components/VideoPopUpOptions.vue:1190
 	__( 'Icon Color', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:718
-	// Reference: src/components/TeamMemberOptions.vue:1049
+	// Reference: src/components/TeamMemberOptions.vue:1051
 	__( 'Striped Effect Template', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:719
-	// Reference: src/components/TeamMemberOptions.vue:1050
+	// Reference: src/components/TeamMemberOptions.vue:1052
 	__( 'Divider Template', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:720
-	// Reference: src/components/TeamMemberOptions.vue:1051
+	// Reference: src/components/TeamMemberOptions.vue:1053
 	__( 'Background Template', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:722
 	__( 'Business Days and Timing', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:724
-	// Reference: src/components/PriceListOptions.vue:906
+	// Reference: src/components/PriceListOptions.vue:908
 	__( 'Date Font Size', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:725
-	// Reference: src/components/PriceListOptions.vue:907
+	// Reference: src/components/PriceListOptions.vue:909
 	__( 'Time Font Size', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:727
-	// Reference: src/components/TeamMemberOptions.vue:1086
+	// Reference: src/components/TeamMemberOptions.vue:1088
 	__( 'Date Align', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:728
-	// Reference: src/components/TeamMemberOptions.vue:1087
+	// Reference: src/components/TeamMemberOptions.vue:1089
 	__( 'Time Align', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:736
@@ -3304,7 +3314,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Enter Time', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:738
-	// Reference: src/components/TeamMemberOptions.vue:1098
+	// Reference: src/components/TeamMemberOptions.vue:1100
 	__( 'Style Day/Time', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:742
@@ -3312,45 +3322,45 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Time', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:744
-	// Reference: src/components/TeamMemberOptions.vue:1107
+	// Reference: src/components/TeamMemberOptions.vue:1109
 	__( 'Day Color', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:745
-	// Reference: src/components/TeamMemberOptions.vue:1108
+	// Reference: src/components/TeamMemberOptions.vue:1110
 	__( 'Time Color', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:748
 	// Reference: src/components/DividerOptions.vue:363
 	// Reference: src/components/NavOptions.vue:589
 	// Reference: src/components/PostinfoOptions.vue:617
-	// Reference: src/components/PriceListOptions.vue:937
+	// Reference: src/components/PriceListOptions.vue:939
 	// Reference: src/components/ProductMetaOptions.vue:345
-	// Reference: src/components/TeamMemberOptions.vue:1111
+	// Reference: src/components/TeamMemberOptions.vue:1113
 	__( 'Divider', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:754
-	// Reference: src/components/PriceListOptions.vue:943
-	// Reference: src/components/TeamMemberOptions.vue:1117
+	// Reference: src/components/PriceListOptions.vue:945
+	// Reference: src/components/TeamMemberOptions.vue:1119
 	__( 'Weight', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:755
-	// Reference: src/components/PriceListOptions.vue:944
-	// Reference: src/components/TeamMemberOptions.vue:1118
+	// Reference: src/components/PriceListOptions.vue:946
+	// Reference: src/components/TeamMemberOptions.vue:1120
 	__( 'Day and Time', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:756
-	// Reference: src/components/PriceListOptions.vue:945
-	// Reference: src/components/TeamMemberOptions.vue:1119
+	// Reference: src/components/PriceListOptions.vue:947
+	// Reference: src/components/TeamMemberOptions.vue:1121
 	__( 'Striped Effect', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:757
-	// Reference: src/components/PriceListOptions.vue:946
-	// Reference: src/components/TeamMemberOptions.vue:1120
+	// Reference: src/components/PriceListOptions.vue:948
+	// Reference: src/components/TeamMemberOptions.vue:1122
 	__( 'Striped Odd Rows Color', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:758
-	// Reference: src/components/PriceListOptions.vue:947
-	// Reference: src/components/TeamMemberOptions.vue:1121
+	// Reference: src/components/PriceListOptions.vue:949
+	// Reference: src/components/TeamMemberOptions.vue:1123
 	__( 'Striped Even Rows Color', 'coming-soon' ),
 
 	// Reference: src/components/BusinessHoursOptions.vue:760
@@ -3359,56 +3369,59 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/BusinessHoursOptions.vue:761
 	// Reference: src/components/ColOptions.vue:676
 	// Reference: src/components/PostauthorboxOptions.vue:361
-	// Reference: src/components/PostcommentsOptions.vue:187
+	// Reference: src/components/PostcommentsOptions.vue:189
 	// Reference: src/components/PostinfoOptions.vue:620
-	// Reference: src/components/PriceListOptions.vue:953
+	// Reference: src/components/PriceListOptions.vue:955
 	// Reference: src/components/ProductMetaOptions.vue:348
 	// Reference: src/components/RowOptions.vue:665
 	// Reference: src/components/SectionOptions.vue:395
-	// Reference: src/components/TeamMemberOptions.vue:1122
+	// Reference: src/components/TeamMemberOptions.vue:1124
 	// Reference: src/views/GlobalCSS.vue:2189
 	// Reference: src/views/SetupDesign-Lite.vue:755
 	__( 'Background', 'coming-soon' ),
 
-	// Reference: src/components/ButtonOptions.vue:1229
-	// Reference: src/components/EDDAddToCartOptions.vue:791
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:820
+	// Reference: src/components/ButtonOptions.vue:1234
+	// Reference: src/components/EDDAddToCartOptions.vue:793
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:822
 	// Reference: src/components/NavOptions.vue:584
-	// Reference: src/components/PricingTableOptions.vue:1341
-	// Reference: src/components/StripepaymentOptions.vue:1679
-	// Reference: src/components/WCAddToCartOptions.vue:692
-	__( 'Add "No Follow"', 'coming-soon' ),
-
-	// Reference: src/components/ButtonOptions.vue:1231
-	// Reference: src/components/OptinFormOptions.vue:867
+	// Reference: src/components/PricingTableOptions.vue:1345
 	// Reference: src/components/StripepaymentOptions.vue:1681
 	// Reference: src/components/WCAddToCartOptions.vue:694
-	__( 'Button Sub Text', 'coming-soon' ),
+	__( 'Add "No Follow"', 'coming-soon' ),
 
-	// Reference: src/components/ButtonOptions.vue:1233
-	// Reference: src/components/EDDAddToCartOptions.vue:794
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:823
-	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:672
-	// Reference: src/components/HeaderOptions.vue:555
-	// Reference: src/components/IconOptions.vue:286
-	// Reference: src/components/ImageOptions.vue:772
-	// Reference: src/components/NavOptions.vue:583
-	// Reference: src/components/PostfeaturedimageOptions.vue:673
-	// Reference: src/components/PricingTableOptions.vue:1340
-	// Reference: src/components/ProductFeaturedImageOptions.vue:672
+	// Reference: src/components/ButtonOptions.vue:1236
+	// Reference: src/components/OptinFormOptions.vue:869
 	// Reference: src/components/StripepaymentOptions.vue:1683
 	// Reference: src/components/WCAddToCartOptions.vue:696
+	__( 'Button Sub Text', 'coming-soon' ),
+
+	// Reference: src/components/ButtonOptions.vue:1238
+	// Reference: src/components/EDDAddToCartOptions.vue:796
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:825
+	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:672
+	// Reference: src/components/HeaderOptions.vue:557
+	// Reference: src/components/IconOptions.vue:286
+	// Reference: src/components/ImageOptions.vue:782
+	// Reference: src/components/NavOptions.vue:583
+	// Reference: src/components/PostfeaturedimageOptions.vue:673
+	// Reference: src/components/PricingTableOptions.vue:1344
+	// Reference: src/components/ProductFeaturedImageOptions.vue:672
+	// Reference: src/components/StripepaymentOptions.vue:1685
+	// Reference: src/components/WCAddToCartOptions.vue:698
 	__( 'Open In New Window', 'coming-soon' ),
 
-	// Reference: src/components/ButtonOptions.vue:1267
-	// Reference: src/components/StripepaymentOptions.vue:1717
+	// Reference: src/components/ButtonOptions.vue:1272
+	// Reference: src/components/StripepaymentOptions.vue:1719
 	// Reference: src/views/GlobalCSS.vue:2289
 	__( 'Button Border Width', 'coming-soon' ),
 
-	// Reference: src/components/ButtonOptions.vue:1268
-	// Reference: src/components/StripepaymentOptions.vue:1718
+	// Reference: src/components/ButtonOptions.vue:1273
+	// Reference: src/components/StripepaymentOptions.vue:1720
 	// Reference: src/views/GlobalCSS.vue:2254
 	__( 'Button Border Color', 'coming-soon' ),
+
+	// Reference: src/components/ButtonOptions.vue:1277
+	__( 'Use the Global CSS template part to edit the button styles for your whole site. To edit the button styles for this specific button only, edit the options below and use the "Custom" drop down option to add any custom styles including hover styles.', 'coming-soon' ),
 
 	// Reference: src/components/ColOptions.vue:666
 	__( 'Column Width', 'coming-soon' ),
@@ -3419,7 +3432,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadsGridOptions.vue:979
 	// Reference: src/components/PostinfoOptions.vue:612
 	// Reference: src/components/PostsOptions.vue:2351
-	// Reference: src/components/PriceListOptions.vue:948
+	// Reference: src/components/PriceListOptions.vue:950
 	// Reference: src/components/ProductMetaOptions.vue:332
 	// Reference: src/components/WCCartOptions.vue:500
 	// Reference: src/components/WCCheckoutOptions.vue:769
@@ -3429,6 +3442,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/ColOptions.vue:678
 	// Reference: src/components/ContactFormOptions.vue:295
+	// Reference: src/components/EnviraGalleryOptions.vue:217
 	// Reference: src/components/GiveawayOptions.vue:167
 	// Reference: src/components/NavOptions.vue:576
 	// Reference: src/components/SectionOptions.vue:396
@@ -3532,6 +3546,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Contact Form', 'coming-soon' ),
 
 	// Reference: src/components/ContactForm.vue:175
+	// Reference: src/components/EnviraGallery.vue:160
 	// Reference: src/components/Giveaway.vue:176
 	__( '(This shortcode will be rendered on the live preview.)', 'coming-soon' ),
 
@@ -3543,6 +3558,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'You can use WPForms to build contact forms, surveys, payment forms, and more with just a few clicks.', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:298
+	// Reference: src/components/EnviraGalleryOptions.vue:220
 	__( 'Select', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:299
@@ -3562,182 +3578,182 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContactFormOptions.vue:305
 	// Reference: src/components/GiveawayOptions.vue:177
 	// Reference: src/components/LoginOptions.vue:907
-	// Reference: src/components/OptinFormOptions.vue:854
+	// Reference: src/components/OptinFormOptions.vue:856
 	__( 'Form', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:306
 	// Reference: src/components/GiveawayOptions.vue:178
 	__( 'Display Options', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:573
+	// Reference: src/components/ContentToggleOptions.vue:577
 	__( 'Heading 1', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:574
+	// Reference: src/components/ContentToggleOptions.vue:578
 	__( 'Heading 2', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:575
+	// Reference: src/components/ContentToggleOptions.vue:579
 	__( 'Content Area 1', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:576
+	// Reference: src/components/ContentToggleOptions.vue:580
 	__( 'Content Area 2', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:577
+	// Reference: src/components/ContentToggleOptions.vue:581
 	__( 'Toggle', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:578
+	// Reference: src/components/ContentToggleOptions.vue:582
 	__( 'Content 1', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:579
+	// Reference: src/components/ContentToggleOptions.vue:583
 	__( 'Content 2', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:584
+	// Reference: src/components/ContentToggleOptions.vue:588
 	__( 'Templates Parts', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:585
+	// Reference: src/components/ContentToggleOptions.vue:589
 	__( 'Section Content', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:594
+	// Reference: src/components/ContentToggleOptions.vue:598
 	__( 'First Background Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:595
+	// Reference: src/components/ContentToggleOptions.vue:599
 	__( 'Second Background Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:596
+	// Reference: src/components/ContentToggleOptions.vue:600
 	__( 'Switcher Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:598
+	// Reference: src/components/ContentToggleOptions.vue:602
 	__( 'Heading 1 Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:599
+	// Reference: src/components/ContentToggleOptions.vue:603
 	__( 'Heading 2 Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:600
+	// Reference: src/components/ContentToggleOptions.vue:604
 	__( 'Content 1 Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:601
+	// Reference: src/components/ContentToggleOptions.vue:605
 	__( 'Content 2 Color', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:619
+	// Reference: src/components/ContentToggleOptions.vue:623
 	__( 'Heading / Content', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:620
+	// Reference: src/components/ContentToggleOptions.vue:624
 	__( 'Switcher', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:621
+	// Reference: src/components/ContentToggleOptions.vue:625
 	__( 'Switch Style', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:622
+	// Reference: src/components/ContentToggleOptions.vue:626
 	__( 'Round', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:623
+	// Reference: src/components/ContentToggleOptions.vue:627
 	__( 'Square', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:624
+	// Reference: src/components/ContentToggleOptions.vue:628
 	__( 'Label Box', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:625
+	// Reference: src/components/ContentToggleOptions.vue:629
 	__( 'Switch Size', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:629
+	// Reference: src/components/ContentToggleOptions.vue:633
 	__( 'Mini', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:630
+	// Reference: src/components/ContentToggleOptions.vue:634
 	__( 'No template parts available in SeedProd', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:634
+	// Reference: src/components/ContentToggleOptions.vue:638
 	__( 'Select Part', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:635
+	// Reference: src/components/ContentToggleOptions.vue:639
 	__( 'Loading Template Parts...', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:636
+	// Reference: src/components/ContentToggleOptions.vue:640
 	__( 'Edit This Template Part', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:637
+	// Reference: src/components/ContentToggleOptions.vue:641
 	__( 'Header 1 Typography', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:638
+	// Reference: src/components/ContentToggleOptions.vue:642
 	__( 'Header 2 Typography', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:639
+	// Reference: src/components/ContentToggleOptions.vue:643
 	__( 'Content 1 Typography', 'coming-soon' ),
 
-	// Reference: src/components/ContentToggleOptions.vue:640
+	// Reference: src/components/ContentToggleOptions.vue:644
 	__( 'Content 2 Typography', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:852
+	// Reference: src/components/CountdownOptions.vue:854
 	__( 'Countdown Type', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:853
+	// Reference: src/components/CountdownOptions.vue:855
 	__( 'Visitor Timer (Evergreen)', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:854
+	// Reference: src/components/CountdownOptions.vue:856
 	__( 'DateTime Countdown', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:855
+	// Reference: src/components/CountdownOptions.vue:857
 	__( 'Set Timer For', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:856
+	// Reference: src/components/CountdownOptions.vue:858
 	__( 'End Date', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:857
-	// Reference: src/components/VideoPopUpOptions.vue:1147
+	// Reference: src/components/CountdownOptions.vue:859
+	// Reference: src/components/VideoPopUpOptions.vue:1149
 	__( 'End Time', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:858
+	// Reference: src/components/CountdownOptions.vue:860
 	__( 'Timezone', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:864
-	__( 'Action To Take On Expires', 'coming-soon' ),
-
-	// Reference: src/components/CountdownOptions.vue:865
-	// Reference: src/components/OptinFormOptions.vue:870
-	__( 'Show Message', 'coming-soon' ),
-
 	// Reference: src/components/CountdownOptions.vue:866
-	// Reference: src/components/OptinFormOptions.vue:871
-	__( 'Redirect', 'coming-soon' ),
+	__( 'Action To Take On Expires', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:867
 	// Reference: src/components/OptinFormOptions.vue:872
-	__( 'Message', 'coming-soon' ),
+	__( 'Show Message', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:868
-	// Reference: src/components/LoginOptions.vue:884
 	// Reference: src/components/OptinFormOptions.vue:873
-	__( 'Redirect URL', 'coming-soon' ),
+	__( 'Redirect', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:869
-	__( 'Customize Labels', 'coming-soon' ),
+	// Reference: src/components/OptinFormOptions.vue:874
+	__( 'Message', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:870
-	__( 'Day Label', 'coming-soon' ),
+	// Reference: src/components/LoginOptions.vue:884
+	// Reference: src/components/OptinFormOptions.vue:875
+	__( 'Redirect URL', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:871
-	__( 'Hour Label', 'coming-soon' ),
+	__( 'Customize Labels', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:872
-	__( 'Minute Label', 'coming-soon' ),
+	__( 'Day Label', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:873
-	__( 'Second Label', 'coming-soon' ),
+	__( 'Hour Label', 'coming-soon' ),
+
+	// Reference: src/components/CountdownOptions.vue:874
+	__( 'Minute Label', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:875
-	__( 'Hours', 'coming-soon' ),
-
-	// Reference: src/components/CountdownOptions.vue:876
-	__( 'Minutes', 'coming-soon' ),
+	__( 'Second Label', 'coming-soon' ),
 
 	// Reference: src/components/CountdownOptions.vue:877
+	__( 'Hours', 'coming-soon' ),
+
+	// Reference: src/components/CountdownOptions.vue:878
+	__( 'Minutes', 'coming-soon' ),
+
+	// Reference: src/components/CountdownOptions.vue:879
 	__( 'Seconds', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:889
+	// Reference: src/components/CountdownOptions.vue:891
 	__( 'Highlight Color', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:891
+	// Reference: src/components/CountdownOptions.vue:893
 	__( 'Restart', 'coming-soon' ),
 
-	// Reference: src/components/CountdownOptions.vue:892
+	// Reference: src/components/CountdownOptions.vue:894
 	__( 'Select Date', 'coming-soon' ),
 
 	// Reference: src/components/CounterOptions.vue:330
@@ -3761,7 +3777,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/CounterOptions.vue:336
 	// Reference: src/components/DynamicTagsControl.vue:958
 	// Reference: src/components/PostsOptions.vue:2284
-	// Reference: src/components/TeamMemberOptions.vue:1066
+	// Reference: src/components/TeamMemberOptions.vue:1068
 	__( 'Separator', 'coming-soon' ),
 
 	// Reference: src/components/CounterOptions.vue:339
@@ -3793,7 +3809,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:687
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1134
 	// Reference: src/components/PostsOptions.vue:2307
-	// Reference: src/components/PriceListOptions.vue:968
+	// Reference: src/components/PriceListOptions.vue:970
 	// Reference: src/components/ProductRelatedOptions.vue:612
 	__( 'Title Typography', 'coming-soon' ),
 
@@ -3862,20 +3878,20 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:371
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:674
-	// Reference: src/components/FeatureOptions.vue:575
+	// Reference: src/components/FeatureOptions.vue:579
 	// Reference: src/components/HeightControl.vue:111
-	// Reference: src/components/IconFeatureOptions.vue:552
-	// Reference: src/components/ImageOptions.vue:743
+	// Reference: src/components/IconFeatureOptions.vue:556
+	// Reference: src/components/ImageOptions.vue:753
 	// Reference: src/components/PostfeaturedimageOptions.vue:645
 	// Reference: src/components/ProductFeaturedImageOptions.vue:674
 	// Reference: src/components/ShapeDividerControl.vue:371
 	// Reference: src/components/SpacerOptions.vue:68
-	// Reference: src/components/TeamMemberOptions.vue:1056
-	// Reference: src/components/VideoPopUpOptions.vue:1167
+	// Reference: src/components/TeamMemberOptions.vue:1058
+	// Reference: src/components/VideoPopUpOptions.vue:1169
 	__( 'Height', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:372
-	// Reference: src/components/SocialProfilesOptions.vue:694
+	// Reference: src/components/SocialProfilesOptions.vue:696
 	__( 'Icon Size', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:380
@@ -3888,31 +3904,31 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:386
 	// Reference: src/components/PostauthorboxOptions.vue:345
 	// Reference: src/components/PostsOptions.vue:2269
-	// Reference: src/components/TeamMemberOptions.vue:1142
+	// Reference: src/components/TeamMemberOptions.vue:1144
 	__( 'H1', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:387
 	// Reference: src/components/PostauthorboxOptions.vue:346
 	// Reference: src/components/PostsOptions.vue:2270
-	// Reference: src/components/TeamMemberOptions.vue:1143
+	// Reference: src/components/TeamMemberOptions.vue:1145
 	__( 'H2', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:388
 	// Reference: src/components/PostauthorboxOptions.vue:347
 	// Reference: src/components/PostsOptions.vue:2271
-	// Reference: src/components/TeamMemberOptions.vue:1144
+	// Reference: src/components/TeamMemberOptions.vue:1146
 	__( 'H3', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:389
 	// Reference: src/components/PostauthorboxOptions.vue:348
 	// Reference: src/components/PostsOptions.vue:2272
-	// Reference: src/components/TeamMemberOptions.vue:1145
+	// Reference: src/components/TeamMemberOptions.vue:1147
 	__( 'H4', 'coming-soon' ),
 
 	// Reference: src/components/DividerOptions.vue:392
 	// Reference: src/components/PostauthorboxOptions.vue:352
 	// Reference: src/components/PostsOptions.vue:2276
-	// Reference: src/components/TeamMemberOptions.vue:1149
+	// Reference: src/components/TeamMemberOptions.vue:1151
 	__( 'span', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:1001
@@ -4066,17 +4082,17 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:947
 	// Reference: src/components/DynamicTextControl.vue:318
-	// Reference: src/components/OpenAIControl.vue:726
+	// Reference: src/components/OpenAIControl.vue:728
 	// Reference: src/components/OpenAIImageControl.vue:603
 	__( 'Insert', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:948
 	// Reference: src/components/DynamicTextControl.vue:319
-	// Reference: src/components/OpenAIControl.vue:727
+	// Reference: src/components/OpenAIControl.vue:729
 	// Reference: src/components/OpenAIImageControl.vue:604
-	// Reference: src/components/Row.vue:1109
+	// Reference: src/components/Row.vue:1112
 	// Reference: src/components/Section.vue:688
-	// Reference: src/mixins/helpers.js:1755
+	// Reference: src/mixins/helpers.js:1770
 	// Reference: src/views/Layoutnav.vue:1489
 	// Reference: src/views/SectionTemplateOptions-Lite.vue:491
 	// Reference: src/views/Setup.vue:1052
@@ -4114,11 +4130,11 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Show Advanced Settings', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:962
-	// Reference: src/components/PricingTableOptions.vue:1373
+	// Reference: src/components/PricingTableOptions.vue:1377
 	__( 'Before', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:963
-	// Reference: src/components/PricingTableOptions.vue:1374
+	// Reference: src/components/PricingTableOptions.vue:1378
 	__( 'After', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue:964
@@ -4273,67 +4289,67 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DynamicTextControl.vue:336
 	__( 'Don\'t see the date format you need? Click the Learn More link above to learn how to create any date.', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:790
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:819
+	// Reference: src/components/EDDAddToCartOptions.vue:792
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:821
 	// Reference: src/components/EDDCheckoutOptions.vue:640
 	// Reference: src/components/EDDDownloadsGridOptions.vue:981
 	// Reference: src/components/LoginOptions.vue:880
-	// Reference: src/components/OptinFormOptions.vue:855
+	// Reference: src/components/OptinFormOptions.vue:857
 	// Reference: src/components/WCCartOptions.vue:502
 	// Reference: src/components/WCCheckoutOptions.vue:771
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1084
 	__( 'Fields', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:803
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:832
+	// Reference: src/components/EDDAddToCartOptions.vue:805
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:834
 	// Reference: src/components/EDDCheckoutOptions.vue:657
 	// Reference: src/components/EDDDownloadsGridOptions.vue:998
 	// Reference: src/components/LoginOptions.vue:894
-	// Reference: src/components/OptinFormOptions.vue:886
+	// Reference: src/components/OptinFormOptions.vue:888
 	// Reference: src/components/WCCartOptions.vue:519
 	// Reference: src/components/WCCheckoutOptions.vue:788
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1101
 	// Reference: src/views/GlobalCSS.vue:2233
 	__( 'Field Background Color', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:824
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:853
+	// Reference: src/components/EDDAddToCartOptions.vue:826
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:855
 	// Reference: src/components/EDDCheckoutOptions.vue:658
 	// Reference: src/components/EDDDownloadsGridOptions.vue:999
 	// Reference: src/components/LoginOptions.vue:893
-	// Reference: src/components/OptinFormOptions.vue:887
+	// Reference: src/components/OptinFormOptions.vue:889
 	// Reference: src/components/WCCartOptions.vue:520
 	// Reference: src/components/WCCheckoutOptions.vue:789
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1102
 	// Reference: src/views/GlobalCSS.vue:2232
 	__( 'Field Text Color', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:825
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:854
+	// Reference: src/components/EDDAddToCartOptions.vue:827
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:856
 	// Reference: src/components/EDDCheckoutOptions.vue:659
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1000
 	// Reference: src/components/LoginOptions.vue:895
-	// Reference: src/components/OptinFormOptions.vue:888
+	// Reference: src/components/OptinFormOptions.vue:890
 	// Reference: src/components/WCCartOptions.vue:521
 	// Reference: src/components/WCCheckoutOptions.vue:790
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1103
 	// Reference: src/views/GlobalCSS.vue:2234
 	__( 'Field Border Color', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:826
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:855
+	// Reference: src/components/EDDAddToCartOptions.vue:828
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:857
 	// Reference: src/components/EDDCheckoutOptions.vue:660
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1001
 	// Reference: src/components/LoginOptions.vue:901
-	// Reference: src/components/OptinFormOptions.vue:900
+	// Reference: src/components/OptinFormOptions.vue:902
 	// Reference: src/components/WCCartOptions.vue:522
 	// Reference: src/components/WCCheckoutOptions.vue:791
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1104
 	// Reference: src/views/GlobalCSS.vue:2239
 	__( 'Field Border Width', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:827
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:856
+	// Reference: src/components/EDDAddToCartOptions.vue:829
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:858
 	// Reference: src/components/EDDCartOptions.vue:380
 	// Reference: src/components/EDDCheckoutOptions.vue:663
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1004
@@ -4343,31 +4359,31 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1107
 	__( 'Row Spacing', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:828
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:857
+	// Reference: src/components/EDDAddToCartOptions.vue:830
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:859
 	// Reference: src/components/LoginOptions.vue:923
 	__( 'Field Width', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:829
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:858
+	// Reference: src/components/EDDAddToCartOptions.vue:831
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:860
 	__( 'These settings are used to style item quantity fields. To enable them, enable "Misc" &rarr; "General" &rarr; "Cart Item Quantities" in the Downloads Plugin settings. Also uncheck the "Disable quantity input for this product" checkbox in the item download page if it has been checked.', 'coming-soon' ),
-
-	// Reference: src/components/EDDAddToCartOptions.vue:839
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:869
-	// Reference: src/components/WCAddToCartOptions.vue:736
-	__( 'Direct To Checkout', 'coming-soon' ),
 
 	// Reference: src/components/EDDAddToCartOptions.vue:841
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:871
+	// Reference: src/components/WCAddToCartOptions.vue:738
+	__( 'Direct To Checkout', 'coming-soon' ),
+
+	// Reference: src/components/EDDAddToCartOptions.vue:843
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:873
 	__( '- Select ID -', 'coming-soon' ),
 
-	// Reference: src/components/EDDAddToCartOptions.vue:842
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:872
+	// Reference: src/components/EDDAddToCartOptions.vue:844
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:874
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1110
 	__( 'Show Price', 'coming-soon' ),
 
-	// Reference: src/components/EDDBuyNowButtonOptions.vue:868
-	// Reference: src/components/WCAddToCartOptions.vue:735
+	// Reference: src/components/EDDBuyNowButtonOptions.vue:870
+	// Reference: src/components/WCAddToCartOptions.vue:737
 	__( 'Product ID', 'coming-soon' ),
 
 	// Reference: src/components/EDDCartOptions.vue:362
@@ -4383,7 +4399,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCartOptions.vue:363
 	// Reference: src/components/EDDCheckoutOptions.vue:641
 	// Reference: src/components/EDDDownloadsGridOptions.vue:982
-	// Reference: src/components/PricingTableOptions.vue:1295
+	// Reference: src/components/PricingTableOptions.vue:1299
 	// Reference: src/components/WCCartOptions.vue:503
 	// Reference: src/components/WCCheckoutOptions.vue:772
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1085
@@ -4411,7 +4427,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:646
 	// Reference: src/components/EDDDownloadsGridOptions.vue:987
 	// Reference: src/components/LoginOptions.vue:931
-	// Reference: src/components/OptinFormOptions.vue:889
+	// Reference: src/components/OptinFormOptions.vue:891
 	// Reference: src/components/WCCartOptions.vue:508
 	// Reference: src/components/WCCheckoutOptions.vue:777
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1090
@@ -4421,7 +4437,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:647
 	// Reference: src/components/EDDDownloadsGridOptions.vue:988
 	// Reference: src/components/LoginOptions.vue:932
-	// Reference: src/components/OptinFormOptions.vue:890
+	// Reference: src/components/OptinFormOptions.vue:892
 	// Reference: src/components/WCCartOptions.vue:509
 	// Reference: src/components/WCCheckoutOptions.vue:778
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1091
@@ -4431,7 +4447,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:648
 	// Reference: src/components/EDDDownloadsGridOptions.vue:989
 	// Reference: src/components/LoginOptions.vue:933
-	// Reference: src/components/OptinFormOptions.vue:891
+	// Reference: src/components/OptinFormOptions.vue:893
 	// Reference: src/components/WCCartOptions.vue:510
 	// Reference: src/components/WCCheckoutOptions.vue:779
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1092
@@ -4441,7 +4457,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:649
 	// Reference: src/components/EDDDownloadsGridOptions.vue:990
 	// Reference: src/components/LoginOptions.vue:934
-	// Reference: src/components/OptinFormOptions.vue:892
+	// Reference: src/components/OptinFormOptions.vue:894
 	// Reference: src/components/WCCartOptions.vue:511
 	// Reference: src/components/WCCheckoutOptions.vue:780
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1093
@@ -4451,7 +4467,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:650
 	// Reference: src/components/EDDDownloadsGridOptions.vue:991
 	// Reference: src/components/LoginOptions.vue:935
-	// Reference: src/components/OptinFormOptions.vue:893
+	// Reference: src/components/OptinFormOptions.vue:895
 	// Reference: src/components/WCCartOptions.vue:512
 	// Reference: src/components/WCCheckoutOptions.vue:781
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1094
@@ -4461,7 +4477,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:651
 	// Reference: src/components/EDDDownloadsGridOptions.vue:992
 	// Reference: src/components/LoginOptions.vue:936
-	// Reference: src/components/OptinFormOptions.vue:894
+	// Reference: src/components/OptinFormOptions.vue:896
 	// Reference: src/components/WCCartOptions.vue:513
 	// Reference: src/components/WCCheckoutOptions.vue:782
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1095
@@ -4471,7 +4487,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:652
 	// Reference: src/components/EDDDownloadsGridOptions.vue:993
 	// Reference: src/components/LoginOptions.vue:937
-	// Reference: src/components/OptinFormOptions.vue:895
+	// Reference: src/components/OptinFormOptions.vue:897
 	// Reference: src/components/WCCartOptions.vue:514
 	// Reference: src/components/WCCheckoutOptions.vue:783
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1096
@@ -4481,7 +4497,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:653
 	// Reference: src/components/EDDDownloadsGridOptions.vue:994
 	// Reference: src/components/LoginOptions.vue:938
-	// Reference: src/components/OptinFormOptions.vue:896
+	// Reference: src/components/OptinFormOptions.vue:898
 	// Reference: src/components/WCCartOptions.vue:515
 	// Reference: src/components/WCCheckoutOptions.vue:784
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1097
@@ -4541,7 +4557,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/EDDCartOptions.vue:394
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1021
-	// Reference: src/components/OptinFormOptions.vue:875
+	// Reference: src/components/OptinFormOptions.vue:877
 	// Reference: src/components/TypographyControl.vue:316
 	// Reference: src/components/WCCartOptions.vue:542
 	// Reference: src/components/WCCheckoutOptions.vue:811
@@ -4569,8 +4585,8 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/EDDCartOptions.vue:400
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1136
-	// Reference: src/components/PriceListOptions.vue:970
-	// Reference: src/components/PricingTableOptions.vue:1399
+	// Reference: src/components/PriceListOptions.vue:972
+	// Reference: src/components/PricingTableOptions.vue:1403
 	// Reference: src/components/ProductRelatedOptions.vue:614
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1237
 	__( 'Price Typography', 'coming-soon' ),
@@ -4619,7 +4635,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:678
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1133
 	// Reference: src/components/PostsOptions.vue:2292
-	// Reference: src/components/PriceListOptions.vue:916
+	// Reference: src/components/PriceListOptions.vue:918
 	__( 'Title Color', 'coming-soon' ),
 
 	// Reference: src/components/EDDCheckoutOptions.vue:679
@@ -4639,10 +4655,10 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/EDDCheckoutOptions.vue:688
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1135
-	// Reference: src/components/PriceListOptions.vue:969
-	// Reference: src/components/PricingTableOptions.vue:1398
+	// Reference: src/components/PriceListOptions.vue:971
+	// Reference: src/components/PricingTableOptions.vue:1402
 	// Reference: src/components/ProductRelatedOptions.vue:613
-	// Reference: src/components/TeamMemberOptions.vue:1153
+	// Reference: src/components/TeamMemberOptions.vue:1155
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1236
 	__( 'Description Typography', 'coming-soon' ),
 
@@ -4650,23 +4666,23 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Payments Border Width', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:646
-	// Reference: src/components/ImageOptions.vue:745
+	// Reference: src/components/ImageOptions.vue:755
 	// Reference: src/components/PostfeaturedimageOptions.vue:647
 	// Reference: src/components/ProductFeaturedImageOptions.vue:646
 	// Reference: src/components/ProductGalleryImagesOptions.vue:226
 	__( 'Image Border', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:651
-	// Reference: src/components/FeatureOptions.vue:573
-	// Reference: src/components/ImageOptions.vue:750
+	// Reference: src/components/FeatureOptions.vue:577
+	// Reference: src/components/ImageOptions.vue:760
 	// Reference: src/components/PostfeaturedimageOptions.vue:652
 	// Reference: src/components/ProductFeaturedImageOptions.vue:651
-	// Reference: src/components/TeamMemberOptions.vue:1151
+	// Reference: src/components/TeamMemberOptions.vue:1153
 	__( 'Alt Text', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:662
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1082
-	// Reference: src/components/ImageOptions.vue:762
+	// Reference: src/components/ImageOptions.vue:772
 	// Reference: src/components/ParticlesBackgroundControl.vue:324
 	// Reference: src/components/PostfeaturedimageOptions.vue:663
 	// Reference: src/components/PostsOptions.vue:2328
@@ -4678,19 +4694,19 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:669
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1089
-	// Reference: src/components/ImageOptions.vue:769
+	// Reference: src/components/ImageOptions.vue:779
 	// Reference: src/components/PostfeaturedimageOptions.vue:670
 	// Reference: src/components/PostsOptions.vue:2335
-	// Reference: src/components/PricingTableOptions.vue:1371
+	// Reference: src/components/PricingTableOptions.vue:1375
 	// Reference: src/components/ProductFeaturedImageOptions.vue:669
 	// Reference: src/components/ProductRelatedOptions.vue:659
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1192
 	__( 'Image Whitespace Padding', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:673
-	// Reference: src/components/HeaderOptions.vue:556
+	// Reference: src/components/HeaderOptions.vue:558
 	// Reference: src/components/IconOptions.vue:287
-	// Reference: src/components/ImageOptions.vue:773
+	// Reference: src/components/ImageOptions.vue:783
 	// Reference: src/components/PostfeaturedimageOptions.vue:674
 	// Reference: src/components/ProductFeaturedImageOptions.vue:673
 	__( 'No Follow', 'coming-soon' ),
@@ -4808,14 +4824,14 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Alignment', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1058
-	// Reference: src/components/PriceListOptions.vue:958
-	// Reference: src/components/PricingTableOptions.vue:1303
+	// Reference: src/components/PriceListOptions.vue:960
+	// Reference: src/components/PricingTableOptions.vue:1307
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1161
 	__( 'Price', 'coming-soon' ),
 
 	// Reference: src/components/EDDDownloadsGridOptions.vue:1059
-	// Reference: src/components/PriceListOptions.vue:959
-	// Reference: src/components/PricingTableOptions.vue:1361
+	// Reference: src/components/PriceListOptions.vue:961
+	// Reference: src/components/PricingTableOptions.vue:1365
 	// Reference: src/components/ProductRelatedOptions.vue:629
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1162
 	__( 'Price Color', 'coming-soon' ),
@@ -4994,9 +5010,39 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PostsOptions.vue:2311
 	__( 'Pagination Typography', 'coming-soon' ),
 
-	// Reference: src/components/FeatureOptions.vue:578
-	// Reference: src/components/IconFeatureOptions.vue:555
-	// Reference: src/components/PriceListOptions.vue:911
+	// Reference: src/components/EnviraGallery.vue:157
+	__( 'Install Envira Gallery plugin:', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGallery.vue:158
+	__( 'Install Envira', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGallery.vue:159
+	__( 'Activate Envira', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGallery.vue:164
+	__( 'Select a gallery', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGallery.vue:165
+	__( 'You can use your envira gallery from this block.', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGalleryOptions.vue:218
+	__( 'Select Gallery', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGalleryOptions.vue:221
+	__( '+ New Gallery', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGalleryOptions.vue:224
+	__( 'Image Limit', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGalleryOptions.vue:225
+	__( 'Gallery', 'coming-soon' ),
+
+	// Reference: src/components/EnviraGalleryOptions.vue:226
+	__( 'Image Options', 'coming-soon' ),
+
+	// Reference: src/components/FeatureOptions.vue:582
+	// Reference: src/components/IconFeatureOptions.vue:559
+	// Reference: src/components/PriceListOptions.vue:913
 	__( 'Vertical Alignment', 'coming-soon' ),
 
 	// Reference: src/components/FontAwesomePicker.vue:39
@@ -5060,7 +5106,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/GoogleMapsOptions.vue:237
 	__( 'Width (%)', 'coming-soon' ),
 
-	// Reference: src/components/HeaderOptions.vue:529
+	// Reference: src/components/HeaderOptions.vue:531
 	__( 'Headline', 'coming-soon' ),
 
 	// Reference: src/components/IconPicker.vue:242
@@ -5089,7 +5135,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Own Image', 'coming-soon' ),
 
 	// Reference: src/components/ImageControl.vue:342
-	// Reference: src/components/Row.vue:1105
+	// Reference: src/components/Row.vue:1108
 	// Reference: src/components/Section.vue:685
 	// Reference: src/views/BuilderView.vue:1041
 	__( 'or', 'coming-soon' ),
@@ -5109,23 +5155,26 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ImageControl.vue:348
 	__( 'Select Image', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:774
+	// Reference: src/components/ImageOptions.vue:784
 	__( 'Link Type', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:775
+	// Reference: src/components/ImageOptions.vue:785
 	__( 'Custom Link', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:776
+	// Reference: src/components/ImageOptions.vue:786
 	__( 'Media - Lightbox', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:778
+	// Reference: src/components/ImageOptions.vue:788
 	__( 'Object Fit', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:780
+	// Reference: src/components/ImageOptions.vue:790
 	__( 'Fill', 'coming-soon' ),
 
-	// Reference: src/components/ImageOptions.vue:783
+	// Reference: src/components/ImageOptions.vue:793
 	__( 'Border Radius Unit', 'coming-soon' ),
+
+	// Reference: src/components/ImageOptions.vue:794
+	__( 'Rotate Image', 'coming-soon' ),
 
 	// Reference: src/components/ListTable.vue:470
 	__( 'Bulk Actions', 'coming-soon' ),
@@ -5143,127 +5192,127 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ListTable.vue:475
 	__( 'Select bulk action', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:103
+	// Reference: src/components/LiteCTABuilder.vue:102
+	// Reference: src/components/LiteCTASubscribers.vue:239
+	// Reference: src/components/LiteCTATemplates.vue:80
+	// Reference: src/components/SettingsLiteCTA.vue:248
+	// Reference: src/components/UpgradeCTABuilder.vue:81
+	__( 'automatically applied at checkout.', 'coming-soon' ),
+
+	// Reference: src/components/LiteCTABuilder.vue:106
 	// Reference: src/components/LiteCTASubscribers.vue:243
 	// Reference: src/components/LiteCTATemplates.vue:84
 	// Reference: src/components/SettingsLiteCTA.vue:252
 	// Reference: src/components/UpgradeCTABuilder.vue:85
 	__( 'Get SeedProd Lite Today and Unlock all the Powerful Features »', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:111
+	// Reference: src/components/LiteCTABuilder.vue:114
 	__( 'is a PRO Feature', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:112
+	// Reference: src/components/LiteCTABuilder.vue:115
 	__( 'is not available on your plan. Please upgrade to the PRO version to unlock all these awesome features.', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:113
+	// Reference: src/components/LiteCTABuilder.vue:116
 	// Reference: src/components/LiteCTASubscribers.vue:247
 	// Reference: src/components/LiteCTATemplates.vue:91
 	// Reference: src/components/SettingsLiteCTA.vue:260
 	__( 'Special Upgrade Offer - Save 50% Off', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:64
+	// Reference: src/components/LiteCTABuilder.vue:67
 	// Reference: src/components/LiteCTASubscribers.vue:204
 	// Reference: src/components/LiteCTATemplates.vue:45
 	// Reference: src/components/SettingsLiteCTA.vue:213
 	// Reference: src/components/UpgradeCTABuilder.vue:45
 	__( 'Dismiss this message', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:65
+	// Reference: src/components/LiteCTABuilder.vue:68
 	// Reference: src/components/LiteCTASubscribers.vue:205
 	// Reference: src/components/LiteCTATemplates.vue:46
 	// Reference: src/components/SettingsLiteCTA.vue:214
 	// Reference: src/components/UpgradeCTABuilder.vue:46
 	__( 'Get SeedProd Lite and Unlock all the Powerful Features', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:76
+	// Reference: src/components/LiteCTABuilder.vue:79
 	// Reference: src/components/LiteCTASubscribers.vue:216
 	// Reference: src/components/LiteCTATemplates.vue:57
 	// Reference: src/components/SettingsLiteCTA.vue:225
 	// Reference: src/components/UpgradeCTABuilder.vue:57
 	__( 'Pro Features:', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:77
+	// Reference: src/components/LiteCTABuilder.vue:80
 	// Reference: src/components/LiteCTATemplates.vue:58
 	// Reference: src/components/UpgradeCTABuilder.vue:58
 	__( 'Drag & Drop Page Builder', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:78
+	// Reference: src/components/LiteCTABuilder.vue:81
 	// Reference: src/components/SettingsLiteCTA.vue:227
 	// Reference: src/components/UpgradeCTABuilder.vue:59
 	__( '80+ PRO Page Blocks', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:79
+	// Reference: src/components/LiteCTABuilder.vue:82
 	// Reference: src/components/UpgradeCTABuilder.vue:60
 	__( 'PRO Email Marketing Integrations', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:83
+	// Reference: src/components/LiteCTABuilder.vue:86
 	// Reference: src/components/LiteCTASubscribers.vue:223
 	// Reference: src/components/SettingsLiteCTA.vue:232
 	// Reference: src/components/UpgradeCTABuilder.vue:64
 	__( 'Custom 404 Pages', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:84
+	// Reference: src/components/LiteCTABuilder.vue:87
 	// Reference: src/components/LiteCTASubscribers.vue:224
 	// Reference: src/components/UpgradeCTABuilder.vue:65
 	__( 'Page Access Controls', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:85
+	// Reference: src/components/LiteCTABuilder.vue:88
 	// Reference: src/components/SettingsLiteCTA.vue:234
 	// Reference: src/components/UpgradeCTABuilder.vue:66
 	__( '200+ PRO Page Templates', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:86
+	// Reference: src/components/LiteCTABuilder.vue:89
 	// Reference: src/components/SettingsLiteCTA.vue:235
 	// Reference: src/components/UpgradeCTABuilder.vue:67
 	__( 'PRO Smart Sections', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:90
+	// Reference: src/components/LiteCTABuilder.vue:93
 	// Reference: src/components/LiteCTASubscribers.vue:230
 	// Reference: src/components/UpgradeCTABuilder.vue:71
 	__( 'Email Subscriber Management', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:91
+	// Reference: src/components/LiteCTABuilder.vue:94
 	// Reference: src/components/LiteCTASubscribers.vue:231
 	// Reference: src/components/SettingsLiteCTA.vue:240
 	// Reference: src/components/UpgradeCTABuilder.vue:72
 	// Reference: src/views/TemplateChooser-Lite.vue:1334
 	__( 'Saved Templates', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:92
+	// Reference: src/components/LiteCTABuilder.vue:95
 	// Reference: src/components/LiteCTASubscribers.vue:232
 	// Reference: src/components/LiteCTATemplates.vue:73
 	// Reference: src/components/SettingsLiteCTA.vue:241
 	// Reference: src/components/UpgradeCTABuilder.vue:73
 	__( 'Plus much more...', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:93
+	// Reference: src/components/LiteCTABuilder.vue:96
 	// Reference: src/components/LiteCTASubscribers.vue:233
 	// Reference: src/components/LiteCTATemplates.vue:74
 	// Reference: src/components/SettingsLiteCTA.vue:242
 	// Reference: src/components/UpgradeCTABuilder.vue:75
 	__( 'Bonus:', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:94
+	// Reference: src/components/LiteCTABuilder.vue:97
 	// Reference: src/components/LiteCTASubscribers.vue:234
 	// Reference: src/components/LiteCTATemplates.vue:75
 	// Reference: src/components/SettingsLiteCTA.vue:243
 	// Reference: src/components/UpgradeCTABuilder.vue:76
 	__( 'SeedProd Lite users get', 'coming-soon' ),
 
-	// Reference: src/components/LiteCTABuilder.vue:95
+	// Reference: src/components/LiteCTABuilder.vue:98
 	// Reference: src/components/LiteCTASubscribers.vue:235
 	// Reference: src/components/LiteCTATemplates.vue:76
 	// Reference: src/components/SettingsLiteCTA.vue:244
 	// Reference: src/components/UpgradeCTABuilder.vue:77
 	__( 'a discount off the regular price', 'coming-soon' ),
-
-	// Reference: src/components/LiteCTABuilder.vue:99
-	// Reference: src/components/LiteCTASubscribers.vue:239
-	// Reference: src/components/LiteCTATemplates.vue:80
-	// Reference: src/components/SettingsLiteCTA.vue:248
-	// Reference: src/components/UpgradeCTABuilder.vue:81
-	__( 'automatically applied at checkout.', 'coming-soon' ),
 
 	// Reference: src/components/LiteCTASubscribers.vue:217
 	__( 'Filter by Page', 'coming-soon' ),
@@ -5348,7 +5397,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Field Border Radius', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue:905
-	// Reference: src/components/OptinFormOptions.vue:853
+	// Reference: src/components/OptinFormOptions.vue:855
 	__( 'Success Action', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue:906
@@ -5424,6 +5473,9 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/Modal.vue:34
 	__( 'default body', 'coming-soon' ),
 
+	// Reference: src/components/NavOptions.vue:580
+	__( 'Active Text Color', 'coming-soon' ),
+
 	// Reference: src/components/NavOptions.vue:582
 	__( 'URL Link', 'coming-soon' ),
 
@@ -5437,7 +5489,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Off', 'coming-soon' ),
 
 	// Reference: src/components/NavOptions.vue:588
-	__( 'Hover Color', 'coming-soon' ),
+	__( 'Hover Text Color', 'coming-soon' ),
 
 	// Reference: src/components/NavOptions.vue:590
 	__( 'Menu Type', 'coming-soon' ),
@@ -5488,364 +5540,364 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/NavOptions.vue:615
 	__( 'There are no menus in your site.', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:722
+	// Reference: src/components/OpenAIControl.vue:724
 	// Reference: src/components/OpenAIImageControl.vue:597
 	__( 'Edit with AI', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:723
+	// Reference: src/components/OpenAIControl.vue:725
 	__( 'Generate AI Text', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:724
+	// Reference: src/components/OpenAIControl.vue:726
 	__( 'Generate Text', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:725
+	// Reference: src/components/OpenAIControl.vue:727
 	// Reference: src/components/OpenAIImageControl.vue:602
 	__( 'Your AI Result', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:728
+	// Reference: src/components/OpenAIControl.vue:730
 	__( 'Write with AI', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:729
+	// Reference: src/components/OpenAIControl.vue:731
 	__( 'Describe your text.', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:730
+	// Reference: src/components/OpenAIControl.vue:732
 	__( 'New Prompt', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:731
+	// Reference: src/components/OpenAIControl.vue:733
 	__( 'Simple Language', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:732
+	// Reference: src/components/OpenAIControl.vue:734
 	__( 'Make it longer', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:733
+	// Reference: src/components/OpenAIControl.vue:735
 	__( 'Make it shorter', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:734
+	// Reference: src/components/OpenAIControl.vue:736
 	__( 'Change text tone', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:735
+	// Reference: src/components/OpenAIControl.vue:737
 	__( 'Translate text to', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:736
+	// Reference: src/components/OpenAIControl.vue:738
 	// Reference: src/components/OpenAIImageControl.vue:616
 	__( '---', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:737
+	// Reference: src/components/OpenAIControl.vue:739
 	__( 'Choose Tone', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:738
+	// Reference: src/components/OpenAIControl.vue:740
 	__( 'Choose Language', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:739
+	// Reference: src/components/OpenAIControl.vue:741
 	// Reference: src/components/OpenAIImageControl.vue:626
 	__( 'Suggested prompts:', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:740
+	// Reference: src/components/OpenAIControl.vue:742
 	__( 'Write a catchy slogan for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:741
+	// Reference: src/components/OpenAIControl.vue:743
 	__( 'Write a page title for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:742
+	// Reference: src/components/OpenAIControl.vue:744
 	__( 'Suggest a 5 word headline for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:743
+	// Reference: src/components/OpenAIControl.vue:745
 	__( 'Write an interesting title for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:744
+	// Reference: src/components/OpenAIControl.vue:746
 	__( 'Write a section header for', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:745
+	// Reference: src/components/OpenAIControl.vue:747
 	__( ' ... ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:746
+	// Reference: src/components/OpenAIControl.vue:748
 	__( 'Create a list for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:747
+	// Reference: src/components/OpenAIControl.vue:749
 	__( 'Write about us section for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:748
+	// Reference: src/components/OpenAIControl.vue:750
 	__( 'Write a product description for', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:749
+	// Reference: src/components/OpenAIControl.vue:751
 	__( 'Write a short content for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:750
+	// Reference: src/components/OpenAIControl.vue:752
 	__( 'Write 50 words content for ', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:751
+	// Reference: src/components/OpenAIControl.vue:753
 	__( 'English', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:752
+	// Reference: src/components/OpenAIControl.vue:754
 	__( 'Spanish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:753
+	// Reference: src/components/OpenAIControl.vue:755
 	__( 'French', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:754
+	// Reference: src/components/OpenAIControl.vue:756
 	__( 'German', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:755
+	// Reference: src/components/OpenAIControl.vue:757
 	__( 'Italian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:756
+	// Reference: src/components/OpenAIControl.vue:758
 	__( 'Portuguese', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:757
+	// Reference: src/components/OpenAIControl.vue:759
 	__( 'Japanese', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:758
+	// Reference: src/components/OpenAIControl.vue:760
 	__( 'Korean', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:759
+	// Reference: src/components/OpenAIControl.vue:761
 	__( 'Chinese', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:760
+	// Reference: src/components/OpenAIControl.vue:762
 	__( 'Arabic', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:761
+	// Reference: src/components/OpenAIControl.vue:763
 	__( 'Russian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:762
+	// Reference: src/components/OpenAIControl.vue:764
 	__( 'Dutch', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:763
+	// Reference: src/components/OpenAIControl.vue:765
 	__( 'Swedish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:764
+	// Reference: src/components/OpenAIControl.vue:766
 	__( 'Norwegian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:765
+	// Reference: src/components/OpenAIControl.vue:767
 	__( 'Danish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:766
+	// Reference: src/components/OpenAIControl.vue:768
 	__( 'Finnish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:767
+	// Reference: src/components/OpenAIControl.vue:769
 	__( 'Greek', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:768
+	// Reference: src/components/OpenAIControl.vue:770
 	__( 'Hindi', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:769
+	// Reference: src/components/OpenAIControl.vue:771
 	__( 'Turkish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:770
+	// Reference: src/components/OpenAIControl.vue:772
 	__( 'Vietnamese', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:771
+	// Reference: src/components/OpenAIControl.vue:773
 	__( 'Thai', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:772
+	// Reference: src/components/OpenAIControl.vue:774
 	__( 'Indonesian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:773
+	// Reference: src/components/OpenAIControl.vue:775
 	__( 'Malay', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:774
+	// Reference: src/components/OpenAIControl.vue:776
 	__( 'Swahili', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:775
+	// Reference: src/components/OpenAIControl.vue:777
 	__( 'Hebrew', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:776
+	// Reference: src/components/OpenAIControl.vue:778
 	__( 'Polish', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:777
+	// Reference: src/components/OpenAIControl.vue:779
 	__( 'Czech', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:778
+	// Reference: src/components/OpenAIControl.vue:780
 	__( 'Hungarian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:779
+	// Reference: src/components/OpenAIControl.vue:781
 	__( 'Romanian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:780
+	// Reference: src/components/OpenAIControl.vue:782
 	__( 'Bulgarian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:781
+	// Reference: src/components/OpenAIControl.vue:783
 	__( 'Ukrainian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:782
+	// Reference: src/components/OpenAIControl.vue:784
 	__( 'Croatian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:783
+	// Reference: src/components/OpenAIControl.vue:785
 	__( 'Serbian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:784
+	// Reference: src/components/OpenAIControl.vue:786
 	__( 'Slovak', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:785
+	// Reference: src/components/OpenAIControl.vue:787
 	__( 'Slovenian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:786
+	// Reference: src/components/OpenAIControl.vue:788
 	__( 'Estonian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:787
+	// Reference: src/components/OpenAIControl.vue:789
 	__( 'Latvian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:788
+	// Reference: src/components/OpenAIControl.vue:790
 	__( 'Lithuanian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:789
+	// Reference: src/components/OpenAIControl.vue:791
 	__( 'Persian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:790
+	// Reference: src/components/OpenAIControl.vue:792
 	__( 'Urdu', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:791
+	// Reference: src/components/OpenAIControl.vue:793
 	__( 'Tamil', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:792
+	// Reference: src/components/OpenAIControl.vue:794
 	__( 'Bengali', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:793
+	// Reference: src/components/OpenAIControl.vue:795
 	__( 'Punjabi', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:794
+	// Reference: src/components/OpenAIControl.vue:796
 	__( 'Gujarati', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:795
+	// Reference: src/components/OpenAIControl.vue:797
 	__( 'Telugu', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:796
+	// Reference: src/components/OpenAIControl.vue:798
 	__( 'Marathi', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:797
+	// Reference: src/components/OpenAIControl.vue:799
 	__( 'Kannada', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:798
+	// Reference: src/components/OpenAIControl.vue:800
 	__( 'Malayalam', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:799
+	// Reference: src/components/OpenAIControl.vue:801
 	__( 'Nepali', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:800
+	// Reference: src/components/OpenAIControl.vue:802
 	__( 'Georgian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:801
+	// Reference: src/components/OpenAIControl.vue:803
 	__( 'Armenian', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:802
+	// Reference: src/components/OpenAIControl.vue:804
 	__( 'Azerbaijani', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:803
+	// Reference: src/components/OpenAIControl.vue:805
 	__( 'Kazakh', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:804
+	// Reference: src/components/OpenAIControl.vue:806
 	__( 'Uzbek', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:805
+	// Reference: src/components/OpenAIControl.vue:807
 	__( 'Turkmen', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:806
+	// Reference: src/components/OpenAIControl.vue:808
 	__( 'Kyrgyz', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:807
+	// Reference: src/components/OpenAIControl.vue:809
 	__( 'Tajik', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:808
+	// Reference: src/components/OpenAIControl.vue:810
 	__( 'Professional', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:809
+	// Reference: src/components/OpenAIControl.vue:811
 	__( 'Friendly', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:810
+	// Reference: src/components/OpenAIControl.vue:812
 	__( 'Funny', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:811
+	// Reference: src/components/OpenAIControl.vue:813
 	__( 'Serious', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:812
+	// Reference: src/components/OpenAIControl.vue:814
 	__( 'Excited', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:813
+	// Reference: src/components/OpenAIControl.vue:815
 	__( 'Casual', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:814
+	// Reference: src/components/OpenAIControl.vue:816
 	__( 'Formal', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:815
+	// Reference: src/components/OpenAIControl.vue:817
 	// Reference: src/components/PostsOptions.vue:2356
 	__( 'Creative', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:816
+	// Reference: src/components/OpenAIControl.vue:818
 	__( 'Analytical', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:817
+	// Reference: src/components/OpenAIControl.vue:819
 	__( 'Instructional', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:818
+	// Reference: src/components/OpenAIControl.vue:820
 	__( 'Sympathetic', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:819
+	// Reference: src/components/OpenAIControl.vue:821
 	__( 'Enthusiastic', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:820
+	// Reference: src/components/OpenAIControl.vue:822
 	__( 'Persuasive', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:821
+	// Reference: src/components/OpenAIControl.vue:823
 	__( 'Optimistic', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:822
+	// Reference: src/components/OpenAIControl.vue:824
 	__( 'Respectful', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:823
+	// Reference: src/components/OpenAIControl.vue:825
 	__( 'Polite', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:824
+	// Reference: src/components/OpenAIControl.vue:826
 	__( 'Sincere', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:825
+	// Reference: src/components/OpenAIControl.vue:827
 	__( 'Encouraging', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:826
+	// Reference: src/components/OpenAIControl.vue:828
 	__( 'Calm', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:828
+	// Reference: src/components/OpenAIControl.vue:830
 	__( 'Confident', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:829
+	// Reference: src/components/OpenAIControl.vue:831
 	__( 'Helpful', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:830
+	// Reference: src/components/OpenAIControl.vue:832
 	__( 'Informative', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:831
+	// Reference: src/components/OpenAIControl.vue:833
 	__( 'Patient', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:832
+	// Reference: src/components/OpenAIControl.vue:834
 	__( 'Conversational', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:833
+	// Reference: src/components/OpenAIControl.vue:835
 	__( 'Empathetic', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:834
+	// Reference: src/components/OpenAIControl.vue:836
 	__( 'Concise', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:835
+	// Reference: src/components/OpenAIControl.vue:837
 	__( 'Courteous', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:836
+	// Reference: src/components/OpenAIControl.vue:838
 	__( 'Thoughtful', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:837
+	// Reference: src/components/OpenAIControl.vue:839
 	__( 'Inspirational', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:838
+	// Reference: src/components/OpenAIControl.vue:840
 	// Reference: src/components/OpenAIImageControl.vue:624
 	__( 'Prompt cannot be blank.', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:839
+	// Reference: src/components/OpenAIControl.vue:841
 	__( 'An Internal Server error occurred. Please try again later.', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:840
+	// Reference: src/components/OpenAIControl.vue:842
 	__( 'An unexpected error occurred. Please try again later.', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:841
+	// Reference: src/components/OpenAIControl.vue:843
 	__( 'Your Patience is Appreciated! Expected wait: 45 seconds', 'coming-soon' ),
 
-	// Reference: src/components/OpenAIControl.vue:842
+	// Reference: src/components/OpenAIControl.vue:844
 	// Reference: src/components/OpenAIImageControl.vue:633
 	__( 'Credits:', 'coming-soon' ),
 
@@ -5936,31 +5988,31 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/OpenAIImageControl.vue:632
 	__( 'Your patience is appreciated! Expected wait: 45 seconds', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:852
+	// Reference: src/components/OptinFormOptions.vue:854
 	__( 'Submit Button', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:857
-	// Reference: src/components/SocialSharingOptions.vue:409
+	// Reference: src/components/OptinFormOptions.vue:859
+	// Reference: src/components/SocialSharingOptions.vue:411
 	// Reference: src/components/StarRatingOptions.vue:303
 	// Reference: src/views/GlobalCSS.vue:2229
 	__( 'Label', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:859
+	// Reference: src/components/OptinFormOptions.vue:861
 	__( 'Required', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:868
+	// Reference: src/components/OptinFormOptions.vue:870
 	__( 'Input Sizes', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:869
+	// Reference: src/components/OptinFormOptions.vue:871
 	__( 'Action To Take', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:877
+	// Reference: src/components/OptinFormOptions.vue:879
 	__( 'Remove Inline Padding', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:897
+	// Reference: src/components/OptinFormOptions.vue:899
 	__( 'Button text', 'coming-soon' ),
 
-	// Reference: src/components/OptinFormOptions.vue:899
+	// Reference: src/components/OptinFormOptions.vue:901
 	__( 'All emails captured can be seen on the <a href="admin.php?page=seedprod_lite#/subscribers/0" class="sp-text-primary">Subscribers Page</a>. Click the <strong>Connect</strong> tab on the top menu to send your emails to the email service provider of your choice.', 'coming-soon' ),
 
 	// Reference: src/components/ParticlesBackgroundControl.vue:298
@@ -6043,27 +6095,27 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:351
 	// Reference: src/components/PostsOptions.vue:2275
-	// Reference: src/components/TeamMemberOptions.vue:1148
+	// Reference: src/components/TeamMemberOptions.vue:1150
 	__( 'div', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:353
 	// Reference: src/components/PostsOptions.vue:2277
-	// Reference: src/components/TeamMemberOptions.vue:1150
+	// Reference: src/components/TeamMemberOptions.vue:1152
 	__( 'p', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:357
 	__( 'Archive Posts', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:359
-	// Reference: src/components/TeamMemberOptions.vue:1092
-	// Reference: src/components/TestimonialOptions.vue:600
+	// Reference: src/components/TeamMemberOptions.vue:1094
+	// Reference: src/components/TestimonialOptions.vue:602
 	__( 'Name Color', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:360
 	__( 'Biography Color', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:363
-	// Reference: src/components/TestimonialOptions.vue:634
+	// Reference: src/components/TestimonialOptions.vue:636
 	__( 'Name Typography', 'coming-soon' ),
 
 	// Reference: src/components/PostauthorboxOptions.vue:364
@@ -6075,7 +6127,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PostauthorboxOptions.vue:367
 	__( 'to manage your profile.', 'coming-soon' ),
 
-	// Reference: src/components/PostcommentsOptions.vue:186
+	// Reference: src/components/PostcommentsOptions.vue:188
 	__( 'Content Policy', 'coming-soon' ),
 
 	// Reference: src/components/PostinfoOptions.vue:582
@@ -6188,22 +6240,22 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Comment Count', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2242
-	// Reference: src/components/TestimonialOptions.vue:616
+	// Reference: src/components/TestimonialOptions.vue:618
 	__( 'Autoplay Speed', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2243
 	__( 'Slides to Show', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2254
-	// Reference: src/components/TestimonialOptions.vue:628
+	// Reference: src/components/TestimonialOptions.vue:630
 	__( 'seconds', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2257
-	// Reference: src/components/TestimonialOptions.vue:614
+	// Reference: src/components/TestimonialOptions.vue:616
 	__( 'AutoPlay', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2258
-	// Reference: src/components/TestimonialOptions.vue:615
+	// Reference: src/components/TestimonialOptions.vue:617
 	__( 'Pause On Hover', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2261
@@ -6321,8 +6373,8 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Business News', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2359
-	// Reference: src/components/PriceListOptions.vue:909
-	// Reference: src/components/TeamMemberOptions.vue:1123
+	// Reference: src/components/PriceListOptions.vue:911
+	// Reference: src/components/TeamMemberOptions.vue:1125
 	__( 'Image Position', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue:2365
@@ -6361,235 +6413,235 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PostsOptions.vue:2384
 	__( 'Content Area Border', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:900
+	// Reference: src/components/PriceListOptions.vue:902
 	__( 'Left Layout Template', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:901
+	// Reference: src/components/PriceListOptions.vue:903
 	__( 'Right Layout Template', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:902
+	// Reference: src/components/PriceListOptions.vue:904
 	__( 'No Image Template', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:904
+	// Reference: src/components/PriceListOptions.vue:906
 	__( 'Price List Items', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:910
+	// Reference: src/components/PriceListOptions.vue:912
 	__( 'Overall Alignment', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:919
+	// Reference: src/components/PriceListOptions.vue:921
 	__( 'Enter Title', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:920
+	// Reference: src/components/PriceListOptions.vue:922
 	__( 'Enter Description', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:922
+	// Reference: src/components/PriceListOptions.vue:924
 	__( 'Actual Price', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:923
+	// Reference: src/components/PriceListOptions.vue:925
 	__( 'Offering Discount?', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:934
+	// Reference: src/components/PriceListOptions.vue:936
 	__( 'Title Price Separator', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:949
+	// Reference: src/components/PriceListOptions.vue:951
 	__( 'Link Complete Box', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:950
+	// Reference: src/components/PriceListOptions.vue:952
 	__( 'Price Position', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:951
+	// Reference: src/components/PriceListOptions.vue:953
 	__( 'Below Heading and Description', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:952
+	// Reference: src/components/PriceListOptions.vue:954
 	__( 'Right of Heading', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:960
+	// Reference: src/components/PriceListOptions.vue:962
 	__( 'Discount Color', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:961
-	// Reference: src/components/TeamMemberOptions.vue:1133
+	// Reference: src/components/PriceListOptions.vue:963
+	// Reference: src/components/TeamMemberOptions.vue:1135
 	__( 'Image Area', 'coming-soon' ),
-
-	// Reference: src/components/PriceListOptions.vue:962
-	// Reference: src/components/TeamMemberOptions.vue:1134
-	__( 'Shape', 'coming-soon' ),
 
 	// Reference: src/components/PriceListOptions.vue:964
 	// Reference: src/components/TeamMemberOptions.vue:1136
+	__( 'Shape', 'coming-soon' ),
+
+	// Reference: src/components/PriceListOptions.vue:966
+	// Reference: src/components/TeamMemberOptions.vue:1138
 	__( 'Rounded', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:965
-	// Reference: src/components/TeamMemberOptions.vue:1137
+	// Reference: src/components/PriceListOptions.vue:967
+	// Reference: src/components/TeamMemberOptions.vue:1139
 	__( 'Circle', 'coming-soon' ),
 
-	// Reference: src/components/PriceListOptions.vue:984
+	// Reference: src/components/PriceListOptions.vue:986
 	// Reference: src/components/ProductGalleryImagesOptions.vue:227
-	// Reference: src/components/TeamMemberOptions.vue:1168
+	// Reference: src/components/TeamMemberOptions.vue:1170
 	__( 'Image Border Radius', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1288
+	// Reference: src/components/PricingTableOptions.vue:1292
 	__( 'Features List', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1290
+	// Reference: src/components/PricingTableOptions.vue:1294
 	__( 'Plan Name', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1292
+	// Reference: src/components/PricingTableOptions.vue:1296
 	__( 'Currency Symbol', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1297
+	// Reference: src/components/PricingTableOptions.vue:1301
 	__( 'Plan Name Color', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1298
+	// Reference: src/components/PricingTableOptions.vue:1302
 	__( 'Top Button Size', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1299
+	// Reference: src/components/PricingTableOptions.vue:1303
 	__( 'Top Button', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1302
+	// Reference: src/components/PricingTableOptions.vue:1306
 	__( 'Bottom Button', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1304
+	// Reference: src/components/PricingTableOptions.vue:1308
 	__( 'Top Size', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1305
+	// Reference: src/components/PricingTableOptions.vue:1309
 	__( 'Top Button Before Text Icon', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1306
+	// Reference: src/components/PricingTableOptions.vue:1310
 	__( 'Top Button After Text Icon', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1307
+	// Reference: src/components/PricingTableOptions.vue:1311
 	__( 'Regular Price Color', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1311
+	// Reference: src/components/PricingTableOptions.vue:1315
 	__( 'Top Button Border Radius', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1312
+	// Reference: src/components/PricingTableOptions.vue:1316
 	__( 'Bottom Button Border Radius', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1313
+	// Reference: src/components/PricingTableOptions.vue:1317
 	__( '$ Dollar', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1314
+	// Reference: src/components/PricingTableOptions.vue:1318
 	__( '€ Euro', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1315
+	// Reference: src/components/PricingTableOptions.vue:1319
 	__( '฿ Baht', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1316
+	// Reference: src/components/PricingTableOptions.vue:1320
 	__( '₣ Franc', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1317
+	// Reference: src/components/PricingTableOptions.vue:1321
 	__( 'ƒ Guilder', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1318
+	// Reference: src/components/PricingTableOptions.vue:1322
 	__( 'kr Krona', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1319
+	// Reference: src/components/PricingTableOptions.vue:1323
 	__( '₤ Lira', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1320
+	// Reference: src/components/PricingTableOptions.vue:1324
 	__( '₧ Peseta', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1321
+	// Reference: src/components/PricingTableOptions.vue:1325
 	__( '₱ Peso', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1322
+	// Reference: src/components/PricingTableOptions.vue:1326
 	__( '£ Pound Sterling', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1323
+	// Reference: src/components/PricingTableOptions.vue:1327
 	__( 'R$ Real', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1324
+	// Reference: src/components/PricingTableOptions.vue:1328
 	__( '₽ Ruble', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1325
+	// Reference: src/components/PricingTableOptions.vue:1329
 	__( '₨ Rupee', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1326
+	// Reference: src/components/PricingTableOptions.vue:1330
 	__( '₹ Rupee (Indian)', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1327
+	// Reference: src/components/PricingTableOptions.vue:1331
 	__( '₪ Shekel', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1328
+	// Reference: src/components/PricingTableOptions.vue:1332
 	__( '¥ Yen/Yuan', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1329
+	// Reference: src/components/PricingTableOptions.vue:1333
 	__( '₩ Won', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1331
+	// Reference: src/components/PricingTableOptions.vue:1335
 	__( 'Custom Symbol', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1332
+	// Reference: src/components/PricingTableOptions.vue:1336
 	__( 'Period', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1333
+	// Reference: src/components/PricingTableOptions.vue:1337
 	__( 'Show Regular Price', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1334
+	// Reference: src/components/PricingTableOptions.vue:1338
 	__( 'Regular Price', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1335
+	// Reference: src/components/PricingTableOptions.vue:1339
 	__( 'Regular Price Label', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1337
+	// Reference: src/components/PricingTableOptions.vue:1341
 	__( 'Show Top Button', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1338
+	// Reference: src/components/PricingTableOptions.vue:1342
 	__( 'Top Button Text', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1339
+	// Reference: src/components/PricingTableOptions.vue:1343
 	__( 'Top Button Link', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1342
+	// Reference: src/components/PricingTableOptions.vue:1346
 	__( 'Show Bottom Button', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1343
+	// Reference: src/components/PricingTableOptions.vue:1347
 	__( 'Bottom Button Text', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1344
+	// Reference: src/components/PricingTableOptions.vue:1348
 	__( 'Bottom Button Link', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1347
+	// Reference: src/components/PricingTableOptions.vue:1351
 	__( 'Top Button Color', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1348
+	// Reference: src/components/PricingTableOptions.vue:1352
 	__( 'Features List Color', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1351
+	// Reference: src/components/PricingTableOptions.vue:1355
 	__( 'Bottom Button Color', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1352
+	// Reference: src/components/PricingTableOptions.vue:1356
 	__( 'Bottom Button Size', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1353
+	// Reference: src/components/PricingTableOptions.vue:1357
 	__( 'Bottom Button Before Text Icon', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1357
+	// Reference: src/components/PricingTableOptions.vue:1361
 	__( 'Bottom Button After Text Icon', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1362
+	// Reference: src/components/PricingTableOptions.vue:1366
 	__( 'Price Superscript', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1363
+	// Reference: src/components/PricingTableOptions.vue:1367
 	__( 'Price Superscript Top', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1364
+	// Reference: src/components/PricingTableOptions.vue:1368
 	__( 'Block', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1372
+	// Reference: src/components/PricingTableOptions.vue:1376
 	__( 'Currency Symbol Position', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1396
+	// Reference: src/components/PricingTableOptions.vue:1400
 	__( 'Plan Name Typography', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1397
+	// Reference: src/components/PricingTableOptions.vue:1401
 	__( 'Regular Price Typography', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1400
+	// Reference: src/components/PricingTableOptions.vue:1404
 	__( 'Price Superscript Typography', 'coming-soon' ),
 
-	// Reference: src/components/PricingTableOptions.vue:1401
+	// Reference: src/components/PricingTableOptions.vue:1405
 	__( 'Features List Typography', 'coming-soon' ),
 
 	// Reference: src/components/ProductDataTabsOptions.vue:338
@@ -6665,7 +6717,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/ProductMetaOptions.vue:329
 	// Reference: src/components/ProductPriceOptions.vue:187
-	// Reference: src/components/SocialProfilesOptions.vue:689
+	// Reference: src/components/SocialProfilesOptions.vue:691
 	__( 'Stacked', 'coming-soon' ),
 
 	// Reference: src/components/ProductMetaOptions.vue:330
@@ -6722,72 +6774,72 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PushNotificationOptions.vue:195
 	__( 'Documentation', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1106
+	// Reference: src/components/Row.vue:1109
 	// Reference: src/components/Section.vue:686
 	// Reference: src/views/BuilderView.vue:1042
 	__( 'Drag a new block here', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1107
+	// Reference: src/components/Row.vue:1110
 	// Reference: src/components/Section.vue:690
 	// Reference: src/views/BuilderView.vue:1043
 	// Reference: src/views/Layoutnav.vue:1491
 	__( 'Choose your layout:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1108
+	// Reference: src/components/Row.vue:1111
 	__( 'Enter a new block template name:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1110
+	// Reference: src/components/Row.vue:1113
 	// Reference: src/components/Section.vue:689
 	// Reference: src/views/Layoutnav.vue:1490
 	// Reference: src/views/Setup.vue:1060
 	__( 'Save Template', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1111
+	// Reference: src/components/Row.vue:1114
 	// Reference: src/components/Section.vue:691
 	// Reference: src/views/BuilderView.vue:1044
 	__( 'Add Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1112
+	// Reference: src/components/Row.vue:1115
 	__( 'Row Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1113
+	// Reference: src/components/Row.vue:1116
 	__( 'Move Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1114
+	// Reference: src/components/Row.vue:1117
 	__( 'Resize Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1115
+	// Reference: src/components/Row.vue:1118
 	// Reference: src/views/Layoutnav.vue:1500
 	__( 'Duplicate Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1116
+	// Reference: src/components/Row.vue:1119
 	// Reference: src/views/Layoutnav.vue:1501
 	__( 'Delete Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1117
+	// Reference: src/components/Row.vue:1120
 	__( 'Column Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1118
+	// Reference: src/components/Row.vue:1121
 	__( 'Move Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1119
+	// Reference: src/components/Row.vue:1122
 	__( 'Block Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1120
+	// Reference: src/components/Row.vue:1123
 	__( 'Save Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1121
+	// Reference: src/components/Row.vue:1124
 	// Reference: src/views/Layoutnav.vue:1509
 	__( 'Duplicate Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1122
+	// Reference: src/components/Row.vue:1125
 	// Reference: src/views/Layoutnav.vue:1510
 	__( 'Delete Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1123
+	// Reference: src/components/Row.vue:1126
 	__( 'Add Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1124
+	// Reference: src/components/Row.vue:1127
 	// Reference: src/views/Layoutnav.vue:1499
 	__( 'Add Row', 'coming-soon' ),
 
@@ -6929,92 +6981,92 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ShortcodeOptions.vue:146
 	__( 'Show Shortcode Preview', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:673
-	// Reference: src/components/SocialSharingOptions.vue:404
-	__( 'Select a Type', 'coming-soon' ),
-
-	// Reference: src/components/SocialProfilesOptions.vue:674
-	// Reference: src/components/SocialSharingOptions.vue:405
-	__( 'Facebook', 'coming-soon' ),
-
 	// Reference: src/components/SocialProfilesOptions.vue:675
 	// Reference: src/components/SocialSharingOptions.vue:406
-	__( 'X (Twitter)', 'coming-soon' ),
+	__( 'Select a Type', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:676
 	// Reference: src/components/SocialSharingOptions.vue:407
-	__( 'LinkedIn', 'coming-soon' ),
+	__( 'Facebook', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:677
 	// Reference: src/components/SocialSharingOptions.vue:408
-	__( 'Pinterest', 'coming-soon' ),
+	__( 'X (Twitter)', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:678
-	// Reference: src/components/VideoOptions.vue:236
-	// Reference: src/components/VideoPopUpOptions.vue:1130
-	__( 'YouTube', 'coming-soon' ),
+	// Reference: src/components/SocialSharingOptions.vue:409
+	__( 'LinkedIn', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:679
-	__( 'Instagram', 'coming-soon' ),
+	// Reference: src/components/SocialSharingOptions.vue:410
+	__( 'Pinterest', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:680
-	__( 'Snapchat', 'coming-soon' ),
+	// Reference: src/components/VideoOptions.vue:236
+	// Reference: src/components/VideoPopUpOptions.vue:1132
+	__( 'YouTube', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:681
-	__( 'WordPress', 'coming-soon' ),
+	__( 'Instagram', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:682
-	__( 'Github', 'coming-soon' ),
+	__( 'Snapchat', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:683
-	__( 'SoundCloud', 'coming-soon' ),
+	__( 'WordPress', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:684
-	__( 'RSS', 'coming-soon' ),
+	__( 'Github', 'coming-soon' ),
+
+	// Reference: src/components/SocialProfilesOptions.vue:685
+	__( 'SoundCloud', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue:686
+	__( 'RSS', 'coming-soon' ),
+
+	// Reference: src/components/SocialProfilesOptions.vue:688
 	__( 'URL (Include https:// for web links)', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:696
-	// Reference: src/components/TeamMemberOptions.vue:1084
+	// Reference: src/components/SocialProfilesOptions.vue:698
+	// Reference: src/components/TeamMemberOptions.vue:1086
 	__( 'Icon Padding', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:705
+	// Reference: src/components/SocialProfilesOptions.vue:707
 	__( 'Phone', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:707
+	// Reference: src/components/SocialProfilesOptions.vue:709
 	__( 'Discord', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:708
+	// Reference: src/components/SocialProfilesOptions.vue:710
 	__( 'Telegram', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:709
+	// Reference: src/components/SocialProfilesOptions.vue:711
 	__( 'Facebook Messenger', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:710
+	// Reference: src/components/SocialProfilesOptions.vue:712
 	__( 'Slack', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:711
-	// Reference: src/components/VideoPopUpOptions.vue:1144
+	// Reference: src/components/SocialProfilesOptions.vue:713
+	// Reference: src/components/VideoPopUpOptions.vue:1146
 	__( 'Vimeo', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:712
+	// Reference: src/components/SocialProfilesOptions.vue:714
 	__( 'Weibo', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:713
+	// Reference: src/components/SocialProfilesOptions.vue:715
 	__( 'WhatsApp', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:714
+	// Reference: src/components/SocialProfilesOptions.vue:716
 	__( 'TikTok', 'coming-soon' ),
 
-	// Reference: src/components/SocialProfilesOptions.vue:721
-	// Reference: src/components/SocialSharingOptions.vue:402
+	// Reference: src/components/SocialProfilesOptions.vue:723
+	// Reference: src/components/SocialSharingOptions.vue:404
 	__( 'Add New Share', 'coming-soon' ),
 
-	// Reference: src/components/SocialSharingOptions.vue:401
+	// Reference: src/components/SocialSharingOptions.vue:403
 	__( 'Social Sharing', 'coming-soon' ),
 
-	// Reference: src/components/SocialSharingOptions.vue:410
+	// Reference: src/components/SocialSharingOptions.vue:412
 	__( 'Tweet Text', 'coming-soon' ),
 
 	// Reference: src/components/SpacerOptions.vue:67
@@ -7029,92 +7081,92 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/StarRatingOptions.vue:308
 	__( 'Empty Star Color', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1730
+	// Reference: src/components/StripepaymentOptions.vue:1732
 	__( 'Connect with Stripe', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1731
+	// Reference: src/components/StripepaymentOptions.vue:1733
 	__( 'Connect with', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1732
+	// Reference: src/components/StripepaymentOptions.vue:1734
 	__( 'Reconnect', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1733
+	// Reference: src/components/StripepaymentOptions.vue:1735
 	__( 'Connect or Create your Stripe account to start collecting payments.', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1734
+	// Reference: src/components/StripepaymentOptions.vue:1736
 	__( 'Pay as you go pricing: 3% fee per-transaction + Stripe fees', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1754
+	// Reference: src/components/StripepaymentOptions.vue:1756
 	__( 'Payment Setup', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1755
+	// Reference: src/components/StripepaymentOptions.vue:1757
 	__( 'Amount', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1756
+	// Reference: src/components/StripepaymentOptions.vue:1758
 	__( 'Payment Description', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1757
+	// Reference: src/components/StripepaymentOptions.vue:1759
 	__( 'Payment Currency', 'coming-soon' ),
 
-	// Reference: src/components/StripepaymentOptions.vue:1758
+	// Reference: src/components/StripepaymentOptions.vue:1760
 	__( 'Success URL', 'coming-soon' ),
 
 	// Reference: src/components/SuperScriptControl.vue:111
 	__( 'SuperScript Top', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1058
+	// Reference: src/components/TeamMemberOptions.vue:1060
 	__( 'Show Designation', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1060
+	// Reference: src/components/TeamMemberOptions.vue:1062
 	__( 'Show Description', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1064
-	// Reference: src/components/VideoPopUpOptions.vue:1168
+	// Reference: src/components/TeamMemberOptions.vue:1066
+	// Reference: src/components/VideoPopUpOptions.vue:1170
 	__( 'PX', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1065
+	// Reference: src/components/TeamMemberOptions.vue:1067
 	__( '%', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1068
+	// Reference: src/components/TeamMemberOptions.vue:1070
 	__( 'Below Name', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1069
+	// Reference: src/components/TeamMemberOptions.vue:1071
 	__( 'Below Designation', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1070
+	// Reference: src/components/TeamMemberOptions.vue:1072
 	__( 'Below Description', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1072
+	// Reference: src/components/TeamMemberOptions.vue:1074
 	__( 'Thickness', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1074
+	// Reference: src/components/TeamMemberOptions.vue:1076
 	__( 'Social Icons', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1101
+	// Reference: src/components/TeamMemberOptions.vue:1103
 	__( 'Designation Color', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1103
+	// Reference: src/components/TeamMemberOptions.vue:1105
 	__( 'Designation', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1128
+	// Reference: src/components/TeamMemberOptions.vue:1130
 	__( 'Social Icon Align', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1129
+	// Reference: src/components/TeamMemberOptions.vue:1131
 	__( 'Separator Align', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1130
+	// Reference: src/components/TeamMemberOptions.vue:1132
 	__( 'Designation Align', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1132
+	// Reference: src/components/TeamMemberOptions.vue:1134
 	__( 'Name Align', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1152
+	// Reference: src/components/TeamMemberOptions.vue:1154
 	__( 'Designation Typography', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1154
+	// Reference: src/components/TeamMemberOptions.vue:1156
 	__( 'Image Margin Bottom', 'coming-soon' ),
 
-	// Reference: src/components/TeamMemberOptions.vue:1169
+	// Reference: src/components/TeamMemberOptions.vue:1171
 	__( 'Social Icon Border Radius', 'coming-soon' ),
 
 	// Reference: src/components/TemplatetagOptions.vue:148
@@ -7126,37 +7178,37 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/TemplatetagOptions.vue:153
 	__( 'Select Type', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:606
+	// Reference: src/components/TestimonialOptions.vue:608
 	__( 'Add Testimonial', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:609
+	// Reference: src/components/TestimonialOptions.vue:611
 	__( 'Navigation Color Mode', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:610
+	// Reference: src/components/TestimonialOptions.vue:612
 	__( 'Dark', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:611
+	// Reference: src/components/TestimonialOptions.vue:613
 	__( 'Light', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:617
+	// Reference: src/components/TestimonialOptions.vue:619
 	__( 'Testimonial to Show', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:629
+	// Reference: src/components/TestimonialOptions.vue:631
 	__( 'Enable Comment Bubble', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:630
+	// Reference: src/components/TestimonialOptions.vue:632
 	__( 'Bubble Color', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:631
+	// Reference: src/components/TestimonialOptions.vue:633
 	__( 'Testimonials', 'coming-soon' ),
 
-	// Reference: src/components/TestimonialOptions.vue:632
+	// Reference: src/components/TestimonialOptions.vue:634
 	__( 'Carousel Settings', 'coming-soon' ),
 
-	// Reference: src/components/TextOptions.vue:387
+	// Reference: src/components/TextOptions.vue:389
 	__( 'Visual Editor', 'coming-soon' ),
 
-	// Reference: src/components/TextOptions.vue:388
+	// Reference: src/components/TextOptions.vue:390
 	__( 'Edit HTML', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue:313
@@ -7193,200 +7245,200 @@ page plugin.', 'coming-soon' ),
 	__( 'Select Video', 'coming-soon' ),
 
 	// Reference: src/components/VideoOptions.vue:233
-	// Reference: src/components/VideoPopUpOptions.vue:1127
+	// Reference: src/components/VideoPopUpOptions.vue:1129
 	__( 'Video', 'coming-soon' ),
 
 	// Reference: src/components/VideoOptions.vue:238
-	// Reference: src/components/VideoPopUpOptions.vue:1132
+	// Reference: src/components/VideoPopUpOptions.vue:1134
 	// Reference: src/views/GlobalCSS.vue:2166
 	// Reference: src/views/SetupDesign-Lite.vue:735
 	__( 'YouTube URL', 'coming-soon' ),
 
 	// Reference: src/components/VideoOptions.vue:239
-	// Reference: src/components/VideoPopUpOptions.vue:1133
+	// Reference: src/components/VideoPopUpOptions.vue:1135
 	__( 'Custom Video Code', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1129
+	// Reference: src/components/VideoPopUpOptions.vue:1131
 	__( 'Source', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1143
+	// Reference: src/components/VideoPopUpOptions.vue:1145
 	__( 'Vimeo URL', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1145
+	// Reference: src/components/VideoPopUpOptions.vue:1147
 	__( 'Start Time', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1146
+	// Reference: src/components/VideoPopUpOptions.vue:1148
 	__( 'Specify a start time (in seconds)', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1148
+	// Reference: src/components/VideoPopUpOptions.vue:1150
 	__( 'Specify an end time (in seconds)', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1149
+	// Reference: src/components/VideoPopUpOptions.vue:1151
 	__( 'External URL', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1150
+	// Reference: src/components/VideoPopUpOptions.vue:1152
 	__( 'Custom Video URL', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1151
+	// Reference: src/components/VideoPopUpOptions.vue:1153
 	__( 'Select Custom Video', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1152
+	// Reference: src/components/VideoPopUpOptions.vue:1154
 	__( 'Video Options', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1153
+	// Reference: src/components/VideoPopUpOptions.vue:1155
 	__( 'Autoplay', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1154
+	// Reference: src/components/VideoPopUpOptions.vue:1156
 	__( 'Mute', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1155
+	// Reference: src/components/VideoPopUpOptions.vue:1157
 	__( 'Loop', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1156
+	// Reference: src/components/VideoPopUpOptions.vue:1158
 	__( 'Show Player Controls', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1157
+	// Reference: src/components/VideoPopUpOptions.vue:1159
 	__( 'Show Download Button', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1158
+	// Reference: src/components/VideoPopUpOptions.vue:1160
 	__( 'Preload', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1159
+	// Reference: src/components/VideoPopUpOptions.vue:1161
 	__( 'Metadata', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1161
+	// Reference: src/components/VideoPopUpOptions.vue:1163
 	__( 'Preload attribute lets you specify how the video should be loaded when the page loads.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1162
+	// Reference: src/components/VideoPopUpOptions.vue:1164
 	__( 'Learn more here.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1163
+	// Reference: src/components/VideoPopUpOptions.vue:1165
 	__( 'Poster', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1164
+	// Reference: src/components/VideoPopUpOptions.vue:1166
 	__( 'Image Overlay', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1165
+	// Reference: src/components/VideoPopUpOptions.vue:1167
 	__( 'Choose Image', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1169
+	// Reference: src/components/VideoPopUpOptions.vue:1171
 	__( 'Show Play Icon', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1170
+	// Reference: src/components/VideoPopUpOptions.vue:1172
 	__( 'Enable Lightbox', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1171
+	// Reference: src/components/VideoPopUpOptions.vue:1173
 	__( 'Enable Sticky Video', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1172
+	// Reference: src/components/VideoPopUpOptions.vue:1174
 	__( 'Enable Image Overlay', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1173
+	// Reference: src/components/VideoPopUpOptions.vue:1175
 	__( 'Play on Mobile', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1174
+	// Reference: src/components/VideoPopUpOptions.vue:1176
 	__( 'Modest Branding', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1175
+	// Reference: src/components/VideoPopUpOptions.vue:1177
 	__( 'Privacy Mode', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1176
+	// Reference: src/components/VideoPopUpOptions.vue:1178
 	__( 'When you turn on privacy mode, YouTube/Vimeo won\'t store information about visitors on your website unless they play the video.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1177
+	// Reference: src/components/VideoPopUpOptions.vue:1179
 	__( 'Lazy Load', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1178
+	// Reference: src/components/VideoPopUpOptions.vue:1180
 	__( 'Suggested Videos', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1179
+	// Reference: src/components/VideoPopUpOptions.vue:1181
 	__( 'Current Video Channel', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1180
+	// Reference: src/components/VideoPopUpOptions.vue:1182
 	__( 'Any Video', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1181
+	// Reference: src/components/VideoPopUpOptions.vue:1183
 	__( 'Intro Title', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1182
+	// Reference: src/components/VideoPopUpOptions.vue:1184
 	__( 'Intro Portrait', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1183
+	// Reference: src/components/VideoPopUpOptions.vue:1185
 	__( 'Intro Byline', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1184
+	// Reference: src/components/VideoPopUpOptions.vue:1186
 	__( 'Controls Color', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1185
+	// Reference: src/components/VideoPopUpOptions.vue:1187
 	__( 'Play video inline on mobile devices instead of automatically going into fullscreen mode.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1186
+	// Reference: src/components/VideoPopUpOptions.vue:1188
 	__( 'Icon Font Size', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1187
+	// Reference: src/components/VideoPopUpOptions.vue:1189
 	__( 'Icon Opacity', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1189
+	// Reference: src/components/VideoPopUpOptions.vue:1191
 	__( 'Click on Preview and scroll past the video on the page to see this in action.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1190
+	// Reference: src/components/VideoPopUpOptions.vue:1192
 	__( 'Aspect Ratio', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1191
+	// Reference: src/components/VideoPopUpOptions.vue:1193
 	__( '1:1', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1192
+	// Reference: src/components/VideoPopUpOptions.vue:1194
 	__( '3:2', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1193
+	// Reference: src/components/VideoPopUpOptions.vue:1195
 	__( '4:3', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1194
+	// Reference: src/components/VideoPopUpOptions.vue:1196
 	__( '9:16', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1195
+	// Reference: src/components/VideoPopUpOptions.vue:1197
 	__( '16:9', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1196
+	// Reference: src/components/VideoPopUpOptions.vue:1198
 	__( '21:9', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1197
+	// Reference: src/components/VideoPopUpOptions.vue:1199
 	__( 'Teaser Video', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1198
+	// Reference: src/components/VideoPopUpOptions.vue:1200
 	__( 'Enable Teaser Video', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1199
+	// Reference: src/components/VideoPopUpOptions.vue:1201
 	__( 'Show Banner', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1200
+	// Reference: src/components/VideoPopUpOptions.vue:1202
 	__( 'Disabled because Teaser Video feature has been enabled.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1201
+	// Reference: src/components/VideoPopUpOptions.vue:1203
 	__( 'Disabled because Image Overlay feature has been enabled.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1202
+	// Reference: src/components/VideoPopUpOptions.vue:1204
 	__( 'Banner Text', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1203
+	// Reference: src/components/VideoPopUpOptions.vue:1205
 	__( 'Banner Background Color', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1204
+	// Reference: src/components/VideoPopUpOptions.vue:1206
 	__( 'Banner Text Color', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1205
+	// Reference: src/components/VideoPopUpOptions.vue:1207
 	__( 'Banner Text Typography', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1206
+	// Reference: src/components/VideoPopUpOptions.vue:1208
 	__( 'Banner Text Icon', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1207
+	// Reference: src/components/VideoPopUpOptions.vue:1209
 	__( 'Teaser Video Play Icon', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1208
+	// Reference: src/components/VideoPopUpOptions.vue:1210
 	__( 'Video must be hosted by a Starter, Standard, Advanced, Plus, Pro, Business, Premium, or Enterprise account.', 'coming-soon' ),
 
-	// Reference: src/components/VideoPopUpOptions.vue:1210
+	// Reference: src/components/VideoPopUpOptions.vue:1212
 	__( 'Poster Image Src', 'coming-soon' ),
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue:1193
@@ -7434,62 +7486,62 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/WpWidgetBlockOptions.vue:221
 	__( 'Heading Typography', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1013
+	// Reference: src/mixins/helpers.js:1028
 	__( 'Block Uploaded successfully.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1147
+	// Reference: src/mixins/helpers.js:1162
 	__( 'Column Uploaded successfully.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1176
+	// Reference: src/mixins/helpers.js:1191
 	__( 'There is no content available to paste. Please try copy row first!', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1224
+	// Reference: src/mixins/helpers.js:1239
 	__( 'Image uploading will take some time.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1288
+	// Reference: src/mixins/helpers.js:1303
 	__( 'Row Uploaded successfully.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1346
+	// Reference: src/mixins/helpers.js:1361
 	__( 'Block Copied.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1376
+	// Reference: src/mixins/helpers.js:1391
 	__( 'Column Copied.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1408
+	// Reference: src/mixins/helpers.js:1423
 	__( 'Row Copied.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1445
+	// Reference: src/mixins/helpers.js:1460
 	__( 'Section Copied.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1745
+	// Reference: src/mixins/helpers.js:1760
 	// Reference: src/views/SectionTemplateOptions-Lite.vue:478
 	// Reference: src/views/TemplateChooser-Lite.vue:1530
 	__( 'Are you sure you want to delete?', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1754
+	// Reference: src/mixins/helpers.js:1769
 	// Reference: src/views/SectionTemplateOptions-Lite.vue:487
 	// Reference: src/views/TemplateChooser-Lite.vue:1539
 	__( 'Yes, delete it!', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1877
+	// Reference: src/mixins/helpers.js:1892
 	__( 'Visit Docs&nbsp;<i class="fas fa-external-link-alt"></i>', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1925
+	// Reference: src/mixins/helpers.js:1940
 	__( '<strong>Bonus:</strong>&nbsp;SeedProd Lite users get a discount off the regular price, automatically applied at checkout.', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1961
+	// Reference: src/mixins/helpers.js:1976
 	__( 'Upgrade to Unlock ', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1965
+	// Reference: src/mixins/helpers.js:1980
 	__( ' feature is not available on your plan. Please upgrade your plan to unlock this feature and more!', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:1981
+	// Reference: src/mixins/helpers.js:1996
 	__( 'Upgrade with just a click of a button!', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:741
+	// Reference: src/mixins/helpers.js:756
 	__( 'There is no content available to paste. Please try copy section first!', 'coming-soon' ),
 
-	// Reference: src/mixins/helpers.js:866
+	// Reference: src/mixins/helpers.js:881
 	__( 'Section Uploaded successfully.', 'coming-soon' ),
 
 	// Reference: src/views/BuilderView.vue:1046
@@ -7508,7 +7560,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Template Dev Mode - Under "Save" select "Save Global Template" to Create/Edit the template. If you selected a Blank Template to start with a New Template will be created otherwise the template will be updated. After creating a new global template you will need to go back and select the template to edit it.', 'coming-soon' ),
 
 	// Reference: src/views/GlobalCSS.vue:2160
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1423
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1428
 	// Reference: src/views/SetupDesign-Lite.vue:729
 	__( 'Editing:', 'coming-soon' ),
 
@@ -7813,11 +7865,11 @@ page plugin.', 'coming-soon' ),
 	__( 'Categories:', 'coming-soon' ),
 
 	// Reference: src/views/SectionTemplates-Lite.vue:98
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1418
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1423
 	__( 'Blocks', 'coming-soon' ),
 
 	// Reference: src/views/SectionTemplates-Lite.vue:99
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1419
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1424
 	__( 'Sections', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAccess-Lite.vue:323
@@ -8220,19 +8272,19 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/views/Setup.vue:1185
 	__( 'Please make sure to perform a Save before saving as a global template. Click OK to proceed.', 'coming-soon' ),
 
-	// Reference: src/views/Setup.vue:1623
+	// Reference: src/views/Setup.vue:1653
 	__( 'Something has prevented the page from being saved. Please make sure you are at least an Editor and have the unfiltered_html capability.', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1420
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1425
 	__( 'Standard', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1422
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1427
 	__( 'Saved Blocks', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1424
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1429
 	__( 'Search blocks...', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1426
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1431
 	__( 'Widgets', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Lite.vue:734

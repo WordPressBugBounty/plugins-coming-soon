@@ -176,8 +176,10 @@ add_shortcode( 'seedprodwpwidget', 'seedprod_lite_wordpress_widget' );
  * @return string $content
  */
 function seedprod_lite_wordpress_widget( $atts ) {
-
+	// Get the widget name
 	$widget_name = $atts[0];
+
+	// Remove widget name from array
 	unset( $atts[0] );
 
 	// convert string bool
@@ -190,6 +192,23 @@ function seedprod_lite_wordpress_widget( $atts ) {
 	}
 
 	global $wp_widget_factory;
+
+	$content = '';
+
+	// Check if the widget class exists
+	if ( ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
+		// Check update widget class name
+		if ( isset( $atts['class'] ) ) {
+			// Replace - with \
+			$widget_name = str_replace( '-', '\\', $atts['class'] );
+
+			// Check if the widget class exists
+			if ( ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
+				return $content;
+			}
+		}
+	}
+
 	$inst     = $wp_widget_factory->widgets[ $widget_name ];
 	$instance = $atts;
 
@@ -200,4 +219,3 @@ function seedprod_lite_wordpress_widget( $atts ) {
 
 	return $content;
 }
-

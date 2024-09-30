@@ -783,6 +783,43 @@ function seedprod_lite_import_theme_request() {
 	}
 }
 
+
+/**
+ * Delete Theme Page
+ *
+ * @return JSON object.
+ */
+function seedprod_lite_delete_theme_pages(){
+	if ( check_ajax_referer( 'seedprod_lite_delete_theme_pages' ) ) {
+		if ( ! current_user_can( apply_filters( 'seedprod_import_theme_request', 'edit_others_posts' ) ) ) {
+			wp_send_json_error();
+		}
+		
+		global $wpdb;
+		$tablename = $wpdb->prefix . 'posts';
+		$meta_tablename = $wpdb->prefix . 'postmeta';
+
+		$sql = "SELECT p.ID FROM $tablename p 
+				LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)
+				WHERE post_type = 'seedprod' 
+				AND meta_key = '_seedprod_is_theme_template'
+				AND post_status != 'trash'";
+
+		$results = $wpdb->get_results($sql);
+
+		if (empty($results)) {
+			wp_send_json_error('No theme template pages found to delete');
+		}
+
+		foreach ($results as $result) {
+			wp_trash_post($result->ID);
+		}
+
+
+		wp_send_json( true );
+	}
+}
+
 /**
  * Process Imports Theme Templates JSON
  * @param integer $id ID of theme template.

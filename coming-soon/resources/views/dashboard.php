@@ -305,6 +305,10 @@ var seedprod_export_theme_url = <?php echo wp_json_encode( esc_url_raw( $ajax_ur
 <?php $ajax_url = html_entity_decode( wp_nonce_url( 'admin-ajax.php?action=seedprod_lite_import_theme_request', 'seedprod_lite_import_theme_request' ) ); ?>
 var seedprod_import_theme_request_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
 
+
+<?php $ajax_url = html_entity_decode( wp_nonce_url( 'admin-ajax.php?action=seedprod_lite_delete_theme_pages', 'seedprod_lite_delete_theme_pages' ) ); ?>
+var seedprod_delete_theme_pages_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
+
 <?php $ajax_url = html_entity_decode( wp_nonce_url( 'admin-ajax.php?action=seedprod_lite_save_app_settings', 'seedprod_lite_save_app_settings' ) ); ?>
 var seedprod_save_app_settings_ajax_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
 
