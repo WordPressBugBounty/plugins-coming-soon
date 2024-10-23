@@ -68,6 +68,15 @@ function seedprod_lite_create_menus() {
 
 	add_submenu_page(
 		'seedprod_lite',
+		__( 'AI Themes', 'coming-soon' ),
+		__( 'AI Themes', 'coming-soon' ) . '<span class="sp-menu-new">&nbsp;NEW!</span>',
+		apply_filters( 'seedprod_ai_themes_menu_capability', 'edit_others_posts' ),
+		'seedprod_lite_ai_themes',
+		'seedprod_lite_ai_themes_page'
+	);
+
+	add_submenu_page(
+		'seedprod_lite',
 		__( 'Setup', 'coming-soon' ),
 		__( 'Setup', 'coming-soon' ),
 		apply_filters( 'seedprod_setup_menu_capability', 'edit_others_posts' ),
@@ -393,6 +402,12 @@ function seedprod_lite_redirect_to_site() {
 	// theme templates
 	if ( isset( $_GET['page'] ) && 'seedprod_lite_theme_templates' === $_GET['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		wp_safe_redirect( 'admin.php?page=seedprod_lite#/theme-templates' );
+		exit();
+	}
+
+	// ai themes
+	if ( isset( $_GET['page'] ) && 'seedprod_lite_ai_themes' === $_GET['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		wp_redirect( 'https://www.seedprod.com/wordpress-ai-theme-builder/?utm_source=wordpress&utm_medium=plugin-sidebar&utm_campaign=ai-themes-sidebar' ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect
 		exit();
 	}
 

@@ -2631,7 +2631,7 @@ a[disabled],a:disabled{color:#d3ced2 !important}
 .sp-tb-row-bottom{margin-top:29px;z-index:9999}
 .sp-tb-row-bottom span{-webkit-transform:scaleY(-1);transform:scaleY(-1)}
 .sp-slider-control .sp-form-input{height:30px;font-size:14px}
-.sp-form-group label{display:inline-block;margin-bottom:7px;font-weight:normal;font-size:14px}
+.sp-form-group label,.sp-form-group-label{display:inline-block;margin-bottom:7px;font-weight:normal;font-size:14px}
 .sp-custom-css{width:100%;height:450px}
 .sp-left-26{left:26px}
 .spinner{display:none !important}

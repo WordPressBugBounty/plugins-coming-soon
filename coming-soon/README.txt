@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 5.6
-Stable tag: 6.18.5
+Stable tag: 6.18.9
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

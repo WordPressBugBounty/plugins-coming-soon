@@ -149,7 +149,7 @@ function seedprod_lite_check_home_blog_theme_template_part() {
 
 		$sql = "SELECT * FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-		$sql .= ' WHERE post_status = "publish" AND post_type = "seedprod" AND meta_key = "_seedprod_is_theme_template"';
+		$sql .= " WHERE post_status = 'publish' AND post_type = 'seedprod' AND meta_key = '_seedprod_is_theme_template'";
 
 		// Has no separate data to prepare.
 		$results = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared

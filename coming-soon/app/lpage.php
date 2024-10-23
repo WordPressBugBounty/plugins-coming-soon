@@ -14,7 +14,7 @@ function seedprod_lite_get_lpage_list() {
 
 		$sql = "SELECT id,post_title as name,meta_value as uuid FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-		$sql     .= ' WHERE post_status != "trash" AND post_type = "page" AND meta_key = "_seedprod_page_uuid"';
+		$sql     .= " WHERE post_status != 'trash' AND post_type = 'page' AND meta_key = '_seedprod_page_uuid' ";
 		$response = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
 		wp_send_json( $response );
@@ -33,7 +33,7 @@ function seedprod_lite_slug_exists() {
 		global $wpdb;
 		$tablename = $wpdb->prefix . 'posts';
 		$sql       = "SELECT post_name FROM $tablename";
-		$sql      .= ' WHERE post_name = %s';
+		$sql      .= " WHERE post_name = %s";
 		$safe_sql  = $wpdb->prepare( $sql, $post_name ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		$result    = $wpdb->get_var( $safe_sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		if ( empty( $result ) ) {
@@ -312,11 +312,12 @@ function seedprod_lite_lpage_datatable() {
 		$tablename      = $wpdb->prefix . 'posts';
 		$meta_tablename = $wpdb->prefix . 'postmeta';
 
+
 		if ( empty( $_GET['s'] ) ) {
-			$sql      = 'SELECT * FROM ' . $tablename . ' p LEFT JOIN ' . $meta_tablename . ' pm ON (pm.post_id = p.ID) WHERE post_type = "page" AND meta_key = "_seedprod_page" AND ' . $post_status_statement . ' ' . $order_by_statement . ' LIMIT %d OFFSET %d';
+			$sql      = "SELECT * FROM " . $tablename . " p LEFT JOIN " . $meta_tablename . " pm ON (pm.post_id = p.ID) WHERE post_type = 'page' AND meta_key = '_seedprod_page' AND " . $post_status_statement . ' ' . $order_by_statement . " LIMIT %d OFFSET %d";
 			$safe_sql = $wpdb->prepare( $sql, $post_status, $per_page, $offset ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		} else {
-			$sql      = 'SELECT * FROM ' . $tablename . ' p LEFT JOIN ' . $meta_tablename . ' pm ON (pm.post_id = p.ID) WHERE post_type = "page" AND meta_key = "_seedprod_page" AND ' . $post_status_statement . ' AND post_title LIKE %s ' . $order_by_statement . ' LIMIT %d OFFSET %d';
+			$sql      = "SELECT * FROM " . $tablename . " p LEFT JOIN " . $meta_tablename . " pm ON (pm.post_id = p.ID) WHERE post_type = 'page' AND meta_key = '_seedprod_page' AND " . $post_status_statement . " AND post_title LIKE %s " . $order_by_statement . " LIMIT %d OFFSET %d";
 			$safe_sql = $wpdb->prepare( $sql, $post_status, $search_term, $per_page, $offset ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		}
 
@@ -415,10 +416,10 @@ function seedprod_lite_lpage_get_data_total( $filter = null ) {
 	$meta_tablename = $wpdb->prefix . 'postmeta';
 
 	if ( empty( $_GET['s'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$sql      = 'SELECT count(*) FROM ' . $tablename . ' p LEFT JOIN ' . $meta_tablename . ' pm ON (pm.post_id = p.ID) WHERE post_type = "page" AND meta_key = "_seedprod_page" AND ' . $post_status_statement;
+		$sql      = "SELECT count(*) FROM " . $tablename . " p LEFT JOIN " . $meta_tablename . " pm ON (pm.post_id = p.ID) WHERE post_type = 'page' AND meta_key = '_seedprod_page' AND " . $post_status_statement;
 		$safe_sql = $wpdb->prepare( $sql, $post_status ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	} else {
-		$sql      = 'SELECT * FROM ' . $tablename . ' p LEFT JOIN ' . $meta_tablename . ' pm ON (pm.post_id = p.ID) WHERE post_type = "page" AND meta_key = "_seedprod_page" AND ' . $post_status_statement . ' AND post_title LIKE %s ';
+		$sql      = "SELECT * FROM " . $tablename . " p LEFT JOIN " . $meta_tablename . " pm ON (pm.post_id = p.ID) WHERE post_type = 'page' AND meta_key = '_seedprod_page' AND " . $post_status_statement . " AND post_title LIKE %s ";
 		$safe_sql = $wpdb->prepare( $sql, $post_status, $search_term ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	}
 
@@ -444,7 +445,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	// All link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "page" AND post_status != "trash"  AND meta_key = "_seedprod_page"';
+	$sql .= " WHERE 1 = 1 AND post_type = 'page' AND post_status != 'trash'  AND meta_key = '_seedprod_page'";
 
 	$results      = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$class        = ( 'all' == $current ? ' class="current"' : '' );
@@ -454,7 +455,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	// Published link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "publish" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'page'  AND meta_key = '_seedprod_page' AND post_status = 'publish' ";
 
 	$results            = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$running_url        = add_query_arg( 'filter', 'publish' );
@@ -464,7 +465,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	// Drafts link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "draft" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'page'  AND meta_key = '_seedprod_page' AND post_status = 'draft' ";
 
 	$results         = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$upcoming_url    = add_query_arg( 'filter', 'drafts' );
@@ -474,7 +475,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	// Scheduled link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "future" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'page'  AND meta_key = '_seedprod_page' AND post_status = 'future' ";
 
 	$results            = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$ended_url          = add_query_arg( 'filter', 'scheduled' );
@@ -484,7 +485,7 @@ function seedprod_lite_lpage_get_views( $filter = null ) {
 	// Trash link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "page"  AND meta_key = "_seedprod_page" AND post_status = "trash" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'page'  AND meta_key = '_seedprod_page' AND post_status = 'trash' ";
 
 	$results           = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$archived_url      = add_query_arg( 'filter', 'archived' );

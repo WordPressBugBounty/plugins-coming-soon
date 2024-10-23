@@ -39,27 +39,27 @@ function seedprod_lite_themetemplate_datatable() {
 
 		$sql = "SELECT * FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-		$sql .= ' WHERE 1 = 1 AND post_type = "seedprod" AND meta_key = "_seedprod_is_theme_template"';
+		$sql .= " WHERE 1 = 1 AND post_type = 'seedprod' AND meta_key = '_seedprod_is_theme_template' ";
 
 		if ( ! empty( $filter ) ) {
 			if ( esc_sql( $filter ) === 'published' ) {
-				$sql .= ' AND  post_status = "publish" ';
+				$sql .= " AND  post_status = 'publish' ";
 			}
 			if ( esc_sql( $filter ) === 'drafts' ) {
-				$sql .= ' AND  post_status = "draft" ';
+				$sql .= " AND  post_status = 'draft' ";
 			}
 			if ( esc_sql( $filter ) === 'scheduled' ) {
-				$sql .= ' AND  post_status = "future" ';
+				$sql .= " AND  post_status = 'future' ";
 			}
 			if ( esc_sql( $filter ) === 'archived' ) {
-				$sql .= ' AND  post_status = "trash" ';
+				$sql .= " AND  post_status = 'trash' ";
 			}
 		} else {
-			$sql .= 'AND post_status != "trash"';
+			$sql .= "AND post_status != 'trash' ";
 		}
 
 		if ( ! empty( $_GET['s'] ) ) {
-			$sql .= ' AND post_title LIKE "%' . esc_sql( trim( sanitize_text_field( wp_unslash( $_GET['s'] ) ) ) ) . '%"';
+			$sql .= " AND post_title LIKE '%" . esc_sql( trim( sanitize_text_field( wp_unslash( $_GET['s'] ) ) ) ) . "%'";
 		}
 
 		$orderby = isset( $_GET['orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['orderby'] ) ) : '';
@@ -199,27 +199,27 @@ function seedprod_lite_themetemplate_get_data_total( $filter = null ) {
 
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod" AND meta_key = "_seedprod_is_theme_template"';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod' AND meta_key = '_seedprod_is_theme_template' ";
 
 	if ( ! empty( $filter ) ) {
 		if ( 'published' === esc_sql( $filter ) ) {
-			$sql .= ' AND  post_status = "publish" ';
+			$sql .= " AND  post_status = 'publish' ";
 		}
 		if ( 'drafts' === esc_sql( $filter ) ) {
-			$sql .= ' AND  post_status = "draft" ';
+			$sql .= " AND  post_status = 'draft' ";
 		}
 		if ( 'scheduled' === esc_sql( $filter ) ) {
-			$sql .= ' AND  post_status = "future" ';
+			$sql .= " AND  post_status = 'future' ";
 		}
 		if ( 'archived' === esc_sql( $filter ) ) {
-			$sql .= ' AND  post_status = "trash" ';
+			$sql .= " AND  post_status = 'trash' ";
 		}
 	} else {
-		$sql .= ' AND post_status != "trash"';
+		$sql .= " AND post_status != 'trash' ";
 	}
 
 	if ( ! empty( $_GET['s'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$sql .= ' AND post_name LIKE "%' . esc_sql( sanitize_text_field( wp_unslash( $_GET['s'] ) ) ) . '%"'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$sql .= " AND post_name LIKE '%" . esc_sql( sanitize_text_field( wp_unslash( $_GET['s'] ) ) ) . "%'"; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	$results = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
@@ -245,7 +245,7 @@ function seedprod_lite_themetemplate_get_views( $filter = null ) {
 	//All link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod" AND post_status != "trash"  AND meta_key = "_seedprod_is_theme_template"';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod' AND post_status != 'trash'  AND meta_key = '_seedprod_is_theme_template' ";
 
 	$results      = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$class        = ( 'all' === $current ? ' class="current"' : '' );
@@ -255,7 +255,7 @@ function seedprod_lite_themetemplate_get_views( $filter = null ) {
 	//Published link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod"  AND meta_key = "_seedprod_is_theme_template" AND post_status = "publish" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod'  AND meta_key = '_seedprod_is_theme_template' AND post_status = 'publish' ";
 
 	$results            = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$running_url        = add_query_arg( 'filter', 'publish' );
@@ -265,7 +265,7 @@ function seedprod_lite_themetemplate_get_views( $filter = null ) {
 	//Drafts link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod"  AND meta_key = "_seedprod_is_theme_template" AND post_status = "draft" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod'  AND meta_key = '_seedprod_is_theme_template' AND post_status = 'draft' ";
 
 	$results         = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$upcoming_url    = add_query_arg( 'filter', 'drafts' );
@@ -275,7 +275,7 @@ function seedprod_lite_themetemplate_get_views( $filter = null ) {
 	//Scheduled link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod"  AND meta_key = "_seedprod_is_theme_template" AND post_status = "future" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod'  AND meta_key = '_seedprod_is_theme_template' AND post_status = 'future' ";
 
 	$results            = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$ended_url          = add_query_arg( 'filter', 'scheduled' );
@@ -285,7 +285,7 @@ function seedprod_lite_themetemplate_get_views( $filter = null ) {
 	//Trash link
 	$sql = "SELECT count(*) FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-	$sql .= ' WHERE 1 = 1 AND post_type = "seedprod"  AND meta_key = "_seedprod_is_theme_template" AND post_status = "trash" ';
+	$sql .= " WHERE 1 = 1 AND post_type = 'seedprod'  AND meta_key = '_seedprod_is_theme_template' AND post_status = 'trash' ";
 
 	$results           = $wpdb->get_var( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	$archived_url      = add_query_arg( 'filter', 'archived' );
@@ -694,7 +694,7 @@ function seedprod_lite_theme_export() {
 			if ( empty( $_REQUEST['id'] ) || ( ! empty( $_REQUEST['a'] ) && 'export_all_themetemplates' === $_REQUEST['a'] ) ) {
 				$sql = "SELECT * FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
 
-				$sql    .= ' WHERE post_status="publish" AND post_type = "seedprod" AND meta_key = "_seedprod_is_theme_template"';
+				$sql    .= " WHERE post_status='publish' AND post_type = 'seedprod' AND meta_key = '_seedprod_is_theme_template' ";
 				$results = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 			} else {
 				$ids          = explode( ',', sanitize_text_field( wp_unslash( $_REQUEST['id'] ) ) );

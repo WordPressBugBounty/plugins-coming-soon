@@ -33,7 +33,7 @@ function seedprod_lite_subscribers_datatable() {
 		}
 
 		$results = array();
-
+		
 		$data = array();
 		foreach ( $results as $v ) {
 
@@ -60,7 +60,7 @@ function seedprod_lite_subscribers_datatable() {
 		}
 
 		$recent_subscribers = array();
-
+		
 		$now      = new \DateTime( "$chart_timeframe days ago", new \DateTimeZone( 'America/New_York' ) );
 		$interval = new \DateInterval( 'P1D' ); // 1 Day interval
 		$period   = new \DatePeriod( $now, $interval, $chart_timeframe ); // 7 Days

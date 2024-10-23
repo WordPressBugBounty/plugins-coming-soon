@@ -2255,6 +2255,7 @@ p.om-tagline2{max-width:550px;font-size:18px !important;font-weight:500;margin-l
 .wpcode-feature-list-text-right{padding-right:20px !important;text-align:left}
 .wpcode-feature-list-text-left{padding-left:20px !important;text-align:left}
 .wpcode-feature-list-text h2{font-size:24px;line-height:normal;margin:0;padding:10px}
+.sp-menu-new{color:#dd4a1f;vertical-align:super;font-size:9px;font-weight:600;padding-left:2px}
 @media(min-width:640px){.sm\:sp-sr-only{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border-width:0 !important}
 .sm\:sp-not-sr-only{position:static !important;width:auto !important;height:auto !important;padding:0 !important;margin:0 !important;overflow:visible !important;clip:auto !important;white-space:normal !important}
 .sm\:focus\:sp-sr-only:focus{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border-width:0 !important}

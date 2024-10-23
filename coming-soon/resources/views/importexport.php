@@ -31,7 +31,7 @@ if ( ! empty( $_POST['sp_post_json'] ) && wp_verify_nonce( 'importexport-' . $sp
 		global $wpdb;
 		$tablename = $wpdb->prefix . 'posts';
 		$sql       = "SELECT * FROM $tablename";
-		$sql      .= ' WHERE ID = %s';
+		$sql      .= " WHERE ID = %s";
 		$safe_sql  = $wpdb->prepare( $sql, $sp_post_id ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 		$result    = $wpdb->get_row( $safe_sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 

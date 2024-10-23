@@ -3,22 +3,28 @@
 
 
 <?php
-if (  ! empty( $_POST['sp_reset_cs'] ) && 1 == $_POST['sp_reset_cs'] ) {
-	update_option( 'seedprod_coming_soon_page_id', false );
-}
-if (  ! empty( $_POST['sp_reset_mm'] ) && 1 == $_POST['sp_reset_mm'] ) {
-	update_option( 'seedprod_maintenance_mode_page_id', false );
-}
-if (  ! empty( $_POST['sp_reset_p404'] ) && 1 == $_POST['sp_reset_p404'] ) {
-	update_option( 'seedprod_404_page_id', false );
-}
-if (  ! empty( $_POST['sp_reset_loginp'] ) && 1 == $_POST['sp_reset_loginp'] ) {
-	update_option( 'seedprod_login_page_id', false );
-}
-if (  ! empty( $_POST['sp_builder_debug'] ) && 1 == $_POST['sp_builder_debug'] ) {
-	update_option( 'seedprod_builder_debug', true );
-} elseif ( ! empty( $_POST ) ) {
-	update_option( 'seedprod_builder_debug', false );
+if ( ! empty( $_POST ) ) {
+	// Nonce verification
+	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'debug-reset' ) ) {
+		wp_die( 'Security check failed' );
+	}
+	if (  ! empty( $_POST['sp_reset_cs'] ) && 1 == $_POST['sp_reset_cs'] ) {
+		update_option( 'seedprod_coming_soon_page_id', false );
+	}
+	if (  ! empty( $_POST['sp_reset_mm'] ) && 1 == $_POST['sp_reset_mm'] ) {
+		update_option( 'seedprod_maintenance_mode_page_id', false );
+	}
+	if (  ! empty( $_POST['sp_reset_p404'] ) && 1 == $_POST['sp_reset_p404'] ) {
+		update_option( 'seedprod_404_page_id', false );
+	}
+	if (  ! empty( $_POST['sp_reset_loginp'] ) && 1 == $_POST['sp_reset_loginp'] ) {
+		update_option( 'seedprod_login_page_id', false );
+	}
+	if (  ! empty( $_POST['sp_builder_debug'] ) && 1 == $_POST['sp_builder_debug'] ) {
+		update_option( 'seedprod_builder_debug', true );
+	} elseif ( ! empty( $_POST ) ) {
+		update_option( 'seedprod_builder_debug', false );
+	}
 }
 
 // get option
