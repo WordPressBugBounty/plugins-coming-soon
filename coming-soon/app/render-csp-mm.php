@@ -197,7 +197,11 @@ class SeedProd_Lite_Render {
 
 		// redirect mode
 		$enable_redirect_mode = false;
-		$redirect_url         = $settings->redirect_url ? $settings->redirect_url : '';
+		if ( isset( $settings->redirect_url ) ) {
+			$redirect_url = $settings->redirect_url;
+		} else {
+			$redirect_url = '';
+		}
 
 		if ( ! empty( $settings->redirect_mode ) ) {
 			$enable_redirect_mode = true;

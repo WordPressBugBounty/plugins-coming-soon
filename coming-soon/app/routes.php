@@ -293,6 +293,8 @@ add_action( 'admin_footer', 'seedprod_lite_update_selected_page_in_submenu' );
 
 /**
  * Update menu for single page app.
+ *
+ * Add New! badge styling to footer so it's applied on hovered item too.
  */
 function seedprod_lite_update_selected_page_in_submenu() {
 	?>
@@ -362,6 +364,15 @@ function seedprod_lite_update_selected_page_in_submenu() {
 		}
 	});
 	</script>
+	<style>
+		.sp-menu-new {
+			color: #DD4A1F;
+			vertical-align: super;
+			font-size: 9px;
+			font-weight: 600;
+			padding-left: 2px;
+		}
+	</style>
 	<?php
 }
 

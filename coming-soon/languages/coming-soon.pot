@@ -815,15 +815,15 @@ msgstr ""
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
 
-#: build/coming-soon/app/render-csp-mm.php:268
+#: build/coming-soon/app/render-csp-mm.php:272
 msgid "Please create your Maintenance Page in the plugin settings."
 msgstr ""
 
-#: build/coming-soon/app/render-csp-mm.php:280
+#: build/coming-soon/app/render-csp-mm.php:284
 msgid "Please create enter your redirect url in the plugin settings."
 msgstr ""
 
-#: build/coming-soon/app/render-csp-mm.php:285
+#: build/coming-soon/app/render-csp-mm.php:289
 msgid "Please create your Coming Soon Page in the plugin settings."
 msgstr ""
 
