@@ -4753,7 +4753,7 @@ msgid "Select a gallery"
 msgstr ""
 
 #: build/coming-soon/languages/seedprod-lite.php:5032
-msgid "You can use your envira gallery from this block."
+msgid "You can use your Envira gallery from this block."
 msgstr ""
 
 #: build/coming-soon/languages/seedprod-lite.php:5035

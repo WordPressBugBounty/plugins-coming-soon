@@ -4,32 +4,81 @@
 
 require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 
-function seedprod_lite_rehydrate_settings( &$object, $seedprod_lite_block_templates ) {
-
+/**
+ * Rehydrate settings for the builder
+ *
+ * @param array  $object_to_hydrate            Object to hydrate.
+ * @param string $seedprod_lite_block_templates Seedprod setting defaults.
+ * @return void
+ */
+function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_block_templates ) {
 	// Decode the default block templates
 	$defaults = json_decode( $seedprod_lite_block_templates, true );
 
-	// Function to apply defaults to elements based on their type
-	function apply_defaults( &$element, $defaults ) {
-		$type             = $element['type'] ?? '';
-		$element_defaults = $defaults[ $type ] ?? array();
-		// $element['settings'] = $element_defaults;
-		$element['settings'] = array_replace_recursive( $element_defaults, $element['settings'] ?? array() );
-
+	if ( json_last_error() !== JSON_ERROR_NONE ) {
+		return;
 	}
 
-	if ( isset( $object['document'] ) ) {
-		$document_defaults              = $defaults['document'] ?? array();
-		$object['document']['settings'] = array_replace_recursive( $document_defaults, $object['document']['settings'] ?? array() );
+	/**
+	 * Custom merge function that preserves existing values but ensures all default keys exist
+	 *
+	 * @param array   $defaults Defaults.
+	 * @param array   $settings Settings.
+	 * @param integer $depth    Depth.
+	 * @return array
+	 */
+	function merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
+		// Guard clauses for safety
+		if ( ! is_array( $defaults ) ) {
+			return $settings;
+		}
+		if ( ! is_array( $settings ) ) {
+			return $defaults;
+		}
+		// Prevent infinite recursion
+		if ( $depth > 100 ) {
+			return $settings;
+		}
+
+		$result = $defaults;
+
+		foreach ( $settings as $key => $value ) {
+			// Special handling for 'items' array - preserve as-is without merging defaults
+			if ( $key === 'items' ) {
+				$result[ $key ] = $value;
+				continue;
+			}
+
+			// If both values are arrays, merge recursively
+			if ( isset( $result[ $key ] ) && is_array( $result[ $key ] ) && is_array( $value ) ) {
+				$result[ $key ] = merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
+			} else {
+				// If the value is not an array, preserve the setting value
+				$result[ $key ] = $value;
+			}
+		}
+
+		return $result;
+	}
+
+	function apply_defaults( &$element, $defaults ) {
+		$type                = $element['type'] ?? '';
+		$element_defaults    = $defaults[ $type ] ?? array();
+		$element['settings'] = merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
+	}
+
+	if ( isset( $object_to_hydrate['document'] ) ) {
+		$document_defaults                         = $defaults['document'] ?? array();
+		$object_to_hydrate['document']['settings'] = array_replace_recursive( $document_defaults, $object_to_hydrate['document']['settings'] ?? array() );
 	}
 
 	// Iterate over document sections and apply defaults
-	if ( isset( $object['document']['sections'] ) && is_array( $object['document']['sections'] ) ) {
+	if ( isset( $object_to_hydrate['document']['sections'] ) && is_array( $object_to_hydrate['document']['sections'] ) ) {
 
 		// $element_defaults = $defaults['document'] ?? [];
-		// $object['document']['settings'] = $element_defaults;
+		// $object_to_hydrate['document']['settings'] = $element_defaults;
 
-		foreach ( $object['document']['sections'] as &$section ) {
+		foreach ( $object_to_hydrate['document']['sections'] as &$section ) {
 			if ( isset( $section['type'] ) && $section['type'] === 'section' ) {
 
 				// Apply section defaults
@@ -67,7 +116,6 @@ function seedprod_lite_rehydrate_settings( &$object, $seedprod_lite_block_templa
 			}
 		}
 	}
-
 }
 
 
@@ -312,12 +360,12 @@ $get_array_keys = array_keys( $user_personalization_preferences_schema );
 /**
  * Check if array keys exist func.
  *
- * @param array $keys  Array of keys.
- * @param array $array Array of keys.
+ * @param array $keys           Array of keys.
+ * @param array $array_to_check Array of keys.
  * @return boolean
  */
-function array_keys_exists( array $keys, array $array ) {
-	$diff = array_diff_key( array_flip( $keys ), $array );
+function array_keys_exists( array $keys, array $array_to_check ) {
+	$diff = array_diff_key( array_flip( $keys ), $array_to_check );
 	return count( $diff ) === 0;
 }
 
@@ -557,7 +605,7 @@ if ( count( $seedprod_menus ) > 0 ) {
 		if ( 0 === $menu_counter ) {
 			$seedprod_first_menu = $sp_menu->slug;
 		}
-		$menu_counter++;
+		++$menu_counter;
 		$seedprod_options[ $sp_menu->slug ] = $sp_menu->name;
 	}
 }
@@ -574,7 +622,7 @@ if ( count( $seedprod_theme_parts ) > 0 ) {
 	foreach ( $seedprod_theme_parts as $tparts ) {
 		if ( 0 === $counter ) {
 			$seedprod_selected_template_parts = $tparts->ID; }
-			$counter++;
+			++$counter;
 			$seedprod_template_parts[ $tparts->ID ] = $tparts->post_title;
 	}
 }
@@ -652,8 +700,8 @@ $seedprod_data = array(
 );
 
 	$seedprod_data['envira'] = array(
-		'add_envira_gallery'  => admin_url( 'post-new.php?post_type=envira' ),
-		'placeholder'   => sprintf( '<img src="%s" width="180px" alt="Envira Gallery Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-envira.svg' ) ),
+		'add_envira_gallery' => admin_url( 'post-new.php?post_type=envira' ),
+		'placeholder'        => sprintf( '<img src="%s" width="180px" alt="Envira Gallery Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-envira.svg' ) ),
 	);
 
 	$seedprod_data['wpforms'] = array(

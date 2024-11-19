@@ -4096,7 +4096,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DynamicTextControl.vue:319
 	// Reference: src/components/OpenAIControl.vue:729
 	// Reference: src/components/OpenAIImageControl.vue:604
-	// Reference: src/components/Row.vue:1114
+	// Reference: src/components/Row.vue:1117
 	// Reference: src/components/Section.vue:689
 	// Reference: src/mixins/helpers.js:1770
 	// Reference: src/views/Layoutnav.vue:1489
@@ -5029,7 +5029,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Select a gallery', 'coming-soon' ),
 
 	// Reference: src/components/EnviraGallery.vue:166
-	__( 'You can use your envira gallery from this block.', 'coming-soon' ),
+	__( 'You can use your Envira gallery from this block.', 'coming-soon' ),
 
 	// Reference: src/components/EnviraGalleryOptions.vue:218
 	__( 'Select Gallery', 'coming-soon' ),
@@ -5141,7 +5141,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Own Image', 'coming-soon' ),
 
 	// Reference: src/components/ImageControl.vue:342
-	// Reference: src/components/Row.vue:1110
+	// Reference: src/components/Row.vue:1113
 	// Reference: src/components/Section.vue:686
 	// Reference: src/views/BuilderView.vue:1041
 	__( 'or', 'coming-soon' ),
@@ -6780,72 +6780,72 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PushNotificationOptions.vue:195
 	__( 'Documentation', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1111
+	// Reference: src/components/Row.vue:1114
 	// Reference: src/components/Section.vue:687
 	// Reference: src/views/BuilderView.vue:1042
 	__( 'Drag a new block here', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1112
+	// Reference: src/components/Row.vue:1115
 	// Reference: src/components/Section.vue:691
 	// Reference: src/views/BuilderView.vue:1043
 	// Reference: src/views/Layoutnav.vue:1491
 	__( 'Choose your layout:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1113
+	// Reference: src/components/Row.vue:1116
 	__( 'Enter a new block template name:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1115
+	// Reference: src/components/Row.vue:1118
 	// Reference: src/components/Section.vue:690
 	// Reference: src/views/Layoutnav.vue:1490
 	// Reference: src/views/Setup.vue:1060
 	__( 'Save Template', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1116
+	// Reference: src/components/Row.vue:1119
 	// Reference: src/components/Section.vue:692
 	// Reference: src/views/BuilderView.vue:1044
 	__( 'Add Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1117
+	// Reference: src/components/Row.vue:1120
 	__( 'Row Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1118
+	// Reference: src/components/Row.vue:1121
 	__( 'Move Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1119
+	// Reference: src/components/Row.vue:1122
 	__( 'Resize Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1120
+	// Reference: src/components/Row.vue:1123
 	// Reference: src/views/Layoutnav.vue:1500
 	__( 'Duplicate Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1121
+	// Reference: src/components/Row.vue:1124
 	// Reference: src/views/Layoutnav.vue:1501
 	__( 'Delete Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1122
+	// Reference: src/components/Row.vue:1125
 	__( 'Column Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1123
+	// Reference: src/components/Row.vue:1126
 	__( 'Move Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1124
+	// Reference: src/components/Row.vue:1127
 	__( 'Block Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1125
+	// Reference: src/components/Row.vue:1128
 	__( 'Save Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1126
+	// Reference: src/components/Row.vue:1129
 	// Reference: src/views/Layoutnav.vue:1509
 	__( 'Duplicate Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1127
+	// Reference: src/components/Row.vue:1130
 	// Reference: src/views/Layoutnav.vue:1510
 	__( 'Delete Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1128
+	// Reference: src/components/Row.vue:1131
 	__( 'Add Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1129
+	// Reference: src/components/Row.vue:1132
 	// Reference: src/views/Layoutnav.vue:1499
 	__( 'Add Row', 'coming-soon' ),
 
