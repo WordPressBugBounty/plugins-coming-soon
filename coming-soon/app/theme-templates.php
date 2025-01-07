@@ -67,18 +67,22 @@ function seedprod_lite_themetemplate_datatable() {
 		if ( ! empty( $orderby ) ) {
 			if ( 'date' === $orderby ) {
 				$orderby = 'post_modified';
+				$sql .= ' ORDER BY ' . esc_sql( $orderby );
 			}
 			if ( 'name' === $orderby ) {
 				$orderby = 'post_title';
+				$sql .= ' ORDER BY ' . esc_sql( $orderby );
 			}
-			$sql .= ' ORDER BY ' . esc_sql( $orderby );
+			
 
 			if ( 'desc' === $order ) {
 				$order = 'DESC';
+				$sql .= ' ' . $order;
 			} else {
 				$order = 'ASC';
+				$sql .= ' ' . $order;
 			}
-			$sql .= ' ' . $order;
+		
 		} else {
 			$sql .= ' ORDER BY id DESC';
 		}

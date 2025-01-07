@@ -3642,6 +3642,7 @@ to{-webkit-transform:scale(1);transform:scale(1);opacity:.7}
 .sp-dynamic-image-modal .seedprod-modal-container{max-width:760px !important}
 .sp-dynamic-image-edit-modal .seedprod-modal-container{max-width:960px !important}
 .sp-mobile-view .gutter.gutter-horizontal{margin-left:0 !important;margin-right:0 !important;cursor:pointer;min-height:0}
+.sp-image-carousel-image-wrapper::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:var(--after-bg);opacity:var(--after-bg-opacity);pointer-events:none}
 @media(min-width:640px){.sm\:sp-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 .sm\:sp-not-sr-only{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}
 .sm\:focus\:sp-sr-only:focus{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}

@@ -254,7 +254,41 @@ function seedprod_animatedheadline(blockId, infiniteLoop, animationDuration, ani
 }
 
 function seedprod_rotateheadline(blockId, continueLoop, animationDuration) {
-  jQuery("#sp-animated-head-" + blockId + ' .preview-sp-title').seedprod_responsive_title_shortcode();
+  var $animatedHead = jQuery("#sp-animated-head-" + blockId + ' .preview-sp-title');
+  var currentWidth = window.innerWidth;
+  var view; // Determine the current view category
+  // Determine the current view based on width
+
+  if (currentWidth <= 480) {
+    view = "mobile";
+  } else if (currentWidth > 480 && currentWidth <= 1024) {
+    view = "tablet";
+  } else {
+    view = "desktop";
+  } // Initialize only if not already initialized
+
+
+  if (!$animatedHead.data('initialized')) {
+    // Save the original HTML of the block
+    $animatedHead.data('original-html', $animatedHead.html());
+    $animatedHead.data('last-view', view); // Save the initial view
+
+    $animatedHead.data('initialized', true); // Run the shortcode for the first time
+
+    $animatedHead.seedprod_responsive_title_shortcode();
+  } else {
+    // Check if the view has changed
+    var lastView = $animatedHead.data('last-view');
+
+    if (lastView !== view) {
+      // Update the last view
+      $animatedHead.data('last-view', view); // Restore the original HTML to the block
+
+      $animatedHead.html($animatedHead.data('original-html')); // Re-run the shortcode with the original HTML
+
+      $animatedHead.seedprod_responsive_title_shortcode();
+    }
+  }
 }
 /* end of rotate js code */
 
