@@ -766,15 +766,12 @@ $seedprod_data = array(
 		initCallback: function () {
 
 			xdLocalStorage.getItem('seedprod_section_data', function (data) {
-					if(data.value=='' || data.value==null){
-						seedprod_store.seedprod_copy_paste_enabled= false;
-					}else{
-						seedprod_store.seedprod_copy_paste_enabled= true;
-					}
-
+				if (data.value=='' || data.value==null) {
+						seedprod_store.seedprod_copy_paste_enabled = false;
+				} else {
+					seedprod_store.seedprod_copy_paste_enabled = true;
+				}
 			});
-
-
 		}
 	});
 

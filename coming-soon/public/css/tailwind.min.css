@@ -35,6 +35,7 @@ html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"H
 hr{border-top-width:1px}
 img{border-style:solid}
 input::-webkit-input-placeholder{color:#a0aec0}
+input::-moz-placeholder{color:#a0aec0}
 input:-ms-input-placeholder{color:#a0aec0}
 input::-ms-input-placeholder{color:#a0aec0}
 input::placeholder{color:#a0aec0}
@@ -47,6 +48,7 @@ img,svg,video,canvas,iframe,embed{display:block;vertical-align:middle}
 img,video{max-width:100%;height:auto}
 .sp-form-input{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:#fff;border-color:#e2e8f0;border-width:1px;border-radius:.25rem;padding-top:.5rem;padding-right:.75rem;padding-bottom:.5rem;padding-left:.75rem;font-size:1rem;line-height:1.5}
 .sp-form-input::-webkit-input-placeholder{color:#a0aec0;opacity:1}
+.sp-form-input::-moz-placeholder{color:#a0aec0;opacity:1}
 .sp-form-input:-ms-input-placeholder{color:#a0aec0;opacity:1}
 .sp-form-input::-ms-input-placeholder{color:#a0aec0;opacity:1}
 .sp-form-input::placeholder{color:#a0aec0;opacity:1}
@@ -719,9 +721,9 @@ to{-webkit-transform:scale(1);transform:scale(1);opacity:.7}
 .sp-video-pop-up-block .sp-video-responsive-video{overflow:hidden;position:relative}
 .sp-video-pop-up-block .sp-video-wrapper-sticky{height:500px}
 .sp-video-pop-up-block .sp-video-responsive-sticky{position:fixed;right:15px;bottom:15px;max-width:550px;width:500px;z-index:9999}
-.sp-video-pop-up-block .sp-video-pop-up-banner-sticky{position:fixed;right:15px;bottom:330px;max-width:550px;width:500px;z-index:9999}
-.sp-video-pop-up-block .sp-video-pop-up-banner-custom-sticky{position:fixed;right:15px;bottom:295px;max-width:550px;width:500px;z-index:9999}
-.sp-video-pop-up-block .sp-video-pop-up-banner-vimeo-sticky{position:fixed;right:15px;bottom:315px;max-width:550px;width:500px;z-index:9999}
+.sp-video-pop-up-block .sp-video-pop-up-banner-sticky{position:fixed;right:15px;bottom:330px;max-width:550px !important;width:500px !important;z-index:9999}
+.sp-video-pop-up-block .sp-video-pop-up-banner-custom-sticky{position:fixed;right:15px;bottom:295px;max-width:550px !important;width:500px !important;z-index:9999}
+.sp-video-pop-up-block .sp-video-pop-up-banner-vimeo-sticky{position:fixed;right:15px;bottom:313px;max-width:550px !important;width:500px !important;z-index:9999}
 .sp-video-pop-up-block .sp-video-pop-up-banner{width:100%}
 .sp-video-pop-up-block .sp-video-pop-up-banner-text{padding:5px}
 .sp-video-pop-up-block .sp-video-responsive-sticky iframe,.sp-video-pop-up-block .sp-video-responsive-sticky video{position:fixed !important;right:15px;bottom:15px;max-width:550px;width:500px}

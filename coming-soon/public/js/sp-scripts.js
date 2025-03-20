@@ -1325,6 +1325,31 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
             } else {
               jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner-sticky').addClass('sp-video-pop-up-banner');
             }
+          } // Remove isolation & reset z-index
+          // Section
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section'))) {
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('isolation', 'initial');
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index', 'auto');
+            }
+          } // Col
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col'))) {
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('isolation', 'initial');
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index', 'auto');
+            }
+          } // Row
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row'))) {
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('isolation', 'initial');
+              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index', 'auto');
+            }
           }
         } else {
           // Add sticky class
@@ -1339,6 +1364,40 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
               jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-vimeo-sticky');
             } else {
               jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-sticky');
+            }
+          } // Check if parent row/col/section has an entrance animation.
+          // Section
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section'))) {
+              // If entrance animation is set, check if z-index is 0 or empty
+              if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === 'auto') {
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index', 1);
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('isolation', 'isolate');
+              }
+            }
+          } // Col
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col'))) {
+              // If entrance animation is set, check if z-index is 0 or empty
+              if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === 'auto') {
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index', 1);
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('isolation', 'isolate');
+              }
+            }
+          } // Row
+
+
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').length > 0) {
+            if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row'))) {
+              // If entrance animation is set, check if z-index is 0 or empty
+              if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === 'auto') {
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index', 1);
+                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('isolation', 'isolate');
+              }
             }
           }
         }
@@ -1388,6 +1447,17 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
       jQuery("#sp-".concat(blockId, " #sp-video-responsive-").concat(blockId)).css('aspect-ratio', options.aspect_ratio);
     });
   }
+}
+/** Check if a section/col/row has an entrance animation and if it has a z-index of 0 or empty */
+
+
+function seedprod_pro_check_for_entrance_animation(element) {
+  // Check if element contains an entrance animation of class 'sp-entrance-animation'
+  if (element.hasClass('sp_animated_start')) {
+    return true;
+  }
+
+  return false;
 }
 /**
  * post carousel javascript
