@@ -584,6 +584,9 @@ if ( defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_seedprod_lite_get_wpform', 'seedprod_lite_get_wpform' );
 	add_action( 'wp_ajax_seedprod_lite_get_rafflepress', 'seedprod_lite_get_rafflepress' );
 	add_action( 'wp_ajax_seedprod_lite_get_rafflepress_code', 'seedprod_lite_get_rafflepress_code' );
+	
+	add_action( 'wp_ajax_seedprod_lite_get_mypaykit', 'seedprod_lite_get_mypaykit' );
+	add_action( 'wp_ajax_seedprod_lite_get_mypaykit_code', 'seedprod_lite_get_mypaykit_code' );
 
 	add_action( 'wp_ajax_seedprod_lite_get_widget_wpforms', 'seedprod_lite_get_widget_wpforms' );
 	add_action( 'wp_ajax_seedprod_lite_get_widget_wpresults', 'seedprod_lite_get_widget_wpresults' );

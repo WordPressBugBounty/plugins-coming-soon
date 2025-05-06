@@ -266,7 +266,7 @@ $generated_i18n_strings = array(
 	__( 'WPCode makes it easy and safe to add custom WordPress features through code snippets, so you can reduce the number of plugins on your site.', 'coming-soon' ),
 
 	// Reference: src/admin/CustomCode.vue:255
-	// Reference: src/admin/GrowthTools.vue:396
+	// Reference: src/admin/GrowthTools.vue:409
 	// Reference: src/admin/Popups.vue:239
 	__( 'Opening plugin installation page...', 'coming-soon' ),
 
@@ -450,130 +450,137 @@ $generated_i18n_strings = array(
 	// Reference: src/admin/Dashboard-Lite.vue:990
 	__( 'Pages Restored.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:103
-	__( 'WPForms', 'coming-soon' ),
+	// Reference: src/admin/GrowthTools.vue:102
+	// Reference: src/components/Mypaykit.vue:174
+	__( 'MyPayKit', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:105
-	__( 'The most beginner friendly drag & drop WordPress forms plugin allowing you to create beautifdivcontact forms, subscription forms, payment forms, and more in minutes, not hours!', 'coming-soon' ),
+	// Reference: src/admin/GrowthTools.vue:104
+	__( 'MyPayKit seamlessly integrates with Square to help you collect payments directly on your WordPress site. Just one click to connect your existing Square account.', 'coming-soon' ),
 
 	// Reference: src/admin/GrowthTools.vue:116
-	__( 'OptinMonster', 'coming-soon' ),
+	__( 'WPForms', 'coming-soon' ),
 
 	// Reference: src/admin/GrowthTools.vue:118
+	__( 'The most beginner friendly drag & drop WordPress forms plugin allowing you to create beautifdivcontact forms, subscription forms, payment forms, and more in minutes, not hours!', 'coming-soon' ),
+
+	// Reference: src/admin/GrowthTools.vue:129
+	__( 'OptinMonster', 'coming-soon' ),
+
+	// Reference: src/admin/GrowthTools.vue:131
 	// Reference: src/admin/Popups.vue:148
 	__( 'Our high-converting optin forms like Exit-Intent® popups, Fullscreen Welcome Mats, and Scroll boxes help you dramatically boost conversions and get more email subscribers.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:129
+	// Reference: src/admin/GrowthTools.vue:142
 	__( 'WP Mail SMTP', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:131
+	// Reference: src/admin/GrowthTools.vue:144
 	__( 'SMTP (Simple Mail Transfer Protocol) is an industry standard for sending emails. SMTP helps increase email deliverability by using proper authentication.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:142
+	// Reference: src/admin/GrowthTools.vue:155
 	__( 'MonsterInsights', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:144
+	// Reference: src/admin/GrowthTools.vue:157
 	__( 'MonsterInsights makes it “effortless” to properly connect your WordPress site with Google Analytics, so you can start making data-driven decisions to grow your business.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:158
+	// Reference: src/admin/GrowthTools.vue:171
 	__( 'TrustPulse', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:160
+	// Reference: src/admin/GrowthTools.vue:173
 	__( 'TrustPulse uses FOMO (Fear of Missing Out) to boost your sales and conversions with social proof notifications. Use it to boost sales on your Woocommerce store, increase signups on your membership site, get more email subscribers, and more.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:172
+	// Reference: src/admin/GrowthTools.vue:185
 	// Reference: src/views/SettingsSEO.vue:189
 	__( 'All in One SEO', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:174
+	// Reference: src/admin/GrowthTools.vue:187
 	__( 'The original WordPress SEO plugin. Improve your WordPress SEO rankings and traffic with our comprehensive SEO tools and smart SEO optimizations.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:186
+	// Reference: src/admin/GrowthTools.vue:199
 	__( 'ExactMetrics', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:188
+	// Reference: src/admin/GrowthTools.vue:201
 	__( 'The ExactMetrics Google Analytics for WordPress plugin helps you properly setup all the powerful Google Analytics tracking features without writing any code or hiring a developer.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:200
+	// Reference: src/admin/GrowthTools.vue:213
 	__( 'Smash Balloon Social Photo Feed', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:202
+	// Reference: src/admin/GrowthTools.vue:215
 	__( 'Easily display Instagram content on your WordPress site without writing any code. Comes with multiple templates, ability to show content from multiple accounts, hashtags, and more. Trusted by 1 million websites.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:214
+	// Reference: src/admin/GrowthTools.vue:227
 	__( 'Smash Balloon Social Post Feed', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:216
+	// Reference: src/admin/GrowthTools.vue:229
 	__( 'Easily display Facebook content on your WordPress site without writing any code. Comes with multiple templates, ability to embed albums, group content, reviews, live videos, comments, and reactions.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:228
+	// Reference: src/admin/GrowthTools.vue:241
 	__( 'Smash Balloon Twitter Feeds', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:230
+	// Reference: src/admin/GrowthTools.vue:243
 	__( 'Easily display Twitter content in WordPress without writing any code. Comes with multiple layouts, ability to combine multiple Twitter feeds, Twitter card support, tweet moderation, and more.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:242
+	// Reference: src/admin/GrowthTools.vue:255
 	__( 'Smash Balloon YouTube Feeds', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:244
+	// Reference: src/admin/GrowthTools.vue:257
 	__( 'Easily display YouTube videos on your WordPress site without writing any code. Comes with multiple layouts, ability to embed live streams, video filtering, ability to combine multiple channel videos, and more.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:256
+	// Reference: src/admin/GrowthTools.vue:269
 	// Reference: src/components/PushNotificationOptions.vue:188
 	__( 'PushEngage', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:258
+	// Reference: src/admin/GrowthTools.vue:271
 	__( 'Connect with your visitors after they leave your website with the leading web push notification software. Over 10,000+ businesses worldwide use PushEngage to send 9 billion notifications each month.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:270
+	// Reference: src/admin/GrowthTools.vue:283
 	__( 'Sugar Calendar', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:272
+	// Reference: src/admin/GrowthTools.vue:285
 	__( 'A simple & powerful event calendar plugin for WordPress that comes with all the event management features including payments, scheduling, timezones, ticketing, recurring events, and more.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:284
+	// Reference: src/admin/GrowthTools.vue:297
 	__( 'WP Simple Pay', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:286
+	// Reference: src/admin/GrowthTools.vue:299
 	__( 'The #1 Stripe payments plugin for WordPress. Start accepting one-time and recurring payments on your WordPress site without setting up a shopping cart. No code required.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:298
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1432
+	// Reference: src/admin/GrowthTools.vue:311
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1437
 	__( 'Easy Digital Downloads', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:300
+	// Reference: src/admin/GrowthTools.vue:313
 	__( 'The best WordPress eCommerce plugin for selling digital downloads. Start selling eBooks, software, music, digital art, and more within minutes. Accept payments, manage subscriptions, advanced access control, and more.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:312
+	// Reference: src/admin/GrowthTools.vue:325
 	__( 'SearchWP', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:314
+	// Reference: src/admin/GrowthTools.vue:327
 	__( 'The most advanced WordPress search plugin. Customize your WordPress search algorithm, reorder search results, track search metrics, and everything you need to leverage search to grow your business.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:327
+	// Reference: src/admin/GrowthTools.vue:340
 	__( 'AffiliateWP', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:329
+	// Reference: src/admin/GrowthTools.vue:342
 	__( 'The #1 affiliate management plugin for WordPress. Easily create an affiliate program for your eCommerce store or membership site within minutes and start growing your sales with the power of referral marketing.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:342
+	// Reference: src/admin/GrowthTools.vue:355
 	__( 'Envira Gallery', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:344
+	// Reference: src/admin/GrowthTools.vue:357
 	__( 'Envira Gallery is the best responsive WordPress gallery plugin. Envira gallery is a perfect solution for photographers, designers, bloggers, and small businesses.', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:458
+	// Reference: src/admin/GrowthTools.vue:471
 	__( 'Plugin Installed, click Activate', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:553
+	// Reference: src/admin/GrowthTools.vue:566
 	// Reference: src/views/SettingsAnalytics.vue:124
 	// Reference: src/views/SettingsSEO.vue:192
 	__( 'Install', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:556
+	// Reference: src/admin/GrowthTools.vue:569
 	__( 'Deactivate', 'coming-soon' ),
 
-	// Reference: src/admin/GrowthTools.vue:559
+	// Reference: src/admin/GrowthTools.vue:572
 	// Reference: src/views/SettingsAnalytics.vue:125
 	// Reference: src/views/SettingsSEO.vue:193
 	__( 'Activate', 'coming-soon' ),
@@ -945,7 +952,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/admin/ThemeChooser.vue:810
 	// Reference: src/admin/ThemeTemplates-Lite.vue:823
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1430
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1435
 	__( 'WooCommerce', 'coming-soon' ),
 
 	// Reference: src/admin/ThemeChooser.vue:811
@@ -1054,6 +1061,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ImageOptions.vue:528
 	// Reference: src/components/LoginOptions.vue:878
 	// Reference: src/components/MenuCartOptions.vue:184
+	// Reference: src/components/MypaykitOptions.vue:120
 	// Reference: src/components/NavOptions.vue:571
 	// Reference: src/components/OptinFormOptions.vue:850
 	// Reference: src/components/PostauthorboxOptions.vue:338
@@ -1121,6 +1129,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ImageOptions.vue:530
 	// Reference: src/components/LoginOptions.vue:879
 	// Reference: src/components/MenuCartOptions.vue:185
+	// Reference: src/components/MypaykitOptions.vue:121
 	// Reference: src/components/NavOptions.vue:572
 	// Reference: src/components/OptinFormOptions.vue:852
 	// Reference: src/components/PostauthorboxOptions.vue:339
@@ -1156,7 +1165,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/WCCheckoutOptions.vue:768
 	// Reference: src/components/WCCustomProductsGridOptions.vue:922
 	// Reference: src/components/WpWidgetBlockOptions.vue:216
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1426
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1431
 	__( 'Advanced', 'coming-soon' ),
 
 	// Reference: src/components/AccordionOptions.vue:610
@@ -1291,6 +1300,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadsGridOptions.vue:861
 	// Reference: src/components/EnviraGalleryOptions.vue:219
 	// Reference: src/components/GiveawayOptions.vue:169
+	// Reference: src/components/MypaykitOptions.vue:124
 	// Reference: src/components/PostinfoOptions.vue:618
 	// Reference: src/components/ProductDataTabsOptions.vue:335
 	// Reference: src/components/ProductGalleryImagesOptions.vue:206
@@ -2634,6 +2644,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContactFormOptions.vue:301
 	// Reference: src/components/EnviraGalleryOptions.vue:222
 	// Reference: src/components/GiveawayOptions.vue:173
+	// Reference: src/components/MypaykitOptions.vue:129
 	// Reference: src/views/SettingsGeneral.vue:267
 	__( 'Show', 'coming-soon' ),
 
@@ -2641,6 +2652,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContactFormOptions.vue:302
 	// Reference: src/components/EnviraGalleryOptions.vue:223
 	// Reference: src/components/GiveawayOptions.vue:174
+	// Reference: src/components/MypaykitOptions.vue:130
 	__( 'Hide', 'coming-soon' ),
 
 	// Reference: src/components/AlertBoxOptions.vue:771
@@ -3464,6 +3476,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContactFormOptions.vue:295
 	// Reference: src/components/EnviraGalleryOptions.vue:217
 	// Reference: src/components/GiveawayOptions.vue:167
+	// Reference: src/components/MypaykitOptions.vue:122
 	// Reference: src/components/NavOptions.vue:577
 	// Reference: src/components/SectionOptions.vue:399
 	__( 'Advanced Styles', 'coming-soon' ),
@@ -3568,6 +3581,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContactForm.vue:176
 	// Reference: src/components/EnviraGallery.vue:161
 	// Reference: src/components/Giveaway.vue:177
+	// Reference: src/components/Mypaykit.vue:175
 	__( '(This shortcode will be rendered on the live preview.)', 'coming-soon' ),
 
 	// Reference: src/components/ContactForm.vue:180
@@ -3589,20 +3603,24 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:303
 	// Reference: src/components/GiveawayOptions.vue:175
+	// Reference: src/components/MypaykitOptions.vue:131
 	__( 'Form Name', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:304
 	// Reference: src/components/GiveawayOptions.vue:176
+	// Reference: src/components/MypaykitOptions.vue:132
 	__( 'Form Description', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:305
 	// Reference: src/components/GiveawayOptions.vue:177
 	// Reference: src/components/LoginOptions.vue:907
+	// Reference: src/components/MypaykitOptions.vue:133
 	// Reference: src/components/OptinFormOptions.vue:856
 	__( 'Form', 'coming-soon' ),
 
 	// Reference: src/components/ContactFormOptions.vue:306
 	// Reference: src/components/GiveawayOptions.vue:178
+	// Reference: src/components/MypaykitOptions.vue:134
 	__( 'Display Options', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue:577
@@ -3833,7 +3851,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ProductRelatedOptions.vue:453
 	__( 'Title Typography', 'coming-soon' ),
 
-	// Reference: src/components/CustomHTML.vue:48
+	// Reference: src/components/CustomHTML.vue:53
 	__( 'Enter Your HTML', 'coming-soon' ),
 
 	// Reference: src/components/CustomHTMLOptions.vue:202
@@ -4110,7 +4128,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DynamicTextControl.vue:319
 	// Reference: src/components/OpenAIControl.vue:729
 	// Reference: src/components/OpenAIImageControl.vue:604
-	// Reference: src/components/Row.vue:1117
+	// Reference: src/components/Row.vue:1119
 	// Reference: src/components/Section.vue:689
 	// Reference: src/mixins/helpers.js:1770
 	// Reference: src/views/Layoutnav.vue:1489
@@ -5157,7 +5175,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Own Image', 'coming-soon' ),
 
 	// Reference: src/components/ImageControl.vue:342
-	// Reference: src/components/Row.vue:1113
+	// Reference: src/components/Row.vue:1115
 	// Reference: src/components/Section.vue:686
 	// Reference: src/views/BuilderView.vue:1041
 	__( 'or', 'coming-soon' ),
@@ -5494,6 +5512,31 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/Modal.vue:34
 	__( 'default body', 'coming-soon' ),
+
+	// Reference: src/components/Mypaykit.vue:171
+	__( 'Install MyPayKit plugin:', 'coming-soon' ),
+
+	// Reference: src/components/Mypaykit.vue:172
+	__( 'Install MyPayKit', 'coming-soon' ),
+
+	// Reference: src/components/Mypaykit.vue:173
+	__( 'Activate MyPayKit', 'coming-soon' ),
+
+	// Reference: src/components/Mypaykit.vue:179
+	// Reference: src/components/MypaykitOptions.vue:125
+	__( 'Select a MyPayKit Form', 'coming-soon' ),
+
+	// Reference: src/components/Mypaykit.vue:180
+	__( 'You can use MyPayKit to build payment forms in minutes and collect payments.', 'coming-soon' ),
+
+	// Reference: src/components/MypaykitOptions.vue:126
+	__( 'Need to make changes?', 'coming-soon' ),
+
+	// Reference: src/components/MypaykitOptions.vue:127
+	__( 'Click here to edit the selected payment form.', 'coming-soon' ),
+
+	// Reference: src/components/MypaykitOptions.vue:128
+	__( '+ New Payment Form', 'coming-soon' ),
 
 	// Reference: src/components/NavOptions.vue:581
 	__( 'Active Text Color', 'coming-soon' ),
@@ -6796,72 +6839,72 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/PushNotificationOptions.vue:195
 	__( 'Documentation', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1114
+	// Reference: src/components/Row.vue:1116
 	// Reference: src/components/Section.vue:687
 	// Reference: src/views/BuilderView.vue:1042
 	__( 'Drag a new block here', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1115
+	// Reference: src/components/Row.vue:1117
 	// Reference: src/components/Section.vue:691
 	// Reference: src/views/BuilderView.vue:1043
 	// Reference: src/views/Layoutnav.vue:1491
 	__( 'Choose your layout:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1116
+	// Reference: src/components/Row.vue:1118
 	__( 'Enter a new block template name:', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1118
+	// Reference: src/components/Row.vue:1120
 	// Reference: src/components/Section.vue:690
 	// Reference: src/views/Layoutnav.vue:1490
 	// Reference: src/views/Setup.vue:1060
 	__( 'Save Template', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1119
+	// Reference: src/components/Row.vue:1121
 	// Reference: src/components/Section.vue:692
 	// Reference: src/views/BuilderView.vue:1044
 	__( 'Add Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1120
+	// Reference: src/components/Row.vue:1122
 	__( 'Row Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1121
+	// Reference: src/components/Row.vue:1123
 	__( 'Move Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1122
+	// Reference: src/components/Row.vue:1124
 	__( 'Resize Columns', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1123
+	// Reference: src/components/Row.vue:1125
 	// Reference: src/views/Layoutnav.vue:1500
 	__( 'Duplicate Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1124
+	// Reference: src/components/Row.vue:1126
 	// Reference: src/views/Layoutnav.vue:1501
 	__( 'Delete Row', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1125
+	// Reference: src/components/Row.vue:1127
 	__( 'Column Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1126
+	// Reference: src/components/Row.vue:1128
 	__( 'Move Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1127
+	// Reference: src/components/Row.vue:1129
 	__( 'Block Settings', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1128
+	// Reference: src/components/Row.vue:1130
 	__( 'Save Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1129
+	// Reference: src/components/Row.vue:1131
 	// Reference: src/views/Layoutnav.vue:1509
 	__( 'Duplicate Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1130
+	// Reference: src/components/Row.vue:1132
 	// Reference: src/views/Layoutnav.vue:1510
 	__( 'Delete Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1131
+	// Reference: src/components/Row.vue:1133
 	__( 'Add Block', 'coming-soon' ),
 
-	// Reference: src/components/Row.vue:1132
+	// Reference: src/components/Row.vue:1134
 	// Reference: src/views/Layoutnav.vue:1499
 	__( 'Add Row', 'coming-soon' ),
 
@@ -7597,7 +7640,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Template Dev Mode - Under "Save" select "Save Global Template" to Create/Edit the template. If you selected a Blank Template to start with a New Template will be created otherwise the template will be updated. After creating a new global template you will need to go back and select the template to edit it.', 'coming-soon' ),
 
 	// Reference: src/views/GlobalCSS.vue:2160
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1428
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1433
 	// Reference: src/views/SetupDesign-Lite.vue:729
 	__( 'Editing:', 'coming-soon' ),
 
@@ -7902,11 +7945,11 @@ page plugin.', 'coming-soon' ),
 	__( 'Categories:', 'coming-soon' ),
 
 	// Reference: src/views/SectionTemplates-Lite.vue:98
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1423
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1428
 	__( 'Blocks', 'coming-soon' ),
 
 	// Reference: src/views/SectionTemplates-Lite.vue:99
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1424
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1429
 	__( 'Sections', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAccess-Lite.vue:323
@@ -8312,16 +8355,16 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/views/Setup.vue:1654
 	__( 'Something has prevented the page from being saved. Please make sure you are at least an Editor and have the unfiltered_html capability.', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1425
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1430
 	__( 'Standard', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1427
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1432
 	__( 'Saved Blocks', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1429
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1434
 	__( 'Search blocks...', 'coming-soon' ),
 
-	// Reference: src/views/SetupBlockOptions-Lite.vue:1431
+	// Reference: src/views/SetupBlockOptions-Lite.vue:1436
 	__( 'Widgets', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Lite.vue:734

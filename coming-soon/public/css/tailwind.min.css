@@ -737,6 +737,8 @@ to{-webkit-transform:scale(1);transform:scale(1);opacity:.7}
 .sp-video-pop-up-block .video-pop-up-modal .modal-content{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);margin:auto;padding:0;width:90%;max-width:1200px}
 .sp-video-pop-up-block .video-pop-up-modal .close{color:white;position:absolute;top:10px;right:25px;font-size:35px;font-weight:bold}
 .sp-video-pop-up-block .video-pop-up-modal .close:hover,.sp-video-pop-up-block .video-pop-up-modal .close:focus{color:#999;text-decoration:none;cursor:pointer}
+.sp-video-pop-up-block .sp-video-wrapper,.sp-video-pop-up-block .sp-video-responsive{transition:all .3s ease}
+.sp-video-pop-up-block .sp-video-wrapper-sticky,.sp-video-pop-up-block .sp-video-responsive-sticky{transition:opacity .3s ease-out,-webkit-transform .3s ease-out;transition:transform .3s ease-out,opacity .3s ease-out;transition:transform .3s ease-out,opacity .3s ease-out,-webkit-transform .3s ease-out}
 .sp-skin-card .sp-posts-single-block{display:flex;position:relative;flex-direction:column}
 .sp-skin-card .sp-posts-single-block .sp-container-badge{position:absolute;right:0;top:0;padding:.1em 1.2em;background:black;margin:10px;color:#fff;border-radius:15px}
 .sp-skin-card .sp-posts-single-block .sp-container-avatar{position:relative;padding:0 30px;width:100%;top:-25px;height:0;pointer-events:none}

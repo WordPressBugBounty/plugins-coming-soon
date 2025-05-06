@@ -999,8 +999,7 @@ function seedprod_add_gallery_js(blockId) {
       }
     });
   });
-} // Check if an element is in the viewport.
-
+}
 
 jQuery.fn.isInViewport = function () {
   var elementTop = jQuery(this).offset().top;
@@ -1008,6 +1007,18 @@ jQuery.fn.isInViewport = function () {
   var viewportTop = jQuery(window).scrollTop();
   var viewportBottom = viewportTop + jQuery(window).height();
   return elementBottom > viewportTop && elementTop < viewportBottom;
+}; // Check if an element is in the viewport with a threshold percentage.
+
+
+jQuery.fn.isInViewportWithThreshold = function () {
+  var threshold = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 50;
+  var elementTop = this.offset().top;
+  var elementBottom = elementTop + this.outerHeight();
+  var viewportTop = jQuery(window).scrollTop();
+  var viewportBottom = viewportTop + jQuery(window).height(); // Only consider it "in viewport" if a threshold percentage is visible
+
+  var elementVisible = Math.min(elementBottom, viewportBottom) - Math.max(elementTop, viewportTop);
+  return elementVisible / this.outerHeight() * 100 >= threshold;
 }; // Trigger counter block.
 
 
@@ -1280,7 +1291,10 @@ function seedprod_particlessectionjs(blockId, particlesconfig) {
 
 function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOptions) {
   var options = JSON.parse(blockOptions);
-  var responsiveClass = options.source === 'custom' ? 'sp-video-responsive-video' : 'sp-video-responsive'; // Only enable if image overlay is enabled.
+  var responsiveClass = options.source === 'custom' ? 'sp-video-responsive-video' : 'sp-video-responsive';
+  var videoWrapper = jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId));
+  var videoResponsive = jQuery("#sp-".concat(blockId, " #sp-video-responsive-").concat(blockId));
+  var banner = jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)); // Only enable if image overlay is enabled.
 
   if (options.enable_image_overlay) {
     if (options.enable_lightbox) {
@@ -1307,23 +1321,23 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
 
   if (options.enable_sticky_video && !options.enable_lightbox) {
     // On scroll/resize
-    jQuery(window).on('resize scroll', function () {
+    jQuery(window).on('resize scroll', throttle(function () {
       // Disable for mobile.
       if (window.matchMedia('only screen and (min-width: 960px)').matches) {
         // Check if video is in viewport
-        if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).isInViewport()) {
+        if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).isInViewportWithThreshold()) {
           // Return original class
-          jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).removeClass('sp-video-wrapper-sticky').addClass('sp-video-wrapper');
-          jQuery("#sp-".concat(blockId, " #sp-video-responsive-").concat(blockId)).removeClass('sp-video-responsive-sticky').addClass(responsiveClass);
+          videoWrapper.removeClass('sp-video-wrapper-sticky').addClass('sp-video-wrapper');
+          videoResponsive.removeClass('sp-video-responsive-sticky').addClass(responsiveClass);
 
           if (options.enable_banner) {
             // Check if video is custom
             if (options.source === 'custom') {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner-custom-sticky').addClass('sp-video-pop-up-banner');
+              banner.removeClass('sp-video-pop-up-banner-custom-sticky').addClass('sp-video-pop-up-banner');
             } else if (options.source === 'vimeo') {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner-vimeo-sticky').addClass('sp-video-pop-up-banner');
+              banner.removeClass('sp-video-pop-up-banner-vimeo-sticky').addClass('sp-video-pop-up-banner');
             } else {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner-sticky').addClass('sp-video-pop-up-banner');
+              banner.removeClass('sp-video-pop-up-banner-sticky').addClass('sp-video-pop-up-banner');
             }
           } // Remove isolation & reset z-index
           // Section
@@ -1331,8 +1345,8 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
 
           if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').length > 0) {
             if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section'))) {
-              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('isolation', 'initial');
-              jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index', 'auto');
+              videoWrapper.parents('.sp-el-section').css('isolation', 'initial');
+              videoWrapper.parents('.sp-el-section').css('z-index', 'auto');
             }
           } // Col
 
@@ -1353,17 +1367,17 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
           }
         } else {
           // Add sticky class
-          jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).removeClass('sp-video-wrapper').addClass('sp-video-wrapper-sticky');
-          jQuery("#sp-".concat(blockId, " #sp-video-responsive-").concat(blockId)).removeClass(responsiveClass).addClass('sp-video-responsive-sticky');
+          videoWrapper.removeClass('sp-video-wrapper').addClass('sp-video-wrapper-sticky');
+          videoResponsive.removeClass(responsiveClass).addClass('sp-video-responsive-sticky');
 
           if (options.enable_banner) {
             // Check if video is custom or vimeo
             if (options.source === 'custom') {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-custom-sticky');
+              banner.removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-custom-sticky');
             } else if (options.source === 'vimeo') {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-vimeo-sticky');
+              banner.removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-vimeo-sticky');
             } else {
-              jQuery("#sp-".concat(blockId, " #sp-video-pop-up-banner-").concat(blockId)).removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-sticky');
+              banner.removeClass('sp-video-pop-up-banner').addClass('sp-video-pop-up-banner-sticky');
             }
           } // Check if parent row/col/section has an entrance animation.
           // Section
@@ -1372,9 +1386,9 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
           if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').length > 0) {
             if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section'))) {
               // If entrance animation is set, check if z-index is 0 or empty
-              if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index') === 'auto') {
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('z-index', 1);
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-section').css('isolation', 'isolate');
+              if (videoWrapper.parents('.sp-el-section').css('z-index') === '0' || videoWrapper.parents('.sp-el-section').css('z-index') === '' || videoWrapper.parents('.sp-el-section').css('z-index') === 'auto') {
+                videoWrapper.parents('.sp-el-section').css('z-index', 1);
+                videoWrapper.parents('.sp-el-section').css('isolation', 'isolate');
               }
             }
           } // Col
@@ -1384,8 +1398,8 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
             if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col'))) {
               // If entrance animation is set, check if z-index is 0 or empty
               if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index') === 'auto') {
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('z-index', 1);
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-col').css('isolation', 'isolate');
+                videoWrapper.parents('.sp-el-col').css('z-index', 1);
+                videoWrapper.parents('.sp-el-col').css('isolation', 'isolate');
               }
             }
           } // Row
@@ -1394,15 +1408,15 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
           if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').length > 0) {
             if (seedprod_pro_check_for_entrance_animation(jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row'))) {
               // If entrance animation is set, check if z-index is 0 or empty
-              if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === '0' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === '' || jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index') === 'auto') {
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('z-index', 1);
-                jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).parents('.sp-el-row').css('isolation', 'isolate');
+              if (videoWrapper.parents('.sp-el-row').css('z-index') === '0' || videoWrapper.parents('.sp-el-row').css('z-index') === '' || videoWrapper.parents('.sp-el-row').css('z-index') === 'auto') {
+                videoWrapper.parents('.sp-el-row').css('z-index', 1);
+                videoWrapper.parents('.sp-el-row').css('isolation', 'isolate');
               }
             }
           }
         }
       }
-    });
+    }, 2000));
   } // Teaser Video
 
 
@@ -1415,7 +1429,7 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
       if (options.enable_sticky_video) {
         // Disable for mobile.
         if (window.matchMedia('only screen and (min-width: 960px)').matches) {
-          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).isInViewport()) {
+          if (jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).isInViewportWithThreshold()) {
             stickyVideoClass = "sp-video-wrapper ".concat(responsiveClass);
           } else {
             stickyVideoClass = 'sp-video-wrapper-sticky sp-video-responsive-sticky';
@@ -1443,10 +1457,25 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
       jQuery("#sp-".concat(blockId, " .sp-video-pop-up-teaser-video-play-icon-display")).remove();
       jQuery("#sp-".concat(blockId, " .sp-video-pop-up-teaser-video")).remove(); // Create video element.
 
-      jQuery("#sp-".concat(blockId, " #sp-video-wrapper-").concat(blockId)).append("<div id=\"sp-video-responsive-".concat(blockId, "\" class=\"").concat(stickyVideoClass, " sp-video-pop-up-video\">").concat(videoHtml, "</div>"));
-      jQuery("#sp-".concat(blockId, " #sp-video-responsive-").concat(blockId)).css('aspect-ratio', options.aspect_ratio);
+      videoWrapper.append("<div id=\"sp-video-responsive-".concat(blockId, "\" class=\"").concat(stickyVideoClass, " sp-video-pop-up-video\">").concat(videoHtml, "</div>"));
+      videoResponsive.css('aspect-ratio', options.aspect_ratio);
     });
   }
+}
+/** Throttle function */
+
+
+function throttle(callback, limit) {
+  var waiting = false;
+  return function () {
+    if (!waiting) {
+      callback.apply(this, arguments);
+      waiting = true;
+      setTimeout(function () {
+        waiting = false;
+      }, limit);
+    }
+  };
 }
 /** Check if a section/col/row has an entrance animation and if it has a z-index of 0 or empty */
 

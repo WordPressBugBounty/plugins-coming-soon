@@ -536,6 +536,12 @@ var seedprod_push_notifications_activate_link = <?php echo wp_json_encode( esc_u
 <?php $url = seedprod_lite_get_plugins_install_url( 'rafflepress' ); ?>
 var seedprod_giveaway_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
 
+<?php $url = seedprod_lite_get_plugins_install_url( 'mypaykit' ); ?>
+var seedprod_mypaykit_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
+
+<?php $url = seedprod_lite_get_plugins_activate_url( 'mypaykit/mypaykit.php' ); ?>
+var seedprod_mypaykit_activate_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
+
 <?php $url = seedprod_lite_get_plugins_install_url( 'google-analytics-for-wordpress' ); ?>
 var seedprod_analytics_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
 
@@ -720,6 +726,41 @@ $seedprod_data = array(
 		'add_form_url'  => admin_url( 'admin.php?page=rafflepress_' . $rp_version . '_builder&id=0#/template' ),
 		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="RafflePress Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-rp.png' ) ),
 	);
+
+	$seedprod_data['mypaykit'] = array(
+		'edit_form_url' => '',
+		'add_form_url'  => '',
+		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+	);
+
+	if ( defined( 'MYPAYKIT_WEB_URL' ) ) {
+		// Check if get_option('mypaykit_site_token') & get_option('mypaykit_token') are available & not empty
+		if ( get_option( 'mypaykit_site_token' ) && get_option( 'mypaykit_token' ) ) {
+			$seedprod_data['mypaykit'] = array(
+				'edit_form_url' => add_query_arg(
+					array(
+						'site_token'     => urlencode( get_option( 'mypaykit_site_token' ) ),
+						'mypaykit_token' => urlencode( get_option( 'mypaykit_token' ) ),
+					),
+					MYPAYKIT_WEB_URL . '/form/$id$'
+				),
+				'add_form_url'  => add_query_arg(
+					array(
+						'site_token'     => urlencode( get_option( 'mypaykit_site_token' ) ),
+						'mypaykit_token' => urlencode( get_option( 'mypaykit_token' ) ),
+					),
+					MYPAYKIT_WEB_URL . '/form'
+				),
+				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+			);
+		} else {
+			$seedprod_data['mypaykit'] = array(
+				'edit_form_url' => admin_url( 'admin.php?page=mypaykit-forms' ),
+				'add_form_url'  => admin_url( 'admin.php?page=mypaykit-forms' ),
+				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+			);
+		}
+	}
 
 	// Check if WooCommerce is active
 	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {

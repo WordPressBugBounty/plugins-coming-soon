@@ -818,6 +818,10 @@ function seedprod_lite_save_lpage() {
  * Get revisions.
  */
 function seedprod_lite_get_revisisons() {
+	if ( ! current_user_can( apply_filters( 'seedprod_get_revisions_capability', 'edit_others_posts' ) ) ) {
+		wp_send_json_error();
+	}
+
 	$lpage_id  = isset( $_POST['lpage_id'] ) ? absint( wp_unslash( $_POST['lpage_id'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	$revisions = wp_get_post_revisions( $lpage_id, array( 'numberposts' => 50 ) );
 	foreach ( $revisions as $k => $v ) {
