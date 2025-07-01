@@ -1056,7 +1056,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/GiveawayOptions.vue:165
 	// Reference: src/components/GoogleMapsOptions.vue:234
 	// Reference: src/components/HeaderOptions.vue:529
-	// Reference: src/components/IconFeatureOptions.vue:553
+	// Reference: src/components/IconFeatureOptions.vue:567
 	// Reference: src/components/IconOptions.vue:274
 	// Reference: src/components/ImageOptions.vue:528
 	// Reference: src/components/LoginOptions.vue:878
@@ -1124,7 +1124,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/GiveawayOptions.vue:166
 	// Reference: src/components/GoogleMapsOptions.vue:235
 	// Reference: src/components/HeaderOptions.vue:530
-	// Reference: src/components/IconFeatureOptions.vue:554
+	// Reference: src/components/IconFeatureOptions.vue:568
 	// Reference: src/components/IconOptions.vue:275
 	// Reference: src/components/ImageOptions.vue:530
 	// Reference: src/components/LoginOptions.vue:879
@@ -1229,7 +1229,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/FeatureOptions.vue:584
 	// Reference: src/components/GoogleMapsOptions.vue:236
 	// Reference: src/components/HeaderOptions.vue:532
-	// Reference: src/components/IconFeatureOptions.vue:557
+	// Reference: src/components/IconFeatureOptions.vue:571
 	// Reference: src/components/IconOptions.vue:276
 	// Reference: src/components/ImageOptions.vue:534
 	// Reference: src/components/MenuCartOptions.vue:187
@@ -1337,7 +1337,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:384
 	// Reference: src/components/FeatureOptions.vue:575
 	// Reference: src/components/HeaderOptions.vue:534
-	// Reference: src/components/IconFeatureOptions.vue:549
+	// Reference: src/components/IconFeatureOptions.vue:563
 	// Reference: src/components/NavOptions.vue:582
 	// Reference: src/components/PostsOptions.vue:2025
 	// Reference: src/components/PricingTableOptions.vue:1305
@@ -1355,7 +1355,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContentToggleOptions.vue:586
 	// Reference: src/components/DividerOptions.vue:383
 	// Reference: src/components/FeatureOptions.vue:570
-	// Reference: src/components/IconFeatureOptions.vue:544
+	// Reference: src/components/IconFeatureOptions.vue:557
 	// Reference: src/components/IconOptions.vue:277
 	// Reference: src/components/PostinfoOptions.vue:609
 	// Reference: src/components/PricingTableOptions.vue:1306
@@ -1410,7 +1410,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDCheckoutOptions.vue:656
 	// Reference: src/components/EDDDownloadsGridOptions.vue:865
 	// Reference: src/components/FeatureOptions.vue:578
-	// Reference: src/components/IconFeatureOptions.vue:552
+	// Reference: src/components/IconFeatureOptions.vue:566
 	// Reference: src/components/WCCartOptions.vue:545
 	// Reference: src/components/WCCheckoutOptions.vue:814
 	// Reference: src/components/WCCustomProductsGridOptions.vue:968
@@ -1444,7 +1444,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadsGridOptions.vue:860
 	// Reference: src/components/FeatureOptions.vue:576
 	// Reference: src/components/HeaderOptions.vue:549
-	// Reference: src/components/IconFeatureOptions.vue:550
+	// Reference: src/components/IconFeatureOptions.vue:564
 	// Reference: src/components/OptinFormOptions.vue:887
 	// Reference: src/components/PostauthorboxOptions.vue:362
 	// Reference: src/components/PostsOptions.vue:2098
@@ -1915,7 +1915,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:395
 	// Reference: src/components/EDDCheckoutOptions.vue:683
 	// Reference: src/components/FeatureOptions.vue:585
-	// Reference: src/components/IconFeatureOptions.vue:558
+	// Reference: src/components/IconFeatureOptions.vue:572
 	__( 'Header Typography', 'coming-soon' ),
 
 	// Reference: src/components/AccordionOptions.vue:697
@@ -1956,7 +1956,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDAddToCartOptions.vue:797
 	// Reference: src/components/EDDBuyNowButtonOptions.vue:826
 	// Reference: src/components/FeatureOptions.vue:572
-	// Reference: src/components/IconFeatureOptions.vue:546
+	// Reference: src/components/IconFeatureOptions.vue:559
 	// Reference: src/components/IconOptions.vue:278
 	// Reference: src/components/OptinFormOptions.vue:862
 	// Reference: src/components/PostinfoOptions.vue:590
@@ -2559,7 +2559,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadPriceOptions.vue:105
 	// Reference: src/components/FeatureOptions.vue:577
 	// Reference: src/components/HeaderOptions.vue:552
-	// Reference: src/components/IconFeatureOptions.vue:551
+	// Reference: src/components/IconFeatureOptions.vue:565
 	// Reference: src/components/IconOptions.vue:287
 	// Reference: src/components/MenuCartOptions.vue:189
 	// Reference: src/components/ParticlesBackgroundControl.vue:325
@@ -2615,7 +2615,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DynamicTagsControl.vue:987
 	// Reference: src/components/EDDDownloadsGridOptions.vue:874
 	// Reference: src/components/FeatureOptions.vue:568
-	// Reference: src/components/IconFeatureOptions.vue:542
+	// Reference: src/components/IconFeatureOptions.vue:555
 	// Reference: src/components/PostinfoOptions.vue:596
 	// Reference: src/components/ProductMetaOptions.vue:335
 	// Reference: src/components/ShapeDividerControl.vue:349
@@ -2748,7 +2748,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContentToggleOptions.vue:595
 	// Reference: src/components/FeatureOptions.vue:574
 	// Reference: src/components/HeaderOptions.vue:536
-	// Reference: src/components/IconFeatureOptions.vue:548
+	// Reference: src/components/IconFeatureOptions.vue:562
 	__( 'Level', 'coming-soon' ),
 
 	// Reference: src/components/AnimationEffectControl.vue:284
@@ -3056,7 +3056,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/DividerOptions.vue:370
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:436
 	// Reference: src/components/FeatureOptions.vue:582
-	// Reference: src/components/IconFeatureOptions.vue:555
+	// Reference: src/components/IconFeatureOptions.vue:569
 	// Reference: src/components/ImageOptions.vue:532
 	// Reference: src/components/OptinFormOptions.vue:860
 	// Reference: src/components/PostfeaturedimageOptions.vue:436
@@ -3100,7 +3100,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:435
 	// Reference: src/components/EDDDownloadsGridOptions.vue:910
 	// Reference: src/components/FeatureOptions.vue:569
-	// Reference: src/components/IconFeatureOptions.vue:543
+	// Reference: src/components/IconFeatureOptions.vue:556
 	// Reference: src/components/ImageOptions.vue:531
 	// Reference: src/components/PostfeaturedimageOptions.vue:435
 	// Reference: src/components/PostinfoOptions.vue:613
@@ -3133,7 +3133,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/ContentToggleOptions.vue:591
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:444
 	// Reference: src/components/FeatureOptions.vue:571
-	// Reference: src/components/IconFeatureOptions.vue:545
+	// Reference: src/components/IconFeatureOptions.vue:558
 	// Reference: src/components/ImageOptions.vue:541
 	// Reference: src/components/PostfeaturedimageOptions.vue:445
 	// Reference: src/components/ProductFeaturedImageOptions.vue:444
@@ -3144,7 +3144,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/BeforeAfterToggleOptions.vue:530
 	// Reference: src/components/ContentToggleOptions.vue:594
 	// Reference: src/components/FeatureOptions.vue:573
-	// Reference: src/components/IconFeatureOptions.vue:547
+	// Reference: src/components/IconFeatureOptions.vue:561
 	__( 'Header Text', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue:535
@@ -3918,7 +3918,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	// Reference: src/components/EDDDownloadFeaturedImageOptions.vue:466
 	// Reference: src/components/FeatureOptions.vue:583
 	// Reference: src/components/HeightControl.vue:111
-	// Reference: src/components/IconFeatureOptions.vue:556
+	// Reference: src/components/IconFeatureOptions.vue:570
 	// Reference: src/components/ImageOptions.vue:533
 	// Reference: src/components/PostfeaturedimageOptions.vue:437
 	// Reference: src/components/ProductFeaturedImageOptions.vue:466
@@ -5081,7 +5081,7 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 	__( 'Image Options', 'coming-soon' ),
 
 	// Reference: src/components/FeatureOptions.vue:586
-	// Reference: src/components/IconFeatureOptions.vue:559
+	// Reference: src/components/IconFeatureOptions.vue:573
 	// Reference: src/components/PriceListOptions.vue:913
 	__( 'Vertical Alignment', 'coming-soon' ),
 
@@ -5148,6 +5148,9 @@ You will miss out on our free templates. 😬', 'coming-soon' ),
 
 	// Reference: src/components/HeaderOptions.vue:531
 	__( 'Headline', 'coming-soon' ),
+
+	// Reference: src/components/IconFeatureOptions.vue:560
+	__( 'Icon Gap', 'coming-soon' ),
 
 	// Reference: src/components/IconPicker.vue:242
 	__( 'All Icons', 'coming-soon' ),

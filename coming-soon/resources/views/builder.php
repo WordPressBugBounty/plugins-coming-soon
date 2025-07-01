@@ -44,7 +44,7 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 
 		foreach ( $settings as $key => $value ) {
 			// Special handling for 'items' array - preserve as-is without merging defaults
-			if ( $key === 'items' ) {
+			if ( $key === 'items' || $key === 'featuresList' ) {
 				$result[ $key ] = $value;
 				continue;
 			}

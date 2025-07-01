@@ -302,6 +302,50 @@ function pad(n, width, z) {
 
 jQuery(document).ready(function ($) {
   $('link[href*="/wp-content/themes/"]').remove();
+  $(".sp-imagecarousels-wrapper").each(function () {
+    var $carousel = $(this);
+    var carouselId = '#' + $carousel.attr('id'); // Get the ID of the current carousel
+
+    var slides = $(carouselId + ' .sp-imagecarousel-wrapper'); // Get all slides within this carousel
+
+    var navDots = $(carouselId + ' .sp-imagecarousel-nav button[data-index]'); // Get navigation dots
+
+    var slideshowmaxAttr = $carousel.attr('data-slidetoshow');
+    var slideshowmax = slideshowmaxAttr ? parseInt(slideshowmaxAttr) : 1;
+
+    if (isNaN(slideshowmax) || slideshowmax < 1) {
+      slideshowmax = 1; // Default to 1 if attribute is missing or invalid
+    } // Reset all slides to an inactive state first
+
+
+    slides.css({
+      'opacity': 0,
+      'height': '0',
+      'position': 'absolute'
+    }); // Activate the first slide (or first set of slides if slideshowmax > 1)
+
+    if (slides.length > 0) {
+      for (var i = 0; i < slideshowmax && i < slides.length; i++) {
+        slides.eq(i).css({
+          'opacity': 1,
+          'height': 'auto',
+          'position': 'initial'
+        });
+      }
+    } // Reset all navigation dots to an inactive state
+
+
+    navDots.css({
+      'opacity': 0.25
+    }); // Activate the first navigation dot
+    // This assumes that the first navDot corresponds to the first slide/group of slides.
+
+    if (navDots.length > 0) {
+      navDots.first().css({
+        'opacity': 1
+      });
+    }
+  });
 }); // Dynamic Text
 
 jQuery(document).ready(function ($) {

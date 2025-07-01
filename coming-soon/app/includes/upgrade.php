@@ -51,7 +51,7 @@ function seedprod_lite_upgrade_license() {
 
 	// Redirect.
 	$oth = hash( 'sha512', wp_rand() );
-	$hashed_oth = hash_mac( 'sha512', $oth, wp_salt() );
+	$hashed_oth = hash_hmac( 'sha512', $oth, wp_salt() );
 	update_option( 'seedprod_one_click_upgrade', $oth );
 	$version  = SEEDPROD_VERSION;
 	$file     = $license['body']->download_link;
@@ -99,7 +99,7 @@ function seedprod_lite_run_one_click_upgrade() {
 	if ( empty( $oth ) ) {
 		wp_send_json_error( $error );
 	}
-	if ( hash_mac( '512', $oth, wp_salt() ) !== $post_oth ) {
+	if ( hash_hmac( 'sha512', $oth, wp_salt() ) !== $post_oth ) {
 		wp_send_json_error( $error );
 	}
 	// Delete so cannot replay.
