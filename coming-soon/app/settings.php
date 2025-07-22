@@ -62,9 +62,35 @@ function seedprod_lite_save_settings() {
 
 			update_option( 'seedprod_settings', $settings );
 
+			// Check if we should show AI website builder message (lite users only)
+			$show_ai_message = false;
+			
+			if ( 'lite' === SEEDPROD_BUILD ) {
+				// Check if Coming Soon or Maintenance Mode was toggled
+				$coming_soon_changed = isset( $s->enable_coming_soon_mode ) && isset( $s_old->enable_coming_soon_mode ) && ( $s->enable_coming_soon_mode !== $s_old->enable_coming_soon_mode );
+				$maintenance_changed = isset( $s->enable_maintenance_mode ) && isset( $s_old->enable_maintenance_mode ) && ( $s->enable_maintenance_mode !== $s_old->enable_maintenance_mode );
+				
+				if ( $coming_soon_changed || $maintenance_changed ) {
+					// Check if user has already seen the AI message
+					$user_id = get_current_user_id();
+					$user_id = absint( $user_id ); // Validate user ID
+					
+					if ( $user_id > 0 ) {
+						$seen_ai_message = get_user_meta( $user_id, 'seedprod_seen_ai_message', true );
+						
+						if ( ! $seen_ai_message ) {
+							$show_ai_message = true;
+							// Mark as seen
+							update_user_meta( $user_id, 'seedprod_seen_ai_message', true );
+						}
+					}
+				}
+			}
+			
 			$response = array(
 				'status' => 'true',
 				'msg'    => __( 'Settings Updated', 'coming-soon' ),
+				'show_ai_message' => $show_ai_message,
 			);
 		} else {
 			$response = array(

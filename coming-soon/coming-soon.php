@@ -3,7 +3,7 @@
 Plugin Name: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd
 Plugin URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=plugin-uri-link
 Description: The Easiest WordPress Drag & Drop Page Builder that allows you to build your website, create Landing Pages, Coming Soon Pages, Maintenance Mode Pages and more.
-Version:  6.18.17
+Version:  6.18.18
 Author: SeedProd
 Author URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=author-uri-link
 Text Domain: coming-soon
@@ -17,7 +17,7 @@ License: GPLv2 or later
 
 define( 'SEEDPROD_BUILD', 'lite' );
 define( 'SEEDPROD_SLUG', 'coming-soon/coming-soon.php' );
-define( 'SEEDPROD_VERSION', '6.18.17' );
+define( 'SEEDPROD_VERSION', '6.18.18' );
 define( 'SEEDPROD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // Example output: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/seedprod/
 define( 'SEEDPROD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
