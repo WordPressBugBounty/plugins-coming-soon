@@ -79,14 +79,10 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'All Templates', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Favorite Templates', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -98,7 +94,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Saved Templates', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -111,25 +106,16 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Filter:', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'All', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
 	// Reference: src/views/SectionTemplateOptions-Pro.vue
 	// Reference: src/views/SectionTemplateOptions-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'No Templates Found', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -163,38 +149,28 @@ $generated_i18n_strings = array(
 	// Reference: src/views/TemplateChooser-Lite.vue
 	// Reference: src/components/ImageMultipleControl.vue
 	// Reference: src/components/ImageControl.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'First Page', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
 	// Reference: src/components/ImageMultipleControl.vue
 	// Reference: src/components/ImageControl.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Prev', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
 	// Reference: src/components/ImageMultipleControl.vue
 	// Reference: src/components/ImageControl.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Next', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
 	// Reference: src/components/ImageMultipleControl.vue
 	// Reference: src/components/ImageControl.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Last Page', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Search templates...', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -211,12 +187,10 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/BuilderView.vue
-	// Reference: src/admin/App.vue
 	__( 'Your license key is invalid', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/BuilderView.vue
-	// Reference: src/admin/App.vue
 	__( 'Click Here to Enter Your License Key', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -267,7 +241,6 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
-	// Reference: src/admin/SettingsGeneral.vue
 	__( 'Could not be saved. Please contact Support if you continue to experience this issue.', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Lite.vue
@@ -311,9 +284,9 @@ $generated_i18n_strings = array(
 	// Reference: src/views/SettingsGeneral.vue
 	// Reference: src/components/WCCustomProductsGridOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/EDDDownloadsGridOptions.vue
 	// Reference: src/components/BusinessReviewsOptions.vue
-	// Reference: src/admin/Settings.vue
 	__( 'General', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Pro.vue
@@ -326,7 +299,6 @@ $generated_i18n_strings = array(
 	// Reference: src/views/SetupDesign-Pro.vue
 	// Reference: src/views/SetupDesign-Lite.vue
 	// Reference: src/views/Setup.vue
-	// Reference: src/admin/SettingsGeneral.vue
 	__( 'Global Settings', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Pro.vue
@@ -387,8 +359,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TypographyControl.vue
 	// Reference: src/components/CustomHTMLOptions.vue
 	// Reference: src/components/ColorPicker.vue
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
 	__( 'Close', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Pro.vue
@@ -606,6 +576,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TestimonialOptions.vue
 	// Reference: src/components/TemplatetagOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/StarRatingOptions.vue
@@ -692,10 +663,6 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/SetupBlockOptions-Pro.vue
 	// Reference: src/views/SetupBlockOptions-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'WooCommerce', 'coming-soon' ),
 
 	// Reference: src/views/SetupBlockOptions-Pro.vue
@@ -710,11 +677,14 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/SetupBlockOptions-Pro.vue
 	// Reference: src/views/SetupBlockOptions-Lite.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'Easy Digital Downloads', 'coming-soon' ),
 
 	// Reference: src/views/SetupBlockOptions-Pro.vue
 	__( 'EDD Template Tags', 'coming-soon' ),
+
+	// Reference: src/views/SetupBlockOptions-Pro.vue
+	// Reference: src/views/SetupBlockOptions-Lite.vue
+	__( 'Square Payments', 'coming-soon' ),
 
 	// Reference: src/views/SetupBlockOptions-Pro.vue
 	// Reference: src/views/Layoutnav.vue
@@ -801,20 +771,14 @@ $generated_i18n_strings = array(
 	__( 'Help', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Save', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
 	// Reference: src/views/Setup.vue
-	// Reference: src/admin/SettingsGeneral.vue
-	// Reference: src/admin/SettingsGeneral.vue
 	__( 'Saved!', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
 	// Reference: src/views/Preview.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Preview', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
@@ -905,6 +869,24 @@ $generated_i18n_strings = array(
 	// Reference: src/views/SettingsScripts.vue
 	__( 'You do not have the proper WordPress permissions to add scripts.', 'coming-soon' ),
 
+	// Reference: src/views/SettingsScripts.vue
+	__( 'Pro Tip:', 'coming-soon' ),
+
+	// Reference: src/views/SettingsScripts.vue
+	__( 'Need to add tracking scripts or comply with privacy laws?', 'coming-soon' ),
+
+	// Reference: src/views/SettingsScripts.vue
+	__( 'WPCode', 'coming-soon' ),
+
+	// Reference: src/views/SettingsScripts.vue
+	__( 'lets you safely manage code snippets site-wide without editing theme files, while', 'coming-soon' ),
+
+	// Reference: src/views/SettingsScripts.vue
+	__( 'WPConsent', 'coming-soon' ),
+
+	// Reference: src/views/SettingsScripts.vue
+	__( 'keeps you GDPR/CCPA compliant with customizable cookie consent banners. Get both free!', 'coming-soon' ),
+
 	// Reference: src/views/SettingsSEO.vue
 	// Reference: src/views/SettingsAnalytics.vue
 	__( 'Your SEO settings are being managed by:', 'coming-soon' ),
@@ -945,7 +927,6 @@ $generated_i18n_strings = array(
 	__( 'The SEO Framework', 'coming-soon' ),
 
 	// Reference: src/views/SettingsSEO.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'All in One SEO', 'coming-soon' ),
 
 	// Reference: src/views/SettingsSEO.vue
@@ -953,12 +934,10 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/SettingsSEO.vue
 	// Reference: src/views/SettingsAnalytics.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'Install', 'coming-soon' ),
 
 	// Reference: src/views/SettingsSEO.vue
 	// Reference: src/views/SettingsAnalytics.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'Activate', 'coming-soon' ),
 
 	// Reference: src/views/SettingsGeneral.vue
@@ -1122,7 +1101,6 @@ $generated_i18n_strings = array(
 	__( 'Activate MonsterInsights', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAnalytics.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Pro', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAnalytics.vue
@@ -1143,6 +1121,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TwitterEmbedTimelineOptions.vue
 	// Reference: src/components/TestimonialOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/SeedProdGalleryOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
@@ -1161,8 +1140,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/BeforeAfterToggleOptions.vue
 	// Reference: src/components/AnimatedHeadlineOptions.vue
 	// Reference: src/components/AlertBoxOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/SettingsGeneral.vue
 	__( 'Yes', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAccess-Pro.vue
@@ -1173,6 +1150,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TwitterEmbedTimelineOptions.vue
 	// Reference: src/components/TestimonialOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/SeedProdGalleryOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
@@ -1191,8 +1169,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/BeforeAfterToggleOptions.vue
 	// Reference: src/components/AnimatedHeadlineOptions.vue
 	// Reference: src/components/AlertBoxOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/SettingsGeneral.vue
 	__( 'No', 'coming-soon' ),
 
 	// Reference: src/views/SettingsAccess-Pro.vue
@@ -1367,7 +1343,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/CounterOptions.vue
 	// Reference: src/components/CountdownOptions.vue
 	// Reference: src/components/BusinessReviewsOptions.vue
-	// Reference: src/admin/App.vue
 	__( 'Settings', 'coming-soon' ),
 
 	// Reference: src/views/Layoutnav.vue
@@ -1428,7 +1403,6 @@ $generated_i18n_strings = array(
 	__( 'Paste Block', 'coming-soon' ),
 
 	// Reference: src/views/InlineHelpView.vue
-	// Reference: src/admin/App.vue
 	__( 'SeedProd Logo', 'coming-soon' ),
 
 	// Reference: src/views/InlineHelpView.vue
@@ -1839,6 +1813,7 @@ $generated_i18n_strings = array(
 	__( 'Body Text Typography', 'coming-soon' ),
 
 	// Reference: src/views/GlobalCSS.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/ProductMetaOptions.vue
 	// Reference: src/components/EDDCheckoutOptions.vue
 	// Reference: src/components/EDDCartOptions.vue
@@ -1883,6 +1858,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/GlobalCSS.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/ShadowControl.vue
 	// Reference: src/components/PositionControl.vue
@@ -2076,24 +2052,19 @@ $generated_i18n_strings = array(
 
 	// Reference: src/mixins/helpers.js
 	// Reference: src/mixins/helpers.js
-	// Reference: src/admin/App.vue
 	__( 'Upgrade to PRO', 'coming-soon' ),
 
 	// Reference: src/mixins/helpers.js
 	// Reference: src/mixins/helpers.js
-	// Reference: src/admin/App.vue
 	__( 'Increase traffic, engagement, and get more email subscribers. Click below to learn more about all our awesome features.', 'coming-soon' ),
 
 	// Reference: src/mixins/helpers.js
-	// Reference: src/admin/App.vue
 	__( ' is a PRO Feature', 'coming-soon' ),
 
 	// Reference: src/mixins/helpers.js
-	// Reference: src/admin/App.vue
 	__( ' feature is not available on your plan. Please upgrade to the PRO plan to unlock all these awesome features.', 'coming-soon' ),
 
 	// Reference: src/mixins/helpers.js
-	// Reference: src/admin/App.vue
 	__( 'UPGRADE TO PRO', 'coming-soon' ),
 
 	// Reference: src/mixins/helpers.js
@@ -2156,6 +2127,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TestimonialOptions.vue
 	// Reference: src/components/TemplatetagOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
@@ -2531,6 +2503,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/WCCartOptions.vue
 	// Reference: src/components/WCAddToCartOptions.vue
 	// Reference: src/components/UpsellsOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/SocialProfilesOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
@@ -2685,6 +2658,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/TextOptions.vue
 	// Reference: src/components/TestimonialOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/SocialProfilesOptions.vue
 	// Reference: src/components/SeedProdTemplatePartsOptions.vue
@@ -2827,7 +2801,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/BusinessReviewsOptions.vue
 	// Reference: src/components/BeforeAfterToggleOptions.vue
 	// Reference: src/components/AlertBoxOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Type', 'coming-soon' ),
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue
@@ -2852,12 +2825,10 @@ $generated_i18n_strings = array(
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue
 	// Reference: src/components/EDDDownloadsGridOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Include', 'coming-soon' ),
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue
 	// Reference: src/components/EDDDownloadsGridOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Exclude', 'coming-soon' ),
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue
@@ -2895,9 +2866,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/PostsOptions.vue
 	// Reference: src/components/PostinfoOptions.vue
 	// Reference: src/components/EDDDownloadsGridOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Date', 'coming-soon' ),
 
 	// Reference: src/components/WCCustomProductsGridOptions.vue
@@ -3497,6 +3465,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/UpsellsOptions.vue
 	// Reference: src/components/TextOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/SocialSharingOptions.vue
@@ -3657,6 +3626,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/UpsellsOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
@@ -3694,6 +3664,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/UpsellsOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
@@ -3728,6 +3699,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/WCCustomProductsGridOptions.vue
 	// Reference: src/components/UpsellsOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
@@ -3764,6 +3736,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/UpsellsOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
@@ -4020,6 +3993,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/WCCartOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/SocialProfilesOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
 	// Reference: src/components/RowOptions.vue
@@ -4035,8 +4009,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/CounterOptions.vue
 	// Reference: src/components/ColOptions.vue
 	// Reference: src/components/BackgroundControl.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
 	__( 'Default', 'coming-soon' ),
 
 	// Reference: src/components/WCCart-Pro.vue
@@ -4360,7 +4332,6 @@ $generated_i18n_strings = array(
 	// Reference: src/components/ButtonOptions.vue
 	// Reference: src/components/BackgroundControl.vue
 	// Reference: src/components/AddToCartOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Custom', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
@@ -4681,6 +4652,7 @@ $generated_i18n_strings = array(
 	__( 'Select Video', 'coming-soon' ),
 
 	// Reference: src/components/UpsellsOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/ProductRelatedOptions.vue
 	// Reference: src/components/PriceListOptions.vue
 	// Reference: src/components/PostsOptions.vue
@@ -4740,14 +4712,12 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTATemplates.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Drag & Drop Page Builder', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
 	// Reference: src/components/SettingsLiteCTA.vue
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( '80+ PRO Page Blocks', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
@@ -4762,7 +4732,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Custom 404 Pages', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
@@ -4771,21 +4740,18 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Page Access Controls', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
 	// Reference: src/components/SettingsLiteCTA.vue
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( '200+ PRO Page Templates', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
 	// Reference: src/components/SettingsLiteCTA.vue
 	// Reference: src/components/LiteCTAUpgrade.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'PRO Smart Sections', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
@@ -4804,7 +4770,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTATemplates.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Plus much more...', 'coming-soon' ),
 
 	// Reference: src/components/UpgradeCTABuilder.vue
@@ -4872,8 +4837,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Typography', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Edit', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
@@ -4894,6 +4857,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Font Size', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	__( 'Line Height', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
@@ -5448,6 +5412,16 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/FacebookCommentsOptions.vue
 	__( 'Change App', 'coming-soon' ),
 
+	// Reference: src/components/TwitterEmbedTimelineOptions.vue
+	__( 'Deprecation Notice', 'coming-soon' ),
+
+	// Reference: src/components/TwitterEmbedTimelineOptions.vue
+	// Reference: src/components/TwitterEmbedTimeline-Pro.vue
+	__( 'X(Twitter) has silently deprecated the Timeline feature. This block will be deprecated in a future update.', 'coming-soon' ),
+
+	// Reference: src/components/TwitterEmbedTimeline-Pro.vue
+	__( 'Deprecated Block', 'coming-soon' ),
+
 	// Reference: src/components/ThemeBuilderUpsellPro.vue
 	// Reference: src/components/ThemeBuilderUpsell.vue
 	// Reference: src/components/LiteCTASubscribers.vue
@@ -5504,7 +5478,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTATemplates.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/ThemeTemplates-Lite.vue
 	__( 'Upgrade to SeedProd PRO Now', 'coming-soon' ),
 
 	// Reference: src/components/ThemeBuilderUpsell.vue
@@ -5512,7 +5485,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/LiteCTATemplates.vue
 	// Reference: src/components/LiteCTASubscribers.vue
 	// Reference: src/components/LiteCTABuilder.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Special Upgrade Offer - Save 50% Off', 'coming-soon' ),
 
 	// Reference: src/components/TextOptions.vue
@@ -5567,11 +5539,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/PostauthorboxOptions.vue
 	// Reference: src/components/BusinessReviewsOptions.vue
 	// Reference: src/components/AnchorOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Name', 'coming-soon' ),
 
 	// Reference: src/components/TestimonialOptions.vue
@@ -5642,7 +5609,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/TemplatetagOptions.vue
 	// Reference: src/components/BusinessReviewsOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Select Type', 'coming-soon' ),
 
 	// Reference: src/components/Templatetag-Pro.vue
@@ -5721,6 +5687,7 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/PriceListOptions.vue
 	// Reference: src/components/AnimatedHeadlineOptions.vue
 	__( 'Circle', 'coming-soon' ),
@@ -5908,6 +5875,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Image Area', 'coming-soon' ),
 
 	// Reference: src/components/TeamMemberOptions.vue
+	// Reference: src/components/TableOfContentsOptions.vue
 	// Reference: src/components/PostsOptions.vue
 	// Reference: src/components/AlertBoxOptions.vue
 	__( 'Title Tag', 'coming-soon' ),
@@ -6002,6 +5970,197 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/TeamMemberOptions.vue
 	__( 'Social Icon Border Radius', 'coming-soon' ),
 
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Container Padding', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Title Styles', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Link Styles', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Container Styles', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/PostsOptions.vue
+	__( 'Show Title', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Title Text', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Include Headings', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Comma-separated list (e.g., h2,h3,h4)', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Content Container', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'CSS selector for the container to scan for headings', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Exclude Selectors', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'CSS selectors to exclude from TOC (comma-separated)', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Show Numbers', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Hierarchical Numbering', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Smooth Scroll', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Scroll Offset (px)', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/AlertBoxOptions.vue
+	__( 'Title Font Size', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/PriceListOptions.vue
+	// Reference: src/components/PostsOptions.vue
+	// Reference: src/components/EDDDownloadsGridOptions.vue
+	// Reference: src/components/EDDCheckoutOptions.vue
+	__( 'Title Color', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Title Spacing', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Link Font Size', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/ProductMetaOptions.vue
+	// Reference: src/components/LoginOptions.vue
+	// Reference: src/components/EDDDownloadsGridOptions.vue
+	__( 'Link Color', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/LoginOptions.vue
+	__( 'Link Hover Color', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Link Decoration', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Link Hover Decoration', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Item Spacing', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'List Indent', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Container Width', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'List Style', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/AnimatedHeadlineOptions.vue
+	__( 'Underline', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Disc', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/ContentToggleOptions.vue
+	__( 'Square', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Decimal', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/LoginOptions.vue
+	__( 'Additional Options', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Minimize Box', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Expand Icon', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Collapse Icon', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	__( 'Collapse Subitems', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/DisplaySectionControl.vue
+	__( 'Absolute', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/DisplaySectionControl.vue
+	// Reference: src/components/BackgroundControl.vue
+	__( 'Fixed', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/HotspotOptions.vue
+	__( 'Horizontal Orientation', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/HotspotOptions.vue
+	__( 'Vertical Orientation', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/DisplaySectionControl.vue
+	__( 'Offset', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContentsOptions.vue
+	// Reference: src/components/DisplaySectionControl.vue
+	__( 'Z-Index', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Note:', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'This is a placeholder preview.The table of contents will be dynamically generated from the actual headings on your page.', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Position Notice:', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Fixed and Absolute positioning will be applied in preview and frontend only. The builder shows the default layout for easier editing.', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Loading table of contents...', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'No headings found', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Introduction', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Getting Started', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Overview', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Main Content', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Section A', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Subsection', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Section B', 'coming-soon' ),
+
+	// Reference: src/components/TableOfContents-Pro.vue
+	__( 'Conclusion', 'coming-soon' ),
+
 	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/ProductGalleryImagesOptions.vue
 	// Reference: src/components/ProductDataTabsOptions.vue
@@ -6084,8 +6243,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/ProductMetaOptions.vue
 	// Reference: src/components/PostinfoOptions.vue
 	// Reference: src/components/ImageCarouselOptions.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
 	__( 'Delete', 'coming-soon' ),
 
 	// Reference: src/components/TabbedLayoutOptions.vue
@@ -6094,9 +6251,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/ProductMetaOptions.vue
 	// Reference: src/components/PostinfoOptions.vue
 	// Reference: src/components/ImageCarouselOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Duplicate', 'coming-soon' ),
 
 	// Reference: src/components/TabbedLayoutOptions.vue
@@ -6172,7 +6326,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/SocialSharingOptions.vue
 	// Reference: src/components/SocialProfilesOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Select a Type', 'coming-soon' ),
 
 	// Reference: src/components/SocialSharingOptions.vue
@@ -6215,8 +6368,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/SocialProfilesOptions.vue
 	// Reference: src/components/Form-Pro.vue
 	// Reference: src/components/DynamicTagsControl.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
 	__( 'Email', 'coming-soon' ),
 
 	// Reference: src/components/SocialProfilesOptions.vue
@@ -6395,18 +6546,15 @@ page plugin.', 'coming-soon' ),
 	__( 'Powerful Page Editor', 'coming-soon' ),
 
 	// Reference: src/components/SettingsLiteCTA.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Email Marketing Integrations', 'coming-soon' ),
 
 	// Reference: src/components/SettingsLiteCTA.vue
 	__( 'Access Controls', 'coming-soon' ),
 
 	// Reference: src/components/SettingsLiteCTA.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Subscriber Management', 'coming-soon' ),
 
 	// Reference: src/components/SettingsLiteCTA.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Upgrade to SeedProd Pro<br />Today and Save', 'coming-soon' ),
 
 	// Reference: src/components/SeedProdTemplatePartsOptions.vue
@@ -6710,7 +6858,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Add Block', 'coming-soon' ),
 
 	// Reference: src/components/PushNotificationOptions.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'PushEngage', 'coming-soon' ),
 
 	// Reference: src/components/PushNotificationOptions.vue
@@ -6731,19 +6878,19 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/PushNotificationOptions.vue
 	__( 'Documentation', 'coming-soon' ),
 
-	// Reference: src/components/PushNotification-Pro.vue
+	// Reference: src/components/PushNotification.vue
 	__( 'Install Push Notifications Plugin:', 'coming-soon' ),
 
-	// Reference: src/components/PushNotification-Pro.vue
+	// Reference: src/components/PushNotification.vue
 	__( 'PushEngage Installed and Activated', 'coming-soon' ),
 
-	// Reference: src/components/PushNotification-Pro.vue
+	// Reference: src/components/PushNotification.vue
 	__( 'Install PushEngage', 'coming-soon' ),
 
-	// Reference: src/components/PushNotification-Pro.vue
+	// Reference: src/components/PushNotification.vue
 	__( 'Activate PushEngage', 'coming-soon' ),
 
-	// Reference: src/components/PushNotification-Pro.vue
+	// Reference: src/components/PushNotification.vue
 	// Reference: src/components/ContactForm.vue
 	__( 'Contact Form', 'coming-soon' ),
 
@@ -6798,11 +6945,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Layout Settings', 'coming-soon' ),
 
 	// Reference: src/components/ProductMetaOptions.vue
-	// Reference: src/components/LoginOptions.vue
-	// Reference: src/components/EDDDownloadsGridOptions.vue
-	__( 'Link Color', 'coming-soon' ),
-
-	// Reference: src/components/ProductMetaOptions.vue
 	__( 'Divider Typography', 'coming-soon' ),
 
 	// Reference: src/components/ProductMeta-Pro.vue
@@ -6816,8 +6958,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/ProductGalleryImagesOptions.vue
 	// Reference: src/components/ProductDataTabsOptions.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Active', 'coming-soon' ),
 
 	// Reference: src/components/ProductGalleryImagesOptions.vue
@@ -6884,7 +7024,6 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/PricingTableOptions.vue
 	// Reference: src/components/ImageCarouselOptions.vue
 	// Reference: src/components/AdditionalInformationOptions.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Header', 'coming-soon' ),
 
 	// Reference: src/components/PricingTableOptions.vue
@@ -7090,12 +7229,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Vertical Alignment', 'coming-soon' ),
 
 	// Reference: src/components/PriceListOptions.vue
-	// Reference: src/components/PostsOptions.vue
-	// Reference: src/components/EDDDownloadsGridOptions.vue
-	// Reference: src/components/EDDCheckoutOptions.vue
-	__( 'Title Color', 'coming-soon' ),
-
-	// Reference: src/components/PriceListOptions.vue
 	__( 'Enter Title', 'coming-soon' ),
 
 	// Reference: src/components/PriceListOptions.vue
@@ -7183,9 +7316,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue
 	__( 'Show Featured Image', 'coming-soon' ),
-
-	// Reference: src/components/PostsOptions.vue
-	__( 'Show Title', 'coming-soon' ),
 
 	// Reference: src/components/PostsOptions.vue
 	__( 'Show Meta', 'coming-soon' ),
@@ -8070,7 +8200,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Display Options', 'coming-soon' ),
 
 	// Reference: src/components/Mypaykit.vue
-	__( 'Install MyPayKit plugin:', 'coming-soon' ),
+	__( 'Install MyPayKit Plugin:', 'coming-soon' ),
 
 	// Reference: src/components/Mypaykit.vue
 	__( 'Install MyPayKit', 'coming-soon' ),
@@ -8079,7 +8209,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Activate MyPayKit', 'coming-soon' ),
 
 	// Reference: src/components/Mypaykit.vue
-	// Reference: src/admin/GrowthTools.vue
 	__( 'MyPayKit', 'coming-soon' ),
 
 	// Reference: src/components/Mypaykit.vue
@@ -8125,9 +8254,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Placeholder for Password field', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue
-	__( 'Link Hover Color', 'coming-soon' ),
-
-	// Reference: src/components/LoginOptions.vue
 	__( 'Label Text Color', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue
@@ -8138,9 +8264,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue
 	__( 'Label Spacing', 'coming-soon' ),
-
-	// Reference: src/components/LoginOptions.vue
-	__( 'Additional Options', 'coming-soon' ),
 
 	// Reference: src/components/LoginOptions.vue
 	__( 'Remember User Label', 'coming-soon' ),
@@ -8223,7 +8346,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Growing Library of Templates', 'coming-soon' ),
 
 	// Reference: src/components/LiteCTATemplates.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'Smart Sections', 'coming-soon' ),
 
 	// Reference: src/components/LiteCTATemplates.vue
@@ -8251,14 +8373,6 @@ page plugin.', 'coming-soon' ),
 	__( 'is not available on your plan. Please upgrade to the PRO version to unlock all these awesome features.', 'coming-soon' ),
 
 	// Reference: src/components/ListTable.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
 	__( 'Loading', 'coming-soon' ),
 
 	// Reference: src/components/ListTable.vue
@@ -8505,12 +8619,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/HotspotOptions.vue
 	__( 'Min Width', 'coming-soon' ),
-
-	// Reference: src/components/HotspotOptions.vue
-	__( 'Horizontal Orientation', 'coming-soon' ),
-
-	// Reference: src/components/HotspotOptions.vue
-	__( 'Vertical Orientation', 'coming-soon' ),
 
 	// Reference: src/components/HotspotOptions.vue
 	__( 'Text Wrap', 'coming-soon' ),
@@ -8948,7 +9056,6 @@ page plugin.', 'coming-soon' ),
 	__( 'ACF Field', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
 	__( 'Archive', 'coming-soon' ),
 
 	// Reference: src/components/DynamicTagsControl.vue
@@ -9142,9 +9249,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Add Element', 'coming-soon' ),
 
 	// Reference: src/components/DisplaySectionControl.vue
-	__( 'Z-Index', 'coming-soon' ),
-
-	// Reference: src/components/DisplaySectionControl.vue
 	__( 'Static', 'coming-soon' ),
 
 	// Reference: src/components/DisplaySectionControl.vue
@@ -9152,17 +9256,7 @@ page plugin.', 'coming-soon' ),
 	__( 'Relative', 'coming-soon' ),
 
 	// Reference: src/components/DisplaySectionControl.vue
-	// Reference: src/components/BackgroundControl.vue
-	__( 'Fixed', 'coming-soon' ),
-
-	// Reference: src/components/DisplaySectionControl.vue
-	__( 'Absolute', 'coming-soon' ),
-
-	// Reference: src/components/DisplaySectionControl.vue
 	__( 'Sticky', 'coming-soon' ),
-
-	// Reference: src/components/DisplaySectionControl.vue
-	__( 'Offset', 'coming-soon' ),
 
 	// Reference: src/components/DisplaySectionControl.vue
 	__( 'Overflow', 'coming-soon' ),
@@ -9404,9 +9498,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'Round', 'coming-soon' ),
-
-	// Reference: src/components/ContentToggleOptions.vue
-	__( 'Square', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'Label Box', 'coming-soon' ),
@@ -9670,7 +9761,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Time Typography', 'coming-soon' ),
 
 	// Reference: src/components/BulletListOptions.vue
-	// Reference: src/admin/Welcome-Pro.vue
 	__( 'List', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue
@@ -10004,9 +10094,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Curly', 'coming-soon' ),
 
 	// Reference: src/components/AnimatedHeadlineOptions.vue
-	__( 'Underline', 'coming-soon' ),
-
-	// Reference: src/components/AnimatedHeadlineOptions.vue
 	__( 'Double Underline', 'coming-soon' ),
 
 	// Reference: src/components/AnimatedHeadlineOptions.vue
@@ -10050,9 +10137,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/AlertBoxOptions.vue
 	__( 'Alert', 'coming-soon' ),
-
-	// Reference: src/components/AlertBoxOptions.vue
-	__( 'Title Font Size', 'coming-soon' ),
 
 	// Reference: src/components/AlertBoxOptions.vue
 	__( 'Description Font Size', 'coming-soon' ),
@@ -10115,1088 +10199,6 @@ page plugin.', 'coming-soon' ),
 	__( 'Open Icon', 'coming-soon' ),
 
 	// Reference: src/components/AccordionOptions.vue
-	__( 'Accordion ', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Thank you for choosing SeedProd - Easy Drag & Drop Page Builder. A complete solution to create a WordPress Website, Custom Themes, Landing Pages, Coming Soon & Maintenance Mode Pages.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Enter your license key to enable all the features of the plugin.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Enter Your License Key Here', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Verify key', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'SeedProd makes it easy to create landing pages in WordPress.<br>You can watch the video tutorial or read our guide on how create your first page.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Setup SeedProd', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Read the Full Guide', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'SeedProd Features &amp; Solutions', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'SeedProd is both easy to use and extremely powerful. We have tons of<br />helpful features to help you create a successful landing page.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Watch how to create your first landing page', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Robbie the Rabbit the SeedProd mascot', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Watch how to create your first page', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Drag &amp; Drop Page Builder', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Save 20%', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'per year', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Our Drag & Drop Page Builder lets you create great looking pages and layouts fast so you can get your landing page up in minutes. No coding required!', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Upgrade to PRO Now', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Landing Page Templates', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Create a variety of landing pages including sales, optin, coming soon, maintenance mode, webinar, and thank you pages. New templates added regularly.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Premium Integrations', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Collect emails with your favorite 3rd party email marketing service providers including MailChimp, ActiveCampaign, ConvertKit, Constant Contact and more...', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'No Coding Skills Needed', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Super Fast Loading Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Pro.vue
-	__( 'Bloat free code results in faster loading pages which means your page converts higher.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Thank you for choosing SeedProd - The Best Website Builder, Landing Page Builder, Coming Soon, Maintenance Mode & more...', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Get Started →', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( '← Exit Setup', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Note: You will be transfered to an SeedProd.com to complete the setup wizard.', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Use our setup wizard to get started in less than 2 minutes and unlock free templates!', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Use our setup wizard to get started in less than 2 minutes!', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Are you sure you want to exit the setup wizard?
-
-You will miss out on our free templates. 😬', 'coming-soon' ),
-
-	// Reference: src/admin/Welcome-Lite.vue
-	__( 'Are you sure you want to exit the setup wizard? 😬', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Search Theme Templates', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Theme Templates', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Add New Theme Template', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Edit Design', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Enter ids or slugs', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Trash', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Published', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Last Modified', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'You do not have any theme templates yet.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Create New Theme Template', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Restore', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Delete Permanently', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Create Headers, Footer, Post, Page, Archive and More', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'New Theme Template', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Name:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Example: Main Header, Blog Page, Search Results', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Type:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Page', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Part', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Footer', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Priority:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Conditions:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Edit Conditions', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Add Condition', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Template Updated!', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Theme Preview Mode', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Page Type', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Single Post', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Single Page', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Search Results', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Author Page', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Custom Conditions', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Global Part', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Theme Template Kits', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Enable SeedProd Theme', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Single Product', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Archive Product', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Theme has been enabled.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Theme has been disabled.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Could not toggle theme status. Make sure you have permission.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'This theme requires a static Home and Blog page be set in WordPress. Would you like for us to automatically create these pages and update the WordPress settings?', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'A static Home and Blog page have been created. You can manage these in WordPress by going to Settings > Reading > Your homepage displays:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Could not create pages. Please check your permissions.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'You can manually setup these pages in WordPress by going to Settings > Reading > Your homepage displays:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Drafts', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Scheduled', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Move To Trash', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Export', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Export All', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Conditions', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Priority', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Templates Moved to Trash.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Templates Restored.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Are you sure?', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Yes, empty trash!', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	__( 'Templates Deleted!', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Page Duplicated', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	__( 'Sort:', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	__( 'Get a Full Website With One-Click Without Being a Developer', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	__( 'Say “hello” to the future with SeedProd’s custom WordPress theme builder and One Click Websites.', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	__( 'Popular', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	__( 'Newest to Oldest', 'coming-soon' ),
-
-	// Reference: src/admin/ThemeTemplates-Lite.vue
-	// Reference: src/admin/ThemeChooser.vue
-	__( 'Oldest to Newest', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Subscribers Overview', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Export to CSV', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'All Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Coming Soon Page', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Maintenance Mode Page', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( '404 Page', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Landing Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Days', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'You do not have any subscribers yet.', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Go to Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Search Emails', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Login Page', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	// Reference: src/admin/App.vue
-	__( 'Subscribers', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Delete Subscribers', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Created', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	__( 'Subscribers Deleted', 'coming-soon' ),
-
-	// Reference: src/admin/Subscribers-Pro.vue
-	// Reference: src/admin/Subscribers-Lite.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Export Started', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'You can close this window and get started editing you page<br> or setup a new page.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Click the button below to install and activate the following free plugins:', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Install and Activate Plugins', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Setup a Coming Soon Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Edit Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Setup a Maintenance Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'A Maintenance Page will notify search engines that the site is unavailable.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Setup a Landing Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Landing Pages are meant to be standalone pages separate from the design of your site and theme.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Edit Landing Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Build a Website', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Build your entire Website. Create Headers, Footers, Pages, Posts, Archives, Sidebars, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Select a Theme for my Website', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Edit Theme', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Build a WooCommerce Store', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Create an entire WooCommerce store. Customize product pages, checkout, cart, product grids, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Select a Theme for my Store', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Setup a Login Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Create a custom Login page for your website.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Setup a 404 Page', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Create a custom 404 page for your website.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	__( 'Dismiss Setup', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Finish Setup', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Pro.vue
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'There was an issue completing the setup. Please refresh the page and try again.', 'coming-soon' ),
-
-	// Reference: src/admin/Setup-Lite.vue
-	__( 'Dismiss This Setup Page', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'License', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Your license key provides access to updates and addons.', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'License Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Recheck Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Verify Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Deactivate Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Connect to SeedProd to Install the Pro Version', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'You currently have the <strong>%s</strong> license.', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Debug Information', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Facebook APP ID', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Save Settings', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Disable Edit with SeedProd Button', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Enable Usage Tracking', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Google Places API Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Yelp API Key', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'View Debug Information', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Learn More', 'coming-soon' ),
-
-	// Reference: src/admin/SettingsGeneral.vue
-	__( 'Disable SeedProd Notifications', 'coming-soon' ),
-
-	// Reference: src/admin/Settings.vue
-	__( 'Emails', 'coming-soon' ),
-
-	// Reference: src/admin/Settings.vue
-	__( 'Integrations', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Status', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Convert and Monetize Your Website Traffic', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Stop losing visitors! Instantly grow your email list, get more leads and increase sales with the #1 most powerful conversion optimization toolkit in the world.', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'How Does OptinMonster Work?', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'OptinMonster generates more subscribers, leads and sales from the traffic you already have. All it takes is 3 simple steps...', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Step 1: Create a Visually Stunning Offer', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Choose a pre-built template designed for maximum conversions, or start from scratch with a blank canvas. Customize all the details with our easy to use drag-and-drop builder - no code needed.', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Step 2: Target and Personalize Your Offers with Behavior Automation', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Our powerful targeting and segmentation engine lets you show your perfect offer to the right people at the exact right time to skyrocket your website conversions.', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Step 3: Test and Adjust in Real Time', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Get all the stats you need to improve your lead generation strategy, then easily split test all your ideas to keep increasing conversions.', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Our high-converting optin forms like Exit-Intent® popups, Fullscreen Welcome Mats, and Scroll boxes help you dramatically boost conversions and get more email subscribers.', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	// Reference: src/admin/GrowthTools.vue
-	// Reference: src/admin/CustomCode.vue
-	__( 'Opening plugin installation page...', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	// Reference: src/admin/CustomCode.vue
-	__( 'Plugin Installed, Activating...', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Get OptinMonster Now', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'OptinMonster is Active - Go to Settings', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Activate OptinMonster', 'coming-soon' ),
-
-	// Reference: src/admin/Popups.vue
-	__( 'Activating OptinMonster', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'PRO Version installed', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'RafflePress', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Turn your visitors into brand ambassadors! Easily grow your email list, website traffic, and social media followers with powerful viral giveaways & contests.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'MyPayKit seamlessly integrates with Square to help you collect payments directly on your WordPress site. Just one click to connect your existing Square account.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'WPForms', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The most beginner friendly drag & drop WordPress forms plugin allowing you to create beautifdivcontact forms, subscription forms, payment forms, and more in minutes, not hours!', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'OptinMonster', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'WP Mail SMTP', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'SMTP (Simple Mail Transfer Protocol) is an industry standard for sending emails. SMTP helps increase email deliverability by using proper authentication.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'MonsterInsights', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'MonsterInsights makes it “effortless” to properly connect your WordPress site with Google Analytics, so you can start making data-driven decisions to grow your business.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'TrustPulse', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'TrustPulse uses FOMO (Fear of Missing Out) to boost your sales and conversions with social proof notifications. Use it to boost sales on your Woocommerce store, increase signups on your membership site, get more email subscribers, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The original WordPress SEO plugin. Improve your WordPress SEO rankings and traffic with our comprehensive SEO tools and smart SEO optimizations.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'ExactMetrics', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The ExactMetrics Google Analytics for WordPress plugin helps you properly setup all the powerful Google Analytics tracking features without writing any code or hiring a developer.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Smash Balloon Social Photo Feed', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Easily display Instagram content on your WordPress site without writing any code. Comes with multiple templates, ability to show content from multiple accounts, hashtags, and more. Trusted by 1 million websites.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Smash Balloon Social Post Feed', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Easily display Facebook content on your WordPress site without writing any code. Comes with multiple templates, ability to embed albums, group content, reviews, live videos, comments, and reactions.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Smash Balloon Twitter Feeds', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Easily display Twitter content in WordPress without writing any code. Comes with multiple layouts, ability to combine multiple Twitter feeds, Twitter card support, tweet moderation, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Smash Balloon YouTube Feeds', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Easily display YouTube videos on your WordPress site without writing any code. Comes with multiple layouts, ability to embed live streams, video filtering, ability to combine multiple channel videos, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Connect with your visitors after they leave your website with the leading web push notification software. Over 10,000+ businesses worldwide use PushEngage to send 9 billion notifications each month.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Sugar Calendar', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'A simple & powerful event calendar plugin for WordPress that comes with all the event management features including payments, scheduling, timezones, ticketing, recurring events, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'WP Simple Pay', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The #1 Stripe payments plugin for WordPress. Start accepting one-time and recurring payments on your WordPress site without setting up a shopping cart. No code required.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The best WordPress eCommerce plugin for selling digital downloads. Start selling eBooks, software, music, digital art, and more within minutes. Accept payments, manage subscriptions, advanced access control, and more.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'SearchWP', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The most advanced WordPress search plugin. Customize your WordPress search algorithm, reorder search results, track search metrics, and everything you need to leverage search to grow your business.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'AffiliateWP', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'The #1 affiliate management plugin for WordPress. Easily create an affiliate program for your eCommerce store or membership site within minutes and start growing your sales with the power of referral marketing.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Envira Gallery', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Envira Gallery is the best responsive WordPress gallery plugin. Envira gallery is a perfect solution for photographers, designers, bloggers, and small businesses.', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Plugin Installed, click Activate', 'coming-soon' ),
-
-	// Reference: src/admin/GrowthTools.vue
-	__( 'Deactivate', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import / Export Pages', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import / Export your Landing Page data and images', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import / Export Theme Builder', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Select Page', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Export Theme Files', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import Theme Files', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please upload zipped files here to import theme data.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Export Theme Builder', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import Landing Page', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please upload zipped files here to import a landing page.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Export Landing Page', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please enter theme zipped file url to import theme data. ', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Enter Import file Url', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import by Theme Url', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please select Landing Page.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Invalid import file type.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please select a zip file to upload.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import / Export your Theme Builder data and images', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import Started', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Invalid import file url.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Please enter import file url.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import not working. Check import url and try again.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Successfully imported.', 'coming-soon' ),
-
-	// Reference: src/admin/ExportImportTemplates-Pro.vue
-	__( 'Import not working. Please try again.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Coming Soon Mode', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Search Landing Pages', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'The Coming Soon Page will be available to search engines if your site is not private.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Set up a Coming Soon Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Inactive', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Maintenance Mode', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'The Maintenance Mode Page will notify search engines that the site is unavailable.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Set up a Maintenance Mode Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Replace your default theme 404 page with a custom high converting 404 page.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Set up a 404 Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Add New Landing Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'You do not have any landing pages yet.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Create New Landing Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'SeedProd Coming Soon Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'SeedProd Maintenance Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'SeedProd 404 Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Create Optin, Sales, Webinar, Thank You or any type of Landing Page you need.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Create a Custom Login Page for your website. Optionally replace the default login page.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Set up a Login Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'SeedProd Login Page', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'URL', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Pages Moved to Trash.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Pages Restored.', 'coming-soon' ),
-
-	// Reference: src/admin/Dashboard-Pro.vue
-	// Reference: src/admin/Dashboard-Lite.vue
-	__( 'Pages Deleted!', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Unlock Your Website’s Potential with WPCode', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Effortlessly Integrate Custom Code and Transform Your Site’s Functionality', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Header &amp; <br>Footer Scripts', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Conversion <br>Pixels', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Custom Code <br>Snippets', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Conditional <br>Logic', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Error <br>Handling', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Snippets <br>Library', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Finally, a WordPress Snippet Plugin that’s both Easy and Powerful', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'WPCode makes it easy and safe to add custom WordPress features through code snippets,<br>so you can reduce the number of plugins on your site.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Expert-Vetted Code Snippets Library', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Access a library of 100+ pre-tested snippets that you can use to enhance your site instantly without coding from scratch.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Page-Specific Scripts', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Adding scripts to specific pages has never been easier. Use WPCode to extend your site-wide scripts in specific pages without having to code.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Effortless Conversion Pixels Setup', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Integrating conversion pixels in your websites is straightforward and using the WPCode Conversion Pixels addon you also get automated eCommerce conversion tracking.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Advanced Error Handling', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Stop worrying about your PHP snippets throwing errors. WPCode automatically catches most errors for full control and you can also get notified via email when that happens.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Powerful Conditional Logic', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Improve performance and your site’s UX with a variety of conditional logic rules available in WPCode. Combine rules and even use other snippets as conditions.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'WPCode makes it easy and safe to add custom WordPress features through code snippets, so you can reduce the number of plugins on your site.', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Get WPCode Now', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'WPCode is Active - Go to Settings', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Activate WPCode', 'coming-soon' ),
-
-	// Reference: src/admin/CustomCode.vue
-	__( 'Activating WPCode', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Pages', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Growth Tools', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	// Reference: src/admin/Aboutus.vue
-	__( 'About Us', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Previous message ', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Next message', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Theme Builder', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Import / Export', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Setup', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Theme Template Kit Chooser', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Learn more about the all new SeedProd plugin and how to complete the migration process.', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Suggest a Feature', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Support & Docs', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'Upgrade to Pro', 'coming-soon' ),
-
-	// Reference: src/admin/App.vue
-	__( 'See quick links', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'Hello and welcome to SeedProd, the most beginner friendly drag & drop WordPress landing page plugin. At SeedProd, we build software that helps you create beautiful responsive landing pages for your website in minutes.', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'Over the years, we found that most WordPress landing page plugins were bloated, buggy, slow, and very hard to use. So we started with a simple goal: build a WordPress landing page plugin that’s both easy and powerful.', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'Our goal is to take the pain out of creating landing pages and make it easy.', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'SeedProd is brought to you by the same team that’s behind the largest WordPress resource site,', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'Yup, we know a thing or two about building awesome products that customers love.', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'the most popular lead-generation software', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'the best WordPress analytics plugin', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'the best WordPress forms plugin', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'the best WordPress giveaway plugin', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'and finally the best WordPress FOMO plugin', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'SeedProd Team photo', 'coming-soon' ),
-
-	// Reference: src/admin/AboutusAbout.vue
-	__( 'The SeedProd Team', 'coming-soon' ),
-
-	// Reference: src/admin/Aboutus.vue
-	__( 'Getting Started', 'coming-soon' ),
-
-	// Reference: src/admin/Aboutus.vue
-	__( 'Lite vs Pro', 'coming-soon' )
+	__( 'Accordion ', 'coming-soon' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */

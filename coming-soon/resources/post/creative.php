@@ -81,7 +81,7 @@ if ( true === $imageexist ) {
 			$termsdata .= sprintf( $format, $termpost->name, get_term_link( (int) $termpost->term_id ), strtolower( $term_name ) );
 		}
 
-		if ( $show_taxonomy === true ) {
+		if ( true === $show_taxonomy ) {
 
 			$render .= '<div class="sp-container-badge sp-posts-text sp-py-2">';
 			$render .= $termsdata;
@@ -109,12 +109,10 @@ if ( 'true' === $shortcode_args['show_excerpt'] ) {
 		$render .= '<div class="sp-container sp-posts-text sp-pb-2 sp-posts-block-excerpt">';
 		$render .= esc_html( wp_trim_words( $excerpt, (int) $shortcode_args['excerpt_length'], null ) );
 		$render .= '</div>';
-	} else {
-		if ( 0 < strlen( $content ) ) {
-			$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
-			$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
-			$render .= '</div>';
-		}
+	} elseif ( 0 < strlen( $content ) ) {
+		$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
+		$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
+		$render .= '</div>';
 	}
 }
 
@@ -175,4 +173,4 @@ $render .= '</div>';
 
 $render .= '</div></div>';
 
-echo $render;
+echo wp_kses_post( $render );

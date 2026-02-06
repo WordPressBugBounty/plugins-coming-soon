@@ -15,7 +15,7 @@ if ( 'true' === $shortcode_args['show_featured_image'] ) {
 	$render .= '<div class="sp-container sp-mb-5">';
 
 	if ( $featured_img_url ) {
-		$render .= '<div class="sp-container sp-thumbnail">';
+		$render        .= '<div class="sp-container sp-thumbnail">';
 		$render        .= '<a href="' . esc_attr( $link ) . '" class="sp-posts-image-link sp-inline-block">';
 		$render        .= get_the_post_thumbnail(
 			$id,
@@ -27,7 +27,7 @@ if ( 'true' === $shortcode_args['show_featured_image'] ) {
 			)
 		);
 		$render        .= '</a>';
-		$render .= '</div>';
+		$render        .= '</div>';
 		$showbadgeblock = true;
 	}
 
@@ -69,7 +69,7 @@ if ( true === $showbadgeblock ) {
 			$termsdata .= sprintf( $format, $termpost->name, get_term_link( (int) $termpost->term_id ), strtolower( $term_name ) );
 		}
 
-		if ( $show_taxonomy === true ) {
+		if ( true === $show_taxonomy ) {
 
 			$render .= '<div class="sp-container-badge sp-posts-text sp-py-2">';
 			$render .= $termsdata;
@@ -107,12 +107,10 @@ if ( 'true' === $shortcode_args['show_excerpt'] ) {
 		$render .= '<div class="sp-container sp-posts-text sp-pb-2 sp-posts-block-excerpt">';
 		$render .= esc_html( wp_trim_words( $excerpt, (int) $shortcode_args['excerpt_length'], null ) );
 		$render .= '</div>';
-	} else {
-		if ( 0 < strlen( $content ) ) {
-			$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
-			$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
-			$render .= '</div>';
-		}
+	} elseif ( 0 < strlen( $content ) ) {
+		$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
+		$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
+		$render .= '</div>';
 	}
 }
 
@@ -174,4 +172,4 @@ $render .= '</div>';
 
 $render .= '</div></div>';
 
-echo $render;
+echo wp_kses_post( $render );

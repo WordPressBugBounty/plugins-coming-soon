@@ -12,7 +12,6 @@ if ( defined( 'DOING_AJAX' ) ) {
  *
  *  @param string $data Page data.
  */
-
 function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 
 	$output = array(
@@ -115,4 +114,3 @@ function seedprod_lite_import_cross_site_paste() {
 		exit;
 	}
 }
-

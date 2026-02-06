@@ -1,6 +1,6 @@
 <?php
 		// Load WooCommerce default styles if WooCommerce is active.
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) && function_exists( 'WC' ) ) {
 	wp_enqueue_style(
 		'seedprod-woocommerce-layout',
 		str_replace( array( 'http:', 'https:' ), '', WC()->plugin_url() ) . '/assets/css/woocommerce-layout.css',
@@ -24,7 +24,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	);
 }
 // Load EDD default styles if EDD is active.
-if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 	$css_suffix = is_rtl() ? '-rtl.min.css' : '.min.css';
 	$url        = trailingslashit( EDD_PLUGIN_URL ) . 'assets/css/edd' . $css_suffix;
 
@@ -128,10 +128,10 @@ $scheme             = 'http';
 $server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
 $server_http_host   = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
 $server_port        = isset( $_SERVER['SERVER_PORT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_PORT'] ) ) : '';
-if ( '443' == $server_port ) {
+if ( '443' === $server_port ) {
 	$scheme = 'https';
 }
-if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+if ( ! empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) ) ) {
 	$scheme = 'https';
 }
 $ogurl = "$scheme://$server_http_host$server_request_uri";
@@ -151,7 +151,7 @@ seedprod_lite_wprocket_disable_minify();
 add_filter( 'acf/shortcode/allow_in_block_themes_outside_content', '__return_true' );
 
 // Check if WooCommerce is active
-if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) && function_exists( 'WC' ) ) {
 
 	add_filter( 'woocommerce_enqueue_styles', 'seedprod_lite_wc_dequeue_styles' );
 	/**
@@ -252,6 +252,20 @@ if ( ! empty( $settings ) ) {
 <!-- Default CSS -->
 <link rel='stylesheet' id='seedprod-css-css'  href='<?php echo esc_url( $plugin_url ); ?>public/css/tailwind.min.css?ver=<?php echo esc_attr( SEEDPROD_VERSION ); ?>' type='text/css' media='all' /> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
 <link rel='stylesheet' id='seedprod-fontawesome-css'  href='<?php echo esc_url( $plugin_url ); ?>public/fontawesome/css/all.min.css?ver=<?php echo esc_attr( SEEDPROD_VERSION ); ?>' type='text/css' media='all' /> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
+
+	<?php
+	// Check if this is a converted page - load WordPress block library CSS
+	$preview_post_id = ! empty( $page->ID ) ? $page->ID : ( ! empty( $post->ID ) ? $post->ID : 0 );
+	$is_converted    = get_post_meta( $preview_post_id, '_seedprod_converted_from_legacy', true );
+	if ( '1' === $is_converted || 1 === $is_converted ) {
+		$wp_includes_url = includes_url();
+		?>
+<!-- WordPress Block Library CSS (for converted pages) -->
+<link rel='stylesheet' id='wp-block-library-css' href='<?php echo esc_url( $wp_includes_url ); ?>css/dist/block-library/style.min.css?ver=<?php echo esc_attr( get_bloginfo( 'version' ) ); ?>' type='text/css' media='all' /> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
+<link rel='stylesheet' id='wp-block-library-theme-css' href='<?php echo esc_url( $wp_includes_url ); ?>css/dist/block-library/theme.min.css?ver=<?php echo esc_attr( get_bloginfo( 'version' ) ); ?>' type='text/css' media='all' /> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
+		<?php
+	}
+	?>
 
 	<?php if ( true === $include_seedprod_headline_sdk ) { ?>
 	<link rel='stylesheet' id='seedprod-animate-css'  href='<?php echo esc_url( $plugin_url ); ?>public/css/sp-animate.min.css?ver=<?php echo esc_attr( SEEDPROD_VERSION ); ?>' type='text/css' media='all' /> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
@@ -437,6 +451,26 @@ if ( ! empty( $settings ) ) {
 		if ( empty( $settings->enable_wp_head_footer ) ) {
 			echo '<script src="' . esc_url( $include_url ) . 'js/jquery/jquery.min.js"></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
 		}
+
+		// Check if this is a converted page with native blocks - load block styles even in no-conflict mode
+		// Get post ID from either $page or $post global depending on context
+		$post_id = 0;
+		if ( ! empty( $page ) && isset( $page->ID ) ) {
+			$post_id = $page->ID;
+		} elseif ( ! empty( $post ) && isset( $post->ID ) ) {
+			$post_id = $post->ID;
+		}
+
+		if ( $post_id ) {
+			$is_converted = get_post_meta( $post_id, '_seedprod_converted_from_legacy', true );
+			if ( '1' === $is_converted || 1 === $is_converted ) {
+				// Enqueue WordPress block styles for converted pages
+				wp_enqueue_style( 'wp-block-library' );
+				wp_enqueue_style( 'wp-block-library-theme' );
+				// Print the block styles
+				wp_print_styles( array( 'wp-block-library', 'wp-block-library-theme' ) );
+			}
+		}
 	}
 
 
@@ -447,7 +481,19 @@ if ( ! empty( $settings ) ) {
 	}
 	?>
 </head>
-<body class="spBg<?php echo esc_attr( $settings->document->settings->bgPosition ); ?> sp-h-full sp-antialiased sp-bg-slideshow">
+<body class="<?php
+	// Check if this is a converted page
+	$body_post_id   = ! empty( $page->ID ) ? $page->ID : ( ! empty( $post->ID ) ? $post->ID : 0 );
+	$body_converted = get_post_meta( $body_post_id, '_seedprod_converted_from_legacy', true );
+
+	if ( '1' !== $body_converted && 1 !== $body_converted ) {
+		// Legacy page - use SeedProd body classes
+		echo 'spBg' . esc_attr( $settings->document->settings->bgPosition ) . ' sp-h-full sp-antialiased sp-bg-slideshow';
+	} else {
+		echo 'sp-h-full sp-antialiased';
+	}
+	// Converted pages get no special body classes - just default WordPress body classes
+	?>">
 	<?php
 	if ( ! empty( $settings->body_scripts ) ) {
 		echo $settings->body_scripts; // phpcs:ignore
@@ -461,13 +507,30 @@ if ( ! empty( $settings ) ) {
 	<?php
 	$server_http_host   = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
 	$server_request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-	$actual_link        = rawurlencode( ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http' ) . "://$server_http_host$server_request_uri" );
+	$actual_link        = rawurlencode( ( isset( $_SERVER['HTTPS'] ) && 'on' === sanitize_text_field( wp_unslash( $_SERVER['HTTPS'] ) ) ? 'https' : 'http' ) . "://$server_http_host$server_request_uri" );
 	$content            = str_replace( 'the_link', $actual_link, $content );
-	$content            = do_shortcode( $content );
-	if ( empty( $content ) ) {
-		$empty_content =  __( 'The content for this page is empty or has not been saved. Please edit this page and "Save" the contents in the builder.', 'coming-soon' ); 
-		$content = '<h1 style="margin-top:80px; text-align:center; font-size: 22px">'.$empty_content.'</h1>';
+
+	// Check if this is a converted page - process blocks
+	$post_id      = ! empty( $page->ID ) ? $page->ID : ( ! empty( $post->ID ) ? $post->ID : 0 );
+	$is_converted = get_post_meta( $post_id, '_seedprod_converted_from_legacy', true );
+	if ( '1' === $is_converted || 1 === $is_converted ) {
+		$content = do_blocks( $content );
+
+		// Output WordPress-generated layout CSS (for layout.contentSize support)
+		// When do_blocks() processes blocks with layout attributes, WordPress stores
+		// the generated CSS in the Style Engine. Retrieve and output it inline.
+		$layout_styles = wp_style_engine_get_stylesheet_from_context( 'block-supports', array( 'prettify' => false ) );
+		if ( ! empty( $layout_styles ) ) {
+			echo '<style id="core-block-supports-inline-css">' . $layout_styles . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
 	}
+
+	$content = do_shortcode( $content );
+	if ( empty( $content ) ) {
+		$empty_content = __( 'The content for this page is empty or has not been saved. Please edit this page and "Save" the contents in the builder.', 'coming-soon' );
+		$content       = '<h1 style="margin-top:80px; text-align:center; font-size: 22px">' . esc_html( $empty_content ) . '</h1>';
+	}
+
 	echo apply_filters( 'seedprod_lpage_content', $content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 	// TODO: Add a way to run content in the loop
@@ -506,7 +569,8 @@ if ( ! empty( $settings ) ) {
 	if ( wp_is_mobile() ) {
 		echo 'var sp_is_mobile = true;';
 	} else {
-		echo 'var sp_is_mobile = false;';}
+		echo 'var sp_is_mobile = false;';
+	}
 	?>
 	<?php
 	?>

@@ -5,7 +5,17 @@ function seedprod_lite_check_for_free_version() {
 	try {
 		$seedprod_unsupported_feature = array();
 		$migration                    = get_option( 'seedprod_migration_run_once' );
-		if ( empty( $migration ) || ! empty( $_GET['sp-force-migrate'] ) ) {
+
+		// Security: Only allow admins to use sp-force-migrate parameter
+		$can_force_migrate = ! empty( $_GET['sp-force-migrate'] ) && current_user_can( 'manage_options' );
+
+		// Security: For automatic migrations (when option doesn't exist), only allow in admin dashboard
+		// This prevents frontend visitors from triggering expensive flush_rewrite_rules() operation
+		if ( empty( $migration ) && ! $can_force_migrate && ! is_admin() ) {
+			return;
+		}
+
+		if ( empty( $migration ) || $can_force_migrate ) {
 
 			// migrate old licnese key if available
 			$old_key = get_option( 'seed_cspv5_license_key' );
@@ -16,7 +26,9 @@ function seedprod_lite_check_for_free_version() {
 
 			// see if free version old settings exists and they do not have the pro version
 			// && empty(get_option('seed_cspv5_settings_content'))
-			if ( ! empty( $_GET['sp-force-migrate'] ) || empty( get_option( 'seed_cspv5_settings_content' ) ) && empty( get_option( 'seedprod_coming_soon_page_id' ) ) && empty( get_option( 'seedprod_maintenance_mode_page_id' ) ) && ! empty( get_option( 'seed_csp4_settings_content' ) ) && get_option( 'seedprod_csp4_migrated' ) === false && get_option( 'seedprod_csp4_imported' ) === false ) {
+			// Only run v4 migration if v4 settings actually exist
+			$has_v4_settings = ! empty( get_option( 'seed_csp4_settings_content' ) );
+			if ( ( $can_force_migrate && $has_v4_settings ) || ( empty( get_option( 'seed_cspv5_settings_content' ) ) && empty( get_option( 'seedprod_coming_soon_page_id' ) ) && empty( get_option( 'seedprod_maintenance_mode_page_id' ) ) && $has_v4_settings && get_option( 'seedprod_csp4_migrated' ) === false && get_option( 'seedprod_csp4_imported' ) === false ) ) {
 
 				// import csp4 settings to plugin
 
@@ -64,7 +76,7 @@ function seedprod_lite_check_for_free_version() {
 
 				//$csp4_template
 				// page to publish if active from v4
-				if ( ! empty( $csp4_settings['status'] ) && $csp4_settings['status'] == 1 || $csp4_settings['status'] == 2 ) {
+				if ( isset( $csp4_settings['status'] ) && ( $csp4_settings['status'] == 1 || $csp4_settings['status'] == 2 ) ) {
 					$csp4_template['post_status'] = 'published';
 				}
 
@@ -203,7 +215,7 @@ function seedprod_lite_check_for_free_version() {
 					// set headline color
 					if ( ! empty( $csp4_settings['headline_color'] ) ) {
 						$csp4_template['document']['settings']['headerColor'] = $csp4_settings['headline_color'];
-					} else {
+					} elseif ( ! empty( $csp4_settings['text_color'] ) ) {
 						$csp4_template['document']['settings']['headerColor'] = $csp4_settings['text_color'];
 					}
 

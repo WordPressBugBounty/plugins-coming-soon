@@ -92,12 +92,10 @@ if ( 'true' === $shortcode_args['show_excerpt'] ) {
 		$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
 		$render .= esc_html( wp_trim_words( $excerpt, (int) $shortcode_args['excerpt_length'], null ) );
 		$render .= '</div>';
-	} else {
-		if ( 0 < strlen( $content ) ) {
-			$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
-			$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
-			$render .= '</div>';
-		}
+	} elseif ( 0 < strlen( $content ) ) {
+		$render .= '<div class="sp-container sp-posts-text sp-py-2 sp-posts-block-excerpt">';
+		$render .= esc_html( wp_trim_words( $content, (int) $shortcode_args['excerpt_length'], null ) );
+		$render .= '</div>';
 	}
 }
 
@@ -110,4 +108,4 @@ if ( 'true' === $shortcode_args['show_read_more'] ) {
 
 		$render .= '</div>';
 
-echo $render;
+echo wp_kses_post( $render );

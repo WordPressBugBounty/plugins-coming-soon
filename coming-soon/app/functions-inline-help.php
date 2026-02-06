@@ -3,7 +3,6 @@
 /**
  * Get data.
  *
- *
  * @return array Localized data.
  */
 function seedprod_lite_fetch_inline_help_data() {
@@ -12,7 +11,7 @@ function seedprod_lite_fetch_inline_help_data() {
 	);
 }
 
-// Action 
+// Action.
 add_action( 'seedprod_lite_fetch_help_docs', 'seedprod_lite_update_help_articles' );
 
 /**
@@ -146,8 +145,8 @@ function seedprod_lite_update_help_articles() {
 /**
  * Create articles upload directory & create index file.
  *
- * @param string $path
- * @param string $cache_file
+ * @param string $path The directory path to create.
+ * @param string $cache_file The cache file path.
  * @return boolean|string
  */
 function seedprod_lite_set_up_upload_dir( $path, $cache_file ) {
@@ -166,7 +165,7 @@ function seedprod_lite_set_up_upload_dir( $path, $cache_file ) {
 		}
 
 		return true;
-	} catch( \Exception $ex ) {
+	} catch ( \Exception $ex ) {
 		return $ex->getMessage();
 	}
 }

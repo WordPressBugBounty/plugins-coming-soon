@@ -24,17 +24,21 @@ function seedprod_lite_lppage_render( $template ) {
  */
 function seedprod_lite_deregister_styles() {
 	global $wp_styles;
-	//var_dump($wp_styles->registered);
-	foreach ( $wp_styles->queue as $handle ) {
-		//echo '<br> '.$handle;
-        if (!empty($wp_styles->registered[ $handle ]->src)) {
-            if (strpos($wp_styles->registered[ $handle ]->src, 'wp-content/themes') !== false) {
-                //var_dump($wp_styles->registered[$handle]->src);
-                wp_dequeue_style($handle);
-                wp_deregister_style($handle);
-            }
-        }
-	}
-};
 
+	// Remove WordPress global styles that override custom typography.
+	wp_dequeue_style( 'global-styles' );
+	wp_dequeue_style( 'global-styles-inline-css' );
+	wp_dequeue_style( 'classic-theme-styles' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+
+	// Remove theme-specific styles.
+	foreach ( $wp_styles->queue as $handle ) {
+		if ( ! empty( $wp_styles->registered[ $handle ]->src ) ) {
+			if ( strpos( $wp_styles->registered[ $handle ]->src, 'wp-content/themes' ) !== false ) {
+				wp_dequeue_style( $handle );
+				wp_deregister_style( $handle );
+			}
+		}
+	}
+}
 

@@ -55,8 +55,8 @@ class seedprod_lessc {
 
 	protected $numberPrecision = null;
 
-	// set to the parser that generated the current line when compiling
-	// so we know how to create error messages
+	// set to the parser that generated the current line when compiling.
+	// so we know how to create error messages.
 	protected $sourceParser = null;
 	protected $sourceLoc    = null;
 
@@ -64,7 +64,7 @@ class seedprod_lessc {
 
 	protected static $nextImportId = 0; // uniquely identify imports
 
-	// attempts to find the path of an import url, returns null for css files
+	// attempts to find the path of an import url, returns null for css files.
 	protected function findImport( $url ) {
 		foreach ( (array) $this->importDir as $dir ) {
 			$full = $dir . ( substr( $dir, -1 ) != '/' ? '/' : '' ) . $url;
@@ -104,7 +104,7 @@ class seedprod_lessc {
 
 		$url = $this->compileValue( $this->lib_e( $str ) );
 
-		// don't import if it ends in css
+		// don't import if it ends in css.
 		if ( substr_compare( $url, '.css', -4, 4 ) === 0 ) {
 			return false;
 		}
@@ -122,16 +122,16 @@ class seedprod_lessc {
 		$parser = $this->makeParser( $realPath );
 		$root   = $parser->parse( file_get_contents( $realPath ) );
 
-		// set the parents of all the block props
+		// set the parents of all the block props.
 		foreach ( $root->props as $prop ) {
 			if ( $prop[0] == 'block' ) {
 				$prop[1]->parent = $parentBlock;
 			}
 		}
 
-		// copy mixins into scope, set their parents
-		// bring blocks from import into current block
-		// TODO: need to mark the source parser	these came from this file
+		// copy mixins into scope, set their parents.
+		// bring blocks from import into current block.
+		// TODO: need to mark the source parser these came from this file.
 		foreach ( $root->children as $childName => $child ) {
 			if ( isset( $parentBlock->children[ $childName ] ) ) {
 				$parentBlock->children[ $childName ] = array_merge(
@@ -157,7 +157,7 @@ class seedprod_lessc {
 
 		$oldImport = $this->importDir;
 
-		// TODO: this is because the importDir api is stupid
+		// TODO: this is because the importDir api is stupid.
 		$this->importDir = (array) $this->importDir;
 		array_unshift( $this->importDir, $importDir );
 
@@ -188,7 +188,6 @@ class seedprod_lessc {
 	 * and iterating through the props, compiling each one.
 	 *
 	 * See seedprod_lessc::compileProp()
-	 *
 	 */
 	protected function compileBlock( $block ) {
 		switch ( $block->type ) {
@@ -359,7 +358,7 @@ class seedprod_lessc {
 			return $childQueries;
 		}
 
-		// plain old block, skip
+		// plain old block, skip.
 		if ( empty( $env->block->type ) ) {
 			return $this->multiplyMedia( $env->parent, $childQueries );
 		}
@@ -405,13 +404,13 @@ class seedprod_lessc {
 	}
 
 
-	// multiply $selectors against the nearest selectors in env
+	// multiply $selectors against the nearest selectors in env.
 	protected function multiplySelectors( $selectors ) {
-		// find parent selectors
+		// find parent selectors.
 
 		$parentSelectors = $this->findClosestSelectors();
 		if ( is_null( $parentSelectors ) ) {
-			// kill parent reference in top level selector
+			// kill parent reference in top level selector.
 			foreach ( $selectors as &$s ) {
 				$this->expandParentSelectors( $s, '' );
 			}
@@ -424,7 +423,7 @@ class seedprod_lessc {
 			foreach ( $selectors as $child ) {
 				$count = $this->expandParentSelectors( $child, $parent );
 
-				// don't prepend the parent tag if & was used
+				// don't prepend the parent tag if & was used.
 				if ( $count > 0 ) {
 					$out[] = trim( $child );
 				} else {
@@ -436,7 +435,7 @@ class seedprod_lessc {
 		return $out;
 	}
 
-	// reduces selector expressions
+	// reduces selector expressions.
 	protected function compileSelectors( $selectors ) {
 		$out = array();
 
@@ -457,8 +456,8 @@ class seedprod_lessc {
 	}
 
 	protected function patternMatch( $block, $callingArgs ) {
-		// match the guards if it has them
-		// any one of the groups must have all its guards pass for a match
+		// match the guards if it has them.
+		// any one of the groups must have all its guards pass for a match.
 		if ( ! empty( $block->guards ) ) {
 			$groupPassed = false;
 			foreach ( $block->guards as $guardGroup ) {
@@ -504,7 +503,7 @@ class seedprod_lessc {
 		}
 
 		$i = -1; // no args
-		// try to match by arity or by argument literal
+		// try to match by arity or by argument literal.
 		foreach ( $block->args as $i => $arg ) {
 			switch ( $arg[0] ) {
 				case 'lit':
@@ -513,13 +512,13 @@ class seedprod_lessc {
 					}
 					break;
 				case 'arg':
-					// no arg and no default value
+					// no arg and no default value.
 					if ( ! isset( $callingArgs[ $i ] ) && ! isset( $arg[2] ) ) {
 						return false;
 					}
 					break;
 				case 'rest':
-					$i--; // rest can be empty
+					--$i; // rest can be empty
 					break 2;
 			}
 		}
@@ -528,7 +527,7 @@ class seedprod_lessc {
 			return true; // not having enough is handled above
 		} else {
 			$numMatched = $i + 1;
-			// greater than becuase default values always match
+			// greater than becuase default values always match.
 			return $numMatched >= $numCalling;
 		}
 	}
@@ -544,7 +543,7 @@ class seedprod_lessc {
 		return $matches;
 	}
 
-	// attempt to find blocks matched by path and args
+	// attempt to find blocks matched by path and args.
 	protected function findBlocks( $searchIn, $path, $args, $seen = array() ) {
 		if ( $searchIn == null ) {
 			return null;
@@ -561,8 +560,8 @@ class seedprod_lessc {
 			if ( count( $path ) == 1 ) {
 				$matches = $this->patternMatchAll( $blocks, $args );
 				if ( ! empty( $matches ) ) {
-					// This will return all blocks that match in the closest
-					// scope that has any matching block, like lessjs
+					// This will return all blocks that match in the closest.
+					// scope that has any matching block, like lessjs.
 					return $matches;
 				}
 			} else {
@@ -592,8 +591,8 @@ class seedprod_lessc {
 		return $this->findBlocks( $searchIn->parent, $path, $args, $seen );
 	}
 
-	// sets all argument names in $args to either the default value
-	// or the one passed in through $values
+	// sets all argument names in $args to either the default value.
+	// or the one passed in through $values.
 	protected function zipSetArgs( $args, $values ) {
 		$i              = 0;
 		$assignedValues = array();
@@ -611,10 +610,10 @@ class seedprod_lessc {
 				$this->set( $a[1], $value );
 				$assignedValues[] = $value;
 			}
-			$i++;
+			++$i;
 		}
 
-		// check for a rest
+		// check for a rest.
 		$last = end( $args );
 		if ( is_array( $last ) && $last[0] == 'rest' ) {
 			$rest = array_slice( $values, count( $args ) - 1 );
@@ -624,9 +623,9 @@ class seedprod_lessc {
 		$this->env->arguments = $assignedValues;
 	}
 
-	// compile a prop and update $lines or $blocks appropriately
+	// compile a prop and update $lines or $blocks appropriately.
 	protected function compileProp( $prop, $block, $out ) {
-		// set error position context
+		// set error position context.
 		$this->sourceLoc = isset( $prop[-1] ) ? $prop[-1] : -1;
 
 		switch ( $prop[0] ) {
@@ -728,8 +727,8 @@ class seedprod_lessc {
 
 			break;
 			case 'import_mixin':
-				list(,$importId) = $prop;
-				$import          = $this->env->imports[ $importId ];
+				list(, $importId) = $prop;
+				$import           = $this->env->imports[ $importId ];
 				if ( $import[0] === false ) {
 					$out->lines[] = $import[1];
 				} else {
@@ -758,8 +757,8 @@ class seedprod_lessc {
 	protected function compileValue( $value ) {
 		switch ( $value[0] ) {
 			case 'list':
-				// [1] - delimiter
-				// [2] - array of values
+				// [1] - delimiter.
+				// [2] - array of values.
 				return implode( $value[1], array_map( array( $this, 'compileValue' ), $value[2] ) );
 			case 'raw_color':
 				if ( ! empty( $this->formatter->compressColors ) ) {
@@ -767,12 +766,12 @@ class seedprod_lessc {
 				}
 				return $value[1];
 			case 'keyword':
-				// [1] - the keyword
+				// [1] - the keyword.
 				return $value[1];
 			case 'number':
 				list(, $num, $unit) = $value;
-				// [1] - the number
-				// [2] - the unit
+				// [1] - the number.
+				// [2] - the unit.
 				if ( $this->numberPrecision !== null ) {
 					$num = round( $num, $this->numberPrecision );
 				}
@@ -788,9 +787,9 @@ class seedprod_lessc {
 				return $delim . implode( $content ) . $delim;
 			case 'color':
 				// [1] - red component (either number or a %)
-				// [2] - green component
-				// [3] - blue component
-				// [4] - optional alpha component
+				// [2] - green component.
+				// [3] - blue component.
+				// [4] - optional alpha component.
 				list(, $r, $g, $b) = $value;
 				$r                 = round( $r );
 				$g                 = round( $g );
@@ -866,7 +865,7 @@ class seedprod_lessc {
 		return $this->lib_rgbahex( $color );
 	}
 
-	// utility func to unquote a string
+	// utility func to unquote a string.
 	protected function lib_e( $arg ) {
 		switch ( $arg[0] ) {
 			case 'list':
@@ -899,12 +898,12 @@ class seedprod_lessc {
 				$val = isset( $values[ $i ] ) ?
 					$this->reduce( $values[ $i ] ) : array( 'keyword', '' );
 
-				// lessjs compat, renders fully expanded color, not raw color
+				// lessjs compat, renders fully expanded color, not raw color.
 				if ( $color = $this->coerceColor( $val ) ) {
 					$val = $color;
 				}
 
-				$i++;
+				++$i;
 				$rep      = $this->compileValue( $this->lib_e( $val ) );
 				$template = preg_replace(
 					'/' . self::preg_quote( $match ) . '/',
@@ -1021,15 +1020,15 @@ class seedprod_lessc {
 		return round( $hsl[3] );
 	}
 
-	// get the alpha of a color
-	// defaults to 1 for non-colors or colors without an alpha
+	// get the alpha of a color.
+	// defaults to 1 for non-colors or colors without an alpha.
 	protected function lib_alpha( $value ) {
 		if ( ! is_null( $color = $this->coerceColor( $value ) ) ) {
 			return isset( $color[4] ) ? $color[4] : 1;
 		}
 	}
 
-	// set the alpha of the color
+	// set the alpha of the color.
 	protected function lib_fade( $args ) {
 		list($color, $alpha) = $this->colorArgs( $args );
 		$color[4]            = $this->clamp( $alpha / 100.0 );
@@ -1041,7 +1040,7 @@ class seedprod_lessc {
 		return array( 'number', $num * 100, '%' );
 	}
 
-	// mixes two colors by weight
+	// mixes two colors by weight.
 	// mix(@color1, @color2, @weight);
 	// http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html#mix-instance_method
 	protected function lib_mix( $args ) {
@@ -1222,7 +1221,7 @@ class seedprod_lessc {
 				}
 
 				$hsl[] = $this->clamp( $val, $clamp );
-				$i++;
+				++$i;
 			}
 
 			while ( count( $hsl ) < 4 ) {
@@ -1251,7 +1250,7 @@ class seedprod_lessc {
 					break;
 				}
 
-				$i++;
+				++$i;
 			}
 			while ( count( $components ) < 3 ) {
 				$components[] = 0;
@@ -1301,7 +1300,7 @@ class seedprod_lessc {
 				}
 				return $value;
 			case 'escape':
-				list(,$inner) = $value;
+				list(, $inner) = $value;
 				return $this->lib_e( $this->reduce( $inner ) );
 			case 'function':
 				$color = $this->funcToColor( $value );
@@ -1336,7 +1335,7 @@ class seedprod_lessc {
 						);
 					}
 
-					// convert to a typed value if the result is a php primitive
+					// convert to a typed value if the result is a php primitive.
 					if ( is_numeric( $ret ) ) {
 						$ret = array( 'number', $ret, '' );
 					} elseif ( ! is_array( $ret ) ) {
@@ -1346,7 +1345,7 @@ class seedprod_lessc {
 					return $ret;
 				}
 
-				// plain function, reduce args
+				// plain function, reduce args.
 				$value[2] = $this->reduce( $value[2] );
 				return $value;
 			case 'unary':
@@ -1381,7 +1380,7 @@ class seedprod_lessc {
 	}
 
 
-	// coerce a value for use in color operation
+	// coerce a value for use in color operation.
 	protected function coerceColor( $value ) {
 		switch ( $value[0] ) {
 			case 'color':
@@ -1410,7 +1409,7 @@ class seedprod_lessc {
 		}
 	}
 
-	// make something string like into a string
+	// make something string like into a string.
 	protected function coerceString( $value ) {
 		switch ( $value[0] ) {
 			case 'string':
@@ -1421,7 +1420,7 @@ class seedprod_lessc {
 		return null;
 	}
 
-	// turn list of length 1 into value type
+	// turn list of length 1 into value type.
 	protected function flattenList( $value ) {
 		if ( $value[0] == 'list' && count( $value[2] ) == 1 ) {
 			return $this->flattenList( $value[2][0] );
@@ -1437,7 +1436,7 @@ class seedprod_lessc {
 		}
 	}
 
-	// evaluate an expression
+	// evaluate an expression.
 	protected function evaluate( $exp ) {
 		list(, $op, $left, $right, $whiteBefore, $whiteAfter) = $exp;
 
@@ -1455,7 +1454,7 @@ class seedprod_lessc {
 		$ltype = $left[0];
 		$rtype = $right[0];
 
-		// operators that work on all types
+		// operators that work on all types.
 		if ( $op == 'and' ) {
 			return $this->toBool( $left == self::$TRUE && $right == self::$TRUE );
 		}
@@ -1468,7 +1467,7 @@ class seedprod_lessc {
 			return $str;
 		}
 
-		// type based operators
+		// type based operators.
 		$fname = "op_${ltype}_${rtype}";
 		if ( is_callable( array( $this, $fname ) ) ) {
 			$out = $this->$fname( $op, $left, $right );
@@ -1477,7 +1476,7 @@ class seedprod_lessc {
 			}
 		}
 
-		// make the expression look it did before being parsed
+		// make the expression look it did before being parsed.
 		$paddedOp = $op;
 		if ( $whiteBefore ) {
 			$paddedOp = ' ' . $paddedOp;
@@ -1505,7 +1504,7 @@ class seedprod_lessc {
 	}
 
 
-	// make sure a color's components don't go out of bounds
+	// make sure a color's components don't go out of bounds.
 	protected function fixColor( $c ) {
 		foreach ( range( 1, 3 ) as $i ) {
 			if ( $c[ $i ] < 0 ) {
@@ -1569,7 +1568,7 @@ class seedprod_lessc {
 		return $this->fixColor( $out );
 	}
 
-	// operator on two numbers
+	// operator on two numbers.
 	protected function op_number_number( $op, $left, $right ) {
 		$unit = empty( $left[2] ) ? $right[2] : $left[2];
 
@@ -1621,7 +1620,7 @@ class seedprod_lessc {
 		return $b;
 	}
 
-	// the state of execution
+	// the state of execution.
 	protected function pushEnv( $block = null ) {
 		$e         = new stdclass();
 		$e->parent = $this->env;
@@ -1632,20 +1631,20 @@ class seedprod_lessc {
 		return $e;
 	}
 
-	// pop something off the stack
+	// pop something off the stack.
 	protected function popEnv() {
 		$old       = $this->env;
 		$this->env = $this->env->parent;
 		return $old;
 	}
 
-	// set something in the current env
+	// set something in the current env.
 	protected function set( $name, $value ) {
 		$this->env->store[ $name ] = $value;
 	}
 
 
-	// get the highest occurrence entry for a name
+	// get the highest occurrence entry for a name.
 	protected function get( $name, $default = null ) {
 		$current = $this->env;
 
@@ -1666,7 +1665,7 @@ class seedprod_lessc {
 		return $default;
 	}
 
-	// inject array of unparsed strings into environment as variables
+	// inject array of unparsed strings into environment as variables.
 	protected function injectVariables( $args ) {
 		$this->pushEnv();
 		$parser = new seedprod_lessc_parser( $this, __METHOD__ );
@@ -1690,7 +1689,7 @@ class seedprod_lessc {
 	 */
 	public function __construct( $fname = null ) {
 		if ( $fname !== null ) {
-			// used for deprecated parse method
+			// used for deprecated parse method.
 			$this->_parseFile = $fname;
 		}
 	}
@@ -1747,7 +1746,7 @@ class seedprod_lessc {
 		return $out;
 	}
 
-	// compile only if changed input has changed or output doesn't exist
+	// compile only if changed input has changed or output doesn't exist.
 	public function checkedCompile( $in, $out ) {
 		if ( ! is_file( $out ) || filemtime( $in ) > filemtime( $out ) ) {
 			$this->compileFile( $in, $out );
@@ -1773,25 +1772,25 @@ class seedprod_lessc {
 	 * be serialized and unserialized without a hitch.
 	 *
 	 * @param mixed $in Input
-	 * @param bool $force Force rebuild?
+	 * @param bool  $force Force rebuild?
 	 * @return array lessphp cache structure
 	 */
 	public function cachedCompile( $in, $force = false ) {
-		// assume no root
+		// assume no root.
 		$root = null;
 
 		if ( is_string( $in ) ) {
 			$root = $in;
 		} elseif ( is_array( $in ) and isset( $in['root'] ) ) {
 			if ( $force or ! isset( $in['files'] ) ) {
-				// If we are forcing a recompile or if for some reason the
-				// structure does not contain any file information we should
+				// If we are forcing a recompile or if for some reason the.
+				// structure does not contain any file information we should.
 				// specify the root to trigger a rebuild.
 				$root = $in['root'];
 			} elseif ( isset( $in['files'] ) and is_array( $in['files'] ) ) {
 				foreach ( $in['files'] as $fname => $ftime ) {
 					if ( ! file_exists( $fname ) or filemtime( $fname ) > $ftime ) {
-						// One of the files we knew about previously has changed
+						// One of the files we knew about previously has changed.
 						// so we should look at our incoming root again.
 						$root = $in['root'];
 						break;
@@ -1799,7 +1798,7 @@ class seedprod_lessc {
 				}
 			}
 		} else {
-			// TODO: Throw an exception? We got neither a string nor something
+			// TODO: Throw an exception? We got neither a string nor something.
 			// that looks like a compatible lessphp cache structure.
 			return null;
 		}
@@ -1813,15 +1812,14 @@ class seedprod_lessc {
 			$out['updated']  = time();
 			return $out;
 		} else {
-			// No changes, pass back the structure
+			// No changes, pass back the structure.
 			// we were given initially.
 			return $in;
 		}
-
 	}
 
-	// parse and compile buffer
-	// This is deprecated
+	// parse and compile buffer.
+	// This is deprecated.
 	public function parse( $str = null, $initialVariables = null ) {
 		if ( is_array( $str ) ) {
 			$initialVariables = $str;
@@ -1917,8 +1915,8 @@ class seedprod_lessc {
 		throw new exception( $msg );
 	}
 
-	// compile file $in to file $out if $in is newer than $out
-	// returns true when it compiles, false otherwise
+	// compile file $in to file $out if $in is newer than $out.
+	// returns true when it compiles, false otherwise.
 	public static function ccompile( $in, $out, $less = null ) {
 		if ( $less === null ) {
 			$less = new self();
@@ -2084,8 +2082,8 @@ class seedprod_lessc {
 	);
 }
 
-// responsible for taking a string of LESS code and converting it into a
-// syntax tree
+// responsible for taking a string of LESS code and converting it into a.
+// syntax tree.
 class seedprod_lessc_parser {
 	protected static $nextBlockId = 0; // used to uniquely identify blocks
 
@@ -2110,10 +2108,10 @@ class seedprod_lessc_parser {
 	protected static $commentMultiLeft  = '/*';
 	protected static $commentMultiRight = '*/';
 
-	// regex string to match any of the operators
+	// regex string to match any of the operators.
 	protected static $operatorString;
 
-	// these properties will supress division unless it's inside parenthases
+	// these properties will supress division unless it's inside parenthases.
 	protected static $supressDivisionProps =
 		array( '/border-radius$/i', '/^font$/i' );
 
@@ -2131,12 +2129,12 @@ class seedprod_lessc_parser {
 	 */
 	protected $inParens = false;
 
-	// caches preg escaped literals
+	// caches preg escaped literals.
 	protected static $literalCache = array();
 
 	public function __construct( $seedprod_lessc, $sourceName = null ) {
 		$this->eatWhiteDefault = true;
-		// reference to less needed for vPrefix, mPrefix, and parentSelector
+		// reference to less needed for vPrefix, mPrefix, and parentSelector.
 		$this->seedprod_lessc = $seedprod_lessc;
 
 		$this->sourceName = $sourceName; // name used for error messages
@@ -2172,14 +2170,14 @@ class seedprod_lessc_parser {
 		$this->eatWhiteDefault = true;
 		$this->seenComments    = array();
 
-		// trim whitespace on head
+		// trim whitespace on head.
 		// if (preg_match('/^\s+/', $this->buffer, $m)) {
-		// 	$this->line += substr_count($m[0], "\n");
-		// 	$this->buffer = ltrim($this->buffer);
+		// $this->line += substr_count($m[0], "\n");
+		// $this->buffer = ltrim($this->buffer);
 		// }
 		$this->whitespace();
 
-		// parse the entire file
+		// parse the entire file.
 		$lastCount = $this->count;
 		while ( false !== $this->parseChunk() );
 
@@ -2187,7 +2185,7 @@ class seedprod_lessc_parser {
 			$this->throwError();
 		}
 
-		// TODO report where the block was opened
+		// TODO report where the block was opened.
 		if ( ! is_null( $this->env->parent ) ) {
 			throw new exception( 'parse error: unclosed block' );
 		}
@@ -2237,7 +2235,7 @@ class seedprod_lessc_parser {
 		}
 		$s = $this->seek();
 
-		// setting a property
+		// setting a property.
 		if ( $this->keyword( $key ) && $this->assign() &&
 			$this->propertyValue( $value, $key ) && $this->end() ) {
 			$this->append( array( 'assign', $key, $value ), $s );
@@ -2246,11 +2244,11 @@ class seedprod_lessc_parser {
 			$this->seek( $s );
 		}
 
-		// look for special css blocks
+		// look for special css blocks.
 		if ( $this->literal( '@', false ) ) {
-			$this->count--;
+			--$this->count;
 
-			// media
+			// media.
 			if ( $this->literal( '@media' ) ) {
 				if ( ( $this->mediaQueryList( $mediaQueries ) || true )
 					&& $this->literal( '{' ) ) {
@@ -2285,7 +2283,7 @@ class seedprod_lessc_parser {
 			$this->seek( $s );
 		}
 
-		// setting a variable
+		// setting a variable.
 		if ( $this->variable( $var ) && $this->assign() &&
 			$this->propertyValue( $value ) && $this->end() ) {
 			$this->append( array( 'assign', $var, $value ), $s );
@@ -2299,7 +2297,7 @@ class seedprod_lessc_parser {
 			return true;
 		}
 
-		// opening parametric mixin
+		// opening parametric mixin.
 		if ( $this->tag( $tag, true ) && $this->argumentDef( $args, $isVararg ) &&
 			( $this->guards( $guards ) || true ) &&
 			$this->literal( '{' ) ) {
@@ -2314,7 +2312,7 @@ class seedprod_lessc_parser {
 			$this->seek( $s );
 		}
 
-		// opening a simple block
+		// opening a simple block.
 		if ( $this->tags( $tags ) && $this->literal( '{' ) ) {
 			$tags = $this->fixTags( $tags );
 			$this->pushBlock( $tags );
@@ -2323,7 +2321,7 @@ class seedprod_lessc_parser {
 			$this->seek( $s );
 		}
 
-		// closing a block
+		// closing a block.
 		if ( $this->literal( '}', false ) ) {
 			try {
 				$block = $this->pop();
@@ -2355,13 +2353,13 @@ class seedprod_lessc_parser {
 				$this->append( array( 'block', $block ), $s );
 			}
 
-			// this is done here so comments aren't bundled into he block that
-			// was just closed
+			// this is done here so comments aren't bundled into he block that.
+			// was just closed.
 			$this->whitespace();
 			return true;
 		}
 
-		// mixin
+		// mixin.
 		if ( $this->mixinTags( $tags ) &&
 			( $this->argumentValues( $argv ) || true ) &&
 			( $this->keyword( $suffix ) || true ) && $this->end() ) {
@@ -2381,7 +2379,7 @@ class seedprod_lessc_parser {
 	}
 
 	protected function isDirective( $dirname, $directives ) {
-		// TODO: cache pattern in parser
+		// TODO: cache pattern in parser.
 		$pattern = implode(
 			'|',
 			array_map( array( 'seedprod_lessc', 'preg_quote' ), $directives )
@@ -2392,7 +2390,7 @@ class seedprod_lessc_parser {
 	}
 
 	protected function fixTags( $tags ) {
-		// move @ tags out of variable namespace
+		// move @ tags out of variable namespace.
 		foreach ( $tags as &$tag ) {
 			if ( $tag[0] == $this->seedprod_lessc->vPrefix ) {
 				$tag[0] = $this->seedprod_lessc->mPrefix;
@@ -2401,7 +2399,7 @@ class seedprod_lessc_parser {
 		return $tags;
 	}
 
-	// a list of expressions
+	// a list of expressions.
 	protected function expressionList( &$exps ) {
 		$values = array();
 
@@ -2419,13 +2417,14 @@ class seedprod_lessc_parser {
 
 	/**
 	 * Attempt to consume an expression.
+	 *
 	 * @link http://en.wikipedia.org/wiki/Operator-precedence_parser#Pseudo-code
 	 */
 	protected function expression( &$out ) {
 		if ( $this->value( $lhs ) ) {
 			$out = $this->expHelper( $lhs, 0 );
 
-			// look for / shorthand
+			// look for / shorthand.
 			if ( ! empty( $this->env->supressedDivision ) ) {
 				unset( $this->env->supressedDivision );
 				$s = $this->seek();
@@ -2456,8 +2455,8 @@ class seedprod_lessc_parser {
 			$whiteBefore = isset( $this->buffer[ $this->count - 1 ] ) &&
 				ctype_space( $this->buffer[ $this->count - 1 ] );
 
-			// If there is whitespace before the operator, then we require
-			// whitespace after the operator for it to be an expression
+			// If there is whitespace before the operator, then we require.
+			// whitespace after the operator for it to be an expression.
 			$needWhite = $whiteBefore && ! $this->inParens;
 
 			if ( $this->match( self::$operatorString . ( $needWhite ? '\s' : '' ), $m ) && self::$precedence[ $m[1] ] >= $minP ) {
@@ -2477,7 +2476,7 @@ class seedprod_lessc_parser {
 					break;
 				}
 
-				// peek for next operator to see what to do with rhs
+				// peek for next operator to see what to do with rhs.
 				if ( $this->peek( self::$operatorString, $next ) && self::$precedence[ $next[1] ] > self::$precedence[ $m[1] ] ) {
 					$rhs = $this->expHelper( $rhs, self::$precedence[ $next[1] ] );
 				}
@@ -2496,7 +2495,7 @@ class seedprod_lessc_parser {
 		return $lhs;
 	}
 
-	// consume a list of values for a property
+	// consume a list of values for a property.
 	public function propertyValue( &$value, $keyName = null ) {
 		$values = array();
 
@@ -2532,7 +2531,7 @@ class seedprod_lessc_parser {
 	protected function parenValue( &$out ) {
 		$s = $this->seek();
 
-		// speed shortcut
+		// speed shortcut.
 		if ( isset( $this->buffer[ $this->count ] ) && $this->buffer[ $this->count ] != '(' ) {
 			return false;
 		}
@@ -2552,13 +2551,13 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// a single value
+	// a single value.
 	protected function value( &$value ) {
 		$s = $this->seek();
 
-		// speed shortcut
+		// speed shortcut.
 		if ( isset( $this->buffer[ $this->count ] ) && $this->buffer[ $this->count ] == '-' ) {
-			// negation
+			// negation.
 			if ( $this->literal( '-', false ) &&
 				( ( $this->variable( $inner ) && $inner = array( 'variable', $inner ) ) ||
 				$this->unit( $inner ) ||
@@ -2591,7 +2590,7 @@ class seedprod_lessc_parser {
 			return true;
 		}
 
-		// try a variable
+		// try a variable.
 		if ( $this->variable( $var ) ) {
 			$value = array( 'variable', $var );
 			return true;
@@ -2605,7 +2604,7 @@ class seedprod_lessc_parser {
 			$this->seek( $s );
 		}
 
-		// css hack: \0
+		// css hack: \0.
 		if ( $this->literal( '\\' ) && $this->match( '([0-9]+)', $m ) ) {
 			$value = array( 'keyword', '\\' . $m[1] );
 			return true;
@@ -2616,7 +2615,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// an import statement
+	// an import statement.
 	protected function import( &$out ) {
 		$s = $this->seek();
 		if ( ! $this->literal( '@import' ) ) {
@@ -2662,7 +2661,7 @@ class seedprod_lessc_parser {
 		}
 
 		if ( ! empty( $mediaType ) && ! $this->literal( 'and' ) ) {
-			// ~
+			// ~.
 		} else {
 			$this->genericList( $expressions, 'mediaExpression', 'and', false );
 			if ( is_array( $expressions ) ) {
@@ -2697,7 +2696,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// an unbounded string stopped by $end
+	// an unbounded string stopped by $end.
 	protected function openString( $end, &$out, $nestingOpen = null, $rejectStrs = null ) {
 		$oldWhite              = $this->eatWhiteDefault;
 		$this->eatWhiteDefault = false;
@@ -2730,7 +2729,7 @@ class seedprod_lessc_parser {
 				if ( $nestingLevel == 0 ) {
 					break;
 				} else {
-					$nestingLevel--;
+					--$nestingLevel;
 				}
 			}
 
@@ -2759,7 +2758,7 @@ class seedprod_lessc_parser {
 			return false;
 		}
 
-		// trim the end
+		// trim the end.
 		if ( is_string( end( $content ) ) ) {
 			$content[ count( $content ) - 1 ] = rtrim( end( $content ) );
 		}
@@ -2780,7 +2779,7 @@ class seedprod_lessc_parser {
 
 		$content = array();
 
-		// look for either ending delim , escape, or string interpolation
+		// look for either ending delim , escape, or string interpolation.
 		$patt = '([^\n]*?)(@\{|\\\\|' .
 			seedprod_lessc::preg_quote( $delim ) . ')';
 
@@ -2841,7 +2840,7 @@ class seedprod_lessc_parser {
 	}
 
 	protected function unit( &$unit ) {
-		// speed shortcut
+		// speed shortcut.
 		if ( isset( $this->buffer[ $this->count ] ) ) {
 			$char = $this->buffer[ $this->count ];
 			if ( ! ctype_digit( $char ) && $char != '.' ) {
@@ -2856,7 +2855,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// a # color
+	// a # color.
 	protected function color( &$out ) {
 		if ( $this->match( '(#(?:[0-9a-f]{8}|[0-9a-f]{6}|[0-9a-f]{3}))', $m ) ) {
 			if ( strlen( $m[1] ) > 7 ) {
@@ -2902,7 +2901,7 @@ class seedprod_lessc_parser {
 	}
 
 	// consume an argument definition list surrounded by ()
-	// each argument is a variable name with optional value
+	// each argument is a variable name with optional value.
 	// or at the end a ... or a variable named followed by ...
 	protected function argumentDef( &$args, &$isVararg, $delim = ',' ) {
 		$s = $this->seek();
@@ -2957,8 +2956,8 @@ class seedprod_lessc_parser {
 		return true;
 	}
 
-	// consume a list of tags
-	// this accepts a hanging delimiter
+	// consume a list of tags.
+	// this accepts a hanging delimiter.
 	protected function tags( &$tags, $simple = false, $delim = ',' ) {
 		$tags = array();
 		while ( $this->tag( $tt, $simple ) ) {
@@ -2974,7 +2973,7 @@ class seedprod_lessc_parser {
 		return true;
 	}
 
-	// list of tags of specifying mixin path
+	// list of tags of specifying mixin path.
 	// optionally separated by > (lazy, accepts extra >)
 	protected function mixinTags( &$tags ) {
 		$s    = $this->seek();
@@ -2993,7 +2992,7 @@ class seedprod_lessc_parser {
 
 	// a bracketed value (contained within in a tag definition)
 	protected function tagBracket( &$value ) {
-		// speed shortcut
+		// speed shortcut.
 		if ( isset( $this->buffer[ $this->count ] ) && $this->buffer[ $this->count ] != '[' ) {
 			return false;
 		}
@@ -3026,7 +3025,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// a single tag
+	// a single tag.
 	protected function tag( &$tag, $simple = false ) {
 		if ( $simple ) {
 			$chars = '^,:;{}\][>\(\) "\'';
@@ -3069,7 +3068,7 @@ class seedprod_lessc_parser {
 		return true;
 	}
 
-	// a css function
+	// a css function.
 	protected function func( &$func ) {
 		$s = $this->seek();
 
@@ -3081,7 +3080,7 @@ class seedprod_lessc_parser {
 			$args = array();
 			while ( true ) {
 				$ss = $this->seek();
-				// this ugly nonsense is for ie filter properties
+				// this ugly nonsense is for ie filter properties.
 				if ( $this->keyword( $name ) && $this->literal( '=' ) && $this->expressionList( $value ) ) {
 					$args[] = array( 'string', '', array( $name, '=', $value ) );
 				} else {
@@ -3101,7 +3100,7 @@ class seedprod_lessc_parser {
 				$func = array( 'function', $fname, $args );
 				return true;
 			} elseif ( $fname == 'url' ) {
-				// couldn't parse and in url? treat as string
+				// couldn't parse and in url? treat as string.
 				$this->seek( $sPreArgs );
 				if ( $this->openString( ')', $string ) && $this->literal( ')' ) ) {
 					$func = array( 'function', $fname, $string );
@@ -3114,7 +3113,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// consume a less variable
+	// consume a less variable.
 	protected function variable( &$name ) {
 		$s = $this->seek();
 		if ( $this->literal( $this->seedprod_lessc->vPrefix, false ) &&
@@ -3143,7 +3142,7 @@ class seedprod_lessc_parser {
 		return $this->literal( ':' ) || $this->literal( '=' );
 	}
 
-	// consume a keyword
+	// consume a keyword.
 	protected function keyword( &$word ) {
 		if ( $this->match( '([\w_\-\*!"][\w\-_"]*)', $m ) ) {
 			$word = $m[1];
@@ -3152,7 +3151,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// consume an end of statement delimiter
+	// consume an end of statement delimiter.
 	protected function end() {
 		if ( $this->literal( ';' ) ) {
 			return true;
@@ -3189,8 +3188,8 @@ class seedprod_lessc_parser {
 		return true;
 	}
 
-	// a bunch of guards that are and'd together
-	// TODO rename to guardGroup
+	// a bunch of guards that are and'd together.
+	// TODO rename to guardGroup.
 	protected function guardGroup( &$guardGroup ) {
 		$s          = $this->seek();
 		$guardGroup = array();
@@ -3233,11 +3232,11 @@ class seedprod_lessc_parser {
 			$eatWhitespace = $this->eatWhiteDefault;
 		}
 
-		// shortcut on single letter
+		// shortcut on single letter.
 		if ( ! isset( $what[1] ) && isset( $this->buffer[ $this->count ] ) ) {
 			if ( $this->buffer[ $this->count ] == $what ) {
 				if ( ! $eatWhitespace ) {
-					$this->count++;
+					++$this->count;
 					return true;
 				}
 				// goes below...
@@ -3280,9 +3279,9 @@ class seedprod_lessc_parser {
 	}
 
 
-	// advance counter to next occurrence of $what
-	// $until - don't include $what in advance
-	// $allowNewline, if string, will be used as valid char set
+	// advance counter to next occurrence of $what.
+	// $until - don't include $what in advance.
+	// $allowNewline, if string, will be used as valid char set.
 	protected function to( $what, &$out, $until = false, $allowNewline = false ) {
 		if ( is_string( $allowNewline ) ) {
 			$validChars = $allowNewline;
@@ -3299,7 +3298,7 @@ class seedprod_lessc_parser {
 		return true;
 	}
 
-	// try to match something on head of buffer
+	// try to match something on head of buffer.
 	protected function match( $regex, &$out, $eatWhitespace = null ) {
 		if ( $eatWhitespace === null ) {
 			$eatWhitespace = $this->eatWhiteDefault;
@@ -3316,7 +3315,7 @@ class seedprod_lessc_parser {
 		return false;
 	}
 
-	// match some whitespace
+	// match some whitespace.
 	protected function whitespace() {
 		if ( $this->writeComments ) {
 			$gotWhite = false;
@@ -3335,7 +3334,7 @@ class seedprod_lessc_parser {
 		}
 	}
 
-	// match something without consuming it
+	// match something without consuming it.
 	protected function peek( $regex, &$out = null, $from = null ) {
 		if ( is_null( $from ) ) {
 			$from = $this->count;
@@ -3346,7 +3345,7 @@ class seedprod_lessc_parser {
 		return $result;
 	}
 
-	// seek to a spot in the buffer or return where we are on no argument
+	// seek to a spot in the buffer or return where we are on no argument.
 	protected function seek( $where = null ) {
 		if ( $where === null ) {
 			return $this->count;
@@ -3370,7 +3369,7 @@ class seedprod_lessc_parser {
 			$loc = "line: $line";
 		}
 
-		// TODO this depends on $this->count
+		// TODO this depends on $this->count.
 		if ( $this->peek( "(.*?)(\n|$)", $m, $count ) ) {
 			throw new exception( "$msg: failed at `$m[1]` $loc" );
 		} else {
@@ -3395,12 +3394,12 @@ class seedprod_lessc_parser {
 		return $b;
 	}
 
-	// push a block that doesn't multiply tags
+	// push a block that doesn't multiply tags.
 	protected function pushSpecialBlock( $type ) {
 		return $this->pushBlock( null, $type );
 	}
 
-	// append a property to the current block
+	// append a property to the current block.
 	protected function append( $prop, $pos = null ) {
 		if ( $pos !== null ) {
 			$prop[-1] = $pos;
@@ -3408,15 +3407,15 @@ class seedprod_lessc_parser {
 		$this->env->props[] = $prop;
 	}
 
-	// pop something off the stack
+	// pop something off the stack.
 	protected function pop() {
 		$old       = $this->env;
 		$this->env = $this->env->parent;
 		return $old;
 	}
 
-	// remove comments from $text
-	// todo: make it work for all functions, not just url
+	// remove comments from $text.
+	// todo: make it work for all functions, not just url.
 	protected function removeComments( $text ) {
 		$look = array(
 			'url(',
@@ -3429,7 +3428,7 @@ class seedprod_lessc_parser {
 		$out = '';
 		$min = null;
 		while ( true ) {
-			// find the next item
+			// find the next item.
 			foreach ( $look as $token ) {
 				$pos = strpos( $text, $token );
 				if ( $pos !== false ) {
@@ -3486,7 +3485,6 @@ class seedprod_lessc_parser {
 
 		return $out . $text;
 	}
-
 }
 
 class seedprod_lessc_formatter_classic {
@@ -3542,7 +3540,7 @@ class seedprod_lessc_formatter_classic {
 			is_null( $block->type ) && count( $block->lines ) == 1;
 
 		if ( ! empty( $block->selectors ) ) {
-			$this->indentLevel++;
+			++$this->indentLevel;
 
 			if ( $this->breakSelectors ) {
 				$selectorSeparator = $this->selectorSeparator . $this->break . $pre;
@@ -3584,7 +3582,7 @@ class seedprod_lessc_formatter_classic {
 				echo $pre . $this->close . $this->break;
 			}
 
-			$this->indentLevel--;
+			--$this->indentLevel;
 		}
 	}
 }
@@ -3608,5 +3606,3 @@ class seedprod_lessc_formatter_lessjs extends seedprod_lessc_formatter_classic {
 	public $assignSeparator   = ': ';
 	public $selectorSeparator = ',';
 }
-
-

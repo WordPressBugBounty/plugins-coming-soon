@@ -26,11 +26,13 @@ function seedprod_lite_get_ip() {
 
 /**
  * Update cookie length for bypass url
+ *
+ * @param int $expirein Cookie expiration time in seconds.
  */
 function seedprod_lite_change_wp_cookie_logout( $expirein ) {
 	global $seed_cspv5_bypass_expires;
 	if ( ! empty( $seed_cspv5_bypass_expires ) ) {
-		return $seed_cspv5_bypass_expires; // Modify the expire cookie
+		return $seed_cspv5_bypass_expires; // Modify the expire cookie.
 	} else {
 		return $expirein;
 	}
@@ -190,6 +192,14 @@ function seedprod_lite_block_options() {
 			'id'     => 17,
 			'icon'   => '
         <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"  viewBox="0 0 24 24" class="sp-w-6 sp-fill-current "><g><rect fill="none" /></g><g><g><g><path d="M20,9H4v2h16V9z M4,15h16v-2H4V15z"/></g></g></g></svg>',
+		),
+		array(
+			'name'   => __( 'Table of Contents', 'coming-soon' ),
+			'is_pro' => true,
+			'cat'    => 'adv',
+			'type'   => 'tableofcontents',
+			'id'     => 68,
+			'icon'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sp-w-6 sp-fill-current"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 9h14V7H3v2zm0 4h14v-2H3v2zm0 4h14v-2H3v2zm16 0h2v-2h-2v2zm0-10v2h2V7h-2zm0 6h2v-2h-2v2z"/></svg>',
 		),
 		array(
 			'name'   => __( 'Spacer', 'coming-soon' ),
@@ -801,7 +811,7 @@ function seedprod_lite_block_options() {
 </svg> ',
 		),
 
-		// $wordpress_widgets
+		// $wordpress_widgets.
 
 		array(
 			'name'   => __( 'Post Title', 'coming-soon' ),
@@ -1333,7 +1343,7 @@ function seedprod_lite_block_options() {
 
 	$random_id = 300;
 	foreach ( $all_widgets as $k => $value ) {
-		if ( 'WP_Widget_Custom_HTML' != $k ) {
+		if ( 'WP_Widget_Custom_HTML' !== $k ) {
 			$random_id       = $random_id + 10;
 			$block_options[] = array(
 				'name'    => $value->name,
@@ -1348,7 +1358,7 @@ function seedprod_lite_block_options() {
 	}
 
 	// print_r($wordpress_widgets);
-	// filter out some options
+	// filter out some options.
 	$theme_enabled = get_option( 'seedprod_theme_enabled' );
 	$theme_builder = seedprod_lite_cu( 'themebuilder' );
 
@@ -1614,17 +1624,17 @@ function seedprod_lite_get_api_key() {
  * Get timezones
  */
 function seedprod_lite_get_timezones() {
-	// timezones
+	// timezones.
 	$zonen      = array();
 	$continents = array( 'Africa', 'America', 'Antarctica', 'Arctic', 'Asia', 'Atlantic', 'Australia', 'Europe', 'Indian', 'Pacific' );
 
 	foreach ( timezone_identifiers_list() as $zone ) {
 		$zone = explode( '/', $zone );
-		if ( ! in_array( $zone[0], $continents ) ) {
+		if ( ! in_array( $zone[0], $continents, true ) ) {
 			continue;
 		}
 
-		// This determines what gets set and translated - we don't translate Etc/* strings here, they are done later
+		// This determines what gets set and translated - we don't translate Etc/* strings here, they are done later.
 		$exists    = array(
 			0 => ( isset( $zone[0] ) && $zone[0] ),
 			1 => ( isset( $zone[1] ) && $zone[1] ),
@@ -1648,41 +1658,41 @@ function seedprod_lite_get_timezones() {
 	$structure = array();
 
 	foreach ( $zonen as $key => $zone ) {
-		// Build value in an array to join later
+		// Build value in an array to join later.
 		$value = array( $zone['continent'] );
 
 		if ( empty( $zone['city'] ) ) {
-			// It's at the continent level (generally won't happen)
+			// It's at the continent level (generally won't happen).
 			$display = $zone['t_continent'];
 		} else {
-			// It's inside a continent group
+			// It's inside a continent group.
 
-			// Continent optgroup
+			// Continent optgroup.
 			if ( ! isset( $zonen[ $key - 1 ] ) || $zonen[ $key - 1 ]['continent'] !== $zone['continent'] ) {
 				$label = $zone['t_continent'];
 				// $structure[] = $label ;
 			}
 
-			// Add the city to the value
+			// Add the city to the value.
 			$value[] = $zone['city'];
 
-			// get offset
+			// get offset.
 			// $timezone = $label.'/'.str_replace(' ', '_', $zone['t_city']);
 			// $time = new \DateTime('now', new DateTimeZone($timezone));
 			// $timezone_offset = $time->format('P');
 
 			$display = $zone['t_city'];
 			if ( ! empty( $zone['subcity'] ) ) {
-				// Add the subcity to the value
+				// Add the subcity to the value.
 				$value[]  = $zone['subcity'];
 				$display .= ' - ' . $zone['t_subcity'];
 			}
 		}
 
-		// Build the value
+		// Build the value.
 		$value = join( '/', $value );
 
-		// get offset
+		// get offset.
 		$time                  = new \DateTime( 'now', new DateTimeZone( $value ) );
 		$timezone_offset       = $time->format( 'P' );
 		$structure[ $label ][] = array(
@@ -1701,6 +1711,10 @@ function seedprod_lite_get_timezones() {
 
 /**
  * Add to array if value does not exist
+ *
+ * @param array  $arr   The array to modify.
+ * @param string $key   The key to add.
+ * @param mixed  $value The value to add.
  */
 function seedprod_lite_array_add( $arr, $key, $value ) {
 	if ( ! array_key_exists( $key, $arr ) ) {
@@ -1711,11 +1725,13 @@ function seedprod_lite_array_add( $arr, $key, $value ) {
 
 /**
  * Check per
+ *
+ * @param string $rper Permission to check.
  */
 function seedprod_lite_cu( $rper = null ) {
 	if ( ! empty( $rper ) ) {
 		$uper = explode( ',', get_option( 'seedprod_per' ) );
-		if ( in_array( $rper, $uper ) ) {
+		if ( in_array( $rper, $uper, true ) ) {
 			return true;
 		} else {
 			return false;
@@ -1797,9 +1813,9 @@ function seedprod_lite_plugin_nonce() {
  */
 function seedprod_lite_is_dev_url( $url = '' ) {
 	$is_local_url = false;
-	// Trim it up
+	// Trim it up.
 	$url = strtolower( trim( $url ) );
-	// Need to get the host...so let's add the scheme so we can use parse_url
+	// Need to get the host...so let's add the scheme so we can use parse_url.
 	if ( false === strpos( $url, 'http://' ) && false === strpos( $url, 'https://' ) ) {
 		$url = 'http://' . $url;
 	}
@@ -1852,10 +1868,10 @@ function seedprod_lite_find_fonts_in_doc( $some_array ) {
 	foreach ( $iterator as $k => $v ) {
 		$indent = str_repeat( '&nbsp;', 10 * $iterator->getDepth() );
 
-		// Not at end: show key only
+		// Not at end: show key only.
 		// if ( $iterator->callHasChildren() ) {
 		// echo "$indent$k :<br>";
-		// At end: show key, value and path
+		// At end: show key, value and path.
 		// }
 
 		if ( ! $iterator->callHasChildren() ) {
@@ -1864,7 +1880,7 @@ function seedprod_lite_find_fonts_in_doc( $some_array ) {
 			}
 			$path = implode( ',', $p );
 			// echo "$indent$k : $v : path -> $path<br>";
-			// get font
+			// get font.
 			if ( stripos( $k, 'font' ) !== false && stripos( $k, 'variant' ) === false && ! empty( $v ) && strpos( $v, ',' ) === false && stripos( $k, 'fontSize' ) === false ) {
 				$load_fonts[] = array(
 					'k' => $k,
@@ -1872,7 +1888,7 @@ function seedprod_lite_find_fonts_in_doc( $some_array ) {
 					'p' => $path,
 				);
 			}
-			// get variant
+			// get variant.
 			if ( stripos( $k, 'font' ) !== false && stripos( $k, 'variant' ) !== false && ! empty( $v ) && strpos( $v, ',' ) === false ) {
 				$load_variants[] = array(
 					'k' => $k,
@@ -1920,7 +1936,7 @@ function seedprod_lite_construct_font_str( $doc_settings ) {
 		$c                = 1;
 		foreach ( $myfonts as $k4 => $v4 ) {
 			$end = '|';
-			if ( count( $myfonts ) == $c ) {
+			if ( count( $myfonts ) === $c ) {
 				$end = '';
 			}
 			$google_fonts_str .= urlencode( $k4 ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
@@ -1952,7 +1968,7 @@ function seedprod_lite_wp_post_revision_fields( $fields, $post ) {
 	} elseif ( ( ! empty( $post['post_content_filtered'] ) && strpos( $post['post_content'], 'sp-theme-template' ) !== false ) || strpos( $post['post_title'], 'Global CSS' ) !== false ) {
 		$fields['post_content_filtered'] = 'Content Filtered';
 		return $fields;
-	} elseif ( ! empty( $post['post_content_filtered'] ) && 'seedprod' == $post['post_type'] ) {
+	} elseif ( ! empty( $post['post_content_filtered'] ) && 'seedprod' === $post['post_type'] ) {
 		$fields['post_content_filtered'] = 'Content Filtered';
 		return $fields;
 	} elseif ( ! empty( $post['post_content_filtered'] ) && strpos( $post['post_content_filtered'], 'template_id' ) !== false ) {
@@ -1995,7 +2011,7 @@ function seedprod_lite_dismiss_settings_lite_cta() {
 			);
 		}
 
-		// Send Response
+		// Send Response.
 		wp_send_json( $response );
 		exit;
 	}
@@ -2015,7 +2031,7 @@ function seedprod_lite_dismiss_upsell() {
 			);
 		}
 
-		// Send Response
+		// Send Response.
 		wp_send_json( $response );
 		exit;
 	}
@@ -2122,8 +2138,8 @@ function seedprod_lite_get_system_info() {
 		$front_page_id = get_option( 'page_on_front' );
 		$blog_page_id  = get_option( 'page_for_posts' );
 
-		$return .= 'Page On Front:            ' . ( 0 != $front_page_id ? get_the_title( $front_page_id ) . ' (#' . $front_page_id . ')' : 'Unset' ) . "\n";
-		$return .= 'Page For Posts:           ' . ( 0 != $blog_page_id ? get_the_title( $blog_page_id ) . ' (#' . $blog_page_id . ')' : 'Unset' ) . "\n";
+		$return .= 'Page On Front:            ' . ( 0 !== $front_page_id ? get_the_title( $front_page_id ) . ' (#' . $front_page_id . ')' : 'Unset' ) . "\n";
+		$return .= 'Page For Posts:           ' . ( 0 !== $blog_page_id ? get_the_title( $blog_page_id ) . ' (#' . $blog_page_id . ')' : 'Unset' ) . "\n";
 	}
 	$return .= 'ABSPATH:                  ' . ABSPATH . "\n";
 	$return .= 'Table Prefix:             Length: ' . strlen( $wpdb->prefix ) . '   Status: ' . ( strlen( $wpdb->prefix ) > 16 ? 'ERROR: Too long' : 'Acceptable' ) . "\n";

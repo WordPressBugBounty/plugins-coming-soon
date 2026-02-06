@@ -3,8 +3,9 @@
 
 /**
  * Welcome Page On Activation
+ * DEPRECATED: Now using V2 admin redirect - seedprod_lite_v2_welcome_screen_do_activation_redirect
  */
-add_action( 'admin_init', 'seedprod_lite_welcome_screen_do_activation_redirect' );
+// add_action( 'admin_init', 'seedprod_lite_welcome_screen_do_activation_redirect' );
 
 /**
  * Welcome screen for activation redirect.
@@ -12,40 +13,39 @@ add_action( 'admin_init', 'seedprod_lite_welcome_screen_do_activation_redirect' 
  * @return void
  */
 function seedprod_lite_welcome_screen_do_activation_redirect() {
-	// Check PHP Version
+	// Check PHP version.
 	if ( version_compare( phpversion(), '5.3.3', '<=' ) ) {
 		wp_die( esc_html__( "The minimum required version of PHP to run this plugin is PHP Version 5.3.3. Please contact your hosting company and ask them to upgrade this site's php verison.", 'coming-soon' ), esc_html__( 'Upgrade PHP', 'coming-soon' ), 200 );
 	}
 
-	// Bail if no activation redirect
+	// Bail if no activation redirect.
 	if ( ! get_transient( '_seedprod_welcome_screen_activation_redirect' ) ) {
 		return;
 	}
 
-	// Delete the redirect transient
+	// Delete the redirect transient.
 	delete_transient( '_seedprod_welcome_screen_activation_redirect' );
 
-	// Bail if activating from network, or bulk
+	// Bail if activating from network, or bulk.
 	$activate_multi = isset( $_GET['activate-multi'] ) ? sanitize_text_field( wp_unslash( $_GET['activate-multi'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( is_network_admin() || null !== $activate_multi ) {
 		return;
 	}
 
-	// Redirect to our page
+	// Redirect to our page.
 	$seedprod_dismiss_setup_wizard = get_option( 'seedprod_dismiss_setup_wizard' );
-	$seedprod_over_time = get_option( 'seedprod_over_time' );
-	if(!empty($seedprod_over_time)){
-	  if(!empty( $seedprod_over_time['installed_version']) && version_compare( $seedprod_over_time['installed_version'],  "6.12.2") === 1){
-		// run new onboarding flow
-		if(empty($seedprod_dismiss_setup_wizard)){
-			update_option( 'seedprod_dismiss_setup_wizard', true );
-			wp_safe_redirect( add_query_arg( array( 'page' => 'seedprod_lite' ), admin_url( 'admin.php' ) ) . '#/welcome' );
-			exit();
+	$seedprod_over_time            = get_option( 'seedprod_over_time' );
+	if ( ! empty( $seedprod_over_time ) ) {
+		if ( ! empty( $seedprod_over_time['installed_version'] ) && version_compare( $seedprod_over_time['installed_version'], '6.12.2' ) === 1 ) {
+				// Run new onboarding flow.
+			if ( empty( $seedprod_dismiss_setup_wizard ) ) {
+				update_option( 'seedprod_dismiss_setup_wizard', true );
+				// Use native WordPress welcome page instead of Vue.
+				wp_safe_redirect( add_query_arg( array( 'page' => 'seedprod_lite_welcome' ), admin_url( 'admin.php' ) ) );
+				exit();
+			}
 		}
-	  }
-
 	}
-
 }
 
 
@@ -68,14 +68,14 @@ function seedprod_lite_save_api_key( $api_key = null ) {
 			$slug = SEEDPROD_SLUG;
 		}
 
-		// get token and generate one if one does not exist
+			// Get token and generate one if one does not exist.
 		$token = get_option( 'seedprod_token' );
 		if ( empty( $token ) ) {
 			$token = strtolower( wp_generate_password( 32, false, false ) );
 			update_option( 'seedprod_token', $token );
 		}
 
-		// Validate the api key
+			// Validate the API key.
 		$data = array(
 			'action'            => 'info',
 			'license_key'       => $api_key,
@@ -141,7 +141,7 @@ function seedprod_lite_save_api_key( $api_key = null ) {
 		}
 
 		if ( ! empty( $body->valid ) && true === $body->valid ) {
-			// Store API key
+				// Store API key.
 			update_option( 'seedprod_user_id', $body->user_id );
 			update_option( 'seedprod_api_token', $body->api_token );
 			update_option( 'seedprod_api_key', $data['license_key'] );
@@ -158,7 +158,7 @@ function seedprod_lite_save_api_key( $api_key = null ) {
 			);
 		} elseif ( isset( $body->valid ) && false === $body->valid ) {
 			$api_msg = __( 'Invalid License Key.', 'coming-soon' );
-			if ( 'Unauthenticated.' != $body->message ) {
+			if ( 'Unauthenticated.' !== $body->message ) {
 				$api_msg = $body->message;
 			}
 			update_option( 'seedprod_license_name', '' );
@@ -175,7 +175,7 @@ function seedprod_lite_save_api_key( $api_key = null ) {
 			);
 		}
 
-		// Send Response
+			// Send response.
 		if ( ! empty( $_POST['api_key'] ) ) {
 			wp_send_json( $response );
 			exit;

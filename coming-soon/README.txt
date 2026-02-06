@@ -3,9 +3,9 @@ Contributors: seedprod, smub
 Donate link: http://www.seedprod.com
 Tags: maintenance mode, coming soon page, landing page, website builder, page builder
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6
-Stable tag: 6.18.17
+Stable tag: 6.19.6
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

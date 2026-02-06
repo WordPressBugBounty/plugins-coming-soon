@@ -127,7 +127,7 @@ function seedprod_lite_get_page_title( $include_context = true, $show_home_title
  * @param array $settings Contains settings.
  * @return string
  */
-function seedprod_lite_get_current_datetime( $settings = array(), $fallback = '') {
+function seedprod_lite_get_current_datetime( $settings = array(), $fallback = '' ) {
 	if ( 'custom' === $settings['date_format'] ) {
 		$format = $settings['custom_format'];
 	} else {
@@ -261,13 +261,13 @@ function seedprod_lite_get_shortcode( $shortcode = '', $fallback = '' ) {
  * @param string $meta_key Meta Key.
  * @return string|void
  */
-function seedprod_lite_get_user_info( $type = '', $meta_key = '', $fallback = '') {
+function seedprod_lite_get_user_info( $type = '', $meta_key = '', $fallback = '' ) {
 	$user = wp_get_current_user();
 	if ( empty( $type ) || 0 === $user->ID ) {
 		return wp_kses_post( $fallback );
 	}
 
-	$type = strtolower( $type );
+	$type     = strtolower( $type );
 	$meta_key = strtolower( $meta_key );
 
 	if ( 'meta' === $type && empty( $meta_key ) ) {
@@ -275,7 +275,7 @@ function seedprod_lite_get_user_info( $type = '', $meta_key = '', $fallback = ''
 	}
 
 	if ( 'meta' === $type ) {
-		// Set meta key as the type and handle below
+		// Set meta key as the type and handle below.
 		$type = $meta_key;
 	}
 
@@ -443,7 +443,7 @@ function seedprod_lite_get_author_name( $fallback = '' ) {
  * @param array $settings Settings array.
  * @return string
  */
-function seedprod_lite_get_comments_number( $settings = array(), $fallback = '') {
+function seedprod_lite_get_comments_number( $settings = array(), $fallback = '' ) {
 	$comments_number = get_comments_number();
 
 	if ( ! $comments_number ) {
@@ -477,7 +477,7 @@ function seedprod_lite_get_comments_number( $settings = array(), $fallback = '')
  * @return array
  */
 function seedprod_lite_get_acf_option_fields() {
-	// ACF >= 5.0.0
+	// ACF >= 5.0.0.
 	if ( function_exists( 'acf_get_field_groups' ) ) {
 		$acf_groups = acf_get_field_groups();
 	} else {
@@ -504,7 +504,7 @@ function seedprod_lite_get_acf_option_fields() {
 	}
 
 	foreach ( $acf_groups as $acf_group ) {
-		// ACF >= 5.0.0
+		// ACF >= 5.0.0.
 		if ( function_exists( 'acf_get_fields' ) ) {
 			if ( isset( $acf_group['ID'] ) && ! empty( $acf_group['ID'] ) ) {
 				$fields = acf_get_fields( $acf_group['ID'] );
@@ -525,7 +525,7 @@ function seedprod_lite_get_acf_option_fields() {
 		$is_only_options_page     = $has_option_page_location && 1 === count( $acf_group['location'] );
 
 		foreach ( $fields as $field ) {
-			// Use group ID for unique keys
+			// Use group ID for unique keys.
 			if ( $has_option_page_location ) {
 				$key = 'options:' . $field['name'];
 
@@ -616,7 +616,7 @@ function seedprod_lite_get_acf_field_value( $settings = array(), $fallback = '' 
 
 	$value = '';
 
-	// Arrays to handle field types
+	// Arrays to handle field types.
 	$text_field_types = array(
 		'text',
 		'textarea',
@@ -651,7 +651,7 @@ function seedprod_lite_get_acf_field_value( $settings = array(), $fallback = '' 
 		$value = seedprod_lite_get_acf_number_data( $field_data, $fallback );
 	} elseif ( ! empty( $settings['field_type'] ) && 'url' === $settings['field_type'] ) {
 		$value = seedprod_lite_get_acf_url_data( $field_data );
-	} elseif ( ! ! empty( $settings['field_type'] ) && 'gallery' === $settings['field_type'] ) {
+	} elseif ( (bool) empty( $settings['field_type'] ) && 'gallery' === $settings['field_type'] ) {
 		$value = seedprod_lite_get_acf_gallery_data( $field_data );
 	}
 
@@ -858,7 +858,7 @@ function seedprod_lite_get_custom_post_field_value( $settings = array(), $fallba
 	// Check if key is present.
 	if ( empty( $key ) || '' === $key ) {
 		// If not present, check if custom key is present.
-		if ( $settings['custom_key'] !== '') {
+		if ( '' !== $settings['custom_key'] ) {
 			$key = str_replace( '\'', '', trim( $settings['custom_key'] ) );
 		} else {
 			// If not present, return.
@@ -1023,18 +1023,18 @@ function seedprod_lite_get_post_custom_keys_array() {
 		// Notes: Not accurate because of how our theme builder works.
 
 		// $args = array(
-		// 	'posts_per_page' => 1,
-		// 	'post_type'      => 'post',
+		// 'posts_per_page' => 1,
+		// 'post_type'      => 'post',
 		// );
 
 		// $the_query   = new WP_Query( $args );
 		// $custom_keys = array();
 
 		// if ( $the_query->have_posts() ) {
-		// 	while ( $the_query->have_posts() ) {
-		// 		$the_query->the_post();
-		// 		$custom_keys = get_post_custom_keys();
-		// 	}
+		// while ( $the_query->have_posts() ) {
+		// $the_query->the_post();
+		// $custom_keys = get_post_custom_keys();
+		// }
 		// }
 
 		/* Restore original Post Data */

@@ -11,19 +11,16 @@ function seedprod_lite_get_envira_galleries() {
 			wp_send_json_error();
 		}
 
-        $type = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_STRING );
+		$type      = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_STRING );
 		$galleries = array();
 
-        if($type === 'lite'){
-            if ( class_exists( 'Envira_Gallery_Lite' ) ) {
-                $galleries = Envira_Gallery_Lite::get_instance()->_get_galleries();
-            }
-        }else{
-            if ( class_exists( 'Envira_Gallery' ) ) {
-                $galleries = Envira_Gallery::get_instance()->_get_galleries();
-            }
-        }
+		if ( 'lite' === $type ) {
+			if ( class_exists( 'Envira_Gallery_Lite' ) ) {
+				$galleries = Envira_Gallery_Lite::get_instance()->_get_galleries();
+			}
+		} elseif ( class_exists( 'Envira_Gallery' ) ) {
+				$galleries = Envira_Gallery::get_instance()->_get_galleries();
+		}
 		wp_send_json( $galleries );
 	}
 }
-

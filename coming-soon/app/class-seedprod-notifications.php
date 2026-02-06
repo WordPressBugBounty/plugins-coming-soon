@@ -8,7 +8,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 
 	/**
 	 * Notifications Class
-	 *
 	 */
 	class SeedProd_Notifications {
 		/**
@@ -54,7 +53,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 
 		/**
 		 * SeedProd_Notifications constructor.
-		 *
 		 */
 		public function __construct() {
 			$this->init();
@@ -83,7 +81,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return boolean
 		 * @since {VERSION}
-		 *
 		 */
 		public function has_access() {
 			$access = true;
@@ -102,7 +99,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return array
 		 * @since {VERSION}
-		 *
 		 */
 		public function get_option( $cache = true ) {
 			if ( $this->option && $cache ) {
@@ -126,7 +122,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return array
 		 * @since {VERSION}
-		 *
 		 */
 		public function fetch_feed() {
 			$res = wp_remote_get( self::SOURCE_URL );
@@ -151,7 +146,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return array
 		 * @since {VERSION}
-		 *
 		 */
 		public function verify( $notifications ) { // phpcs:ignore Generic.Metrics.CyclomaticComplexity.TooHigh,Squiz.Commenting.FunctionComment.TypeHintMissing
 
@@ -214,7 +208,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return array
 		 * @since {VERSION}
-		 *
 		 */
 		public function verify_active( $notifications ) { // phpcs:ignore Squiz.Commenting.FunctionComment.TypeHintMissing
 			if ( ! is_array( $notifications ) || empty( $notifications ) ) {
@@ -239,7 +232,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return array
 		 * @since {VERSION}
-		 *
 		 */
 		public function get() {
 			if ( ! $this->has_access() ) {
@@ -259,7 +251,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 *
 		 * @return integer
 		 * @since {VERSION}
-		 *
 		 */
 		public function get_count() {
 			$count = count( $this->get() );
@@ -273,7 +264,6 @@ if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 		 * @param array $notification Notification data.
 		 *
 		 * @since {VERSION}
-		 *
 		 */
 		public function add( $notification ) { // phpcs:ignore Squiz.Commenting.FunctionComment.TypeHintMissing
 			if ( empty( $notification['id'] ) ) {
@@ -421,6 +411,5 @@ if ( ! function_exists( 'seedprod_lite_do_notifications' ) ) {
 	function seedprod_lite_do_notifications() {
 		$notifications = new SeedProd_Notifications();
 		$notifications->update();
-
 	}
 }

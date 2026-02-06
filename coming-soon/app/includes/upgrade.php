@@ -11,11 +11,11 @@ function seedprod_lite_upgrade_license() {
 		wp_send_json_error( array( 'message' => esc_html__( 'You are not allowed to install plugins.', 'coming-soon' ) ) );
 	}
 
-	// Check for local dev sites
+	// Check for local dev sites.
 	// if (seedprod_lite_is_dev_url(home_url())) {
-	//     wp_send_json_success(array(
-	//         'url' => 'https://www.seedprod.com/docs/go-lite-pro/#manual-upgrade',
-	//     ));
+	// wp_send_json_success(array(
+	// 'url' => 'https://www.seedprod.com/docs/go-lite-pro/#manual-upgrade',
+	// ));
 	// }
 
 	// Check for a license key.
@@ -37,7 +37,7 @@ function seedprod_lite_upgrade_license() {
 	$active = activate_plugin( 'seedprod-coming-soon-pro-5/seedprod-coming-soon-pro-5.php', false, false, true );
 	if ( ! is_wp_error( $active ) ) {
 		// Deactivate plugin.
-		//deactivate_plugins(plugin_basename('seedprod-coming-soon-pro-5/seedprod-coming-soon-pro-5.php'));
+		// deactivate_plugins(plugin_basename('seedprod-coming-soon-pro-5/seedprod-coming-soon-pro-5.php'));
 		wp_send_json_error(
 			array(
 				'message' => esc_html__( 'Pro version is already installed.', 'coming-soon' ),
@@ -46,11 +46,11 @@ function seedprod_lite_upgrade_license() {
 		);
 	}
 
-	// Verifiy licnese key
+	// Verifiy licnese key.
 	$license = seedprod_lite_save_api_key( $license_key );
 
 	// Redirect.
-	$oth = hash( 'sha512', wp_rand() );
+	$oth        = hash( 'sha512', wp_rand() );
 	$hashed_oth = hash_hmac( 'sha512', $oth, wp_salt() );
 	update_option( 'seedprod_one_click_upgrade', $oth );
 	$version  = SEEDPROD_VERSION;
@@ -86,7 +86,7 @@ add_action( 'wp_ajax_seedprod_upgrade_license', 'seedprod_upgrade_license' );
  * Endpoint for one-click upgrade.
  */
 function seedprod_lite_run_one_click_upgrade() {
-	 $error = esc_html__( 'Could not install upgrade. Please download from seedprod.com and install manually.', 'coming-soon' );
+	$error = esc_html__( 'Could not install upgrade. Please download from seedprod.com and install manually.', 'coming-soon' );
 
 	// verify params present (oth & download link).
 	$post_oth = ! empty( $_REQUEST['oth'] ) ? sanitize_text_field( $_REQUEST['oth'] ) : '';

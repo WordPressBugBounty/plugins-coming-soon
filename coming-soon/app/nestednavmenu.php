@@ -15,11 +15,11 @@ function seedprod_lite_get_nested_navmenu() {
 		$layout       = isset( $_REQUEST['layout'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['layout'] ) ) : '';
 
 		$walker_divider = true;
-		if ( '' == $divider || 'v' == $layout ) {
+		if ( '' === $divider || 'v' === $layout ) {
 			$walker_divider = false;
 		}
 
-		if ( true == $walker_divider ) {
+		if ( true === $walker_divider ) {
 
 			$args = array(
 				'menu'            => $navmenu_name,
@@ -75,8 +75,8 @@ class SeedProd_Lite_Menu_Walker extends Walker_Nav_Menu {
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= '</li>';
 
-		if ( 0 == $depth ) {
-			if ( '' != $this->separators ) {
+		if ( 0 === $depth ) {
+			if ( '' !== $this->separators ) {
 				$output .= "<li class='separator menu-item'>" . $this->separators . '</li>';
 			}
 		}
@@ -119,11 +119,11 @@ function seedprod_lite_wordpress_menuwidget( $atts ) {
 	}
 
 	$walker_divider = true;
-	if ( '' == $navmenu_seperator || 'v' == $layout ) {
+	if ( '' === $navmenu_seperator || 'v' === $layout ) {
 		$walker_divider = false;
 	}
 
-	if ( true == $walker_divider ) {
+	if ( true === $walker_divider ) {
 		$args = array(
 			'menu'            => $navmenu_name,
 			'container_class' => 'nav-menu-bar',
@@ -176,33 +176,33 @@ add_shortcode( 'seedprodwpwidget', 'seedprod_lite_wordpress_widget' );
  * @return string $content
  */
 function seedprod_lite_wordpress_widget( $atts ) {
-	// Get the widget name
+	// Get the widget name.
 	$widget_name = $atts[0];
 
-	// Remove widget name from array
+	// Remove widget name from array.
 	unset( $atts[0] );
 
-	// convert string bool
+	// convert string bool.
 	foreach ( $atts as $k => $v ) {
 		if ( 'true' === $v ) {
 			$atts[ $k ] = true; }
 		if ( 'false' === $v ) {
 			$atts[ $k ] = false; }
-		//$atts[$k] = ($v === 'true')? true: false;
+		// $atts[$k] = ($v === 'true')? true: false;
 	}
 
 	global $wp_widget_factory;
 
 	$content = '';
 
-	// Check if the widget class exists
+	// Check if the widget class exists.
 	if ( ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
-		// Check update widget class name
+		// Check update widget class name.
 		if ( isset( $atts['class'] ) ) {
-			// Replace - with \
+			// Replace - with \.
 			$widget_name = str_replace( '-', '\\', $atts['class'] );
 
-			// Check if the widget class exists
+			// Check if the widget class exists.
 			if ( ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
 				return $content;
 			}

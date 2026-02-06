@@ -1,0 +1,208 @@
+/**
+ * SeedProd Growth Tools Pages Styles
+ * Styles for cross-promotion pages (OptinMonster, WP Code, etc.)
+ */
+
+/* Growth Tools Page Container */
+.seedprod-growth-tools-page {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+/* Partner Badge */
+.seedprod-partner-badge {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.seedprod-partner-badge-content {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 20px;
+	background: #fff6dc;
+	border: 1px solid #f0c930;
+	border-radius: 50px;
+	font-size: 14px;
+	color: #50575e;
+}
+
+.seedprod-partner-badge .dashicons {
+	color: #E14E1B;
+	font-size: 18px;
+}
+
+.seedprod-partner-badge-text strong {
+	color: #1e1e1e;
+	font-weight: 600;
+}
+
+.seedprod-partner-badge-separator {
+	color: #dba617;
+	margin: 0 6px;
+	font-size: 12px;
+}
+
+.seedprod-partner-badge-trusted {
+	color: #2563eb;
+	font-weight: 500;
+	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.seedprod-partner-badge-trusted .dashicons {
+	font-size: 16px;
+	color: #2563eb;
+}
+
+/* Header Section */
+.seedprod-growth-header {
+	text-align: center;
+	margin-bottom: 50px;
+	padding-top: 10px;
+}
+
+.seedprod-growth-header h1 {
+	font-size: 32px;
+	line-height: 1.2;
+	color: #1e1e1e;
+	margin-bottom: 15px;
+	font-weight: 600;
+}
+
+.seedprod-subtitle {
+	font-size: 18px;
+	color: #E14E1B;
+	font-weight: 500;
+	margin: 10px auto 20px;
+}
+
+.seedprod-tagline {
+	font-size: 16px;
+	color: #50575e;
+	line-height: 1.6;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+
+/* Benefit Points Section */
+.seedprod-benefit-points {
+	margin: 30px auto 40px;
+	max-width: 700px;
+}
+
+.seedprod-benefit-points ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	text-align: left;
+}
+
+.seedprod-benefit-points {
+	text-align: center;
+}
+
+.seedprod-benefit-points li {
+	position: relative;
+	padding-left: 28px;
+	margin-bottom: 12px;
+	font-size: 15px;
+	line-height: 1.6;
+	color: #50575e;
+	text-align: left;
+}
+
+.seedprod-benefit-points li:before {
+	content: "✓";
+	position: absolute;
+	left: 0;
+	color: #1da867;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* Hero Image Section */
+.seedprod-growth-hero {
+	text-align: center;
+	margin-bottom: 70px;
+}
+
+.seedprod-growth-hero img {
+	max-width: 85%;
+	height: auto;
+	border-radius: 8px;
+}
+
+
+/* CTA Section */
+.seedprod-growth-cta {
+	text-align: center;
+	margin: 50px 0;
+	padding: 40px;
+	background: linear-gradient(135deg, #fff5f2 0%, #fff 100%);
+	border: 2px solid #fde4db;
+	border-radius: 12px;
+	position: relative;
+}
+
+.seedprod-cta-headline {
+	font-size: 22px;
+	font-weight: 700;
+	color: #1e1e1e;
+	margin: 0 0 25px;
+	line-height: 1.3;
+}
+
+.seedprod-growth-cta .button {
+	font-size: 16px;
+	padding: 12px 30px;
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.seedprod-growth-cta .button-hero {
+	font-size: 18px;
+	padding: 15px 40px;
+}
+
+
+.seedprod-cta-subtext {
+	font-size: 13px;
+	color: #50575e;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.seedprod-cta-social-proof {
+	font-size: 14px;
+	color: #50575e;
+	font-weight: 500;
+	margin: 0;
+	padding-top: 15px;
+	border-top: 1px solid #fde4db;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.seedprod-growth-header h1 {
+		font-size: 26px;
+	}
+	
+	.seedprod-subtitle {
+		font-size: 16px;
+	}
+	
+	.seedprod-benefit-points {
+		padding: 0 20px;
+	}
+	
+	.seedprod-growth-cta {
+		padding: 30px 20px;
+	}
+}

@@ -1,4 +1,10 @@
 <?php
+/**
+ * SeedProd Lite settings handlers.
+ *
+ * @package SeedProd
+ * @subpackage SeedProd/app
+ */
 
 /**
  * Save Settings: Coming Soon Mode, Maintenance Mode, Login Page, 404 Page
@@ -19,11 +25,11 @@ function seedprod_lite_save_settings() {
 			$s->enable_login_mode       = sanitize_text_field( $s->enable_login_mode );
 			$s->enable_404_mode         = sanitize_text_field( $s->enable_404_mode );
 
-			// Get old settings to check if there has been a change
+			// Get old settings to check if there has been a change.
 			$settings_old = get_option( 'seedprod_settings' );
 			$s_old        = json_decode( $settings_old );
 
-			// Key is for $settings, Value is for get_option()
+			// Key is for $settings, value is for get_option().
 			$settings_to_update = array(
 				'enable_coming_soon_mode' => 'seedprod_coming_soon_page_id',
 				'enable_maintenance_mode' => 'seedprod_maintenance_mode_page_id',
@@ -32,64 +38,63 @@ function seedprod_lite_save_settings() {
 			);
 
 			foreach ( $settings_to_update as $setting => $option ) {
-				$has_changed = ( $s->$setting !== $s_old->$setting ? true : false );
-				if ( ! $has_changed ) {
-					continue; } // Do nothing if no change
-
 				$id = get_option( $option );
 
-				$post_exists = ! is_null( get_post( $id ) );
-				if ( ! $post_exists ) {
+				if ( ! $id ) {
+					continue;
+				}
+
+				$page = get_post( $id );
+				if ( ! $page ) {
 					update_option( $option, null );
 					continue;
 				}
 
-				$update       = array();
-				$update['ID'] = $id;
+				// Determine if setting is enabled (handle various truthy values).
+				$is_enabled = ! empty( $s->$setting ) && 'false' !== $s->$setting && '0' !== $s->$setting;
 
-				// Publish page when active
-				if ( true === $s->$setting || '1' === $s->$setting ) {
-					$update['post_status'] = 'publish';
-					wp_update_post( $update );
-				}
-
-				// Unpublish page when inactive
-				if ( false === $s->$setting ) {
-					$update['post_status'] = 'draft';
-					wp_update_post( $update );
+				// Always ensure page status matches the setting.
+				$expected_status = $is_enabled ? 'publish' : 'draft';
+				if ( $page->post_status !== $expected_status ) {
+					wp_update_post(
+						array(
+							'ID'          => $id,
+							'post_status' => $expected_status,
+						)
+					);
 				}
 			}
 
 			update_option( 'seedprod_settings', $settings );
 
-			// Check if we should show AI website builder message (lite users only)
+			// Check if we should show AI website builder message (lite users only).
 			$show_ai_message = false;
-			
+
 			if ( 'lite' === SEEDPROD_BUILD ) {
-				// Check if Coming Soon or Maintenance Mode was toggled
+				// Check if Coming Soon or Maintenance Mode was toggled.
 				$coming_soon_changed = isset( $s->enable_coming_soon_mode ) && isset( $s_old->enable_coming_soon_mode ) && ( $s->enable_coming_soon_mode !== $s_old->enable_coming_soon_mode );
 				$maintenance_changed = isset( $s->enable_maintenance_mode ) && isset( $s_old->enable_maintenance_mode ) && ( $s->enable_maintenance_mode !== $s_old->enable_maintenance_mode );
-				
+
 				if ( $coming_soon_changed || $maintenance_changed ) {
-					// Check if user has already seen the AI message
+					// Check if user has already seen the AI message.
 					$user_id = get_current_user_id();
 					$user_id = absint( $user_id ); // Validate user ID
-					
+
 					if ( $user_id > 0 ) {
 						$seen_ai_message = get_user_meta( $user_id, 'seedprod_seen_ai_message', true );
-						
+
 						if ( ! $seen_ai_message ) {
 							$show_ai_message = true;
-							// Mark as seen
+							// Mark as seen.
 							update_user_meta( $user_id, 'seedprod_seen_ai_message', true );
 						}
 					}
 				}
 			}
-			
+
 			$response = array(
-				'status' => 'true',
-				'msg'    => __( 'Settings Updated', 'coming-soon' ),
+				'status'          => 'true',
+				'msg'             => __( 'Settings Updated', 'coming-soon' ),
 				'show_ai_message' => $show_ai_message,
 			);
 		} else {
@@ -99,7 +104,7 @@ function seedprod_lite_save_settings() {
 			);
 		}
 
-		// Send Response
+		// Send Response.
 		wp_send_json( $response );
 		exit;
 	}
@@ -116,10 +121,10 @@ function seedprod_lite_save_app_settings() {
 		if ( ! empty( $_POST['app_settings'] ) ) {
 
 			$app_settings = wp_unslash( $_POST['app_settings'] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			// security: create new settings array so we make sure we only set/allow our settings
+			// security: create new settings array so we make sure we only set/allow our settings.
 			$new_app_settings = array();
 
-			// Edit Button
+			// Edit Button.
 			if ( isset( $app_settings['disable_seedprod_button'] ) && 'true' === $app_settings['disable_seedprod_button'] ) {
 				$new_app_settings['disable_seedprod_button'] = true;
 				update_option( 'seedprod_allow_usage_tracking', true );
@@ -128,7 +133,7 @@ function seedprod_lite_save_app_settings() {
 				update_option( 'seedprod_allow_usage_tracking', false );
 			}
 
-			// Usage Tracking
+			// Usage Tracking.
 			if ( isset( $app_settings['enable_usage_tracking'] ) && 'true' === $app_settings['enable_usage_tracking'] ) {
 				$new_app_settings['enable_usage_tracking'] = true;
 				update_option( 'seedprod_allow_usage_tracking', true );
@@ -137,14 +142,14 @@ function seedprod_lite_save_app_settings() {
 				update_option( 'seedprod_allow_usage_tracking', false );
 			}
 
-			// Edit Notification
+			// Edit notification.
 			if ( isset( $app_settings['disable_seedprod_notification'] ) && 'true' === $app_settings['disable_seedprod_notification'] ) {
 				$new_app_settings['disable_seedprod_notification'] = true;
 			} else {
 				$new_app_settings['disable_seedprod_notification'] = false;
 			}
 
-			// Facebook ID
+			// Facebook ID.
 			$new_app_settings['facebook_g_app_id']     = sanitize_text_field( $app_settings['facebook_g_app_id'] );
 			$new_app_settings['google_places_app_key'] = sanitize_text_field( $app_settings['google_places_app_key'] );
 			$new_app_settings['yelp_app_api_key']      = sanitize_text_field( $app_settings['yelp_app_api_key'] );
@@ -162,7 +167,7 @@ function seedprod_lite_save_app_settings() {
 				'msg'    => __( 'Error Updating App Settings', 'coming-soon' ),
 			);
 		}
-			// Send Response
+			// Send response.
 			wp_send_json( $response );
 			exit;
 

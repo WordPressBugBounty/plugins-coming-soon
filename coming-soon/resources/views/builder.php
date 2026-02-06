@@ -12,7 +12,7 @@ require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
  * @return void
  */
 function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_block_templates ) {
-	// Decode the default block templates
+	// Decode the default block templates.
 	$defaults = json_decode( $seedprod_lite_block_templates, true );
 
 	if ( json_last_error() !== JSON_ERROR_NONE ) {
@@ -28,14 +28,14 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 	 * @return array
 	 */
 	function merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
-		// Guard clauses for safety
+		// Guard clauses for safety.
 		if ( ! is_array( $defaults ) ) {
 			return $settings;
 		}
 		if ( ! is_array( $settings ) ) {
 			return $defaults;
 		}
-		// Prevent infinite recursion
+		// Prevent infinite recursion.
 		if ( $depth > 100 ) {
 			return $settings;
 		}
@@ -43,17 +43,17 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		$result = $defaults;
 
 		foreach ( $settings as $key => $value ) {
-			// Special handling for 'items' array - preserve as-is without merging defaults
-			if ( $key === 'items' || $key === 'featuresList' ) {
+			// Special handling for 'items' array - preserve as-is without merging defaults.
+			if ( 'items' === $key || 'featuresList' === $key ) {
 				$result[ $key ] = $value;
 				continue;
 			}
 
-			// If both values are arrays, merge recursively
+			// If both values are arrays, merge recursively.
 			if ( isset( $result[ $key ] ) && is_array( $result[ $key ] ) && is_array( $value ) ) {
 				$result[ $key ] = merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
 			} else {
-				// If the value is not an array, preserve the setting value
+				// If the value is not an array, preserve the setting value.
 				$result[ $key ] = $value;
 			}
 		}
@@ -72,37 +72,37 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		$object_to_hydrate['document']['settings'] = array_replace_recursive( $document_defaults, $object_to_hydrate['document']['settings'] ?? array() );
 	}
 
-	// Iterate over document sections and apply defaults
+	// Iterate over document sections and apply defaults.
 	if ( isset( $object_to_hydrate['document']['sections'] ) && is_array( $object_to_hydrate['document']['sections'] ) ) {
 
 		// $element_defaults = $defaults['document'] ?? [];
 		// $object_to_hydrate['document']['settings'] = $element_defaults;
 
 		foreach ( $object_to_hydrate['document']['sections'] as &$section ) {
-			if ( isset( $section['type'] ) && $section['type'] === 'section' ) {
+			if ( isset( $section['type'] ) && 'section' === $section['type'] ) {
 
-				// Apply section defaults
+				// Apply section defaults.
 				apply_defaults( $section, $defaults );
 
-				// Iterate over rows in the section
+				// Iterate over rows in the section.
 				if ( isset( $section['rows'] ) && is_array( $section['rows'] ) ) {
 					foreach ( $section['rows'] as &$row ) {
-						if ( isset( $row['type'] ) && $row['type'] === 'row' ) {
-							// Apply row defaults
+						if ( isset( $row['type'] ) && 'row' === $row['type'] ) {
+							// Apply row defaults.
 							apply_defaults( $row, $defaults );
 
-							// Iterate over cols in the row
+							// Iterate over cols in the row.
 							if ( isset( $row['cols'] ) && is_array( $row['cols'] ) ) {
 								foreach ( $row['cols'] as &$col ) {
-									if ( isset( $col['type'] ) && $col['type'] === 'col' ) {
-										// Apply col defaults
+									if ( isset( $col['type'] ) && 'col' === $col['type'] ) {
+										// Apply col defaults.
 										apply_defaults( $col, $defaults );
 
-										// Iterate over blocks in the col
+										// Iterate over blocks in the col.
 										if ( isset( $col['blocks'] ) && is_array( $col['blocks'] ) ) {
 											foreach ( $col['blocks'] as &$block ) {
 												if ( isset( $block['type'] ) ) {
-													// Apply block defaults
+													// Apply block defaults.
 													apply_defaults( $block, $defaults );
 												}
 											}
@@ -122,28 +122,28 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 global $wpdb;
 
 // look for mixed content and mis configured WordPress sites.
-$actual_link          = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http' ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$actual_link          = ( isset( $_SERVER['HTTPS'] ) && 'on' === sanitize_text_field( wp_unslash( $_SERVER['HTTPS'] ) ) ? 'https' : 'http' ) . '://' . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
 $seedprod_builder_url = wp_parse_url( $actual_link );
 $mixed_content        = false;
 if ( false !== $seedprod_builder_url ) {
-	if ( ! empty( $seedprod_builder_url['scheme'] && 'https' == $seedprod_builder_url['scheme'] ) ) {
+	if ( ! empty( $seedprod_builder_url['scheme'] ) && 'https' === $seedprod_builder_url['scheme'] ) {
 		$sp_home_url        = get_option( 'home' );
 		$sp_home_url_parsed = wp_parse_url( $sp_home_url );
 		$sp_site_url        = get_option( 'siteurl' );
 		$sp_site_url_parsed = wp_parse_url( $sp_site_url );
 
-		if ( ! empty( $sp_home_url_parsed['scheme'] ) && 'http' == $sp_home_url_parsed['scheme'] ) {
+		if ( ! empty( $sp_home_url_parsed['scheme'] ) && 'http' === $sp_home_url_parsed['scheme'] ) {
 			$mixed_content = true;
 		}
 
-		if ( ! empty( $site_url_parsed['scheme'] ) && 'http' == $site_url_parsed['scheme'] ) {
+		if ( ! empty( $sp_site_url_parsed['scheme'] ) && 'http' === $sp_site_url_parsed['scheme'] ) {
 			$mixed_content = true;
 		}
 	}
 }
 
 
-// current user
+// Current user.
 $sp_current_user           = wp_get_current_user();
 $current_user_name         = $sp_current_user->display_name;
 $current_user_email        = $sp_current_user->user_email;
@@ -162,22 +162,22 @@ if ( ! empty( $_GET['id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerifica
 	wp_die();
 }
 
-// Template Vars
+// Template Vars.
 $timezones     = seedprod_lite_get_timezones();
 $times         = seedprod_lite_get_times();
 $block_options = seedprod_lite_block_options();
 
 
-// get page
+// Get page.
 $tablename = $wpdb->prefix . 'posts';
 $sql       = "SELECT * FROM $tablename WHERE id = %d";
 $safe_sql  = $wpdb->prepare( $sql, $lpage_id ); // phpcs:ignore
 $lpage     = $wpdb->get_row( $safe_sql ); // phpcs:ignore
 
-// reset id
+// Reset id.
 $lpage->id = $lpage->ID;
 
-// Get page uuid
+// Get page uuid.
 $lpage_uuid = get_post_meta( $lpage->id, '_seedprod_page_uuid', true );
 if ( empty( $lpage_uuid ) ) {
 	$this_uuid = wp_generate_uuid4();
@@ -185,18 +185,18 @@ if ( empty( $lpage_uuid ) ) {
 	$lpage_uuid = $this_uuid;
 }
 
-// add default settings if they do not exisits
+// Add default settings if they do not exisits.
 if ( empty( $lpage->post_content_filtered ) ) {
 	require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 	$settings                            = json_decode( $seedprod_basic_lpage, true );
 	$settings['page_type']               = 'lp';
 	$settings['from_edit_with_seedprod'] = true;
-	// TODO Check if theme builder active
+	// TODO Check if theme builder active.
 	if ( ! empty( $_GET['from'] ) && 'post' === $_GET['from'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$settings['page_type'] = 'post'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 } else {
-	// get settings and maybe modify
+	// Get settings and maybe modify.
 	$settings = json_decode( $lpage->post_content_filtered, true );
 
 	if ( null === $settings && JSON_ERROR_NONE !== json_last_error() ) {
@@ -207,12 +207,12 @@ if ( empty( $lpage->post_content_filtered ) ) {
 		$settings = json_decode( $seedprod_recovery, true );
 
 	} else {
-		// rehydrate settings if json is invalid
+		// Rehydrate settings if json is invalid.
 		seedprod_lite_rehydrate_settings( $settings, $seedprod_lite_block_templates );
 	}
 }
 
-// Check is this is a seedprod template part or page/post using the seedprod editor
+// Check is this is a seedprod template part or page/post using the seedprod editor.
 $seedprod_is_theme_template = get_post_meta( $lpage_id, '_seedprod_is_theme_template', true );
 $edited_with_seedprod       = get_post_meta( $lpage_id, '_seedprod_edited_with_seedprod', true );
 if ( empty( $seedprod_is_theme_template ) ) {
@@ -224,7 +224,7 @@ if ( empty( $seedprod_is_theme_template ) ) {
 	}
 }
 
-// Check for landing page types
+// Check for landing page types.
 $is_landing_page    = true;
 $landing_page_types = array( 'cs', 'mm', 'p404', 'loginp', 'lp' );
 if ( ! in_array( $settings['page_type'], $landing_page_types, true ) ) {
@@ -232,17 +232,17 @@ if ( ! in_array( $settings['page_type'], $landing_page_types, true ) ) {
 }
 
 
-// get post types
+// Get post types.
 $post_types = get_post_types();
 
-// get seedprod setting tp check special pages states
+// Get seedprod setting tp check special pages states.
 $seedprod_settings = get_option( 'seedprod_settings' );
 if ( ! empty( $seedprod_settings ) ) {
 	$seedprod_settings = json_decode( stripslashes( $seedprod_settings ) );
 }
 
 
-// get global css settings
+// Get global css settings.
 $global_css_settings = array();
 $global_css_page_id  = get_option( 'seedprod_global_css_page_id' );
 
@@ -251,13 +251,18 @@ $global_css_page_id  = get_option( 'seedprod_global_css_page_id' );
 
 // get preview link
 // $preview_link = get_preview_post_link( $lpage_id );
-if ( 'lp' === $settings['page_type'] ) {
-	$preview_link = home_url() . "/?page_id=$lpage_id&preview_id=$lpage_id&preview_nonce=" . wp_create_nonce( 'post_preview_' . $lpage_id ) . '&preview=true';
-} else {
-	$preview_link = home_url() . "/?post_type=seedprod&page_id=$lpage_id&preview_id=$lpage_id&preview_nonce=" . wp_create_nonce( 'post_preview_' . $lpage_id ) . '&preview=true';
+// Fallback if get_preview_post_link returns empty (shouldn't happen but just in case).
+if ( empty( $preview_link ) ) {
+	if ( 'lp' === $settings['page_type'] || 'post' === $settings['page_type'] ) {
+		// Landing pages and theme pages (post type) use regular page preview URL.
+		$preview_link = home_url() . "/?page_id=$lpage_id&preview_id=$lpage_id&preview_nonce=" . wp_create_nonce( 'post_preview_' . $lpage_id ) . '&preview=true';
+	} else {
+		// Other page types (cs, mm, 404, loginpage) use seedprod post type URL.
+		$preview_link = home_url() . "/?post_type=seedprod&page_id=$lpage_id&preview_id=$lpage_id&preview_nonce=" . wp_create_nonce( 'post_preview_' . $lpage_id ) . '&preview=true';
+	}
 }
 
-// keep track for changes
+// Keep track for changes.
 $settings['post_title']  = $lpage->post_title;
 $settings['post_name']   = $lpage->post_name;
 $settings['post_status'] = $lpage->post_status;
@@ -269,7 +274,7 @@ if ( $dismiss_bottombar_cta ) {
 }
 
 
-// Email integration logic
+// Email integration logic.
 $seedprod_api_token  = get_option( 'seedprod_api_token' );
 $seedprod_user_id    = get_option( 'seedprod_user_id' );
 $seedprod_site_token = get_option( 'seedprod_token' );
@@ -280,21 +285,24 @@ if ( empty( $seedprod_site_token ) ) {
 $license_key           = get_option( 'seedprod_api_key' );
 $email_integration_url = '';
 
-// stripe connect
+// Stripe connect.
 $seedprod_stripe_connect_origin = get_option( 'seedprod_stripe_connect_origin' );
 if ( empty( $seedprod_stripe_connect_origin ) ) {
 	$seedprod_stripe_connect_origin = wp_generate_uuid4();
 	add_option( 'seedprod_stripe_connect_origin', $seedprod_stripe_connect_origin );
 }
-// Set stripe token
+// Set stripe token.
+// phpcs:disable WordPress.Security.NonceVerification.Recommended
 if ( ! empty( $_GET['seedprod_stripe_connect_token'] ) ) {
 	if ( ! empty( $_GET['seedprod_stripe_connect_origin'] ) ) {
-		if ( $seedprod_stripe_connect_origin == $_GET['seedprod_stripe_connect_origin'] && current_user_can( 'manage_options' ) ) {
-			update_option( 'seedprod_stripe_connect_token', $_GET['seedprod_stripe_connect_token'] );
+		$stripe_origin = sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_origin'] ) );
+		if ( $seedprod_stripe_connect_origin === $stripe_origin && current_user_can( 'manage_options' ) ) {
+			update_option( 'seedprod_stripe_connect_token', sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_token'] ) ) );
 		}
 	}
 }
-// get stripe token
+// phpcs:enable WordPress.Security.NonceVerification.Recommended
+// Get stripe token.
 $seedprod_stripe_connect_token = get_option( 'seedprod_stripe_connect_token' );
 if ( empty( $seedprod_stripe_connect_token ) ) {
 	$seedprod_stripe_connect_token = '';
@@ -311,7 +319,7 @@ $seedprod_app_settings = get_option( 'seedprod_app_settings' );
 if ( ! empty( $seedprod_app_settings ) ) {
 	$seedprod_app_settings = json_decode( stripslashes( $seedprod_app_settings ) );
 } else {
-	// fail safe incase settings go missing
+	// Fail safe incase settings go missing.
 	require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/default-settings.php';
 	update_option( 'seedprod_app_settings', $seedprod_app_default_settings );
 	$seedprod_app_settings = json_decode( $seedprod_app_default_settings );
@@ -342,7 +350,7 @@ if ( metadata_exists( 'user', $sp_current_user->ID, 'seedprod_personalization_pr
 	$decoded_json = json_decode( $user_personalization_preferences, true );
 
 	// Validate user meta.
-	if ( empty( $user_personalization_preferences ) || ! isset( $user_personalization_preferences ) || ! is_array( $decoded_json ) || json_last_error() ) {
+	if ( empty( $user_personalization_preferences ) || ! isset( $user_personalization_preferences ) || ! is_array( $decoded_json ) || JSON_ERROR_NONE !== json_last_error() ) {
 		delete_user_meta( $sp_current_user->ID, 'seedprod_personalization_preferences' );
 		// Set default user personalization preferences.
 		add_user_meta( $sp_current_user->ID, 'seedprod_personalization_preferences', wp_json_encode( $user_personalization_preferences_schema ), true );
@@ -396,7 +404,7 @@ if ( is_array( $decoded_personalization_preferences ) && null !== $decoded_perso
 	$user_personalization_preferences = get_user_meta( $sp_current_user->ID, 'seedprod_personalization_preferences', true );
 }
 
-// Pers
+// Pers.
 $per                        = array();
 $active_license             = false;
 $template_dev_mode          = false;
@@ -458,7 +466,7 @@ foreach ( $fontawesome_json as $v ) {
 	$fonts['Google Fonts']   = json_decode( file_get_contents( $googlefonts_file ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	// $googlefonts_json = json_decode(file_get_contents($googlefonts_file));
 
-	// get list of fonts to load
+	// Get list of fonts to load.
 	$google_fonts_str = seedprod_lite_construct_font_str( $settings['document'] );
 
 	?>
@@ -471,17 +479,18 @@ foreach ( $fontawesome_json as $v ) {
 <script>
 //var seedprod_copy_paste_enabled = false;
 var seedprod_nonce = <?php echo wp_json_encode( $seedprod_nonce ); ?>;
-var seedprod_page = <?php echo wp_json_encode( sanitize_text_field( wp_unslash( $_GET['page'] ) ) ); ?>; <?php // phpcs:ignore ?>
+<?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+var seedprod_page = <?php echo wp_json_encode( isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '' ); ?>;
 var seedprod_remote_api = "<?php echo esc_url( SEEDPROD_API_URL ); ?>";
 <?php
 $from = '';
 if ( ! empty( $_GET['from'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-	$form = sanitize_text_field( wp_unslash( $_GET['from'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	$from = sanitize_text_field( wp_unslash( $_GET['from'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 }
 ?>
 var seedprod_from = <?php echo wp_json_encode( $from ); ?>;
 <?php
-// see if we need below
+// See if we need below.
 $ajax_url = html_entity_decode( wp_nonce_url( 'admin-ajax.php?action=seedprod_lite_save_template', 'seedprod_lite_save_template' ) );
 ?>
 var seedprod_template_save_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
@@ -535,6 +544,9 @@ var seedprod_push_notifications_activate_link = <?php echo wp_json_encode( esc_u
 
 <?php $url = seedprod_lite_get_plugins_install_url( 'rafflepress' ); ?>
 var seedprod_giveaway_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
+
+<?php $url = seedprod_lite_get_plugins_activate_url( 'rafflepress' ); ?>
+var seedprod_giveaway_activate_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
 
 <?php $url = seedprod_lite_get_plugins_install_url( 'mypaykit' ); ?>
 var seedprod_mypaykit_install_link = <?php echo wp_json_encode( esc_url_raw( htmlspecialchars_decode( $url ) ) ); ?>;
@@ -593,7 +605,7 @@ var seedprod_dismiss_upsell = <?php echo wp_json_encode( esc_url_raw( $ajax_url 
 var seedprod_import_cross_site_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
 
 <?php
-	// user has to have this capability
+	// User has to have this capability.
 	$unfiltered_html = false;
 if ( current_user_can( 'unfiltered_html' ) ) {
 	$unfiltered_html = true;
@@ -601,7 +613,7 @@ if ( current_user_can( 'unfiltered_html' ) ) {
 ?>
 
 <?php
-	// get menus
+	// Get menus.
 	$seedprod_menus      = wp_get_nav_menus();
 	$seedprod_options    = array();
 	$seedprod_first_menu = '';
@@ -618,7 +630,7 @@ if ( count( $seedprod_menus ) > 0 ) {
 ?>
 
 <?php
-	// get tempplate parts
+	// Get tempplate parts.
 	$seedprod_template_parts = array();
 	$seedprod_theme_parts    = array();
 	$seedprod_selected_template_parts = '';
@@ -670,7 +682,7 @@ $seedprod_data = array(
 	'push_notification_plugins_installed' => seedprod_lite_get_push_notification_plugins_list(),
 	'seedprod_template_parts'             => $seedprod_template_parts,
 	'seedprod_selected_template_parts'    => $seedprod_selected_template_parts,
-	'page_type'                           => $settings['page_type'],
+	'page_type'                           => isset( $settings['page_type'] ) ? $settings['page_type'] : '',
 	'current_user_name'                   => $current_user_name,
 	'current_user_email_hash'             => $current_user_email_hash,
 	'current_user_email'                  => $current_user_email,
@@ -707,13 +719,13 @@ $seedprod_data = array(
 
 	$seedprod_data['envira'] = array(
 		'add_envira_gallery' => admin_url( 'post-new.php?post_type=envira' ),
-		'placeholder'        => sprintf( '<img src="%s" width="180px" alt="Envira Gallery Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-envira.svg' ) ),
+		'placeholder'        => sprintf( '<img src="%s" width="180px" alt="Envira Gallery Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-envira.svg' ) ),
 	);
 
 	$seedprod_data['wpforms'] = array(
 		'edit_form_url' => admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' ),
 		'add_form_url'  => admin_url( 'admin.php?page=wpforms-builder&view=setup' ),
-		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="WPForms Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-wpforms.png' ) ),
+		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="WPForms Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-wpforms.png' ) ),
 	);
 
 	$rp_version = 'lite';
@@ -724,13 +736,13 @@ $seedprod_data = array(
 	$seedprod_data['rafflepress'] = array(
 		'edit_form_url' => admin_url( 'admin.php?page=rafflepress_' . $rp_version . '_builder&id=$id$#/setup/$id$' ),
 		'add_form_url'  => admin_url( 'admin.php?page=rafflepress_' . $rp_version . '_builder&id=0#/template' ),
-		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="RafflePress Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-rp.png' ) ),
+		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="RafflePress Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-rp.png' ) ),
 	);
 
 	$seedprod_data['mypaykit'] = array(
 		'edit_form_url' => '',
 		'add_form_url'  => '',
-		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+		'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-mp.png' ) ),
 	);
 
 	if ( defined( 'MYPAYKIT_WEB_URL' ) ) {
@@ -751,26 +763,26 @@ $seedprod_data = array(
 					),
 					MYPAYKIT_WEB_URL . '/form'
 				),
-				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-mp.png' ) ),
 			);
 		} else {
 			$seedprod_data['mypaykit'] = array(
 				'edit_form_url' => admin_url( 'admin.php?page=mypaykit-forms' ),
 				'add_form_url'  => admin_url( 'admin.php?page=mypaykit-forms' ),
-				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'public/img/plugin-mp.png' ) ),
+				'placeholder'   => sprintf( '<img src="%s" width="80px" alt="MyPayKit Logo"/>', esc_url( SEEDPROD_PLUGIN_URL . 'admin/images/plugin-mp.png' ) ),
 			);
 		}
 	}
 
-	// Check if WooCommerce is active
-	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	// Check if WooCommerce is active.
+	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 		$seedprod_data['wc_active'] = true;
 	} else {
 		$seedprod_data['wc_active'] = false;
 	}
 
-	// Check if ACF is active
-	if ( ( in_array( 'advanced-custom-fields/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) && function_exists( 'acf_get_field_groups' ) ) {
+	// Check if ACF is active.
+	if ( ( in_array( 'advanced-custom-fields/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) || in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) && function_exists( 'acf_get_field_groups' ) ) {
 		$seedprod_data['acf_active'] = true;
 
 		// Get ACF options.
@@ -781,17 +793,17 @@ $seedprod_data = array(
 		$seedprod_data['acf_groups'] = array();
 	}
 
-	// Check if Easy Digital Downloads is active
-	if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	// Check if Easy Digital Downloads is active.
+	if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 		$seedprod_data['edd_active'] = true;
 	} else {
 		$seedprod_data['edd_active'] = false;
 	}
 
-	// Get translations
+	// Get translations.
 	$seedprod_data['translations_pro'] = seedprod_lite_get_jed_locale_data( 'coming-soon' );
 
-	// Get help documents
+	// Get help documents.
 	$seedprod_data['inline_help_articles'] = seedprod_lite_fetch_inline_help_data();
 
 	echo wp_json_encode( $seedprod_data );
