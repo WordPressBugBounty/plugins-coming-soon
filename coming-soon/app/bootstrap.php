@@ -51,17 +51,9 @@ function seedprod_lite_admin_enqueue_scripts( $hook_suffix ) {
 					SEEDPROD_VERSION,
 					true
 				);
-				wp_register_script(
-					'seedprod_vue_builder_app_3',
-					SEEDPROD_PLUGIN_URL . 'public/' . $vue_app_folder . '/vue-backend/js/chunk-common.js',
-					array( 'wp-i18n' ),
-					SEEDPROD_VERSION,
-					true
-				);
 
 				wp_set_script_translations( 'seedprod_vue_builder_app_1', 'coming-soon' );
 				wp_set_script_translations( 'seedprod_vue_builder_app_2', 'coming-soon' );
-				wp_set_script_translations( 'seedprod_vue_builder_app_3', 'coming-soon' );
 
 				wp_localize_script(
 					'seedprod_vue_builder_app_1',
@@ -73,7 +65,6 @@ function seedprod_lite_admin_enqueue_scripts( $hook_suffix ) {
 
 				wp_enqueue_script( 'seedprod_vue_builder_app_1' );
 				wp_enqueue_script( 'seedprod_vue_builder_app_2' );
-				wp_enqueue_script( 'seedprod_vue_builder_app_3' );
 				wp_enqueue_style( 'seedprod_vue_builder_app_css_1', SEEDPROD_PLUGIN_URL . 'public/' . $vue_app_folder . '/vue-backend/css/chunk-vendors.css', false, SEEDPROD_VERSION );
 			}
 		}
@@ -172,7 +163,13 @@ function seedprod_lite_admin_enqueue_scripts( $hook_suffix ) {
 				// Load EDD default styles if EDD is active.
 			if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 				$css_suffix = is_rtl() ? '-rtl.min.css' : '.min.css';
-				$url        = trailingslashit( EDD_PLUGIN_URL ) . 'assets/css/edd' . $css_suffix;
+				if ( function_exists( 'edd_get_assets_url' ) ) {
+					// EDD 3.3.0+ with modern asset structure.
+					$url = edd_get_assets_url( 'css/frontend' ) . 'edd' . $css_suffix;
+				} else {
+					// Older EDD versions - use legacy path.
+					$url = trailingslashit( EDD_PLUGIN_URL ) . 'assets/css/edd' . $css_suffix;
+				}
 
 				wp_enqueue_style(
 					'seedprod-edd-general',

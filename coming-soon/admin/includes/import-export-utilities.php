@@ -181,7 +181,7 @@ function seedprod_lite_v2_process_image_filenames( $data, $html ) {
 	$has_assets_seedprod = false !== strpos( $data, 'assets.seedprod.com' );
 
 	// Enhanced regex pattern matching the old function.
-	$regex = '/(http)[^\s\'"]+?(png|jpg|jpeg|gif|ico|svg|bmp|tiff|webp)[^\s\'"]*?(?=[\'"])/i';
+	$regex = '/(http)[^\s\'"]+?\.(png|jpg|jpeg|gif|ico|svg|bmp|tiff|webp)[^\s\'"]*?(?=[\'"])/i';
 
 	// if this is a template return - but only if it's ONLY these domains.
 	if ( $has_unsplash && ! $has_placehold && ! $has_assets_seedprod ) {
@@ -228,10 +228,15 @@ function seedprod_lite_v2_process_image_filenames( $data, $html ) {
 		'images' => array(),
 	);
 
-	$img_srcs = array();
+	$img_srcs_data = array();
+	$img_srcs_html = array();
 
-	preg_match_all( $regex, $data, $img_srcs );
-	preg_match_all( $regex, $html, $img_srcs );
+	preg_match_all( $regex, $data, $img_srcs_data );
+	preg_match_all( $regex, $html, $img_srcs_html );
+
+	$img_srcs    = array();
+	$img_srcs[0] = array_merge( $img_srcs_data[0], $img_srcs_html[0] );
+	$img_srcs[2] = array_merge( $img_srcs_data[2], $img_srcs_html[2] );
 
 	// Eliminate duplicates & pair with extension match from above.
 	$unique_img_srcs_extensions = array();
@@ -258,6 +263,9 @@ function seedprod_lite_v2_process_image_filenames( $data, $html ) {
 		}
 
 		if ( false !== strpos( $old_url, 'assets.seedprod.com' ) ) {
+			continue;
+		}
+		if ( false !== strpos( $old_url, 'w3.org' ) ) {
 			continue;
 		}
 
@@ -431,6 +439,11 @@ function seedprod_lite_v2_zipdir( $source, $zip, $path_length ) {
 			continue;
 		}
 
+		// Skip ZIP files to prevent self-archiving.
+		if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'zip' ) {
+			continue;
+		}
+
 		$file_path  = $source . '/' . $file;
 		$local_path = substr( $file_path, $path_length );
 
@@ -473,6 +486,10 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 				'post_title'            => base64_decode( $v->post_title ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 				'meta'                  => json_decode( base64_decode( $v->meta ) ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 				'order'                 => $v->order,
+				// New fields for distinguishing theme templates from edited pages.
+				'page_category'         => isset( $v->page_category ) ? base64_decode( $v->page_category ) : 'theme_template', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+				'post_type'             => isset( $v->post_type ) ? base64_decode( $v->post_type ) : 'seedprod', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+				'post_status'           => isset( $v->post_status ) ? base64_decode( $v->post_status ) : 'publish', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 			);
 		}
 	}
@@ -493,20 +510,42 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 
 			$meta = $v1['meta'];
 
-			$data = array(
-				'comment_status' => 'closed',
-				'menu_order'     => $v1['order'],
-				'ping_status'    => 'closed',
-				'post_status'    => 'publish',
-				'post_title'     => $v1['post_title'],
-				'post_type'      => 'seedprod',
-				'meta_input'     => array(
-					'_seedprod_page'               => true,
-					'_seedprod_is_theme_template'  => true,
-					'_seedprod_page_uuid'          => wp_generate_uuid4(),
-					'_seedprod_page_template_type' => $meta->_seedprod_page_template_type[0],
-				),
-			);
+			// Determine if this is an edited page or theme template.
+			$page_category      = isset( $v1['page_category'] ) ? $v1['page_category'] : 'theme_template';
+			$import_post_type   = isset( $v1['post_type'] ) ? $v1['post_type'] : 'seedprod';
+			$import_post_status = isset( $v1['post_status'] ) ? $v1['post_status'] : 'publish';
+
+			if ( 'edited_page' === $page_category ) {
+				// Import as WordPress page with _seedprod_edited_with_seedprod meta.
+				$data = array(
+					'comment_status' => 'closed',
+					'menu_order'     => $v1['order'],
+					'ping_status'    => 'closed',
+					'post_status'    => $import_post_status,
+					'post_title'     => $v1['post_title'],
+					'post_type'      => 'page',
+					'meta_input'     => array(
+						'_seedprod_edited_with_seedprod' => '1',
+						'_seedprod_page_uuid'            => wp_generate_uuid4(),
+					),
+				);
+			} else {
+				// Existing theme template logic.
+				$data = array(
+					'comment_status' => 'closed',
+					'menu_order'     => $v1['order'],
+					'ping_status'    => 'closed',
+					'post_status'    => 'publish',
+					'post_title'     => $v1['post_title'],
+					'post_type'      => 'seedprod',
+					'meta_input'     => array(
+						'_seedprod_page'               => true,
+						'_seedprod_is_theme_template'  => true,
+						'_seedprod_page_uuid'          => wp_generate_uuid4(),
+						'_seedprod_page_template_type' => isset( $meta->_seedprod_page_template_type[0] ) ? $meta->_seedprod_page_template_type[0] : '',
+					),
+				);
+			}
 
 			$id = wp_insert_post(
 				$data,
@@ -518,6 +557,7 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 				'title'                 => $v1['post_title'],
 				'post_content'          => $v1['post_content'],
 				'post_content_filtered' => $v1['post_content_filtered'],
+				'page_category'         => $page_category,
 			);
 
 			// reinsert settings because wp_insert screws up json.
@@ -525,7 +565,7 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 			$post_content          = $v1['post_content'];
 
 			// For CSS templates, ensure page_type is set in the JSON.
-			if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+			if ( 'theme_template' === $page_category && isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 				$json_data = json_decode( $post_content_filtered, true );
 				if ( null !== $json_data ) {
 					// Ensure page_type is set at the root level.
@@ -541,22 +581,39 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Table name escaped with esc_sql(), values prepared with wpdb->prepare().
 			$wpdb->query( $safe_sql );
 
-			// Add meta.
-			if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+			// Handle edited pages differently - they don't have theme template conditions.
+			if ( 'edited_page' === $page_category ) {
+				// Find and replace preview urls for edited pages.
+				$new_post_content = str_replace( $old_home_url, $new_home_url, $v1['post_content'] );
+				$new_post_content = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $new_post_content );
+				// Extract CSS from page content.
+				if ( function_exists( 'seedprod_lite_extract_page_css' ) ) {
+					$code = seedprod_lite_extract_page_css( $new_post_content, $id );
+					update_post_meta( $id, '_seedprod_css', $code['css'] );
+					update_post_meta( $id, '_seedprod_html', $code['html'] );
+
+					if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
+						seedprod_lite_generate_css_file( $id, $code['css'] );
+					}
+				}
+				// Don't continue - fall through to shortcode processing loop below.
+			} else {
+				// Add meta for theme templates.
+				if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 				// Set css file.
 				// Find and replace url.
 				$css = str_replace( $old_home_url, $new_home_url, $v1['post_content'] );
 				$css = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $css );
 				// Custom CSS is intentionally set to empty (following old logic).
 				$custom_css  = '';
-				$builder_css = $meta->_seedprod_builder_css[0];
+				$builder_css = isset( $meta->_seedprod_builder_css[0] ) ? $meta->_seedprod_builder_css[0] : '';
 
 				update_post_meta( $id, '_seedprod_css', $css );
 				update_post_meta( $id, '_seedprod_custom_css', $custom_css );
 				update_post_meta( $id, '_seedprod_builder_css', $builder_css );
 				update_option( 'global_css_page_id', $id );
-				// Generate css.
-				$css = $css . $custom_css;
+				// Generate CSS with proper @import handling.
+				$css = seedprod_lite_merge_global_custom_css( $css, $custom_css );
 
 				// Trash current css file and set css file pointer.
 				$current_css_file = get_option( 'seedprod_global_css_page_id' );
@@ -584,9 +641,10 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 						seedprod_lite_generate_css_file( $id, $code['css'] );
 					}
 				}
-				update_post_meta( $id, '_seedprod_theme_template_condition', $meta->_seedprod_theme_template_condition[0] );
+				$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? $meta->_seedprod_theme_template_condition[0] : '';
+				update_post_meta( $id, '_seedprod_theme_template_condition', $template_condition );
 				// Process conditon to see if we need to create a placeholder page.
-				$conditions = $meta->_seedprod_theme_template_condition[0];
+				$conditions = $template_condition;
 
 				if ( ! empty( $conditions ) ) {
 
@@ -642,6 +700,7 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 					}
 				}
 			}
+			} // End else block for edited_page check.
 		}
 	}
 
@@ -699,6 +758,12 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 					}
 				}
 
+				// Replace any remaining URLs from the source domain.
+				if ( ! empty( $old_home_url ) ) {
+					$post_content          = str_replace( $old_home_url, $new_home_url, $post_content );
+					$post_content_filtered = str_replace( $old_home_url, $new_home_url, $post_content_filtered );
+				}
+
 				global $wpdb;
 				$tablename = esc_sql( $wpdb->prefix . 'posts' );
 				$sql       = "UPDATE $tablename SET post_content_filtered = %s,post_content = %s WHERE id = %d";
@@ -732,6 +797,9 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 	global $wpdb;
 	$tablename = $wpdb->prefix . 'posts';
 
+	$old_home_url = isset( $json_content->current_home_url ) ? $json_content->current_home_url : '';
+	$new_home_url = home_url();
+
 	// Get existing special page IDs.
 	$csp_id    = get_option( 'seedprod_coming_soon_page_id' );
 	$mmp_id    = get_option( 'seedprod_maintenance_mode_page_id' );
@@ -762,13 +830,6 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 		$post_status           = ! empty( $v->post_status ) ? base64_decode( $v->post_status ) : 'draft';
 		$ptype                 = ! empty( $v->ptype ) ? base64_decode( $v->ptype ) : '';
 		$meta                  = ! empty( $v->meta ) ? json_decode( base64_decode( $v->meta ), true ) : array();
-
-		// Process images if needed.
-		if ( ! empty( $post_content_filtered ) ) {
-			$processed             = seedprod_lite_v2_process_image_filenames_import( $post_content_filtered, $post_content );
-			$post_content          = $processed['html'];
-			$post_content_filtered = $processed['data'];
-		}
 
 		// Create post.
 		$post_data = array(
@@ -855,11 +916,28 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 		}
 	}
 
-	// Process shortcode remapping and CSS extraction.
+	// Process shortcode remapping, image import, and CSS extraction.
 	foreach ( $import_page_array as $t => $val ) {
 		$post_content          = $val['post_content'];
 		$post_content_filtered = $val['post_content_filtered'];
 		$post_id               = $val['id'];
+
+		// Replace old home URL with new home URL.
+		if ( ! empty( $old_home_url ) ) {
+			$post_content          = str_replace( $old_home_url, $new_home_url, $post_content );
+			$post_content_filtered = str_replace( $old_home_url, $new_home_url, $post_content_filtered );
+		}
+
+		// Replace export path with import path.
+		$post_content          = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $post_content );
+		$post_content_filtered = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $post_content_filtered );
+
+		// Import images into the WordPress media library.
+		if ( function_exists( 'seedprod_lite_process_image_filenames_import_theme' ) ) {
+			$processed_data_import = seedprod_lite_process_image_filenames_import_theme( $post_content_filtered, $post_content );
+			$post_content          = $processed_data_import['html'];
+			$post_content_filtered = $processed_data_import['data'];
+		}
 
 		// Replace shortcodes if we have mappings.
 		if ( count( $shortcode_array ) > 0 ) {
@@ -931,8 +1009,8 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 			}
 			update_option( 'seedprod_global_css_page_id', $post_id );
 
-			// Generate CSS file with combined CSS.
-			$combined_css = $css . $custom_css;
+			// Generate CSS file with combined CSS and proper @import handling.
+			$combined_css = seedprod_lite_merge_global_custom_css( $css, $custom_css );
 			if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
 				seedprod_lite_generate_css_file( $post_id, $combined_css );
 			}
@@ -1032,13 +1110,21 @@ function seedprod_lite_v2_prepare_zip( $filenames, $export_json, $type = 'theme'
 		wp_delete_file( $export_dir . $filename );
 	}
 
-	// Return download URL via JSON (AJAX-friendly approach).
-	$download_url = trailingslashit( $upload_dir['baseurl'] ) . 'seedprod-themes-exports/' . $zip_filename;
+	// Read ZIP and base64-encode for inline delivery.
+	// This ensures downloads work in all environments including WordPress Playground.
+	$zip_contents = file_get_contents( $zip_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	if ( false === $zip_contents ) {
+		throw new Exception( __( 'Failed to read export file.', 'coming-soon' ) );
+	}
+	$zip_base64 = base64_encode( $zip_contents ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
+	unset( $zip_contents );
+
+	// Clean up ZIP file since it is delivered inline.
+	wp_delete_file( $zip_path );
 
 	return array(
-		'success'      => true,
-		'download_url' => $download_url,
-		'filename'     => $zip_filename,
-		'size'         => $zip_size,
+		'success'  => true,
+		'filedata' => $zip_base64,
+		'filename' => $zip_filename,
 	);
 }

@@ -19,7 +19,7 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 		'images' => array(),
 	);
 
-	$regex = '/(http)[^\s\'"]+?(png|jpg|jpeg|gif|ico|svg|bmp|tiff|webp)[^\s\'"]*?(?=[\'"])/i';
+	$regex = '/(http)[^\s\'"]+?\.(png|jpg|jpeg|gif|ico|svg|bmp|tiff|webp)[^\s\'"]*?(?=[\'"])/i';
 
 	$img_srcs = array();
 
@@ -36,6 +36,10 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 	$processed_data = wp_specialchars_decode( $data );
 
 	foreach ( $unique_img_srcs_extensions as $old_url => $extension ) {
+		if ( false !== strpos( $old_url, 'w3.org' ) ) {
+			continue;
+		}
+
 		$prefix = 'themebuilder';
 
 		// Likewise, decode search string.
@@ -54,8 +58,9 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 		$new_url_id = seedprod_lite_insert_attachment_from_url( $plugin_img_url );
 		$new_url    = wp_get_attachment_url( $new_url_id );
 
-		if ( is_wp_error( $new_url ) ) {
-			echo esc_html( $new_url->get_error_message() );
+		if ( is_wp_error( $new_url ) || empty( $new_url ) ) {
+			// Skip replacement — keep original URL if image import fails.
+			continue;
 		} else {
 
 			$processed_data = str_replace( $old_url_decoded, $new_url, $processed_data );

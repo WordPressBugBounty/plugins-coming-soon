@@ -1979,10 +1979,15 @@ function seedprod_lite_wp_post_revision_fields( $fields, $post ) {
 	}
 }
 
-// add_filter( 'get_edit_post_link', 'seedprod_lite_filter_get_edit_post_link', 11, 3 );
+add_filter( 'get_edit_post_link', 'seedprod_lite_filter_get_edit_post_link', 11, 3 );
 
 /**
  * Get edit post link.
+ *
+ * Filters the edit post link to point to SeedProd builder ONLY on frontend for:
+ * - Homepage with SeedProd theme template
+ *
+ * NOTE: Does NOT filter admin area - the page_row_actions filter handles backend links.
  *
  * @param string          $link    Link(depreciated).
  * @param integer|WP_Post $id      Post ID or post object. Default is the global $post.
@@ -1990,10 +1995,30 @@ function seedprod_lite_wp_post_revision_fields( $fields, $post ) {
  * @return string|null $link The edit post link for the given post.
  */
 function seedprod_lite_filter_get_edit_post_link( $link, $id, $context ) {
-	$has_settings = get_post_meta( $id, '_seedprod_page', true );
-	if ( ! empty( $has_settings ) ) {
-		$link = admin_url() . 'admin.php?page=seedprod_lite_builder&id=' . $id . '#/setup/' . $id;
+	// IMPORTANT: Only run on frontend, not in admin area.
+	// The page_row_actions filter in edit-with-seedprod-functions.php handles backend table links.
+	if ( is_admin() ) {
+		return $link;
 	}
+
+	// Only filter page post types.
+	if ( 'page' !== get_post_type( $id ) ) {
+		return $link;
+	}
+
+	// Check if this is the homepage with a SeedProd theme template.
+	// On frontend, WordPress conditionals work properly, so we can use is_front_page().
+	if ( is_front_page() && absint( get_queried_object_id() ) === absint( $id ) ) {
+		$theme_enabled = get_option( 'seedprod_theme_enabled' );
+		if ( ! empty( $theme_enabled ) && function_exists( 'seedprod_lite_get_theme_template_by_type_condition' ) ) {
+			// Use existing function to find matching page template (returns just ID when $id = true).
+			$template_id = seedprod_lite_get_theme_template_by_type_condition( 'page', true );
+			if ( ! empty( $template_id ) ) {
+				return admin_url() . 'admin.php?page=seedprod_lite_builder&id=' . $template_id . '#/setup/' . $template_id;
+			}
+		}
+	}
+
 	return $link;
 }
 

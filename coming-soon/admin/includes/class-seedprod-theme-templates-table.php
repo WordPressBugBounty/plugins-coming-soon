@@ -171,8 +171,9 @@ class SeedProd_Theme_Templates_Table extends WP_List_Table {
 			__( 'Edit Design', 'coming-soon' )
 		);
 
-		// Edit Conditions action (not for CSS or Part types).
-		if ( 'css' !== $item['type'] && 'part' !== $item['type'] ) {
+		// Edit Conditions action (not for CSS type only).
+		// For Part types, this will show as "Edit Conditions" but the conditions section will be hidden in the modal.
+		if ( 'css' !== $item['type'] ) {
 			$actions['conditions'] = sprintf(
 				'<a href="#" class="seedprod-edit-conditions" data-id="%s">%s</a>',
 				$item['id'],

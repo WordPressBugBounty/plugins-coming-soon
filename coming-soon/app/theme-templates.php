@@ -899,7 +899,7 @@ function seedprod_lite_theme_import( $id = null ) {
 				'_seedprod_page'               => true,
 				'_seedprod_is_theme_template'  => true,
 				'_seedprod_page_uuid'          => wp_generate_uuid4(),
-				'_seedprod_page_template_type' => $meta->_seedprod_page_template_type[0],
+				'_seedprod_page_template_type' => isset( $meta->_seedprod_page_template_type[0] ) ? $meta->_seedprod_page_template_type[0] : '',
 			),
 		);
 
@@ -920,7 +920,7 @@ function seedprod_lite_theme_import( $id = null ) {
 		$post_content          = $v1['post_content'];
 
 		// For CSS templates, ensure page_type is set in the JSON.
-		if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+		if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 			$json_data = json_decode( $post_content_filtered, true );
 			if ( null !== $json_data ) {
 				// Ensure page_type is set at the root level.
@@ -936,20 +936,19 @@ function seedprod_lite_theme_import( $id = null ) {
 		$update_result = $wpdb->get_var( $safe_sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 
 		// add meta.
-		if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+		if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 			// set css file.
 			// find and replace url.
-			$css         = str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_css[0] );
-			$custom_css  = str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_custom_css[0] );
+			$css         = isset( $meta->_seedprod_css[0] ) ? str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_css[0] ) : '';
 			$custom_css  = '';
-			$builder_css = str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_builder_css[0] );
+			$builder_css = isset( $meta->_seedprod_builder_css[0] ) ? str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_builder_css[0] ) : '';
 
 			update_post_meta( $id, '_seedprod_css', $css );
 			update_post_meta( $id, '_seedprod_custom_css', $custom_css );
 			update_post_meta( $id, '_seedprod_builder_css', $builder_css );
 			update_option( 'global_css_page_id', $id );
-			// generate css.
-			$css = $css . $custom_css;
+			// Generate CSS with proper @import handling.
+			$css = seedprod_lite_merge_global_custom_css( $css, $custom_css );
 
 			// trash current css file and set css file pointer.
 			$current_css_file = get_option( 'seedprod_global_css_page_id' );
@@ -960,14 +959,15 @@ function seedprod_lite_theme_import( $id = null ) {
 			update_option( 'seedprod_global_css_page_id', $id );
 			seedprod_lite_generate_css_file( $id, $css );
 		} else {
-			$code = seedprod_lite_extract_page_css( $v1['post_content'], $id );
-			update_post_meta( $id, '_seedprod_theme_template_condition', $meta->_seedprod_theme_template_condition[0] );
+			$code               = seedprod_lite_extract_page_css( $v1['post_content'], $id );
+			$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? $meta->_seedprod_theme_template_condition[0] : '';
+			update_post_meta( $id, '_seedprod_theme_template_condition', $template_condition );
 			update_post_meta( $id, '_seedprod_css', $code['css'] );
 			update_post_meta( $id, '_seedprod_html', $code['html'] );
 			seedprod_lite_generate_css_file( $id, $code['css'] );
 
 			// process conditon to see if we need to create a placeholder page.
-			$conditions = $meta->_seedprod_theme_template_condition[0];
+			$conditions = $template_condition;
 
 			if ( ! empty( $conditions ) ) {
 

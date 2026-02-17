@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Check if SeedProd theme is enabled.
  * Checks BOTH old (seedprod_theme_enabled) and new (seedprod_settings JSON) formats.
  *
- * @return bool True if theme is enabled in either location.
+ * @return boolean True if theme is enabled in either location.
  */
 function seedprod_lite_v2_is_theme_enabled() {
 	// Check new format (seedprod_settings JSON).
@@ -243,10 +243,12 @@ function seedprod_lite_v2_get_template_conditions() {
 		wp_send_json_error( __( 'You do not have permission to edit this template.', 'coming-soon' ), 403 );
 	}
 
-	// Check template type - conditions not applicable for CSS or Part types.
+	// Get template type.
 	$template_type = get_post_meta( $template_id, '_seedprod_page_template_type', true );
-	if ( 'css' === $template_type || 'part' === $template_type ) {
-		wp_send_json_error( __( 'Conditions are not applicable for this template type.', 'coming-soon' ), 400 );
+
+	// Block CSS templates completely (they shouldn't use this endpoint).
+	if ( 'css' === $template_type ) {
+		wp_send_json_error( __( 'This template type cannot be edited here.', 'coming-soon' ), 400 );
 	}
 
 	// Get template name and priority from post.
@@ -290,10 +292,12 @@ function seedprod_lite_v2_save_template_conditions() {
 		wp_send_json_error( __( 'You do not have permission to edit this template.', 'coming-soon' ), 403 );
 	}
 
-	// Check template type - conditions not applicable for CSS or Part types.
+	// Get template type.
 	$template_type = get_post_meta( $template_id, '_seedprod_page_template_type', true );
-	if ( 'css' === $template_type || 'part' === $template_type ) {
-		wp_send_json_error( __( 'Conditions are not applicable for this template type.', 'coming-soon' ), 400 );
+
+	// Block CSS templates completely (they shouldn't use this endpoint).
+	if ( 'css' === $template_type ) {
+		wp_send_json_error( __( 'This template type cannot be edited here.', 'coming-soon' ), 400 );
 	}
 
 	// Get and validate template name and priority.
@@ -322,7 +326,16 @@ function seedprod_lite_v2_save_template_conditions() {
 	// Also save priority in meta for consistency.
 	update_post_meta( $template_id, '_seedprod_priority', $priority );
 
-	// Get and validate conditions.
+	// For Part types, we only save name and priority (no conditions).
+	if ( 'part' === $template_type ) {
+		wp_send_json_success(
+			array(
+				'message' => __( 'Template updated successfully.', 'coming-soon' ),
+			)
+		);
+	}
+
+	// Get and validate conditions (for non-Part types).
 	$conditions_json = isset( $_POST['conditions'] ) ? sanitize_text_field( wp_unslash( $_POST['conditions'] ) ) : '[]';
 	$conditions      = json_decode( $conditions_json, true );
 
@@ -1085,7 +1098,7 @@ function seedprod_lite_v2_import_theme_request() {
 				'_seedprod_page'               => true,
 				'_seedprod_is_theme_template'  => true,
 				'_seedprod_page_uuid'          => wp_generate_uuid4(),
-				'_seedprod_page_template_type' => $meta->_seedprod_page_template_type[0],
+				'_seedprod_page_template_type' => isset( $meta->_seedprod_page_template_type[0] ) ? $meta->_seedprod_page_template_type[0] : '',
 			),
 		);
 
@@ -1107,7 +1120,7 @@ function seedprod_lite_v2_import_theme_request() {
 		$post_content          = $v1['post_content'];
 
 		// For CSS templates, ensure page_type is set in the JSON.
-		if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+		if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 			$json_data = json_decode( $post_content_filtered, true );
 			if ( null !== $json_data ) {
 				// Ensure page_type is set at the root level.
@@ -1123,7 +1136,7 @@ function seedprod_lite_v2_import_theme_request() {
 		$wpdb->query( $safe_sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
 		// Add meta data.
-		if ( 'css' === $meta->_seedprod_page_template_type[0] ) {
+		if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
 			// Handle CSS template (Global CSS).
 			// The CSS content for Global CSS templates is in post_content, not meta.
 			// We need to use the meta if available, otherwise use post_content.
@@ -1135,12 +1148,7 @@ function seedprod_lite_v2_import_theme_request() {
 				$css = str_replace( 'TO_BE_REPLACED', home_url(), $v1['post_content'] );
 			}
 
-			// Handle custom CSS.
-			$custom_css = isset( $meta->_seedprod_custom_css[0] ) ?
-				str_replace( 'TO_BE_REPLACED', home_url(), $meta->_seedprod_custom_css[0] ) :
-				'';
-
-			// Note: Old code sets custom_css to empty string even after replacement.
+			// Custom CSS is intentionally set to empty during import.
 			$custom_css = '';
 
 			// Handle builder CSS.

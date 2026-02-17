@@ -26,7 +26,13 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 // Load EDD default styles if EDD is active.
 if ( in_array( 'easy-digital-downloads/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) || in_array( 'easy-digital-downloads-pro/easy-digital-downloads.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
 	$css_suffix = is_rtl() ? '-rtl.min.css' : '.min.css';
-	$url        = trailingslashit( EDD_PLUGIN_URL ) . 'assets/css/edd' . $css_suffix;
+	if ( function_exists( 'edd_get_assets_url' ) ) {
+		// EDD 3.3.0+ with modern asset structure.
+		$url = edd_get_assets_url( 'css/frontend' ) . 'edd' . $css_suffix;
+	} else {
+		// Older EDD versions - use legacy path.
+		$url = trailingslashit( EDD_PLUGIN_URL ) . 'assets/css/edd' . $css_suffix;
+	}
 
 	wp_enqueue_style(
 		'seedprod-edd-general',

@@ -594,7 +594,7 @@ function seedprod_lite_v2_get_plugins_status() {
 		'duplicator/duplicator.php'                       => 'duplicator',
 		'duplicator-pro/duplicator-pro.php'               => 'duplicator-pro',
 		'wpconsent-cookies-banner-privacy-suite/wpconsent.php' => 'wpconsent',
-		'wpconsent-premium/wpconsent.php'                 => 'wpconsent-premium',
+		'wpconsent-premium/wpconsent-premium.php'         => 'wpconsent-premium',
 		'google-analytics-dashboard-for-wp/gadwp.php'     => 'exactmetrics',
 		'exactmetrics-premium/exactmetrics-premium.php'   => 'exactmetrics-pro',
 		'instagram-feed/instagram-feed.php'               => 'instagramfeed',

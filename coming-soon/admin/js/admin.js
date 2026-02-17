@@ -4230,29 +4230,44 @@
 						if (response.data.name) {
 							$templateName.val(decodeHtmlEntities(response.data.name));
 						}
-						
+
 						// Load template type
-						if (response.data.type) {
-							var typeLabel = typeLabels[response.data.type] || response.data.type;
+						var currentTemplateType = response.data.type;
+						if (currentTemplateType) {
+							var typeLabel = typeLabels[currentTemplateType] || currentTemplateType;
 							$templateType.text(typeLabel);
 						}
-						
+
 						// Load template priority
 						if (response.data.priority !== undefined) {
 							$templatePriority.val(response.data.priority);
 						} else {
 							$templatePriority.val(20);
 						}
-						
-						// Load existing conditions
-						var conditions = response.data.conditions;
-						if (conditions && conditions.length > 0) {
-							conditions.forEach(function(condition) {
-								addConditionRow(condition);
-							});
+
+						// Cache selectors for performance
+						var $conditionsFormGroup = $('.seedprod-form-group').has('#seedprod-conditions-list');
+						var $addConditionBtn = $('.seedprod-add-condition');
+
+						// Hide conditions section for Template Parts (type: 'part')
+						if (currentTemplateType === 'part') {
+							$conditionsFormGroup.hide();
+							$addConditionBtn.hide();
 						} else {
-							// Add default empty row
-							addConditionRow();
+							// Show conditions section for other types
+							$conditionsFormGroup.show();
+							$addConditionBtn.show();
+
+							// Load existing conditions
+							var conditions = response.data.conditions;
+							if (conditions && conditions.length > 0) {
+								conditions.forEach(function(condition) {
+									addConditionRow(condition);
+								});
+							} else {
+								// Add default empty row
+								addConditionRow();
+							}
 						}
 					} else {
 						// Add default empty row
@@ -4444,6 +4459,27 @@
 		}
 	}
 	
+	// Download a file from base64-encoded data via Blob URL.
+	// Works in all environments including WordPress Playground where
+	// the Service Worker intercepts static file requests.
+	function seedprod_lite_v2_download_base64_file(base64Data, filename, mimeType) {
+		mimeType = mimeType || 'application/zip';
+		var byteCharacters = atob(base64Data);
+		var byteArray = new Uint8Array(byteCharacters.length);
+		for (var i = 0; i < byteCharacters.length; i++) {
+			byteArray[i] = byteCharacters.charCodeAt(i);
+		}
+		var blob = new Blob([byteArray], { type: mimeType });
+		var url = window.URL.createObjectURL(blob);
+		var a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		window.URL.revokeObjectURL(url);
+	}
+
 	/**
 	 * Initialize Import/Export Modal
 	 */
@@ -4491,61 +4527,60 @@
 			var $spinner = $btn.find('.spinner');
 			var $text = $btn.find('.button-text');
 			var $status = $('.seedprod-export-status');
-			
+			var originalText = $text.text();
+
 			// Show loading state
 			$btn.prop('disabled', true);
 			$spinner.show();
 			$text.text(seedprod_admin.strings.loading || 'Processing...');
 			$status.show().find('.notice').removeClass('notice-error notice-success').addClass('notice-info').find('p').text('Preparing export file...');
-			
-			// Create a form to trigger file download
-			var $form = $('<form/>', {
-				action: ajaxurl,
-				method: 'POST',
-				style: 'display: none;'
+
+			// Make AJAX request (matches landing page export pattern)
+			$.ajax({
+				url: ajaxurl,
+				type: 'POST',
+				data: {
+					action: 'seedprod_lite_v2_export_theme_files',
+					nonce: seedprod_admin.v2_nonce
+				},
+				success: function(response) {
+					$btn.prop('disabled', false);
+					$spinner.hide();
+					$text.text(originalText);
+
+					if (response.success && response.data && response.data.filedata) {
+						// Build success message
+						var successMsg = seedprod_admin.strings.export_completed || 'Export completed successfully! Downloading...';
+						if (response.data.warning) {
+							successMsg = response.data.warning + ' Download starting...';
+						}
+						$status.show().find('.notice').removeClass('notice-info notice-error').addClass('notice-success').find('p').text(successMsg);
+
+						// Trigger download from inline base64 data via Blob URL.
+						seedprod_lite_v2_download_base64_file(response.data.filedata, response.data.filename || 'seedprod-theme-export.zip');
+
+						// Hide success message after 3 seconds
+						setTimeout(function() {
+							$status.fadeOut();
+						}, 3000);
+					} else {
+						// Show error message
+						var errorMsg = (response.data && response.data.message) ? response.data.message : (seedprod_admin.strings.export_failed || 'Export failed. Please try again.');
+						$status.show().find('.notice').removeClass('notice-info notice-success').addClass('notice-error').find('p').text(errorMsg);
+					}
+				},
+				error: function(xhr, status, error) {
+					$btn.prop('disabled', false);
+					$spinner.hide();
+					$text.text(originalText);
+
+					var errorMsg = seedprod_admin.strings.export_failed || 'Export failed. Please try again.';
+					if (xhr.responseJSON && xhr.responseJSON.data && xhr.responseJSON.data.message) {
+						errorMsg = xhr.responseJSON.data.message;
+					}
+					$status.show().find('.notice').removeClass('notice-info notice-success').addClass('notice-error').find('p').text(errorMsg);
+				}
 			});
-			
-			$form.append($('<input/>', {
-				type: 'hidden',
-				name: 'action',
-				value: 'seedprod_lite_v2_export_theme_files'
-			}));
-			
-			$form.append($('<input/>', {
-				type: 'hidden',
-				name: 'nonce',
-				value: seedprod_admin.v2_nonce
-			}));
-			
-			// Append form to body and submit
-			$('body').append($form);
-			
-			// Create an iframe to handle the download
-			var $iframe = $('<iframe/>', {
-				name: 'download-frame',
-				style: 'display: none;'
-			});
-			$('body').append($iframe);
-			
-			$form.attr('target', 'download-frame');
-			$form.submit();
-			
-			// Reset button after a delay (since we can't detect when download completes)
-			setTimeout(function() {
-				$btn.prop('disabled', false);
-				$spinner.hide();
-				$text.text('Export All Templates');
-				$status.show().find('.notice').removeClass('notice-info').addClass('notice-success').find('p').text('Export completed successfully!');
-				
-				// Clean up
-				$form.remove();
-				$iframe.remove();
-				
-				// Hide success message after 3 seconds
-				setTimeout(function() {
-					$status.fadeOut();
-				}, 3000);
-			}, 2000);
 		});
 		
 		// File selection
@@ -4816,17 +4851,12 @@
 					$spinner.hide();
 					$text.text(originalText);
 
-					if (response.success && response.data && response.data.download_url) {
+					if (response.success && response.data && response.data.filedata) {
 						// Show success message
-						$status.show().find('.notice').removeClass('notice-info notice-error').addClass('notice-success').find('p').text(seedprod_admin.strings.export_completed || 'Export completed successfully! Downloading...');
+						$status.show().find('.notice').removeClass('notice-info notice-error').addClass('notice-success').find('p').text(seedprod_admin.strings.export_completed || 'Export completed successfully! Starting download...');
 
-						// Trigger download
-						var link = document.createElement('a');
-						link.href = response.data.download_url;
-						link.download = response.data.filename || 'seedprod-export.zip';
-						document.body.appendChild(link);
-						link.click();
-						document.body.removeChild(link);
+						// Trigger download from inline base64 data via Blob URL.
+						seedprod_lite_v2_download_base64_file(response.data.filedata, response.data.filename || 'seedprod-page-export.zip');
 
 						// Hide success message after 3 seconds
 						setTimeout(function() {

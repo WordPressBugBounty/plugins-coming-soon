@@ -388,10 +388,18 @@ function seedprod_lite_v2_export_theme_files() {
 	$tablename      = $wpdb->prefix . 'posts';
 	$meta_tablename = $wpdb->prefix . 'postmeta';
 
-	// Get list of theme templates and create json file
-	$sql     = "SELECT * FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
-	$sql    .= " WHERE post_status='publish' AND post_type = 'seedprod' AND meta_key = '_seedprod_is_theme_template' ";
-	$results = $wpdb->get_results( $sql ); // phpcs:ignore
+	// Get list of theme templates AND pages edited with SeedProd.
+	// phpcs:disable Generic.Formatting.MultipleStatementAlignment.NotSameWarning
+	$sql      = 'SELECT DISTINCT p.* FROM ' . $tablename . ' p ';
+	$sql     .= "LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID AND pm.meta_key = '_seedprod_is_theme_template') ";
+	$sql     .= "LEFT JOIN $meta_tablename pm2 ON (pm2.post_id = p.ID AND pm2.meta_key = '_seedprod_edited_with_seedprod') ";
+	$sql     .= "WHERE p.post_status = 'publish' ";
+	$sql     .= 'AND ( ';
+	$sql     .= "  (p.post_type = 'seedprod' AND pm.meta_value IS NOT NULL) ";  // Theme templates.
+	$sql     .= "  OR (p.post_type = 'page' AND pm2.meta_value = '1') ";        // Pages edited with SeedProd.
+	$sql     .= ') ';
+	// phpcs:enable Generic.Formatting.MultipleStatementAlignment.NotSameWarning
+	$results  = $wpdb->get_results( $sql ); // phpcs:ignore
 
 	$processed_data             = array();
 	$export                     = array();
@@ -435,12 +443,26 @@ function seedprod_lite_v2_export_theme_files() {
 			);
 		}
 
+		// Determine page category - theme template vs edited page.
+		$page_category      = 'theme_template';
+		$export_post_type   = 'seedprod';
+		$export_post_status = 'publish';
+
+		if ( 'page' === $v->post_type ) {
+			$page_category      = 'edited_page';
+			$export_post_type   = 'page';
+			$export_post_status = $v->post_status;
+		}
+
 		$export['theme'][] = array(
 			'order'                 => $v->menu_order,
 			'post_content'          => base64_encode( $processed_data[ $k ]['html'] ), // phpcs:ignore
 			'post_content_filtered' => base64_encode( $processed_data[ $k ]['data'] ), // phpcs:ignore
 			'post_title'            => base64_encode( $v->post_title ), // phpcs:ignore
 			'meta'                  => base64_encode( $meta ), // phpcs:ignore
+			'page_category'         => base64_encode( $page_category ), // phpcs:ignore
+			'post_type'             => base64_encode( $export_post_type ), // phpcs:ignore
+			'post_status'           => base64_encode( $export_post_status ), // phpcs:ignore
 		);
 
 		// Find shortcodes in content
@@ -486,14 +508,22 @@ function seedprod_lite_v2_export_theme_files() {
 	$export_folder = 'seedprod-themes-exports';
 	$export_path   = $path . $export_folder;
 
-	// Remove existing export folder if exists
-	if ( is_dir( $export_path ) ) {
-		// Directory cleanup handled by V2 function
-		seedprod_lite_v2_recursive_rmdir( $export_path );
+	// Create export folder if it doesn't exist (don't delete - prevents race condition with concurrent exports).
+	if ( ! is_dir( $export_path ) ) {
+		mkdir( $export_path, 0755 );
 	}
 
-	// Create export folder
-	mkdir( $export_path, 0755 );
+	// Clean up old files (older than 1 hour) to prevent disk bloat.
+	// This preserves recent exports from other users while still managing disk space.
+	$old_files    = glob( $export_path . '/*' );
+	$one_hour_ago = time() - HOUR_IN_SECONDS;
+	if ( $old_files ) {
+		foreach ( $old_files as $old_file ) {
+			if ( filemtime( $old_file ) < $one_hour_ago ) {
+				wp_delete_file( $old_file );
+			}
+		}
+	}
 
 	// Save JSON export file
 	$json_name   = 'export_theme.json';
@@ -515,43 +545,71 @@ function seedprod_lite_v2_export_theme_files() {
 	}
 
 	$zip      = new ZipArchive();
-	$zip_name = 'seedprod-theme-export-' . date( 'Y-m-d-H-i-s' ) . '.zip';
-	$zip_path = $path . $zip_name;
+	$zip_name = 'seedprod-theme-export-' . gmdate( 'Y-m-d-H-i-s' ) . '.zip';
+	$zip_path = $export_path . '/' . $zip_name;
 
 	if ( $zip->open( $zip_path, ZipArchive::CREATE ) === true ) {
 		// Add all files from export folder to zip
 		seedprod_lite_v2_zipdir( $export_path, $zip, strlen( "$export_path/" ) );
 		$zip->close();
 
-		// Check if we should report failed images
-		if ( ! empty( $all_failed_images ) ) {
-			// Clean up before sending response
-			wp_delete_file( $zip_path );
-			seedprod_lite_v2_recursive_rmdir( $export_path );
-
-			// Send response with warning about failed images
-			$warning_message = sprintf( __( '%d images could not be downloaded and were excluded from the export.', 'coming-soon' ), count( $all_failed_images ) );
-			wp_send_json_success(
-				array(
-					'success'       => true,
-					'message'       => __( 'Export completed successfully', 'coming-soon' ),
-					'warning'       => $warning_message,
-					'failed_images' => count( $all_failed_images ),
-					'download_url'  => admin_url( 'admin-ajax.php?action=seedprod_lite_v2_download_export&file=' . basename( $zip_path ) ),
-				)
-			);
-		} else {
-			// Send file for download
-			header( 'Content-Type: application/zip' );
-			header( 'Content-Disposition: attachment; filename="' . $zip_name . '"' );
-			header( 'Content-Length: ' . filesize( $zip_path ) );
-			readfile( $zip_path );
-
-			// Clean up
-			wp_delete_file( $zip_path );
-			seedprod_lite_v2_recursive_rmdir( $export_path );
-			exit;
+		// Clean up temp files (JSON, images) but keep ZIP for download.
+		$json_file_path = $export_path . '/' . $json_name;
+		if ( file_exists( $json_file_path ) ) {
+			wp_delete_file( $json_file_path );
 		}
+		// Delete any image files that were copied for export.
+		if ( defined( 'GLOB_BRACE' ) ) {
+			$image_files = glob( $export_path . '/*.{jpg,jpeg,png,gif,webp,svg}', GLOB_BRACE );
+			if ( $image_files ) {
+				foreach ( $image_files as $image_file ) {
+					wp_delete_file( $image_file );
+				}
+			}
+		} else {
+			// Fallback for environments without GLOB_BRACE (e.g. WordPress Playground).
+			foreach ( $export_data_images as $image_data ) {
+				if ( ! empty( $image_data['filename'] ) ) {
+					$image_file_path = $export_path . '/' . $image_data['filename'];
+					if ( file_exists( $image_file_path ) ) {
+						wp_delete_file( $image_file_path );
+					}
+				}
+			}
+		}
+
+		// Read ZIP and base64-encode for inline delivery.
+		// This ensures downloads work in all environments including WordPress Playground
+		// where the Service Worker intercepts static file requests.
+		$zip_contents = file_get_contents( $zip_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+		if ( false === $zip_contents ) {
+			wp_send_json_error( __( 'Failed to read export file.', 'coming-soon' ) );
+		}
+		$zip_base64 = base64_encode( $zip_contents ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
+		unset( $zip_contents );
+
+		// Clean up ZIP file since it is delivered inline.
+		wp_delete_file( $zip_path );
+
+		// Prepare response data.
+		$response_data = array(
+			'success'  => true,
+			'message'  => __( 'Export completed successfully', 'coming-soon' ),
+			'filedata' => $zip_base64,
+			'filename' => $zip_name,
+		);
+
+		// Add warning if some images failed to download.
+		if ( ! empty( $all_failed_images ) ) {
+			$response_data['warning']       = sprintf(
+				/* translators: %d: number of failed images */
+				__( '%d images could not be downloaded and were excluded from the export.', 'coming-soon' ),
+				count( $all_failed_images )
+			);
+			$response_data['failed_images'] = count( $all_failed_images );
+		}
+
+		wp_send_json_success( $response_data );
 	} else {
 		wp_send_json_error( __( 'Failed to create ZIP file.', 'coming-soon' ) );
 	}
@@ -961,15 +1019,22 @@ function seedprod_lite_v2_export_landing_pages() {
 	$path       = trailingslashit( $upload_dir['basedir'] ) . 'seedprod-themes-exports/';
 	$targetdir  = $path;
 
-	// Setup export directory
-	if ( is_dir( $targetdir ) ) {
-		seedprod_lite_v2_recursive_rmdir( $targetdir );
-	}
-
-	// Create directory if it doesn't exist
+	// Create directory if it doesn't exist (don't delete - prevents race condition with concurrent exports).
 	if ( ! is_dir( $targetdir ) ) {
 		if ( ! mkdir( $targetdir, 0755, true ) ) {
 			wp_send_json_error( __( 'Failed to create export directory.', 'coming-soon' ) );
+		}
+	}
+
+	// Clean up old files (older than 1 hour) to prevent disk bloat.
+	// This preserves recent exports from other users while still managing disk space.
+	$old_files    = glob( $targetdir . '*' );
+	$one_hour_ago = time() - HOUR_IN_SECONDS;
+	if ( $old_files ) {
+		foreach ( $old_files as $old_file ) {
+			if ( filemtime( $old_file ) < $one_hour_ago ) {
+				wp_delete_file( $old_file );
+			}
 		}
 	}
 
@@ -1011,10 +1076,10 @@ function seedprod_lite_v2_export_landing_pages() {
 	try {
 		$zip_result = seedprod_lite_v2_prepare_zip( $files_to_download, $export_json, 'page' );
 
-		if ( $zip_result && isset( $zip_result['download_url'] ) ) {
+		if ( $zip_result && isset( $zip_result['filedata'] ) ) {
 			wp_send_json_success( $zip_result );
 		} else {
-			wp_send_json_error( __( 'Export completed but download URL not generated.', 'coming-soon' ) );
+			wp_send_json_error( __( 'Export completed but file data not generated.', 'coming-soon' ) );
 		}
 	} catch ( Exception $e ) {
 		wp_send_json_error( sprintf( __( 'Export failed during ZIP creation: %s', 'coming-soon' ), $e->getMessage() ) );

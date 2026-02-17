@@ -329,6 +329,7 @@ $generated_i18n_strings = array(
 	// Reference: src/views/GlobalCSS.vue
 	// Reference: src/components/VideoPopUpOptions.vue
 	// Reference: src/components/VideoOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'YouTube URL', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Pro.vue
@@ -528,6 +529,7 @@ $generated_i18n_strings = array(
 	__( 'The background slideshow will not be shown in the editor preview. The slides will only be displayed in the live preview.', 'coming-soon' ),
 
 	// Reference: src/views/SetupDesign-Pro.vue
+	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/RowOptions.vue
 	// Reference: src/components/ContentToggleOptions.vue
@@ -3482,6 +3484,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
 	// Reference: src/components/SeedProdBasicGalleryOptions.vue
 	// Reference: src/components/SectionOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/SearchFormOptions.vue
 	// Reference: src/components/RowOptions.vue
 	// Reference: src/components/ProgressBarOptions.vue
@@ -4318,6 +4321,7 @@ $generated_i18n_strings = array(
 	// Reference: src/components/StripepaymentOptions.vue
 	// Reference: src/components/SocialProfilesOptions.vue
 	// Reference: src/components/ShadowControl.vue
+	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/ProductMetaOptions.vue
 	// Reference: src/components/PricingTableOptions.vue
 	// Reference: src/components/PriceListOptions.vue
@@ -4366,6 +4370,7 @@ $generated_i18n_strings = array(
 	__( 'Width', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Vimeo URL', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
@@ -4386,9 +4391,11 @@ $generated_i18n_strings = array(
 	__( 'Specify an end time (in seconds)', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'External URL', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Custom Video URL', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
@@ -4398,13 +4405,16 @@ $generated_i18n_strings = array(
 	__( 'Video Options', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/FacebookEmbedOptions.vue
 	__( 'Autoplay', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Mute', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Loop', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
@@ -4494,12 +4504,14 @@ $generated_i18n_strings = array(
 	__( 'Enable Image Overlay', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Play on Mobile', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
 	__( 'Modest Branding', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Privacy Mode', 'coming-soon' ),
 
 	// Reference: src/components/VideoPopUpOptions.vue
@@ -4649,6 +4661,7 @@ $generated_i18n_strings = array(
 	__( 'Choose New Video', 'coming-soon' ),
 
 	// Reference: src/components/VideoControl.vue
+	// Reference: src/components/SectionOptions.vue
 	__( 'Select Video', 'coming-soon' ),
 
 	// Reference: src/components/UpsellsOptions.vue
@@ -5939,6 +5952,7 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/TeamMemberOptions.vue
 	// Reference: src/components/SiteLogoOptions.vue
 	// Reference: src/components/ProductFeaturedImageOptions.vue
+	// Reference: src/components/PriceListOptions.vue
 	// Reference: src/components/PostfeaturedimageOptions.vue
 	// Reference: src/components/ImageOptions.vue
 	// Reference: src/components/HotspotOptions.vue
@@ -6738,6 +6752,42 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/PostsOptions.vue
 	// Reference: src/components/BorderSectionControl.vue
 	__( 'Border', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Background Video', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Enable Background Video', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Video Source', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Start Time (seconds)', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'End Time (seconds)', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Show Controls', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Overlay Opacity', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Preload Strategy', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Auto (Full Video)', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Metadata Only', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Controls video preloading behavior for performance.', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Background videos are automatically muted and set to autoplay for optimal user experience.', 'coming-soon' ),
 
 	// Reference: src/components/Section.vue
 	__( 'Move Section', 'coming-soon' ),
@@ -9768,6 +9818,12 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue
 	__( 'After Image', 'coming-soon' ),
+
+	// Reference: src/components/BeforeAfterToggleOptions.vue
+	__( 'Before Image Alt Text', 'coming-soon' ),
+
+	// Reference: src/components/BeforeAfterToggleOptions.vue
+	__( 'After Image Alt Text', 'coming-soon' ),
 
 	// Reference: src/components/BeforeAfterToggleOptions.vue
 	__( 'Before / After Label Styles', 'coming-soon' ),

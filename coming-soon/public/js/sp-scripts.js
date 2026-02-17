@@ -1413,6 +1413,664 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
   }
 }
 
+/**
+ * Initialize background video sizing for frontend/preview pages
+ * This replicates the ResizeObserver logic from the Vue builder
+ * Now includes lazy loading with Intersection Observer for better performance
+ *
+ * @param {string} sectionId - The ID of the section containing the background video
+ */
+function seedprod_pro_init_background_video(sectionId) {
+  var section = document.getElementById('sp-' + sectionId);
+  if (!section) return;
+
+  // Check if Intersection Observer is supported
+  if ('IntersectionObserver' in window) {
+    // Use Intersection Observer for lazy loading
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Video section is now visible - initialize it
+          initializeVideo(sectionId);
+          // Stop observing once loaded
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      // Start loading when video is 100px away from viewport
+      rootMargin: '100px'
+    });
+
+    // Start observing the section
+    observer.observe(section);
+  } else {
+    // Fallback for older browsers - load immediately
+    initializeVideo(sectionId);
+  }
+}
+
+/**
+ * Actually initialize the video (called when section is visible)
+ */
+function initializeVideo(sectionId) {
+  // Check connection speed before loading video
+  if (window.navigator && window.navigator.connection) {
+    var connection = navigator.connection;
+    // Skip video loading on slow connections or data saver mode
+    if (connection.saveData || connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g') {
+      // Just hide the video wrapper - section background image will show through
+      var section = document.getElementById('sp-' + sectionId);
+      if (section) {
+        var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+        if (videoWrapper) {
+          videoWrapper.style.display = 'none';
+        }
+      }
+      return;
+    }
+  }
+  function updateVideoSize() {
+    var section = document.getElementById('sp-' + sectionId);
+    if (!section) return;
+    var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+    if (!videoWrapper) return;
+
+    // Wrapper fills section via CSS (inset: 0), so get its dimensions
+    var wrapperWidth = videoWrapper.offsetWidth;
+    var wrapperHeight = videoWrapper.offsetHeight;
+
+    // Find video element (iframe or video tag)
+    var videoElement = videoWrapper.querySelector('iframe, video');
+    if (!videoElement) return;
+
+    // Calculate video dimensions to cover the wrapper (16:9 aspect ratio)
+    var videoAspectRatio = 16 / 9;
+    var wrapperAspectRatio = wrapperWidth / wrapperHeight;
+    var videoWidth, videoHeight;
+    if (wrapperAspectRatio > videoAspectRatio) {
+      // Wrapper is wider than video - fit to width
+      videoWidth = wrapperWidth;
+      videoHeight = wrapperWidth / videoAspectRatio;
+    } else {
+      // Wrapper is taller than video - fit to height
+      videoWidth = wrapperHeight * videoAspectRatio;
+      videoHeight = wrapperHeight;
+    }
+
+    // Apply dimensions and centering
+    videoElement.style.width = Math.ceil(videoWidth) + 'px';
+    videoElement.style.height = Math.ceil(videoHeight) + 'px';
+    videoElement.style.position = 'absolute';
+    videoElement.style.top = '50%';
+    videoElement.style.left = '50%';
+    videoElement.style.transform = 'translate(-50%, -50%)';
+    videoElement.style.minWidth = '100%';
+    videoElement.style.minHeight = '100%';
+    videoElement.style.objectFit = 'cover';
+
+    // Disable right-click and all interactions
+    videoElement.oncontextmenu = function (e) {
+      e.preventDefault();
+      return false;
+    };
+  }
+
+  // Initial sizing with delay to ensure section has proper height
+  setTimeout(updateVideoSize, 50);
+  setTimeout(updateVideoSize, 200);
+  setTimeout(updateVideoSize, 500);
+
+  // Use ResizeObserver if available (modern browsers)
+  if (typeof ResizeObserver !== 'undefined') {
+    var observer = new ResizeObserver(function () {
+      updateVideoSize();
+    });
+    var section = document.getElementById('sp-' + sectionId);
+    if (section) {
+      observer.observe(section);
+    }
+  } else {
+    // Fallback for older browsers - watch window resize
+    jQuery(window).on('resize.bgvideo-' + sectionId, throttle(function () {
+      updateVideoSize();
+    }, 250));
+  }
+
+  // Update when images load (they can affect section height)
+  jQuery('#sp-' + sectionId + ' img').on('load', function () {
+    updateVideoSize();
+  });
+
+  // YouTube Player API integration (matching Elementor's approach)
+  var section = document.getElementById('sp-' + sectionId);
+  if (section) {
+    var youtubeIframe = section.querySelector('.sp-section-video-wrapper iframe[src*="youtube.com"]');
+    if (youtubeIframe && youtubeIframe.src.indexOf('enablejsapi=1') !== -1) {
+      // Give iframe an ID if it doesn't have one
+      if (!youtubeIframe.id) {
+        youtubeIframe.id = 'sp-yt-player-' + sectionId;
+      }
+
+      // Store init function in array for batch processing
+      if (!window.seedprodYTPlayersToInit) {
+        window.seedprodYTPlayersToInit = [];
+      }
+
+      // Store active players and their intervals for cleanup
+      if (!window.seedprodYTPlayers) {
+        window.seedprodYTPlayers = {};
+      }
+
+      // Add cleanup function
+      if (!window.seedprodCleanupYTPlayer) {
+        window.seedprodCleanupYTPlayer = function (iframeId) {
+          if (window.seedprodYTPlayers && window.seedprodYTPlayers[iframeId]) {
+            var playerData = window.seedprodYTPlayers[iframeId];
+            // Clear interval if exists
+            if (playerData.checkInterval) {
+              clearInterval(playerData.checkInterval);
+              playerData.checkInterval = null;
+            }
+            // Remove from storage
+            delete window.seedprodYTPlayers[iframeId];
+          }
+        };
+      }
+
+      // Add page unload cleanup
+      if (!window.seedprodYTCleanupAttached) {
+        window.seedprodYTCleanupAttached = true;
+        window.addEventListener('beforeunload', function () {
+          // Clean up all YouTube players on page unload
+          if (window.seedprodYTPlayers) {
+            Object.keys(window.seedprodYTPlayers).forEach(function (iframeId) {
+              window.seedprodCleanupYTPlayer(iframeId);
+            });
+          }
+        });
+      }
+
+      // Add this player to the queue
+      window.seedprodYTPlayersToInit.push({
+        iframeId: youtubeIframe.id,
+        sectionId: sectionId
+      });
+
+      // Initialize player when API is ready
+      var initYouTubePlayer = function initYouTubePlayer() {
+        if (window.YT && window.YT.Player) {
+          try {
+            // Extract settings from iframe URL
+            var iframeSrc = youtubeIframe.src;
+            var startTime = null;
+            var endTime = null;
+            var isLooping = iframeSrc.indexOf('loop=1') !== -1;
+
+            // Extract start time from URL (format: start=NUMBER)
+            var startMatch = iframeSrc.match(/[?&]start=(\d+)/);
+            if (startMatch) {
+              startTime = parseInt(startMatch[1], 10);
+            }
+
+            // Extract end time from URL (format: end=NUMBER)
+            var endMatch = iframeSrc.match(/[?&]end=(\d+)/);
+            if (endMatch) {
+              endTime = parseInt(endMatch[1], 10);
+            }
+            var player = new YT.Player(youtubeIframe.id, {
+              events: {
+                'onReady': function onReady(event) {
+                  // Store player instance
+                  window.seedprodYTPlayers[youtubeIframe.id] = {
+                    player: player,
+                    checkInterval: null
+                  };
+
+                  // Handle start/end time with looping using polling
+                  if (endTime !== null) {
+                    var lastSeekTime = 0;
+                    var checkInterval = setInterval(function () {
+                      try {
+                        if (player && player.getCurrentTime) {
+                          var currentTime = player.getCurrentTime(); // Synchronous, not a Promise
+                          // Check if we've reached the end time
+                          // Seek slightly before the end (0.5s buffer) to prevent flicker
+                          if (currentTime >= endTime - 0.5 && currentTime < endTime + 1) {
+                            // Prevent multiple seeks in quick succession
+                            var now = Date.now();
+                            if (now - lastSeekTime > 800) {
+                              // Only seek once per 800ms
+                              lastSeekTime = now;
+                              if (isLooping) {
+                                // Loop back to start time (or 0 if no start time)
+                                player.seekTo(startTime || 0, true);
+                              } else {
+                                // Pause and show thumbnail
+                                player.pauseVideo();
+                                var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+                                if (videoWrapper) {
+                                  videoWrapper.classList.add('video-ended');
+                                }
+                                clearInterval(checkInterval);
+                                // Clear from global storage too
+                                if (window.seedprodYTPlayers[youtubeIframe.id]) {
+                                  window.seedprodYTPlayers[youtubeIframe.id].checkInterval = null;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      } catch (e) {
+                        // Ignore errors
+                      }
+                    }, 200); // Check more frequently (200ms) for smoother transitions
+
+                    // Store interval for cleanup
+                    if (window.seedprodYTPlayers[youtubeIframe.id]) {
+                      window.seedprodYTPlayers[youtubeIframe.id].checkInterval = checkInterval;
+                    }
+                  }
+                },
+                'onStateChange': function onStateChange(event) {
+                  // When video ends naturally (no custom end time)
+                  if (event.data === YT.PlayerState.ENDED) {
+                    if (isLooping && !endTime) {
+                      // Loop from beginning (no custom end time, but loop is on)
+                      player.seekTo(startTime || 0, true);
+                      player.playVideo();
+                    } else if (!isLooping) {
+                      // Show thumbnail overlay when loop is off
+                      var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+                      if (videoWrapper) {
+                        videoWrapper.classList.add('video-ended');
+                      }
+                    }
+                  }
+                }
+              }
+            });
+          } catch (e) {
+            // Silently handle YouTube Player API errors
+          }
+        }
+      };
+
+      // Load YouTube IFrame API if not already loaded
+      if (!window.YT && !window.seedprodYTAPILoading) {
+        window.seedprodYTAPILoading = true;
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Set up global callback - preserve existing callback if present (e.g., from tubular.js)
+        var originalCallback = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function () {
+          // Call original callback first if it exists
+          if (originalCallback && typeof originalCallback === 'function') {
+            originalCallback();
+          }
+          // Initialize all queued players
+          if (window.seedprodYTPlayersToInit) {
+            setTimeout(function () {
+              window.seedprodYTPlayersToInit.forEach(function (playerInfo) {
+                var section = document.getElementById('sp-' + playerInfo.sectionId);
+                if (section && window.YT && window.YT.Player) {
+                  try {
+                    // Get iframe to extract settings
+                    var iframe = document.getElementById(playerInfo.iframeId);
+                    if (!iframe) return;
+                    var iframeSrc = iframe.src;
+                    var startTime = null;
+                    var endTime = null;
+                    var isLooping = iframeSrc.indexOf('loop=1') !== -1;
+
+                    // Extract start time
+                    var startMatch = iframeSrc.match(/[?&]start=(\d+)/);
+                    if (startMatch) {
+                      startTime = parseInt(startMatch[1], 10);
+                    }
+
+                    // Extract end time
+                    var endMatch = iframeSrc.match(/[?&]end=(\d+)/);
+                    if (endMatch) {
+                      endTime = parseInt(endMatch[1], 10);
+                    }
+                    var player = new YT.Player(playerInfo.iframeId, {
+                      events: {
+                        'onReady': function onReady(event) {
+                          // Store player instance
+                          window.seedprodYTPlayers[playerInfo.iframeId] = {
+                            player: player,
+                            checkInterval: null
+                          };
+
+                          // Handle start/end time with looping using polling
+                          if (endTime !== null) {
+                            var lastSeekTime = 0;
+                            var checkInterval = setInterval(function () {
+                              try {
+                                if (player && player.getCurrentTime) {
+                                  var currentTime = player.getCurrentTime(); // Synchronous, not a Promise
+                                  // Check if we've reached the end time
+                                  // Seek slightly before the end (0.5s buffer) to prevent flicker
+                                  if (currentTime >= endTime - 0.5 && currentTime < endTime + 1) {
+                                    // Prevent multiple seeks in quick succession
+                                    var now = Date.now();
+                                    if (now - lastSeekTime > 800) {
+                                      // Only seek once per 800ms
+                                      lastSeekTime = now;
+                                      if (isLooping) {
+                                        // Loop back to start time (or 0 if no start time)
+                                        player.seekTo(startTime || 0, true);
+                                      } else {
+                                        // Pause and show thumbnail
+                                        player.pauseVideo();
+                                        var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+                                        if (videoWrapper) {
+                                          videoWrapper.classList.add('video-ended');
+                                        }
+                                        clearInterval(checkInterval);
+                                        // Clear from global storage too
+                                        if (window.seedprodYTPlayers[playerInfo.iframeId]) {
+                                          window.seedprodYTPlayers[playerInfo.iframeId].checkInterval = null;
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              } catch (e) {
+                                // Ignore errors
+                              }
+                            }, 200); // Check more frequently (200ms) for smoother transitions
+
+                            // Store interval for cleanup
+                            if (window.seedprodYTPlayers[playerInfo.iframeId]) {
+                              window.seedprodYTPlayers[playerInfo.iframeId].checkInterval = checkInterval;
+                            }
+                          }
+                        },
+                        'onStateChange': function onStateChange(event) {
+                          // When video ends naturally (no custom end time)
+                          if (event.data === YT.PlayerState.ENDED) {
+                            if (isLooping && !endTime) {
+                              // Loop from beginning (no custom end time, but loop is on)
+                              player.seekTo(startTime || 0, true);
+                              player.playVideo();
+                            } else if (!isLooping) {
+                              // Show thumbnail overlay when loop is off
+                              var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+                              if (videoWrapper) {
+                                videoWrapper.classList.add('video-ended');
+                              }
+                            }
+                          }
+                        }
+                      }
+                    });
+                  } catch (e) {
+                    // Silently handle YouTube Player API errors
+                  }
+                }
+              });
+            }, 1000);
+          }
+        };
+      } else if (window.YT && window.YT.Player) {
+        // API already loaded, init immediately
+        setTimeout(initYouTubePlayer, 1000);
+      }
+    }
+
+    // Vimeo Player API integration (matching Elementor's approach)
+    var vimeoIframe = section.querySelector('.sp-section-video-wrapper iframe[src*="vimeo.com"]');
+    if (vimeoIframe) {
+      var initVimeoPlayer = function initVimeoPlayer() {
+        try {
+          // Create Vimeo Player instance
+          var player = new Vimeo.Player(vimeoIframe);
+
+          // Store player instance for cleanup
+          window.seedprodVimeoPlayers[vimeoIframe.id] = {
+            player: player
+          };
+
+          // Get settings from iframe URL
+          var iframeSrc = vimeoIframe.src;
+          var startTime = null;
+          var endTime = null;
+          var isLooping = iframeSrc.indexOf('loop=1') !== -1;
+
+          // Extract start/end times from hash (format: #t=85s,95s)
+          var timeMatch = iframeSrc.match(/#t=(\d+)s(?:,(\d+)s)?/);
+          if (timeMatch) {
+            startTime = parseInt(timeMatch[1], 10);
+            if (timeMatch[2]) {
+              endTime = parseInt(timeMatch[2], 10);
+            }
+          }
+
+          // Handle start time - jump to start when video first plays
+          if (startTime) {
+            player.on('play', function (data) {
+              // Only seek on first play (when at 0 seconds)
+              if (data.seconds === 0) {
+                player.setCurrentTime(startTime);
+              }
+            });
+          }
+
+          // Handle end time and looping using timeupdate (Elementor approach)
+          player.on('timeupdate', function (data) {
+            // Check if we've reached the end time
+            if (endTime && data.seconds >= endTime) {
+              if (isLooping) {
+                // Loop back to start
+                player.setCurrentTime(startTime || 0);
+              } else {
+                // Pause at end (shows last frame - no related videos!)
+                player.pause();
+              }
+            }
+
+            // Special case: Start time but no end time
+            // Loop back when near the natural end of video
+            if (startTime && !endTime && !isLooping) {
+              player.getDuration().then(function (duration) {
+                if (data.seconds > duration - 0.5) {
+                  player.pause();
+                }
+              });
+            } else if (startTime && !endTime && isLooping) {
+              player.getDuration().then(function (duration) {
+                if (data.seconds > duration - 0.5) {
+                  player.setCurrentTime(startTime);
+                }
+              });
+            }
+          });
+
+          // Remove loading class when ready
+          player.ready().then(function () {
+            section.classList.remove('seedprod-video-loading');
+          });
+        } catch (e) {
+          // Silently handle Vimeo Player API errors
+        }
+      };
+      // Generate unique ID for iframe if it doesn't have one
+      if (!vimeoIframe.id) {
+        vimeoIframe.id = 'vimeo-' + sectionId + '-' + Date.now();
+      }
+
+      // Store active Vimeo players for cleanup
+      if (!window.seedprodVimeoPlayers) {
+        window.seedprodVimeoPlayers = {};
+      }
+
+      // Add cleanup function
+      if (!window.seedprodCleanupVimeoPlayer) {
+        window.seedprodCleanupVimeoPlayer = function (iframeId) {
+          if (window.seedprodVimeoPlayers && window.seedprodVimeoPlayers[iframeId]) {
+            var playerData = window.seedprodVimeoPlayers[iframeId];
+            // Remove event listeners using Vimeo API off() method
+            if (playerData.player) {
+              try {
+                playerData.player.off('play');
+                playerData.player.off('timeupdate');
+              } catch (e) {
+                // Silently handle errors during cleanup
+              }
+            }
+            // Remove from storage
+            delete window.seedprodVimeoPlayers[iframeId];
+          }
+        };
+      }
+
+      // Add page unload cleanup
+      if (!window.seedprodVimeoCleanupAttached) {
+        window.seedprodVimeoCleanupAttached = true;
+        window.addEventListener('beforeunload', function () {
+          // Clean up all Vimeo players on page unload
+          if (window.seedprodVimeoPlayers) {
+            Object.keys(window.seedprodVimeoPlayers).forEach(function (iframeId) {
+              window.seedprodCleanupVimeoPlayer(iframeId);
+            });
+          }
+        });
+      }
+
+      // Clean up existing player if re-initializing
+      if (window.seedprodVimeoPlayers[vimeoIframe.id]) {
+        window.seedprodCleanupVimeoPlayer(vimeoIframe.id);
+      }
+
+      // Load Vimeo Player API if not already loaded
+      if (!window.Vimeo || !window.Vimeo.Player) {
+        var script = document.createElement('script');
+        script.src = 'https://player.vimeo.com/api/player.js';
+        script.onload = function () {
+          initVimeoPlayer();
+        };
+        document.head.appendChild(script);
+      } else {
+        initVimeoPlayer();
+      }
+    }
+
+    // Custom HTML5 Video handling for start/end time
+    var customVideo = section.querySelector('.sp-section-video-wrapper video.sp-section-video-element');
+    if (customVideo) {
+      // Generate unique ID for video if it doesn't have one
+      if (!customVideo.id) {
+        customVideo.id = 'custom-video-' + sectionId + '-' + Date.now();
+      }
+
+      // Store active custom videos for cleanup
+      if (!window.seedprodCustomVideos) {
+        window.seedprodCustomVideos = {};
+      }
+
+      // Add cleanup function
+      if (!window.seedprodCleanupCustomVideo) {
+        window.seedprodCleanupCustomVideo = function (videoId) {
+          if (window.seedprodCustomVideos && window.seedprodCustomVideos[videoId]) {
+            var videoData = window.seedprodCustomVideos[videoId];
+            var video = videoData.element;
+            // Remove event listeners
+            if (video && videoData.listeners) {
+              video.removeEventListener('loadedmetadata', videoData.listeners.loadedmetadata);
+              video.removeEventListener('timeupdate', videoData.listeners.timeupdate);
+            }
+            // Remove from storage
+            delete window.seedprodCustomVideos[videoId];
+          }
+        };
+      }
+
+      // Add page unload cleanup
+      if (!window.seedprodCustomVideoCleanupAttached) {
+        window.seedprodCustomVideoCleanupAttached = true;
+        window.addEventListener('beforeunload', function () {
+          // Clean up all custom videos on page unload
+          if (window.seedprodCustomVideos) {
+            Object.keys(window.seedprodCustomVideos).forEach(function (videoId) {
+              window.seedprodCleanupCustomVideo(videoId);
+            });
+          }
+        });
+      }
+
+      // Clean up existing video if re-initializing
+      if (window.seedprodCustomVideos[customVideo.id]) {
+        window.seedprodCleanupCustomVideo(customVideo.id);
+      }
+
+      // Get data attributes or settings from the video element
+      var videoWrapper = section.querySelector('.sp-section-video-wrapper');
+
+      // Read settings from data attributes (set by Vue component)
+      var startTime = null;
+      var endTime = null;
+      var isLooping = false;
+      if (videoWrapper && videoWrapper.dataset) {
+        startTime = videoWrapper.dataset.startTime ? parseInt(videoWrapper.dataset.startTime, 10) : null;
+        endTime = videoWrapper.dataset.endTime ? parseInt(videoWrapper.dataset.endTime, 10) : null;
+        isLooping = videoWrapper.dataset.loop === '1';
+      }
+
+      // Fallback: check native loop attribute if no data-loop attribute
+      if (videoWrapper && !videoWrapper.dataset.loop) {
+        isLooping = customVideo.loop || customVideo.hasAttribute('loop');
+      }
+
+      // Define event handlers
+      var loadedmetadataHandler = function loadedmetadataHandler() {
+        if (startTime && customVideo.currentTime === 0) {
+          customVideo.currentTime = startTime;
+        }
+      };
+      var timeupdateHandler = function timeupdateHandler() {
+        // Check if we've reached the end time
+        if (endTime && customVideo.currentTime >= endTime) {
+          if (isLooping) {
+            // Loop back to start time
+            customVideo.currentTime = startTime || 0;
+          } else {
+            // Pause at end time
+            customVideo.pause();
+          }
+        }
+
+        // Handle natural video end with start time
+        if (!endTime && customVideo.currentTime >= customVideo.duration - 0.1) {
+          if (isLooping && startTime) {
+            customVideo.currentTime = startTime;
+          }
+        }
+      };
+
+      // Add event listeners
+      customVideo.addEventListener('loadedmetadata', loadedmetadataHandler);
+      customVideo.addEventListener('timeupdate', timeupdateHandler);
+
+      // Store video data for cleanup
+      window.seedprodCustomVideos[customVideo.id] = {
+        element: customVideo,
+        listeners: {
+          loadedmetadata: loadedmetadataHandler,
+          timeupdate: timeupdateHandler
+        }
+      };
+    }
+  }
+}
+
+// Make the functions globally accessible to prevent uglify from mangling the names
+window.seedprod_pro_init_background_video = seedprod_pro_init_background_video;
+window.initializeVideo = initializeVideo;
+
 /** Throttle function */
 function throttle(callback, limit) {
   var waiting = false;
