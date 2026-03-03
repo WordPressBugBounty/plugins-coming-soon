@@ -1985,7 +1985,8 @@ add_filter( 'get_edit_post_link', 'seedprod_lite_filter_get_edit_post_link', 11,
  * Get edit post link.
  *
  * Filters the edit post link to point to SeedProd builder ONLY on frontend for:
- * - Homepage with SeedProd theme template
+ * - Blog/posts page with SeedProd blog template (is_home)
+ * - Homepage with SeedProd theme template (is_front_page)
  *
  * NOTE: Does NOT filter admin area - the page_row_actions filter handles backend links.
  *
@@ -2006,7 +2007,29 @@ function seedprod_lite_filter_get_edit_post_link( $link, $id, $context ) {
 		return $link;
 	}
 
-	// Check if this is the homepage with a SeedProd theme template.
+	// Blog/posts page: WordPress ignores page content here and renders
+	// the SeedProd blog template instead, so link to that template.
+	if ( is_home() ) {
+		$theme_enabled = get_option( 'seedprod_theme_enabled' );
+		if ( ! empty( $theme_enabled ) && function_exists( 'seedprod_lite_get_theme_template_by_type_condition' ) ) {
+			$template_id = seedprod_lite_get_theme_template_by_type_condition( 'page', true );
+			if ( ! empty( $template_id ) ) {
+				return admin_url() . 'admin.php?page=seedprod_lite_builder&id=' . $template_id . '#/setup/' . $template_id;
+			}
+		}
+	}
+
+	// PRIORITY: Check if this page is a SeedProd page FIRST.
+	// If it's a SeedProd page, link to the page itself (not the theme template).
+	$is_landing_page = get_post_meta( $id, '_seedprod_page', true );
+	$is_theme_page   = get_post_meta( $id, '_seedprod_edited_with_seedprod', true );
+
+	if ( '1' === $is_landing_page || true === $is_landing_page || '1' === $is_theme_page || true === $is_theme_page ) {
+		// It's a SeedProd page - link to the page itself.
+		return admin_url() . 'admin.php?page=seedprod_lite_builder&id=' . $id . '#/setup/' . $id;
+	}
+
+	// NOT a SeedProd page - check if this is the homepage with a SeedProd theme template.
 	// On frontend, WordPress conditionals work properly, so we can use is_front_page().
 	if ( is_front_page() && absint( get_queried_object_id() ) === absint( $id ) ) {
 		$theme_enabled = get_option( 'seedprod_theme_enabled' );

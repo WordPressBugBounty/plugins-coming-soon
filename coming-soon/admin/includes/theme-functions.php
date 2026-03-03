@@ -832,7 +832,7 @@ function seedprod_lite_v2_get_theme_kits() {
 	}
 
 	// Get parameters.
-	$api_url  = isset( $_POST['api_url'] ) ? sanitize_text_field( wp_unslash( $_POST['api_url'] ) ) : '';
+	$page     = isset( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 	$filter   = isset( $_POST['filter'] ) ? sanitize_text_field( wp_unslash( $_POST['filter'] ) ) : 'themes';
 	$category = isset( $_POST['category'] ) ? sanitize_text_field( wp_unslash( $_POST['category'] ) ) : '';
 	$search   = isset( $_POST['search'] ) ? sanitize_text_field( wp_unslash( $_POST['search'] ) ) : '';
@@ -842,7 +842,8 @@ function seedprod_lite_v2_get_theme_kits() {
 	$api_token  = get_option( 'seedprod_api_token' );
 	$site_token = get_option( 'seedprod_token' );
 
-	// Build full API URL with parameters.
+	// Build API URL server-side from trusted constant (prevents SSRF).
+	$api_url = SEEDPROD_API_URL . 'themes?page=' . $page;
 	$api_url .= '&plugin_version=' . SEEDPROD_VERSION;
 
 	// WORKAROUND: The filter=favorites endpoint has caching issues.

@@ -6,8 +6,11 @@ function seedprod_lite_check_for_free_version() {
 		$seedprod_unsupported_feature = array();
 		$migration                    = get_option( 'seedprod_migration_run_once' );
 
-		// Security: Only allow admins to use sp-force-migrate parameter
-		$can_force_migrate = ! empty( $_GET['sp-force-migrate'] ) && current_user_can( 'manage_options' );
+		// Security: Only allow admins with a valid nonce to use sp-force-migrate parameter.
+		$can_force_migrate = ! empty( $_GET['sp-force-migrate'] )
+			&& current_user_can( 'manage_options' )
+			&& isset( $_GET['_wpnonce'] )
+			&& wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'seedprod_force_migrate' );
 
 		// Security: For automatic migrations (when option doesn't exist), only allow in admin dashboard
 		// This prevents frontend visitors from triggering expensive flush_rewrite_rules() operation

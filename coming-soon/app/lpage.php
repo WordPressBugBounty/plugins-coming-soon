@@ -692,6 +692,14 @@ function seedprod_lite_save_lpage() {
 		// set update array.
 		$update       = array();
 		$update['ID'] = $lpage_id;
+
+		// Add post_type to prevent warnings from WooCommerce and other plugins
+		// that hook into wp_insert_post_data and expect this key to exist.
+		$existing_post = get_post( $lpage_id );
+		if ( $existing_post ) {
+			$update['post_type'] = $existing_post->post_type;
+		}
+
 		if ( ! empty( $lpage_name ) ) {
 			$update['post_title'] = $lpage_name;
 		}

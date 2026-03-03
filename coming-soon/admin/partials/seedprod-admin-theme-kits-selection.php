@@ -211,7 +211,6 @@ var seedprodThemeKitsData = {
 	activeTab: <?php echo wp_json_encode( $active_tab ); ?>,
 	ajaxUrl: <?php echo wp_json_encode( admin_url( 'admin-ajax.php' ) ); ?>,
 	nonce: <?php echo wp_json_encode( wp_create_nonce( 'seedprod_v2_nonce' ) ); ?>,
-	apiUrl: <?php echo wp_json_encode( SEEDPROD_API_URL ); ?>,
 	currentPage: 1,
 	totalPages: 1,
 	currentFilter: 'all',

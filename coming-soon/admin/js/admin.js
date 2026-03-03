@@ -819,18 +819,15 @@
 		function loadThemes() {
 			var $grid = $('#all-themes-grid');
 			showLoadingSpinner($grid);
-			
-			// Build API URL
-			var apiUrl = seedprodThemeKitsData.apiUrl + 'themes?page=' + themeKitsState.currentPage;
-			
+
 			// Map filter to category ID (10 for WooCommerce)
 			var categoryId = themeKitsState.filter === 'woocommerce' ? '10' : '';
-			
+
 			// Build request data
 			var requestData = {
 				action: 'seedprod_lite_v2_get_theme_kits',
 				nonce: seedprodThemeKitsData.nonce,
-				api_url: apiUrl,
+				page: themeKitsState.currentPage,
 				filter: 'themes',
 				category: categoryId,
 				search: themeKitsState.search,
@@ -870,14 +867,11 @@
 		function loadFavoriteThemes() {
 			var $grid = $('#favorite-themes-grid');
 			showLoadingSpinner($grid);
-			
-			// Build API URL for favorites - same as All Themes but we'll pass filter separately
-			var apiUrl = seedprodThemeKitsData.apiUrl + 'themes?page=' + themeKitsState.currentPage;
-			
+
 			var requestData = {
 				action: 'seedprod_lite_v2_get_theme_kits',
 				nonce: seedprodThemeKitsData.nonce,
-				api_url: apiUrl,
+				page: themeKitsState.currentPage,
 				filter: 'favorites',
 				search: themeKitsState.search
 			};

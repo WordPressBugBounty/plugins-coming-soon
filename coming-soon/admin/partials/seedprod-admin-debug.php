@@ -150,7 +150,29 @@ $seedprod_builder_debug = seedprod_lite_v2_get_builder_debug_status();
 					</tr>
 				</tbody>
 			</table>
-			
+
+			<hr />
+
+			<h2><?php esc_html_e( 'Legacy Migration', 'coming-soon' ); ?></h2>
+
+			<table class="form-table" role="presentation">
+				<tbody>
+					<tr>
+						<th scope="row">
+							<?php esc_html_e( 'Re-run Legacy Migration', 'coming-soon' ); ?>
+						</th>
+						<td>
+							<a href="<?php echo esc_url( wp_nonce_url( home_url( '/?sp-force-migrate=1' ), 'seedprod_force_migrate' ) ); ?>" class="button">
+								<?php esc_html_e( 'Force Re-run Migration', 'coming-soon' ); ?>
+							</a>
+							<p class="description">
+								<?php esc_html_e( 'Re-runs the migration from SeedProd v4/v5 legacy settings. Only needed if the original migration did not complete correctly.', 'coming-soon' ); ?>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
 			<p class="submit">
 				<button type="submit" name="submit" class="button button-primary seedprod-button-primary">
 					<?php esc_html_e( 'Save Changes', 'coming-soon' ); ?>

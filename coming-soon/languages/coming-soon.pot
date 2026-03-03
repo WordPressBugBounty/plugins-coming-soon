@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.19.8\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.19.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-17T13:43:03+00:00\n"
+"POT-Creation-Date: 2026-03-03T09:43:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: coming-soon\n"
@@ -1494,17 +1494,17 @@ msgid "Settings saved."
 msgstr ""
 
 #: admin/includes/import-export-functions.php:32
-#: admin/includes/theme-functions.php:1006
-#: admin/includes/theme-functions.php:1300
-#: admin/includes/theme-functions.php:1347
+#: admin/includes/theme-functions.php:1007
+#: admin/includes/theme-functions.php:1301
+#: admin/includes/theme-functions.php:1348
 msgid "Invalid security token"
 msgstr ""
 
 #: admin/includes/import-export-functions.php:36
 #: admin/includes/import-export-functions.php:742
-#: admin/includes/theme-functions.php:1011
-#: admin/includes/theme-functions.php:1305
-#: admin/includes/theme-functions.php:1352
+#: admin/includes/theme-functions.php:1012
+#: admin/includes/theme-functions.php:1306
+#: admin/includes/theme-functions.php:1353
 msgid "Insufficient permissions"
 msgstr ""
 
@@ -2140,7 +2140,7 @@ msgid "You now have access to 10 FREE templates!"
 msgstr ""
 
 #: admin/includes/template-functions.php:195
-#: admin/includes/theme-functions.php:957
+#: admin/includes/theme-functions.php:958
 msgid "Invalid template ID"
 msgstr ""
 
@@ -2403,48 +2403,48 @@ msgstr ""
 msgid "You do not have permission to access theme kits."
 msgstr ""
 
-#: admin/includes/theme-functions.php:896
+#: admin/includes/theme-functions.php:897
 msgid "Invalid response from API"
 msgstr ""
 
-#: admin/includes/theme-functions.php:993
+#: admin/includes/theme-functions.php:994
 msgid "Theme added to favorites"
 msgstr ""
 
-#: admin/includes/theme-functions.php:993
+#: admin/includes/theme-functions.php:994
 msgid "Theme removed from favorites"
 msgstr ""
 
-#: admin/includes/theme-functions.php:1018
+#: admin/includes/theme-functions.php:1019
 msgid "Invalid theme ID"
 msgstr ""
 
-#: admin/includes/theme-functions.php:1034
+#: admin/includes/theme-functions.php:1035
 msgid "Please enter a valid license key to access the themes."
 msgstr ""
 
-#: admin/includes/theme-functions.php:1052
+#: admin/includes/theme-functions.php:1053
 msgid "Theme imported successfully."
 msgstr ""
 
-#: admin/includes/theme-functions.php:1058
+#: admin/includes/theme-functions.php:1059
 msgid "Invalid theme data received from API."
 msgstr ""
 
-#: admin/includes/theme-functions.php:1223
+#: admin/includes/theme-functions.php:1224
 msgid "This page was auto-generated and is a placeholder page for the SeedProd theme. To manage the contents of this page please visit SeedProd > Theme Builder in the left menu in WordPress."
 msgstr ""
 
-#: admin/includes/theme-functions.php:1287
+#: admin/includes/theme-functions.php:1288
 msgid "Theme imported successfully"
 msgstr ""
 
-#: admin/includes/theme-functions.php:1322
+#: admin/includes/theme-functions.php:1323
 msgid "No theme template pages found to delete"
 msgstr ""
 
 #. translators: %d is the number of theme templates
-#: admin/includes/theme-functions.php:1335
+#: admin/includes/theme-functions.php:1336
 msgid "%d theme templates moved to trash"
 msgstr ""
 
@@ -2862,6 +2862,22 @@ msgid "This will delete your current custom Login page."
 msgstr ""
 
 #: admin/partials/seedprod-admin-debug.php:156
+msgid "Legacy Migration"
+msgstr ""
+
+#: admin/partials/seedprod-admin-debug.php:162
+msgid "Re-run Legacy Migration"
+msgstr ""
+
+#: admin/partials/seedprod-admin-debug.php:166
+msgid "Force Re-run Migration"
+msgstr ""
+
+#: admin/partials/seedprod-admin-debug.php:169
+msgid "Re-runs the migration from SeedProd v4/v5 legacy settings. Only needed if the original migration did not complete correctly."
+msgstr ""
+
+#: admin/partials/seedprod-admin-debug.php:178
 #: resources/views/debug.php:88
 msgid "Save Changes"
 msgstr ""
@@ -3525,7 +3541,7 @@ msgid "Oldest to Newest"
 msgstr ""
 
 #: admin/partials/seedprod-admin-theme-kits-selection.php:77
-#: admin/partials/seedprod-admin-theme-kits-selection.php:225
+#: admin/partials/seedprod-admin-theme-kits-selection.php:224
 msgid "Loading theme kits..."
 msgstr ""
 
@@ -3587,11 +3603,11 @@ msgstr ""
 msgid "Would you like to continue?"
 msgstr ""
 
-#: admin/partials/seedprod-admin-theme-kits-selection.php:226
+#: admin/partials/seedprod-admin-theme-kits-selection.php:225
 msgid "No theme kits found."
 msgstr ""
 
-#: admin/partials/seedprod-admin-theme-kits-selection.php:227
+#: admin/partials/seedprod-admin-theme-kits-selection.php:226
 msgid "Error loading theme kits. Please try again."
 msgstr ""
 
@@ -4312,219 +4328,219 @@ msgstr ""
 msgid "Select Time"
 msgstr ""
 
-#: app/functions-utils.php:2072
+#: app/functions-utils.php:2095
 msgid "1 Hour"
 msgstr ""
 
-#: app/functions-utils.php:2073
+#: app/functions-utils.php:2096
 msgid "2 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2074
+#: app/functions-utils.php:2097
 msgid "3 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2075
+#: app/functions-utils.php:2098
 msgid "4 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2076
+#: app/functions-utils.php:2099
 msgid "5 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2077
+#: app/functions-utils.php:2100
 msgid "6 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2078
+#: app/functions-utils.php:2101
 msgid "7 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2079
+#: app/functions-utils.php:2102
 msgid "8 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2080
+#: app/functions-utils.php:2103
 msgid "9 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2081
+#: app/functions-utils.php:2104
 msgid "10 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2082
+#: app/functions-utils.php:2105
 msgid "11 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2083
+#: app/functions-utils.php:2106
 msgid "12 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2084
+#: app/functions-utils.php:2107
 msgid "13 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2085
+#: app/functions-utils.php:2108
 msgid "14 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2086
+#: app/functions-utils.php:2109
 msgid "15 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2087
+#: app/functions-utils.php:2110
 msgid "16 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2088
+#: app/functions-utils.php:2111
 msgid "17 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2089
+#: app/functions-utils.php:2112
 msgid "18 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2090
+#: app/functions-utils.php:2113
 msgid "19 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2091
+#: app/functions-utils.php:2114
 msgid "20 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2092
+#: app/functions-utils.php:2115
 msgid "21 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2093
+#: app/functions-utils.php:2116
 msgid "22 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2094
+#: app/functions-utils.php:2117
 msgid "23 Hours"
 msgstr ""
 
-#: app/functions-utils.php:2095
+#: app/functions-utils.php:2118
 msgid "1 Day"
 msgstr ""
 
-#: app/functions-utils.php:2096
+#: app/functions-utils.php:2119
 msgid "2 Days"
 msgstr ""
 
-#: app/functions-utils.php:2097
+#: app/functions-utils.php:2120
 msgid "3 Days"
 msgstr ""
 
-#: app/functions-utils.php:2098
+#: app/functions-utils.php:2121
 msgid "4 Days"
 msgstr ""
 
-#: app/functions-utils.php:2099
+#: app/functions-utils.php:2122
 msgid "5 Days"
 msgstr ""
 
-#: app/functions-utils.php:2100
+#: app/functions-utils.php:2123
 msgid "6 Days"
 msgstr ""
 
-#: app/functions-utils.php:2101
+#: app/functions-utils.php:2124
 msgid "7 Days"
 msgstr ""
 
-#: app/functions-utils.php:2102
+#: app/functions-utils.php:2125
 msgid "8 Days"
 msgstr ""
 
-#: app/functions-utils.php:2103
+#: app/functions-utils.php:2126
 msgid "9 Days"
 msgstr ""
 
-#: app/functions-utils.php:2104
+#: app/functions-utils.php:2127
 msgid "10 Days"
 msgstr ""
 
-#: app/functions-utils.php:2105
+#: app/functions-utils.php:2128
 msgid "11 Days"
 msgstr ""
 
-#: app/functions-utils.php:2106
+#: app/functions-utils.php:2129
 msgid "12 Days"
 msgstr ""
 
-#: app/functions-utils.php:2107
+#: app/functions-utils.php:2130
 msgid "13 Days"
 msgstr ""
 
-#: app/functions-utils.php:2108
+#: app/functions-utils.php:2131
 msgid "14 Days"
 msgstr ""
 
-#: app/functions-utils.php:2109
+#: app/functions-utils.php:2132
 msgid "15 Days"
 msgstr ""
 
-#: app/functions-utils.php:2110
+#: app/functions-utils.php:2133
 msgid "16 Days"
 msgstr ""
 
-#: app/functions-utils.php:2111
+#: app/functions-utils.php:2134
 msgid "17 Days"
 msgstr ""
 
-#: app/functions-utils.php:2112
+#: app/functions-utils.php:2135
 msgid "18 Days"
 msgstr ""
 
-#: app/functions-utils.php:2113
+#: app/functions-utils.php:2136
 msgid "19 Days"
 msgstr ""
 
-#: app/functions-utils.php:2114
+#: app/functions-utils.php:2137
 msgid "20 Days"
 msgstr ""
 
-#: app/functions-utils.php:2115
+#: app/functions-utils.php:2138
 msgid "21 Days"
 msgstr ""
 
-#: app/functions-utils.php:2116
+#: app/functions-utils.php:2139
 msgid "22 Days"
 msgstr ""
 
-#: app/functions-utils.php:2117
+#: app/functions-utils.php:2140
 msgid "23 Days"
 msgstr ""
 
-#: app/functions-utils.php:2118
+#: app/functions-utils.php:2141
 msgid "24 Days"
 msgstr ""
 
-#: app/functions-utils.php:2119
+#: app/functions-utils.php:2142
 msgid "25 Days"
 msgstr ""
 
-#: app/functions-utils.php:2120
+#: app/functions-utils.php:2143
 msgid "26 Days"
 msgstr ""
 
-#: app/functions-utils.php:2121
+#: app/functions-utils.php:2144
 msgid "27 Days"
 msgstr ""
 
-#: app/functions-utils.php:2122
+#: app/functions-utils.php:2145
 msgid "28 Days"
 msgstr ""
 
-#: app/functions-utils.php:2123
+#: app/functions-utils.php:2146
 msgid "29 Days"
 msgstr ""
 
-#: app/functions-utils.php:2124
+#: app/functions-utils.php:2147
 msgid "30 Days"
 msgstr ""
 
-#: app/functions-utils.php:2125
+#: app/functions-utils.php:2148
 msgid "1 Year"
 msgstr ""
 
@@ -4559,19 +4575,19 @@ msgstr ""
 msgid "The minimum required version of PHP to run this plugin is PHP Version 5.3.3. Please contact your hosting company and ask them to upgrade this site's php verison."
 msgstr ""
 
-#: app/lpage.php:724
+#: app/lpage.php:732
 msgid "Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support."
 msgstr ""
 
-#: app/lpage.php:873
+#: app/lpage.php:881
 msgid "Starts in"
 msgstr ""
 
-#: app/lpage.php:875
+#: app/lpage.php:883
 msgid "Ended"
 msgstr ""
 
-#: app/lpage.php:1036
+#: app/lpage.php:1044
 #: app/theme-templates.php:848
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
