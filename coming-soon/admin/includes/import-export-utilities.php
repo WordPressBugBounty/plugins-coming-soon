@@ -88,7 +88,7 @@ function seedprod_lite_v2_recursive_rmdir( $dir ) {
 			wp_delete_file( $path );
 		}
 	}
-	return rmdir( $dir );
+	return rmdir( $dir ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir -- No WP alternative for rmdir, used within controlled recursive delete function.
 }
 
 /**
@@ -1064,12 +1064,12 @@ function seedprod_lite_v2_prepare_zip( $filenames, $export_json, $type = 'theme'
 	$json_saved = $wp_filesystem->put_contents( $json_path, $export_json, FS_CHMOD_FILE );
 
 	if ( ! $json_saved ) {
-		throw new Exception( __( 'Failed to save export JSON file.', 'coming-soon' ) );
+		throw new Exception( esc_html__( 'Failed to save export JSON file.', 'coming-soon' ) );
 	}
 
 	// Create ZIP file.
 	if ( ! class_exists( 'ZipArchive' ) ) {
-		throw new Exception( __( 'ZipArchive class not available. Please contact your host.', 'coming-soon' ) );
+		throw new Exception( esc_html__( 'ZipArchive class not available. Please contact your host.', 'coming-soon' ) );
 	}
 
 	$zip          = new ZipArchive();
@@ -1078,13 +1078,14 @@ function seedprod_lite_v2_prepare_zip( $filenames, $export_json, $type = 'theme'
 
 	$zip_open_result = $zip->open( $zip_path, ZipArchive::CREATE );
 	if ( true !== $zip_open_result ) {
-		throw new Exception( __( 'Cannot create ZIP file. Error code: ', 'coming-soon' ) . $zip_open_result );
+		// translators: %s: ZipArchive error code.
+		throw new Exception( sprintf( esc_html__( 'Cannot create ZIP file. Error code: %s', 'coming-soon' ), esc_html( $zip_open_result ) ) );
 	}
 
 	// Add JSON file.
 	if ( ! $zip->addFile( $json_path, $json_filename ) ) {
 		$zip->close();
-		throw new Exception( __( 'Failed to add JSON file to ZIP.', 'coming-soon' ) );
+		throw new Exception( esc_html__( 'Failed to add JSON file to ZIP.', 'coming-soon' ) );
 	}
 
 	// Add image files.
@@ -1099,7 +1100,7 @@ function seedprod_lite_v2_prepare_zip( $filenames, $export_json, $type = 'theme'
 
 	// Verify ZIP was created.
 	if ( ! file_exists( $zip_path ) ) {
-		throw new Exception( __( 'ZIP file was not created successfully.', 'coming-soon' ) );
+		throw new Exception( esc_html__( 'ZIP file was not created successfully.', 'coming-soon' ) );
 	}
 
 	$zip_size = filesize( $zip_path );
@@ -1114,7 +1115,7 @@ function seedprod_lite_v2_prepare_zip( $filenames, $export_json, $type = 'theme'
 	// This ensures downloads work in all environments including WordPress Playground.
 	$zip_contents = file_get_contents( $zip_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	if ( false === $zip_contents ) {
-		throw new Exception( __( 'Failed to read export file.', 'coming-soon' ) );
+		throw new Exception( esc_html__( 'Failed to read export file.', 'coming-soon' ) );
 	}
 	$zip_base64 = base64_encode( $zip_contents ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
 	unset( $zip_contents );

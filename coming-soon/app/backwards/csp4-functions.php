@@ -1,4 +1,6 @@
 <?php
+// phpcs:disable WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput, WordPress.WP.I18n.TextDomainMismatch, WordPress.NamingConventions.PrefixAllGlobals -- Legacy backward compatibility code for CSP4.
+
 /**
  * Display the legacy free coming soon page
  */

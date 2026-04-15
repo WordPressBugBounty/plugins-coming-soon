@@ -223,6 +223,9 @@ body.seedprod-body {
 	border-color: var(--seedprod-orange) !important;
 	color: var(--seedprod-orange) !important;
 	background: transparent !important; /* Override any primary button background */
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 }
 
 .button.seedprod-button-secondary:hover {
@@ -257,6 +260,9 @@ body.seedprod-body {
 	background: var(--seedprod-success) !important;
 	border-color: var(--seedprod-success) !important;
 	color: #fff !important;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 }
 
 .button.seedprod-upgrade-button:hover {
@@ -279,6 +285,9 @@ body.seedprod-body {
 	background: var(--seedprod-success) !important;
 	border-color: var(--seedprod-success) !important;
 	color: #fff !important;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
 }
 
 .button-primary.seedprod-upgrade-button:hover {
@@ -287,11 +296,10 @@ body.seedprod-body {
 	color: #fff !important;
 }
 
-/* Style the star icon in upgrade buttons */
+/* Style the star icon in upgrade buttons - flex parent handles alignment */
 .seedprod-upgrade-button .seedprod-upgrade-icon {
 	color: inherit;
-	margin-right: 5px;
-	vertical-align: middle;
+	flex-shrink: 0;
 }
 
 /* Product Education Page Styles */
@@ -540,11 +548,39 @@ body.seedprod-body {
 	color: #000 !important;
 }
 
-/* Fix dashicon alignment in buttons */
+/* Fix dashicon alignment in buttons - WP6 fallback (inline-block context) */
 .button .dashicons {
 	vertical-align: middle;
 	margin-top: -2px;
 	margin-right: 4px;
+}
+
+/*
+ * WP7 changed .wp-core-ui .button .dashicons to use vertical-align: top + line-height: 1.9
+ * (specificity 0,0,3,0), overriding our lower-specificity rule above.
+ * Fix: use inline-flex + align-items on SeedProd buttons so icon centering
+ * is layout-driven rather than relying on vertical-align.
+ * .wp-core-ui prefix raises specificity to 0,0,4,0 to override WP7's display: inline-block.
+ */
+.wp-core-ui .button.seedprod-upgrade-button,
+.wp-core-ui .button-primary.seedprod-upgrade-button,
+.wp-core-ui .button.seedprod-button-secondary,
+.wp-core-ui .button-primary.seedprod-button-secondary {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Reset WP7's line-height: 1.9 on dashicons within SeedProd flex buttons.
+ * WP7 calculates line-height for 20px dashicons, but our icons use 16px,
+ * so the inherited line-height creates extra box height. Reset to 1 for
+ * accurate flex centering. Specificity 0,0,4,0 beats WP7's 0,0,3,0. */
+.wp-core-ui .button.seedprod-upgrade-button .dashicons,
+.wp-core-ui .button.seedprod-button-secondary .dashicons {
+	line-height: 1;
+	margin-right: 0;
+	margin-top: 0;
+	flex-shrink: 0;
 }
 
 /* ==========================================================================

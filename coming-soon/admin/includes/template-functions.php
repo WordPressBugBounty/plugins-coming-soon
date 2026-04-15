@@ -423,6 +423,16 @@ function seedprod_lite_v2_create_page_from_template() {
 			if ( is_array( $template_data ) ) {
 				unset( $settings['document'] ); // Remove default document before merging (matching old flow).
 				$settings = array_merge( $settings, $template_data );
+
+				// Restore critical page settings that template data must not override.
+				// Saved templates contain their original page's full settings (including page_type),
+				// so without this the CS/MM activation modal never appears because page_type gets
+				// overwritten (e.g. 'cs' → 'lp') causing close_conditions() to skip the prompt.
+				$settings['page_type'] = $page_type;
+				$settings['is_new']    = true;
+				if ( in_array( $page_type, array( 'cs', 'mm', 'p404', 'loginp' ), true ) ) {
+					$settings['no_conflict_mode'] = true;
+				}
 			}
 		}
 	}

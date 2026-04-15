@@ -105,15 +105,15 @@ if ( ! empty( $page_type ) && isset( $type_to_filter_map[ $page_type ] ) ) {
 		<?php endif; ?>
 		<!-- WordPress Native Tabs -->
 		<nav class="nav-tab-wrapper">
-			<a href="?page=seedprod_lite_template_selection&tab=all-templates<?php echo $page_name ? '&name=' . rawurlencode( $page_name ) . '&slug=' . rawurlencode( $page_slug ) : ''; ?>" 
+			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'seedprod_lite_template_selection', 'tab' => 'all-templates', 'name' => $page_name ?: false, 'slug' => $page_slug ?: false, 'type' => $page_type ?: false, 'id' => $page_id ?: false ), admin_url( 'admin.php' ) ) ); ?>"
 				class="nav-tab <?php echo 'all-templates' === $active_tab ? 'nav-tab-active' : ''; ?>">
 				<?php esc_html_e( 'All Templates', 'coming-soon' ); ?>
 			</a>
-			<a href="?page=seedprod_lite_template_selection&tab=favorite-templates<?php echo $page_name ? '&name=' . rawurlencode( $page_name ) . '&slug=' . rawurlencode( $page_slug ) : ''; ?>" 
+			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'seedprod_lite_template_selection', 'tab' => 'favorite-templates', 'name' => $page_name ?: false, 'slug' => $page_slug ?: false, 'type' => $page_type ?: false, 'id' => $page_id ?: false ), admin_url( 'admin.php' ) ) ); ?>"
 				class="nav-tab <?php echo 'favorite-templates' === $active_tab ? 'nav-tab-active' : ''; ?>">
 				<?php esc_html_e( 'Favorite Templates', 'coming-soon' ); ?>
 			</a>
-			<a href="?page=seedprod_lite_template_selection&tab=saved-templates<?php echo $page_name ? '&name=' . rawurlencode( $page_name ) . '&slug=' . rawurlencode( $page_slug ) : ''; ?>" 
+			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'seedprod_lite_template_selection', 'tab' => 'saved-templates', 'name' => $page_name ?: false, 'slug' => $page_slug ?: false, 'type' => $page_type ?: false, 'id' => $page_id ?: false ), admin_url( 'admin.php' ) ) ); ?>"
 				class="nav-tab <?php echo 'saved-templates' === $active_tab ? 'nav-tab-active' : ''; ?>">
 				<?php esc_html_e( 'Saved Templates', 'coming-soon' ); ?>
 			</a>

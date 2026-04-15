@@ -1095,6 +1095,7 @@ $seedprod_lite_block_templates = '
         "hideOnTablet": false
     },
     "section":{
+        "sectionLabel":"",
         "particleBg":false,
         "particleStyle":"default",
         "customParticlesJSON":"",

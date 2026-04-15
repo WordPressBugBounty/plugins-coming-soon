@@ -9,13 +9,14 @@ function seedprod_lite_get_lpage_list() {
 		}
 		global $wpdb;
 
-		$tablename      = $wpdb->prefix . 'posts';
-		$meta_tablename = $wpdb->prefix . 'postmeta';
-
-		$sql = "SELECT id,post_title as name,meta_value as uuid FROM $tablename p LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)";
-
-		$sql     .= " WHERE post_status != 'trash' AND post_type = 'page' AND meta_key = '_seedprod_page_uuid' ";
-		$response = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$response = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT p.ID AS id, p.post_title AS name, pm.meta_value AS uuid FROM {$wpdb->posts} p LEFT JOIN {$wpdb->postmeta} pm ON (pm.post_id = p.ID) WHERE p.post_status != %s AND p.post_type = %s AND pm.meta_key = %s",
+				'trash',
+				'page',
+				'_seedprod_page_uuid'
+			)
+		);
 
 		wp_send_json( $response );
 	}
@@ -674,11 +675,13 @@ function seedprod_lite_save_lpage() {
 			$html = str_replace( 'animate__', '', $html );
 			// remove sp-theme-template id.
 			require_once SEEDPROD_PLUGIN_PATH . 'app/includes/simple_html_dom.php';
-			$phtml                   = seedprod_str_get_html( $html );
-			$sp_theme_templates_divs = $phtml->find( '#sp-theme-template' );
-			foreach ( $sp_theme_templates_divs as $k => $v ) {
-				$html = $v->innertext;
-				break;
+			$phtml = seedprod_str_get_html( $html );
+			if ( false !== $phtml ) {
+				$sp_theme_templates_divs = $phtml->find( '#sp-theme-template' );
+				foreach ( $sp_theme_templates_divs as $k => $v ) {
+					$html = $v->innertext;
+					break;
+				}
 			}
 		}
 
@@ -719,18 +722,15 @@ function seedprod_lite_save_lpage() {
 
 		// validate json.
 
-		$test_data = apply_filters( 'wp_insert_post_data', $update, $update, $update, false );
-		$test_data = wp_unslash( $test_data );
-		update_option( 'seedprod_validate_json', $test_data['post_content_filtered'] );
-		$test_json = get_option( 'seedprod_validate_json' );
-		update_option( 'seedprod_validate_json', false );
-		$test_json_decoded = json_decode( $test_json, true );
+		$test_data         = apply_filters( 'wp_insert_post_data', $update, $update, $update, false );
+		$test_data         = wp_unslash( $test_data );
+		$test_json_decoded = json_decode( $test_data['post_content_filtered'], true );
 		if ( null === $test_json_decoded && JSON_ERROR_NONE !== json_last_error() ) {
 			$response = array(
 				'status' => '',
 				'id'     => $lpage_id,
 				'msg'    => __( 'Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support.', 'coming-soon' ),
-				'json'   => $test_json,
+				'json'   => $test_data['post_content_filtered'],
 			);
 			wp_send_json( $response, 422 );
 		}
@@ -742,7 +742,8 @@ function seedprod_lite_save_lpage() {
 			wp_die();
 		} else {
 			$check_post_type = json_decode( stripslashes( $settings ) );
-			if ( 'post' == $check_post_type->page_type ) {
+			$page_type_check = isset( $check_post_type->page_type ) ? $check_post_type->page_type : '';
+			if ( 'post' === $page_type_check ) {
 				update_post_meta( $lpage_id, '_seedprod_edited_with_seedprod', '1' );
 				delete_post_meta( $lpage_id, '_seedprod_page' );
 			} else {

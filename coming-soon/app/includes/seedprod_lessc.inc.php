@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable WordPress.Security.EscapeOutput -- Third-party LESS compiler library (lessphp v0.3.8).
 
 /**
  * lessphp v0.3.8

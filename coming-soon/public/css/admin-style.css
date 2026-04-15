@@ -73,7 +73,7 @@
   background: url(../svg/section-toolbar.svg);
   background-position: top center;
   background-repeat: no-repeat;
-  width: 218px;
+  width: 248px;
   height: 28px;
   margin-top: -4px;
   -webkit-box-align: center;
@@ -84,10 +84,10 @@
           justify-content: center;
 }
 .sp-section-toolbar span {
-  margin: 2px 2px 0 2px;
+  margin: 2px 4px 0 4px;
 }
 .sp-section-toolbar span:first-child {
-  margin-left: 6px;
+  margin-left: 10px;
 }
 #sp-sidebar-drawer {
   cursor: pointer;

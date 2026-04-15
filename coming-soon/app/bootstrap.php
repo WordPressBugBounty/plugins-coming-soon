@@ -66,6 +66,7 @@ function seedprod_lite_admin_enqueue_scripts( $hook_suffix ) {
 				wp_enqueue_script( 'seedprod_vue_builder_app_1' );
 				wp_enqueue_script( 'seedprod_vue_builder_app_2' );
 				wp_enqueue_style( 'seedprod_vue_builder_app_css_1', SEEDPROD_PLUGIN_URL . 'public/' . $vue_app_folder . '/vue-backend/css/chunk-vendors.css', false, SEEDPROD_VERSION );
+				wp_enqueue_style( 'seedprod_vue_builder_app_css_2', SEEDPROD_PLUGIN_URL . 'public/' . $vue_app_folder . '/vue-backend/css/index.css', array( 'seedprod_vue_builder_app_css_1' ), SEEDPROD_VERSION );
 			}
 		}
 

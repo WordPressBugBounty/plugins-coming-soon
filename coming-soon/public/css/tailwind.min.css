@@ -277,6 +277,7 @@ img,video{max-width:100%;height:auto}
 .sp-text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity,1))}
 .sp-text-blue-50{--tw-text-opacity:1;color:rgb(239 246 255 / var(--tw-text-opacity,1))}
 .sp-text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity,1))}
+.sp-text-neutral-50{--tw-text-opacity:1;color:rgb(250 250 250 / var(--tw-text-opacity,1))}
 .sp-text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity,1))}
 .sp-underline{text-decoration-line:underline}
 .sp-line-through{text-decoration-line:line-through}

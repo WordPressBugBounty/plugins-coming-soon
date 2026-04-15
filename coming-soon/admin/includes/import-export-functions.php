@@ -146,7 +146,7 @@ function seedprod_lite_v2_setup_directories( $folder_name ) {
 	}
 
 	// Create fresh directory.
-	mkdir( $target_dir, 0755 );
+	wp_mkdir_p( $target_dir );
 
 	return array(
 		'path'       => $path,
@@ -510,7 +510,7 @@ function seedprod_lite_v2_export_theme_files() {
 
 	// Create export folder if it doesn't exist (don't delete - prevents race condition with concurrent exports).
 	if ( ! is_dir( $export_path ) ) {
-		mkdir( $export_path, 0755 );
+		wp_mkdir_p( $export_path );
 	}
 
 	// Clean up old files (older than 1 hour) to prevent disk bloat.
@@ -665,8 +665,9 @@ function seedprod_lite_v2_import_theme_files() {
 		}
 
 		// Create import directory
-		mkdir( $targetdir, 0755 );
+		wp_mkdir_p( $targetdir );
 
+		// phpcs:ignore Generic.PHP.ForbiddenFunctions.Found -- move_uploaded_file is required for handling HTTP file uploads securely.
 		if ( move_uploaded_file( $source, $targetzip ) ) {
 			// Extract ZIP file
 			$extract_result = seedprod_lite_v2_extract_zip( $targetzip, $targetdir, true );
@@ -820,7 +821,7 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 	}
 
 	// Create import directory
-	mkdir( $targetdir, 0755 );
+	wp_mkdir_p( $targetdir );
 
 	// Save the ZIP file
 	if ( ! file_put_contents( $targetzip, $body ) ) { // phpcs:ignore
@@ -982,6 +983,7 @@ function seedprod_lite_v2_export_landing_pages() {
 		$shortcode_exports = $export_result['shortcode_exports'];
 
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during processing: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1021,7 +1023,7 @@ function seedprod_lite_v2_export_landing_pages() {
 
 	// Create directory if it doesn't exist (don't delete - prevents race condition with concurrent exports).
 	if ( ! is_dir( $targetdir ) ) {
-		if ( ! mkdir( $targetdir, 0755, true ) ) {
+		if ( ! wp_mkdir_p( $targetdir ) ) {
 			wp_send_json_error( __( 'Failed to create export directory.', 'coming-soon' ) );
 		}
 	}
@@ -1069,6 +1071,7 @@ function seedprod_lite_v2_export_landing_pages() {
 			}
 		}
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during image processing: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1082,6 +1085,7 @@ function seedprod_lite_v2_export_landing_pages() {
 			wp_send_json_error( __( 'Export completed but file data not generated.', 'coming-soon' ) );
 		}
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during ZIP creation: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1129,8 +1133,9 @@ function seedprod_lite_v2_import_landing_pages() {
 		}
 
 		// Create import directory
-		mkdir( $targetdir, 0755 );
+		wp_mkdir_p( $targetdir );
 
+		// phpcs:ignore Generic.PHP.ForbiddenFunctions.Found -- move_uploaded_file is required for handling HTTP file uploads securely.
 		if ( move_uploaded_file( $source, $targetzip ) ) {
 			// Validate zip contents
 			$validation_result = seedprod_lite_v2_validate_import_zip( $targetzip, false );

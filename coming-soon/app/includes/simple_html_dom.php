@@ -1,4 +1,6 @@
 <?php
+// phpcs:disable WordPress.Security.EscapeOutput -- Third-party Simple HTML DOM Parser library.
+
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/
  * Additional projects: http://sourceforge.net/projects/debugobject/
@@ -39,10 +41,10 @@ define( 'HDOM_INFO_INNER', 5 );
 define( 'HDOM_INFO_OUTER', 6 );
 define( 'HDOM_INFO_ENDSPACE', 7 );
 
-defined( 'DEFAULT_TARGET_CHARSET' ) || define( 'DEFAULT_TARGET_CHARSET', 'UTF-8' );
-defined( 'DEFAULT_BR_TEXT' ) || define( 'DEFAULT_BR_TEXT', "\r\n" );
-defined( 'DEFAULT_SPAN_TEXT' ) || define( 'DEFAULT_SPAN_TEXT', ' ' );
-defined( 'MAX_FILE_SIZE' ) || define( 'MAX_FILE_SIZE', 600000 );
+defined( 'SEEDPROD_DEFAULT_TARGET_CHARSET' ) || define( 'SEEDPROD_DEFAULT_TARGET_CHARSET', 'UTF-8' );
+defined( 'SEEDPROD_DEFAULT_BR_TEXT' ) || define( 'SEEDPROD_DEFAULT_BR_TEXT', "\r\n" );
+defined( 'SEEDPROD_DEFAULT_SPAN_TEXT' ) || define( 'SEEDPROD_DEFAULT_SPAN_TEXT', ' ' );
+defined( 'SEEDPROD_MAX_FILE_SIZE' ) || define( 'SEEDPROD_MAX_FILE_SIZE', 600000 );
 define( 'HDOM_SMARTY_AS_TEXT', 1 );
 
 function seedprod_file_get_html(
@@ -53,13 +55,13 @@ function seedprod_file_get_html(
 	$maxLen = -1,
 	$lowercase = true,
 	$forceTagsClosed = true,
-	$target_charset = DEFAULT_TARGET_CHARSET,
+	$target_charset = SEEDPROD_DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
-	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT
+	$defaultBRText = SEEDPROD_DEFAULT_BR_TEXT,
+	$defaultSpanText = SEEDPROD_DEFAULT_SPAN_TEXT
 ) {
 	if ( $maxLen <= 0 ) {
-		$maxLen = MAX_FILE_SIZE; }
+		$maxLen = SEEDPROD_MAX_FILE_SIZE; }
 
 	$dom = new seedprod_simple_html_dom(
 		null,
@@ -96,10 +98,10 @@ function seedprod_str_get_html(
 	$str,
 	$lowercase = true,
 	$forceTagsClosed = true,
-	$target_charset = DEFAULT_TARGET_CHARSET,
+	$target_charset = SEEDPROD_DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
-	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT
+	$defaultBRText = SEEDPROD_DEFAULT_BR_TEXT,
+	$defaultSpanText = SEEDPROD_DEFAULT_SPAN_TEXT
 ) {
 	$dom = new seedprod_simple_html_dom(
 		null,
@@ -111,7 +113,7 @@ function seedprod_str_get_html(
 		$defaultSpanText
 	);
 
-	if ( empty( $str ) || strlen( $str ) > MAX_FILE_SIZE ) {
+	if ( empty( $str ) || strlen( $str ) > SEEDPROD_MAX_FILE_SIZE ) {
 		$dom->clear();
 		return false;
 	}
@@ -1487,10 +1489,10 @@ class seedprod_simple_html_dom {
 		$str = null,
 		$lowercase = true,
 		$forceTagsClosed = true,
-		$target_charset = DEFAULT_TARGET_CHARSET,
+		$target_charset = SEEDPROD_DEFAULT_TARGET_CHARSET,
 		$stripRN = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT,
+		$defaultBRText = SEEDPROD_DEFAULT_BR_TEXT,
+		$defaultSpanText = SEEDPROD_DEFAULT_SPAN_TEXT,
 		$options = 0
 	) {
 		if ( $str ) {
@@ -1524,8 +1526,8 @@ class seedprod_simple_html_dom {
 		$str,
 		$lowercase = true,
 		$stripRN = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT,
+		$defaultBRText = SEEDPROD_DEFAULT_BR_TEXT,
+		$defaultSpanText = SEEDPROD_DEFAULT_SPAN_TEXT,
 		$options = 0
 	) {
 		global $debug_object;
@@ -1642,8 +1644,8 @@ class seedprod_simple_html_dom {
 	protected function prepare(
 		$str,
 		$lowercase = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT
+		$defaultBRText = SEEDPROD_DEFAULT_BR_TEXT,
+		$defaultSpanText = SEEDPROD_DEFAULT_SPAN_TEXT
 	) {
 		$this->clear();
 

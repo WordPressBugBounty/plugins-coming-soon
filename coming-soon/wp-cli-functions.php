@@ -135,7 +135,8 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				if ( is_dir( $targetdir ) ) {
 					recursive_rmdir( $targetdir );
 				}
-				mkdir( $targetdir, 0777 );
+				wp_mkdir_p( $targetdir );
+				// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- WP_Filesystem may not be initialized in CLI context.
 				if ( file_put_contents( $targetzip, $file_import_url_json['body'] ) ) {
 
 					$zip = new ZipArchive();
@@ -144,7 +145,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 						$zip->extractTo( $targetdir );
 						$zip->close();
 
-						unlink( $targetzip );
+						wp_delete_file( $targetzip );
 					}
 					$theme_json_data     = $targetdir . '/export_theme.json';
 					$web_theme_json_data = $webtargetdir . '/export_theme.json';
@@ -317,8 +318,9 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				if ( is_dir( $targetdir ) ) {
 					recursive_rmdir( $targetdir );
 				}
-				mkdir( $targetdir, 0777 );
+				wp_mkdir_p( $targetdir );
 
+				// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- WP_Filesystem may not be initialized in CLI context.
 				if ( file_put_contents( $targetzip, $file_import_url_json['body'] ) ) {
 					$zip = new ZipArchive();
 					$x   = $zip->open( $targetzip );
@@ -326,7 +328,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 						$zip->extractTo( $targetdir );
 						$zip->close();
 
-						unlink( $targetzip );
+						wp_delete_file( $targetzip );
 					}
 
 					$theme_json_data     = $targetdir . '/export_page.json';
