@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.19.10\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-15T09:33:50+00:00\n"
+"POT-Creation-Date: 2026-04-23T09:37:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: coming-soon\n"
@@ -32,6 +32,7 @@ msgstr ""
 #. Author of the plugin
 #: coming-soon.php
 #: admin/partials/seedprod-admin-growth-tool.php:74
+#: includes/class-seedprod-abilities.php:40
 msgid "SeedProd"
 msgstr ""
 
@@ -1508,7 +1509,7 @@ msgid "Invalid security token"
 msgstr ""
 
 #: admin/includes/import-export-functions.php:36
-#: admin/includes/import-export-functions.php:743
+#: admin/includes/import-export-functions.php:774
 #: admin/includes/theme-functions.php:1012
 #: admin/includes/theme-functions.php:1306
 #: admin/includes/theme-functions.php:1353
@@ -1531,121 +1532,127 @@ msgstr ""
 msgid "File upload failed"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:93
+#: admin/includes/import-export-functions.php:123
 msgid "No file uploaded"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:118
-#: admin/includes/import-export-functions.php:803
+#: admin/includes/import-export-functions.php:148
+#: admin/includes/import-export-functions.php:847
 msgid "The file you are trying to upload is not a .zip file. Please try again."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:177
-#: admin/includes/import-export-functions.php:544
+#: admin/includes/import-export-functions.php:207
+#: admin/includes/import-export-functions.php:574
 msgid "ZipArchive class not available. Please contact your host to enable it."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:188
+#: admin/includes/import-export-functions.php:218
 msgid "Failed to extract ZIP file."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:216
+#: admin/includes/import-export-functions.php:246
 msgid "Unable to read data file."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:222
+#: admin/includes/import-export-functions.php:252
 msgid "Invalid data format."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:586
+#: admin/includes/import-export-functions.php:616
 #: admin/includes/import-export-utilities.php:1118
 msgid "Failed to read export file."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:597
+#: admin/includes/import-export-functions.php:627
 msgid "Export completed successfully"
 msgstr ""
 
 #. translators: %d: number of failed images
-#: admin/includes/import-export-functions.php:606
+#: admin/includes/import-export-functions.php:636
 #, php-format
 msgid "%d images could not be downloaded and were excluded from the export."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:614
+#: admin/includes/import-export-functions.php:644
 msgid "Failed to create ZIP file."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:695
-#: admin/includes/import-export-functions.php:864
+#: admin/includes/import-export-functions.php:725
+#: admin/includes/import-export-functions.php:908
 msgid "This does not appear to be a SeedProd theme."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:710
-#: admin/includes/import-export-functions.php:714
-#: admin/includes/import-export-functions.php:1187
+#: admin/includes/import-export-functions.php:740
+#: admin/includes/import-export-functions.php:744
+#: admin/includes/import-export-functions.php:1231
 msgid "There was a problem with the upload. Please try again."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:765
+#: admin/includes/import-export-functions.php:796
 msgid "No URL provided"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:784
-msgid "The file is not a valid ZIP archive."
+#: admin/includes/import-export-functions.php:801
+msgid "Invalid import URL. Please enter a valid HTTPS URL."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:789
+#. translators: %d: HTTP status code returned by the import URL
+#: admin/includes/import-export-functions.php:824
+#, php-format
+msgid "The import URL returned HTTP %d."
+msgstr ""
+
+#: admin/includes/import-export-functions.php:833
 msgid "Failed to download file content."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:829
+#: admin/includes/import-export-functions.php:873
 msgid "There was a problem saving the file. Please try again."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:964
+#: admin/includes/import-export-functions.php:1008
 msgid "No landing pages found to export."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:978
+#: admin/includes/import-export-functions.php:1022
 msgid "Export data structure is invalid."
 msgstr ""
 
 #. translators: %s: Error message from the exception
-#: admin/includes/import-export-functions.php:987
+#: admin/includes/import-export-functions.php:1031
 #, php-format
 msgid "Export failed during processing: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:1014
+#: admin/includes/import-export-functions.php:1058
 msgid "Failed to encode export data. The page data may be too large or contain invalid characters."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:1027
+#: admin/includes/import-export-functions.php:1071
 msgid "Failed to create export directory."
 msgstr ""
 
 #. translators: %s: Error message from the exception
-#: admin/includes/import-export-functions.php:1075
+#: admin/includes/import-export-functions.php:1119
 #, php-format
 msgid "Export failed during image processing: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:1085
+#: admin/includes/import-export-functions.php:1129
 msgid "Export completed but file data not generated."
 msgstr ""
 
 #. translators: %s: Error message from the exception
-#: admin/includes/import-export-functions.php:1089
+#: admin/includes/import-export-functions.php:1133
 #, php-format
 msgid "Export failed during ZIP creation: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:1172
+#: admin/includes/import-export-functions.php:1216
 msgid "This does not appear to be a SeedProd landing page."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:1191
+#: admin/includes/import-export-functions.php:1235
 msgid "Invalid file upload."
 msgstr ""
 
@@ -1708,17 +1715,14 @@ msgid "License Key is Required."
 msgstr ""
 
 #. translators: 1. License name.
-#. Translators: %s is the license name.
 #: admin/includes/license-functions.php:131
 #: app/license.php:155
-#: wp-cli-functions.php:498
 #, php-format
 msgid "You currently have the <strong>%s</strong> license."
 msgstr ""
 
 #: admin/includes/license-functions.php:136
 #: app/license.php:160
-#: wp-cli-functions.php:503
 msgid "Invalid License Key."
 msgstr ""
 
@@ -4805,6 +4809,54 @@ msgstr ""
 
 #: app/theme-templates.php:995
 msgid "This page was auto-generated and is a placeholder page for the SeedProd theme. To manage the contents of this page please visit SeedProd > Theme Builder in the left menu in WordPress. "
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:41
+msgid "SeedProd page builder and website customization operations."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:66
+msgid "Get SeedProd Status"
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:67
+msgid "Get the current status of SeedProd including coming soon mode, maintenance mode, theme builder status, and license information."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:78
+msgid "Whether coming soon mode is enabled."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:82
+msgid "The ID of the coming soon page."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:86
+msgid "Whether maintenance mode is enabled."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:90
+msgid "The ID of the maintenance mode page."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:94
+msgid "Whether the SeedProd theme builder is enabled."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:98
+msgid "Whether a valid license is active."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:102
+msgid "The type of license (e.g., Basic, Plus, Pro, Elite)."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:106
+msgid "The current SeedProd plugin version."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:110
+msgid "The build type (pro or lite)."
 msgstr ""
 
 #: languages/seedprod-lite.php:8
@@ -13160,8 +13212,4 @@ msgstr ""
 
 #: resources/views/seedprod-preview.php:536
 msgid "The content for this page is empty or has not been saved. Please edit this page and \"Save\" the contents in the builder."
-msgstr ""
-
-#: wp-cli-functions.php:446
-msgid "License Key is required."
 msgstr ""

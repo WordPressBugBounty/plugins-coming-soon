@@ -3,7 +3,7 @@
  * Plugin Name: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd
  * Plugin URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=plugin-uri-link
  * Description: The Easiest WordPress Drag & Drop Page Builder that allows you to build your website, create Landing Pages, Coming Soon Pages, Maintenance Mode Pages and more.
- * Version:  6.19.10
+ * Version:  6.20.0
  * Author: SeedProd
  * Author URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=author-uri-link
  * Text Domain: coming-soon
@@ -20,7 +20,7 @@
 
 define( 'SEEDPROD_BUILD', 'lite' );
 define( 'SEEDPROD_SLUG', 'coming-soon/coming-soon.php' );
-define( 'SEEDPROD_VERSION', '6.19.10' );
+define( 'SEEDPROD_VERSION', '6.20.0' );
 define( 'SEEDPROD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // Example output: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/seedprod/.
 define( 'SEEDPROD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -180,6 +180,16 @@ function seedprod_lite_init_native_admin() {
  */
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	require_once SEEDPROD_PLUGIN_PATH . 'wp-cli-functions.php';
+}
+
+/**
+ * Register WordPress Abilities API (WP 6.9+)
+ *
+ * Exposes SeedProd capabilities as machine-readable abilities
+ * for automation tools, AI agents, and third-party integrations.
+ */
+if ( function_exists( 'wp_register_ability' ) ) {
+	require_once SEEDPROD_PLUGIN_PATH . 'includes/class-seedprod-abilities.php';
 }
 
 /**

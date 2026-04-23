@@ -82,6 +82,36 @@ function seedprod_lite_v2_get_upload_error_message( $error_code ) {
 }
 
 /**
+ * Validate that a URL is safe for theme/template import.
+ *
+ * Enforces HTTPS and rejects path traversal. Does not restrict domains
+ * because admins may import from any URL (Dropbox, Google Drive, etc.).
+ * Private-IP SSRF is handled by wp_safe_remote_get() at the call site.
+ *
+ * @param string $url The URL to validate.
+ * @return boolean True if the URL passes safety checks.
+ */
+function seedprod_lite_v2_is_allowed_import_url( $url ) {
+	$parsed = wp_parse_url( $url );
+
+	if ( empty( $parsed['host'] ) || empty( $parsed['scheme'] ) ) {
+		return false;
+	}
+
+	// Enforce HTTPS (allow HTTP only in local dev).
+	if ( 'https' !== strtolower( $parsed['scheme'] ) && ! defined( 'SEEDPROD_LOCAL_JS' ) ) {
+		return false;
+	}
+
+	// Block path traversal sequences.
+	if ( ! empty( $parsed['path'] ) && false !== strpos( $parsed['path'], '..' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
  * Validate ZIP file upload.
  *
  * @param string $file_key The $_FILES array key.
@@ -721,8 +751,9 @@ function seedprod_lite_v2_import_theme_files() {
  * Downloads and imports a theme from a remote URL
  */
 function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
-	// Track if this is a direct AJAX call or internal call
-	$is_direct_ajax = ( $theme_url === null );
+	// Track if this is a direct AJAX call or internal call. AJAX hook callbacks
+	// receive an empty string (not null) for unset args, so check with empty().
+	$is_direct_ajax = empty( $theme_url );
 
 	// Helper function to handle errors for both AJAX and internal calls
 	$handle_error = function ( $message, $code = 'error' ) use ( $is_direct_ajax ) {
@@ -755,8 +786,8 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 	// Initialize filesystem
 	seedprod_lite_v2_init_filesystem();
 
-	// Get the source URL
-	$source = isset( $_REQUEST['seedprod_theme_url'] ) ? wp_kses_post( wp_unslash( $_REQUEST['seedprod_theme_url'] ) ) : '';
+	// esc_url_raw() preserves query-string ampersands for signed CDN URLs.
+	$source = isset( $_REQUEST['seedprod_theme_url'] ) ? esc_url_raw( wp_unslash( $_REQUEST['seedprod_theme_url'] ) ) : '';
 	if ( ! empty( $theme_url ) ) {
 		$source = $theme_url;
 	}
@@ -765,8 +796,13 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 		return $handle_error( __( 'No URL provided', 'coming-soon' ), 'no_url' );
 	}
 
-	// Download the file from URL
-	$file_import_url_json = wp_remote_get(
+	// Enforce HTTPS and reject path traversal to reduce SSRF surface.
+	if ( ! seedprod_lite_v2_is_allowed_import_url( $source ) ) {
+		return $handle_error( __( 'Invalid import URL. Please enter a valid HTTPS URL.', 'coming-soon' ), 'invalid_url' );
+	}
+
+	// Download the file from URL.
+	$file_import_url_json = wp_safe_remote_get(
 		$source,
 		array(
 			'sslverify' => false,
@@ -778,10 +814,18 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 		return $handle_error( $file_import_url_json->get_error_message(), $file_import_url_json->get_error_code() );
 	}
 
-	// Check if it's a ZIP file
-	$content_type = wp_remote_retrieve_header( $file_import_url_json, 'content-type' );
-	if ( ! preg_match( '/zip/', $content_type ) ) {
-		return $handle_error( __( 'The file is not a valid ZIP archive.', 'coming-soon' ), 'invalid_zip' );
+	// ZipArchive::open() in seedprod_lite_v2_validate_import_zip() below is the
+	// real ZIP check; Content-Type isn't reliable across CDNs.
+	$response_code = (int) wp_remote_retrieve_response_code( $file_import_url_json );
+	if ( 200 !== $response_code ) {
+		return $handle_error(
+			sprintf(
+				/* translators: %d: HTTP status code returned by the import URL */
+				__( 'The import URL returned HTTP %d.', 'coming-soon' ),
+				$response_code
+			),
+			'http_error'
+		);
 	}
 
 	$body = wp_remote_retrieve_body( $file_import_url_json );
