@@ -36,7 +36,7 @@ function seedprod_lite_call_open_ai() {
 				array(
 					'body'      => wp_json_encode( $data ),
 					'headers'   => $headers,
-					'sslverify' => false,
+					'sslverify' => true,
 					'timeout'   => 60,
 				)
 			);
@@ -114,7 +114,7 @@ function seedprod_lite_call_open_ai_edit() {
 					array(
 						'body'      => wp_json_encode( $data ),
 						'headers'   => $headers,
-						'sslverify' => false,
+						'sslverify' => true,
 						'timeout'   => 60,
 					)
 				);
@@ -189,7 +189,7 @@ function seedprod_lite_generate_image_open_ai() {
 				array(
 					'body'      => wp_json_encode( $data ),
 					'headers'   => $headers,
-					'sslverify' => false,
+					'sslverify' => true,
 					'timeout'   => 120,
 				)
 			);
@@ -237,75 +237,172 @@ function seedprod_lite_generate_image_open_ai_variations() {
 		}
 
 		$image_url = isset( $_REQUEST['image'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['image'] ) ) : '';
-		// Convert the image URL to a local file path.
-		$upload_dir      = wp_upload_dir();
-		$upload_base_url = $upload_dir['baseurl'];
-		$image_path      = str_replace( $upload_base_url, $upload_dir['basedir'], $image_url );
+
+		$image_bytes = seedprod_lite_load_image_bytes( $image_url );
+		if ( false === $image_bytes ) {
+			echo wp_json_encode( array( 'error' => __( 'Could not retrieve source image.', 'coming-soon' ) ) );
+			exit;
+		}
+
+		$image_bytes = seedprod_lite_resize_image_to_1024( $image_bytes );
+		if ( false === $image_bytes ) {
+			echo wp_json_encode( array( 'error' => __( 'Failed to process source image.', 'coming-soon' ) ) );
+			exit;
+		}
 
 		$seedprod_api_key = seedprod_lite_get_api_key();
 		$api_key          = $seedprod_api_key;
 		$token            = get_option( 'seedprod_token' );
 		$api_token        = get_option( 'seedprod_api_token' );
 
-		if ( file_exists( $image_path ) ) {
+		$headers_array = array(
+			'Content-Type'  => 'application/json',
+			'Authorization' => 'Bearer ' . $api_token,
+		);
 
-			$headers_array = array(
-				'Content-Type'  => 'application/json',
-				'Authorization' => 'Bearer ' . $api_token,
+		$data = array(
+			'image'     => base64_encode( $image_bytes ), // phpcs:ignore
+			'api_token' => $api_token,
+			'api_key'   => $api_key,
+			'token'     => $token,
+		);
+
+		$url = SEEDPROD_WEB_API_URL . 'v4/openaiimagevariationsgenerate';
+
+		try {
+			$response = wp_remote_post(
+				$url,
+				array(
+					'body'      => wp_json_encode( $data ),
+					'headers'   => $headers_array,
+					'sslverify' => true,
+					'timeout'   => 120,
+				)
 			);
 
-			$data = array(
-				'image'     => base64_encode( file_get_contents( $image_path ) ), // phpcs:ignore
-				'api_token' => $api_token,
-				'api_key'   => $api_key,
-				'token'     => $token,
-			);
+			if ( is_wp_error( $response ) ) {
 
-			$url = SEEDPROD_WEB_API_URL . 'v4/openaiimagevariationsgenerate';
+				$curl_error = $response->get_error_code();
+				if ( 'http_request_failed' === $curl_error ) {
+					echo wp_json_encode( array( 'error' => __( 'cURL error:', 'coming-soon' ) . $response->get_error_message() ) );
+				} else {
+					echo wp_json_encode( array( 'error' => $response->get_error_message() ) );
+				}
+			} else {
 
-			try {
-				$response = wp_remote_post(
-					$url,
-					array(
-						'body'      => wp_json_encode( $data ),
-						'headers'   => $headers_array,
-						'sslverify' => false,
-						'timeout'   => 120,
-					)
-				);
+				$http_status = wp_remote_retrieve_response_code( $response );
+				if ( 200 === $http_status ) {
+					$response_body = wp_remote_retrieve_body( $response );
+					$result_data   = json_decode( $response_body, true );
 
-				if ( is_wp_error( $response ) ) {
-
-					$curl_error = $response->get_error_code();
-					if ( 'http_request_failed' === $curl_error ) {
-						echo wp_json_encode( array( 'error' => __( 'cURL error:', 'coming-soon' ) . $response->get_error_message() ) );
+					if ( null === $result_data && json_last_error() !== JSON_ERROR_NONE ) {
+						echo wp_json_encode( array( 'error' => __( 'Invalid JSON response', 'coming-soon' ) ) );
 					} else {
-						echo wp_json_encode( array( 'error' => $response->get_error_message() ) );
+						echo wp_json_encode( $result_data );
 					}
 				} else {
-
-					$http_status = wp_remote_retrieve_response_code( $response );
-					if ( 200 === $http_status ) {
-						$response_body = wp_remote_retrieve_body( $response );
-						$result_data   = json_decode( $response_body, true );
-
-						if ( null === $result_data && json_last_error() !== JSON_ERROR_NONE ) {
-							echo wp_json_encode( array( 'error' => __( 'Invalid JSON response', 'coming-soon' ) ) );
-						} else {
-							echo wp_json_encode( $result_data );
-						}
-					} else {
-						echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
-					}
+					echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 				}
-			} catch ( Exception $e ) {
-				echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 			}
+		} catch ( Exception $e ) {
+			echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 		}
 
 		exit;
 
 	}
+}
+
+/**
+ * Resolve a source image URL (local upload or remote http(s)) to raw bytes.
+ * Remote fetch is gated by a 10MB size cap matching the API's MAX_IMAGE_BYTES.
+ *
+ * @param string $image_url URL from $_REQUEST['image'].
+ * @return string|false Raw image bytes, or false on any failure.
+ */
+function seedprod_lite_load_image_bytes( $image_url ) {
+	if ( '' === $image_url ) {
+		return false;
+	}
+
+	$max_bytes  = 7 * 1024 * 1024; // ~7MB binary leaves headroom under the worker's 10MB base64 cap.
+	$upload_dir = wp_upload_dir();
+	$is_local   = 0 === strpos( $image_url, $upload_dir['baseurl'] );
+	$local_path = $is_local ? str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $image_url ) : '';
+
+	if ( $is_local && file_exists( $local_path ) ) {
+		if ( filesize( $local_path ) > $max_bytes ) {
+			return false;
+		}
+		return file_get_contents( $local_path ); // phpcs:ignore
+	}
+
+	if ( ! preg_match( '#^https?://#i', $image_url ) ) {
+		return false;
+	}
+
+	$response = wp_safe_remote_get(
+		$image_url,
+		array(
+			'timeout'   => 30,
+			'sslverify' => true,
+		)
+	);
+
+	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		return false;
+	}
+
+	$body = wp_remote_retrieve_body( $response );
+	if ( ! $body || strlen( $body ) > $max_bytes ) {
+		return false;
+	}
+
+	return $body;
+}
+
+/**
+ * Normalize image bytes to a 1024x1024 PNG with alpha so /v1/images/edits
+ * accepts them. gpt-image-1 requires the mask and source to match the `size`
+ * parameter exactly; we always request 1024x1024.
+ *
+ * @param string $image_bytes Raw image bytes (any common format GD reads).
+ * @return string|false 1024x1024 PNG bytes, or false on decode failure.
+ */
+function seedprod_lite_resize_image_to_1024( $image_bytes ) {
+	if ( ! function_exists( 'imagecreatefromstring' ) || ! function_exists( 'getimagesizefromstring' ) ) {
+		return false;
+	}
+
+	// Reject decompression bombs before GD allocates the full bitmap.
+	$info = getimagesizefromstring( $image_bytes );
+	if ( ! $info || $info[0] > 4096 || $info[1] > 4096 ) {
+		return false;
+	}
+
+	$source = imagecreatefromstring( $image_bytes );
+	if ( ! $source ) {
+		return false;
+	}
+
+	$src_w = imagesx( $source );
+	$src_h = imagesy( $source );
+
+	$resized = imagecreatetruecolor( 1024, 1024 );
+	imagealphablending( $resized, false );
+	imagesavealpha( $resized, true );
+	$transparent = imagecolorallocatealpha( $resized, 0, 0, 0, 127 );
+	imagefilledrectangle( $resized, 0, 0, 1024, 1024, $transparent );
+	imagecopyresampled( $resized, $source, 0, 0, 0, 0, 1024, 1024, $src_w, $src_h );
+
+	ob_start();
+	imagepng( $resized );
+	$bytes = ob_get_clean();
+
+	imagedestroy( $source );
+	imagedestroy( $resized );
+
+	return ! empty( $bytes ) ? $bytes : false;
 }
 
 
@@ -333,124 +430,94 @@ function seedprod_lite_generate_image_open_ai_edit_image() {
 		$token            = get_option( 'seedprod_token' );
 		$api_token        = get_option( 'seedprod_api_token' );
 
-		$upload_dir        = wp_upload_dir();
-		$edited_image_path = $upload_dir['path'] . '/edited-image.png';
-
 		$image_data = base64_decode( preg_replace( '#^data:image/\w+;base64,#i', '', $mask ) ); // phpcs:ignore
-		file_put_contents( $edited_image_path, $image_data );// phpcs:ignore
 
-		$image_url = $data['image'];
+		$image_url = isset( $data['image'] ) ? $data['image'] : '';
 
-		// Convert the image URL to a local file path.
-		$upload_base_url = $upload_dir['baseurl'];
-		$image_path      = str_replace( $upload_base_url, $upload_dir['basedir'], $image_url );
+		$image_bytes = seedprod_lite_load_image_bytes( $image_url );
+		if ( false === $image_bytes ) {
+			echo wp_json_encode( array( 'error' => __( 'Could not retrieve source image.', 'coming-soon' ) ) );
+			exit;
+		}
 
-		if ( file_exists( $image_path ) ) {
+		// gpt-image-1 requires the mask and source to share dimensions with the
+		// `size` param (1024x1024). Resize both — source from its native size,
+		// mask from the canvas (whatever the editor produced).
+		$image_bytes = seedprod_lite_resize_image_to_1024( $image_bytes );
+		if ( false === $image_bytes ) {
+			echo wp_json_encode( array( 'error' => __( 'Failed to process source image.', 'coming-soon' ) ) );
+			exit;
+		}
 
-			// Load the source PNG image.
-			$source_image = imagecreatefrompng( $image_path );
+		$masked_image = imagecreatefromstring( $image_data );
+		if ( ! $masked_image ) {
+			echo wp_json_encode( array( 'error' => __( 'Failed to process image mask.', 'coming-soon' ) ) );
+			exit;
+		}
+		$rgba_masked_image = imagecreatetruecolor( 1024, 1024 );
+		imagealphablending( $rgba_masked_image, false );
+		imagesavealpha( $rgba_masked_image, true );
+		$transparent_color = imagecolorallocatealpha( $rgba_masked_image, 0, 0, 0, 127 );
+		imagefilledrectangle( $rgba_masked_image, 0, 0, 1024, 1024, $transparent_color );
+		imagecopyresampled( $rgba_masked_image, $masked_image, 0, 0, 0, 0, 1024, 1024, imagesx( $masked_image ), imagesy( $masked_image ) );
+		ob_start();
+		imagepng( $rgba_masked_image );
+		$mask_bytes = ob_get_clean();
+		imagedestroy( $masked_image );
+		imagedestroy( $rgba_masked_image );
 
-			// Create a blank image in the 'RGBA' format.
-			$rgba_image = imagecreatetruecolor( imagesx( $source_image ), imagesy( $source_image ) );
+		$headers_array = array(
+			'Content-Type'  => 'application/json',
+			'Authorization' => 'Bearer ' . $api_token,
+		);
 
-			// Create a transparent background.
-			$transparent_color = imagecolorallocatealpha( $rgba_image, 0, 0, 0, 127 );
-			imagefill( $rgba_image, 0, 0, $transparent_color );
-			imagesavealpha( $rgba_image, true );
+		$data = array(
+			'image'     => base64_encode( $image_bytes ), // phpcs:ignore
+			'mask'      => base64_encode( $mask_bytes ), // phpcs:ignore
+			'prompt'    => $prompt,
+			'api_token' => $api_token,
+			'api_key'   => $api_key,
+			'token'     => $token,
+		);
 
-			// Merge the source PNG image into the 'RGBA' image.
-			imagecopy( $rgba_image, $source_image, 0, 0, 0, 0, imagesx( $source_image ), imagesy( $source_image ) );
+		$url = SEEDPROD_WEB_API_URL . 'v4/openaieditimagegenerate';
 
-			// Save the 'RGBA' image as a temporary PNG file.
-			$temp_image_path = $upload_dir['path'] . '/temp.png';
-			imagepng( $rgba_image, $temp_image_path );
-
-			// Clean up resources.
-			imagedestroy( $source_image );
-			imagedestroy( $rgba_image );
-
-			$masked_image = imagecreatefrompng( $edited_image_path );
-
-			// Create a blank image in the 'RGBA' format.
-			$rgba_masked_image = imagecreatetruecolor( imagesx( $masked_image ), imagesy( $masked_image ) );
-
-			// Create a transparent background.
-			$transparent_color = imagecolorallocatealpha( $rgba_masked_image, 0, 0, 0, 127 );
-			imagefill( $rgba_masked_image, 0, 0, $transparent_color );
-			imagesavealpha( $rgba_masked_image, true );
-
-			// Merge the source masked PNG image into the 'RGBA' image.
-			imagecopy( $rgba_masked_image, $masked_image, 0, 0, 0, 0, imagesx( $masked_image ), imagesy( $masked_image ) );
-
-			// Save the 'RGBA' masked image as a temporary PNG file.
-			$masked_image_path = $upload_dir['path'] . '/masked_temp.png';
-			imagepng( $rgba_masked_image, $masked_image_path );
-
-			// Clean up resources.
-			imagedestroy( $masked_image );
-			imagedestroy( $rgba_masked_image );
-
-			// Prepare the image for sending.
-			$file = curl_file_create( $temp_image_path ); // phpcs:ignore
-			$mask_file = curl_file_create( $masked_image_path );// phpcs:ignore
-
-			// edit image code.
-			$headers_array = array(
-				'Content-Type'  => 'application/json',
-				'Authorization' => 'Bearer ' . $api_token,
+		try {
+			$response = wp_remote_post(
+				$url,
+				array(
+					'body'      => wp_json_encode( $data ),
+					'headers'   => $headers_array,
+					'sslverify' => true,
+					'timeout'   => 120,
+				)
 			);
 
-			$data = array(
-				'image'     => base64_encode( file_get_contents( $image_path ) ),// phpcs:ignore
-				'mask'      => base64_encode( file_get_contents( $masked_image_path ) ),// phpcs:ignore
-				'prompt'    => $prompt,
-				'api_token' => $api_token,
-				'api_key'   => $api_key,
-				'token'     => $token,
-			);
+			if ( is_wp_error( $response ) ) {
+				$curl_error = $response->get_error_code();
+				if ( 'http_request_failed' === $curl_error ) {
+					echo wp_json_encode( array( 'error' => __( 'cURL error:', 'coming-soon' ) . $response->get_error_message() ) );
+				} else {
+					echo wp_json_encode( array( 'error' => $response->get_error_message() ) );
+				}
+			} else {
 
-			$url = SEEDPROD_WEB_API_URL . 'v4/openaieditimagegenerate';
+				$http_status = wp_remote_retrieve_response_code( $response );
+				if ( 200 === $http_status ) {
+					$response_body = wp_remote_retrieve_body( $response );
+					$result_data   = json_decode( $response_body, true );
 
-			try {
-				$response = wp_remote_post(
-					$url,
-					array(
-						'body'      => wp_json_encode( $data ),
-						'headers'   => $headers_array,
-						'sslverify' => false,
-						'timeout'   => 120,
-					)
-				);
-
-				if ( is_wp_error( $response ) ) {
-					$curl_error = $response->get_error_code();
-					if ( 'http_request_failed' === $curl_error ) {
-						echo wp_json_encode( array( 'error' => __( 'cURL error:', 'coming-soon' ) . $response->get_error_message() ) );
+					if ( null === $result_data && json_last_error() !== JSON_ERROR_NONE ) {
+						echo wp_json_encode( array( 'error' => __( 'Invalid JSON response', 'coming-soon' ) ) );
 					} else {
-						echo wp_json_encode( array( 'error' => $response->get_error_message() ) );
+						echo wp_json_encode( $result_data );
 					}
 				} else {
-
-					$http_status = wp_remote_retrieve_response_code( $response );
-					if ( 200 === $http_status ) {
-						$response_body = wp_remote_retrieve_body( $response );
-						$result_data   = json_decode( $response_body, true );
-
-						if ( null === $result_data && json_last_error() !== JSON_ERROR_NONE ) {
-							echo wp_json_encode( array( 'error' => __( 'Invalid JSON response', 'coming-soon' ) ) );
-						} else {
-							echo wp_json_encode( $result_data );
-						}
-					} else {
-						echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
-					}
+					echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 				}
-			} catch ( Exception $e ) {
-				echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 			}
-
-			exit;
-
+		} catch ( Exception $e ) {
+			echo wp_json_encode( array( 'error' => __( 'Server error or request timeout. Try again later.', 'coming-soon' ) ) );
 		}
 
 		exit;
@@ -493,7 +560,7 @@ function seedprod_lite_call_ai_credits() {
 				array(
 					'body'      => wp_json_encode( $data ),
 					'headers'   => $headers,
-					'sslverify' => false,
+					'sslverify' => true,
 					'timeout'   => 60,
 				)
 			);

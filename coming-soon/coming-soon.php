@@ -3,7 +3,7 @@
  * Plugin Name: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd
  * Plugin URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=plugin-uri-link
  * Description: The Easiest WordPress Drag & Drop Page Builder that allows you to build your website, create Landing Pages, Coming Soon Pages, Maintenance Mode Pages and more.
- * Version:  6.20.1
+ * Version:  6.20.2
  * Author: SeedProd
  * Author URI: https://www.seedprod.com/lite-upgrade/?utm_source=WordPress&utm_campaign=liteplugin&utm_medium=author-uri-link
  * Text Domain: coming-soon
@@ -20,7 +20,7 @@
 
 define( 'SEEDPROD_BUILD', 'lite' );
 define( 'SEEDPROD_SLUG', 'coming-soon/coming-soon.php' );
-define( 'SEEDPROD_VERSION', '6.20.1' );
+define( 'SEEDPROD_VERSION', '6.20.2' );
 define( 'SEEDPROD_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 // Example output: /Applications/MAMP/htdocs/wordpress/wp-content/plugins/seedprod/.
 define( 'SEEDPROD_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -149,6 +149,7 @@ register_deactivation_hook( __FILE__, 'seedprod_lite_deactivate' );
 require_once SEEDPROD_PLUGIN_PATH . 'app/bootstrap.php';
 require_once SEEDPROD_PLUGIN_PATH . 'app/routes.php';
 require_once SEEDPROD_PLUGIN_PATH . 'app/load_controller.php';
+require_once SEEDPROD_PLUGIN_PATH . 'app/includes/functions-template-type-labels.php';
 // Load Custom Gutenberg Blocks
 // Commented out - not currently in use
 // if ( file_exists( SEEDPROD_PLUGIN_PATH . 'blocks/countdown/index.php' ) ) {

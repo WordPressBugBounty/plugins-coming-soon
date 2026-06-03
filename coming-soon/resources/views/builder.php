@@ -19,6 +19,10 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		return;
 	}
 
+	if ( ! is_array( $object_to_hydrate ) ) {
+		$object_to_hydrate = array();
+	}
+
 	/**
 	 * Custom merge function that preserves existing values but ensures all default keys exist
 	 *
@@ -70,9 +74,17 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		$element['settings'] = seedprod_lite_merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
 	}
 
-	if ( isset( $object_to_hydrate['document'] ) ) {
-		$document_defaults                         = $defaults['document'] ?? array();
-		$object_to_hydrate['document']['settings'] = array_replace_recursive( $document_defaults, $object_to_hydrate['document']['settings'] ?? array() );
+	$document_defaults = $defaults['document'] ?? array();
+	$existing_document = ( isset( $object_to_hydrate['document'] ) && is_array( $object_to_hydrate['document'] ) )
+		? $object_to_hydrate['document']
+		: array();
+	$object_to_hydrate['document']             = $existing_document;
+	$object_to_hydrate['document']['settings'] = array_replace_recursive(
+		$document_defaults,
+		( isset( $existing_document['settings'] ) && is_array( $existing_document['settings'] ) ) ? $existing_document['settings'] : array()
+	);
+	if ( ! isset( $object_to_hydrate['document']['sections'] ) || ! is_array( $object_to_hydrate['document']['sections'] ) ) {
+		$object_to_hydrate['document']['sections'] = array();
 	}
 
 	// Iterate over document sections and apply defaults.
@@ -227,6 +239,17 @@ if ( empty( $seedprod_is_theme_template ) ) {
 	}
 }
 
+$effective_template_type = isset( $settings['page_type'] ) ? $settings['page_type'] : '';
+if ( ! empty( $seedprod_is_theme_template ) ) {
+	$effective_template_type = seedprod_lite_resolve_effective_template_type(
+		$effective_template_type,
+		get_post_meta( $lpage_id, '_seedprod_theme_template_condition', true )
+	);
+}
+if ( 'post' === $effective_template_type && ! empty( $lpage->post_type ) ) {
+	$effective_template_type = $lpage->post_type;
+}
+
 // Check for landing page types.
 $is_landing_page    = true;
 $landing_page_types = array( 'cs', 'mm', 'p404', 'loginp', 'lp' );
@@ -246,7 +269,7 @@ if ( ! empty( $seedprod_settings ) ) {
 
 
 // Get global css settings.
-$global_css_settings = array();
+$global_css_settings = array( 'settings' => array() );
 $global_css_page_id  = get_option( 'seedprod_global_css_page_id' );
 
 
@@ -686,6 +709,7 @@ $seedprod_data = array(
 	'seedprod_template_parts'             => $seedprod_template_parts,
 	'seedprod_selected_template_parts'    => $seedprod_selected_template_parts,
 	'page_type'                           => isset( $settings['page_type'] ) ? $settings['page_type'] : '',
+	'effective_template_type'             => $effective_template_type,
 	'current_user_name'                   => $current_user_name,
 	'current_user_email_hash'             => $current_user_email_hash,
 	'current_user_email'                  => $current_user_email,
@@ -718,6 +742,7 @@ $seedprod_data = array(
 	'is_theme_template'                   => $seedprod_is_theme_template,
 	'personalization_preferences'         => $user_personalization_preferences,
 	'wplocale'                            => $wp_getlocale,
+	'template_type_labels'                => seedprod_lite_get_template_type_labels(),
 );
 
 	$seedprod_data['envira'] = array(

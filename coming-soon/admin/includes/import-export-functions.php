@@ -727,7 +727,7 @@ function seedprod_lite_v2_import_theme_files() {
 
 			// Process the import
 			// Process the theme import
-			seedprod_lite_v2_theme_import_json( $data );
+			$warnings = seedprod_lite_v2_theme_import_json( $data );
 
 			// Remove the json file for security
 			wp_delete_file( $theme_json_data );
@@ -735,7 +735,7 @@ function seedprod_lite_v2_import_theme_files() {
 			// Clean up import directory
 			seedprod_lite_v2_recursive_rmdir( $targetdir );
 
-			wp_send_json( true );
+			wp_send_json_success( array( 'warnings' => is_array( $warnings ) ? $warnings : array() ) );
 		} else {
 			$message = __( 'There was a problem with the upload. Please try again.', 'coming-soon' );
 			wp_send_json_error( $message );
@@ -910,7 +910,8 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 
 	// Process the import
 	// Process the theme import
-	seedprod_lite_v2_theme_import_json( $data );
+	$warnings = seedprod_lite_v2_theme_import_json( $data );
+	$warnings = is_array( $warnings ) ? $warnings : array();
 
 	// Remove the json file for security
 	wp_delete_file( $theme_json_path );
@@ -920,10 +921,13 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 
 	// Only send JSON if this is a direct AJAX call, not an internal call
 	if ( $is_direct_ajax ) {
-		wp_send_json( true );
+		wp_send_json_success( array( 'warnings' => $warnings ) );
 	} else {
 		// Return success for internal calls
-		return true;
+		return array(
+			'success'  => true,
+			'warnings' => $warnings,
+		);
 	}
 }
 
@@ -1218,7 +1222,10 @@ function seedprod_lite_v2_import_landing_pages() {
 
 			// Process the import
 			// Process the landing page import
-			seedprod_lite_v2_landing_import_json( $data );
+			$import_result = seedprod_lite_v2_landing_import_json( $data );
+			$warnings      = isset( $import_result['warnings'] ) && is_array( $import_result['warnings'] )
+				? $import_result['warnings']
+				: array();
 
 			// Remove the json file for security
 			wp_delete_file( $theme_json_path );
@@ -1226,7 +1233,7 @@ function seedprod_lite_v2_import_landing_pages() {
 			// Clean up import directory
 			seedprod_lite_v2_recursive_rmdir( $targetdir );
 
-			wp_send_json( true );
+			wp_send_json_success( array( 'warnings' => $warnings ) );
 		} else {
 			$message = __( 'There was a problem with the upload. Please try again.', 'coming-soon' );
 			wp_send_json_error( $message );

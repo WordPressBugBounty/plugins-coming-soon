@@ -1049,8 +1049,17 @@ function seedprod_lite_v2_import_theme_request() {
 			wp_send_json_error( $result->get_error_message() );
 		}
 
+		$warnings = is_array( $result ) && isset( $result['warnings'] ) && is_array( $result['warnings'] )
+			? $result['warnings']
+			: array();
+
 		// Success - send JSON response.
-		wp_send_json_success( array( 'message' => __( 'Theme imported successfully.', 'coming-soon' ) ) );
+		wp_send_json_success(
+			array(
+				'message'  => __( 'Theme imported successfully.', 'coming-soon' ),
+				'warnings' => $warnings,
+			)
+		);
 		return; // This won't execute due to wp_send_json_success.
 	}
 

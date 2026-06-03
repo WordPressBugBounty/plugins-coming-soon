@@ -133,6 +133,7 @@ function seedprod_lite_themetemplate_datatable() {
 			$type              = get_post_meta( $v->ID, '_seedprod_page_template_type', true );
 			$conditions_return = '';
 			$conditions        = get_post_meta( $v->ID, '_seedprod_theme_template_condition', true );
+			$type              = seedprod_lite_resolve_effective_template_type( $type, $conditions );
 			if ( ! empty( $conditions ) ) {
 				$conditions     = json_decode( $conditions );
 				$conditions_map = seedprod_lite_conditions_map();

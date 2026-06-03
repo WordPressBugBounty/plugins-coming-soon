@@ -743,7 +743,11 @@ function seedprod_lite_save_lpage() {
 		} else {
 			$check_post_type = json_decode( stripslashes( $settings ) );
 			$page_type_check = isset( $check_post_type->page_type ) ? $check_post_type->page_type : '';
-			if ( 'post' === $page_type_check ) {
+
+			// Pages flagged _seedprod_edited_with_seedprod are edited with SeedProd, not standalone landing pages.
+			$is_edited_wp_page = '1' === get_post_meta( $lpage_id, '_seedprod_edited_with_seedprod', true );
+
+			if ( 'post' === $page_type_check || $is_edited_wp_page ) {
 				update_post_meta( $lpage_id, '_seedprod_edited_with_seedprod', '1' );
 				delete_post_meta( $lpage_id, '_seedprod_page' );
 			} else {

@@ -337,6 +337,7 @@ class SeedProd_Lite_Admin {
 					'v2_nonce'                   => wp_create_nonce( 'seedprod_v2_nonce' ),
 					'notification_dismiss_nonce' => wp_create_nonce( 'seedprod_lite_notification_dismiss' ),
 					'conditions'                 => $theme_conditions,
+					'template_type_labels'       => seedprod_lite_get_template_type_labels(),
 					'condition_modes'            => array(
 						'include' => __( 'Include', 'coming-soon' ),
 						'exclude' => __( 'Exclude', 'coming-soon' ),
@@ -457,6 +458,7 @@ class SeedProd_Lite_Admin {
 						'theme_import_success'          => __( 'Theme "%s" imported successfully!', 'coming-soon' ),
 						/* translators: %s is the error message */
 						'theme_import_error'            => __( 'Error importing theme: %s', 'coming-soon' ),
+						'import_warnings_heading'       => __( "These images couldn't be imported and will not appear on your site:", 'coming-soon' ),
 						/* translators: %s is the error message */
 						'theme_delete_error'            => __( 'Error deleting theme pages: %s', 'coming-soon' ),
 						'theme_delete_general_error'    => __( 'Error deleting theme pages.', 'coming-soon' ),

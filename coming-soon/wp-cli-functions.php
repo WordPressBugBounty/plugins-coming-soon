@@ -35,10 +35,28 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				WP_CLI::error( 'The ZIP file does not exist at the provided URL.' );
 			}
 
-			$imported_pages = seedprod_lite_import_landing_page_cli( $theme_url, $nonce );
+			$result = seedprod_lite_import_landing_page_cli( $theme_url, $nonce );
 
-			if ( is_wp_error( $imported_pages ) ) {
-				WP_CLI::error( 'Failed to import landing pages: ' . $imported_pages->get_error_message() );
+			if ( is_wp_error( $result ) ) {
+				WP_CLI::error( 'Failed to import landing pages: ' . $result->get_error_message() );
+			}
+
+			if ( is_array( $result ) && isset( $result['error'] ) ) {
+				WP_CLI::error( 'Failed to import landing pages: ' . $result['error'] );
+			}
+
+			if ( is_array( $result ) && ! empty( $result['warnings'] ) ) {
+				foreach ( $result['warnings'] as $w ) {
+					WP_CLI::warning( sprintf( 'image not imported (%s): %s', $w['reason'], $w['url'] ) );
+				}
+			}
+
+			$imported_pages = array();
+			if ( is_array( $result ) && isset( $result['imported_pages'] ) ) {
+				$imported_pages = $result['imported_pages'];
+			} elseif ( is_array( $result ) && ! isset( $result['success'] ) ) {
+				// Backwards-compat: helper used to return the raw imported_pages list.
+				$imported_pages = $result;
 			}
 
 			// Output imported page IDs and titles.
@@ -169,11 +187,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 						if ( ! empty( $data->type ) && 'landing-page' !== $data->type ) {
 							return array( 'error' => 'This does not appear to be a SeedProd landing page.' );
 						}
-						$imported_pages = seedprod_lite_landing_import_json( $data );
+						$import_result = seedprod_lite_landing_import_json( $data );
 						// remove the json file for security.
 						wp_delete_file( $theme_json_data );
 
-						return $imported_pages;
+						return $import_result;
 					}
 				} else {
 					return array( 'error' => 'There was a problem with the upload. Please try again.' );

@@ -419,9 +419,12 @@ function seedprod_lite_v2_create_page_from_template() {
 		if ( $template_code_json ) {
 			$template_data = json_decode( $template_code_json, true );
 
-			// Merge template data with settings (template overwrites defaults).
-			if ( is_array( $template_data ) ) {
-				unset( $settings['document'] ); // Remove default document before merging (matching old flow).
+			if ( ! empty( $template_data ) && is_array( $template_data ) ) {
+				if ( isset( $template_data['document'] ) && is_array( $template_data['document'] ) ) {
+					unset( $settings['document'] );
+				} elseif ( array_key_exists( 'document', $template_data ) ) {
+					unset( $template_data['document'] );
+				}
 				$settings = array_merge( $settings, $template_data );
 
 				// Restore critical page settings that template data must not override.

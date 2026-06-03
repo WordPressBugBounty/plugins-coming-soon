@@ -89,22 +89,8 @@ class SeedProd_Theme_Templates_Table extends WP_List_Table {
 	 * @param string $type The template type.
 	 */
 	private function format_type( $type ) {
-		$type_labels = array(
-			'header'          => __( 'Header', 'coming-soon' ),
-			'footer'          => __( 'Footer', 'coming-soon' ),
-			'part'            => __( 'Part', 'coming-soon' ),
-			'page'            => __( 'Page', 'coming-soon' ),
-			'single_post'     => __( 'Single Post', 'coming-soon' ),
-			'single_page'     => __( 'Single Page', 'coming-soon' ),
-			'archive'         => __( 'Archive', 'coming-soon' ),
-			'search'          => __( 'Search', 'coming-soon' ),
-			'author'          => __( 'Author', 'coming-soon' ),
-			'404'             => __( '404', 'coming-soon' ),
-			'single_product'  => __( 'Single Product', 'coming-soon' ),
-			'archive_product' => __( 'Product Archive', 'coming-soon' ),
-		);
-
-		$label = isset( $type_labels[ $type ] ) ? $type_labels[ $type ] : ucfirst( str_replace( '_', ' ', $type ) );
+		$type_labels = seedprod_lite_get_template_type_labels();
+		$label       = isset( $type_labels[ $type ] ) ? $type_labels[ $type ] : __( 'Template', 'coming-soon' );
 
 		// Add icon based on type.
 		$icon = '';
@@ -346,6 +332,7 @@ class SeedProd_Theme_Templates_Table extends WP_List_Table {
 				// Get template data.
 				$type               = get_post_meta( $post_id, '_seedprod_page_template_type', true );
 				$conditions         = get_post_meta( $post_id, '_seedprod_theme_template_condition', true );
+				$type               = seedprod_lite_resolve_effective_template_type( $type, $conditions );
 				$conditions_display = $this->get_conditions_display( $conditions );
 				$priority           = get_post_field( 'menu_order', $post_id );
 

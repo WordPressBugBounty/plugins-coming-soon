@@ -461,13 +461,15 @@ function seedprod_lite_v2_zipdir( $source, $zip, $path_length ) {
  * Processes and imports theme data.
  *
  * @param object $json_content Theme data object.
- * @return void
+ * @return array Per-image warnings collected from the sideload step.
  */
 function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 
+	$warnings = array();
+
 	// Validate input data.
 	if ( null === $json_content || ! is_object( $json_content ) ) {
-		return;
+		return $warnings;
 	}
 
 	$full_code = $json_content;
@@ -480,9 +482,12 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 	$imports = array();
 	if ( is_array( $theme ) && count( $theme ) > 0 ) {
 		foreach ( $theme as $k => $v ) {
-			$imports[] = array(
-				'post_content'          => base64_decode( $v->post_content ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'post_content_filtered' => base64_decode( $v->post_content_filtered ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+			// Browsers do not unescape "\/" inside HTML attributes; normalize so <img src> renders.
+			$content          = str_replace( '\\/', '/', base64_decode( $v->post_content ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+			$content_filtered = str_replace( '\\/', '/', base64_decode( $v->post_content_filtered ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+			$imports[]        = array(
+				'post_content'          => $content,
+				'post_content_filtered' => $content_filtered,
 				'post_title'            => base64_decode( $v->post_title ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 				'meta'                  => json_decode( base64_decode( $v->meta ) ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 				'order'                 => $v->order,
@@ -717,6 +722,9 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 					$processed_data_import = seedprod_lite_process_image_filenames_import_theme( $post_content_filtered, $post_content );
 					$post_content          = $processed_data_import['html'];
 					$post_content_filtered = $processed_data_import['data'];
+					if ( ! empty( $processed_data_import['warnings'] ) ) {
+						$warnings = array_merge( $warnings, $processed_data_import['warnings'] );
+					}
 				}
 
 				// Extract and generate CSS for non-Global CSS templates.
@@ -773,6 +781,8 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 			}
 		}
 	}
+
+	return $warnings;
 }
 
 /**
@@ -780,18 +790,30 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
  * Processes and imports landing page data.
  *
  * @param object $json_content Landing page data object.
- * @return array Array of imported page IDs.
+ * @return array {
+ *     Result of the import.
+ *
+ *     @type int[] $imported_pages IDs of pages created during the import.
+ *     @type array $warnings       Per-image warnings collected from the sideload step.
+ * }
  */
 function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 	$imported_pages = array();
+	$warnings       = array();
 
 	// Validate input.
 	if ( null === $json_content || ! is_object( $json_content ) ) {
-		return $imported_pages;
+		return array(
+			'imported_pages' => $imported_pages,
+			'warnings'       => $warnings,
+		);
 	}
 
 	if ( empty( $json_content->theme ) || ! is_array( $json_content->theme ) ) {
-		return $imported_pages;
+		return array(
+			'imported_pages' => $imported_pages,
+			'warnings'       => $warnings,
+		);
 	}
 
 	global $wpdb;
@@ -822,9 +844,9 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 
 	// Process each landing page.
 	foreach ( $json_content->theme as $v ) {
-		// Decode data.
-		$post_content          = ! empty( $v->post_content ) ? base64_decode( $v->post_content ) : '';
-		$post_content_filtered = ! empty( $v->post_content_filtered ) ? base64_decode( $v->post_content_filtered ) : '';
+		// Browsers do not unescape "\/" inside HTML attributes; normalize so <img src> renders.
+		$post_content          = ! empty( $v->post_content ) ? str_replace( '\\/', '/', base64_decode( $v->post_content ) ) : '';
+		$post_content_filtered = ! empty( $v->post_content_filtered ) ? str_replace( '\\/', '/', base64_decode( $v->post_content_filtered ) ) : '';
 		$post_title            = ! empty( $v->post_title ) ? base64_decode( $v->post_title ) : '';
 		$post_type             = ! empty( $v->post_type ) ? base64_decode( $v->post_type ) : 'page';
 		$post_status           = ! empty( $v->post_status ) ? base64_decode( $v->post_status ) : 'draft';
@@ -937,6 +959,9 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 			$processed_data_import = seedprod_lite_process_image_filenames_import_theme( $post_content_filtered, $post_content );
 			$post_content          = $processed_data_import['html'];
 			$post_content_filtered = $processed_data_import['data'];
+			if ( ! empty( $processed_data_import['warnings'] ) ) {
+				$warnings = array_merge( $warnings, $processed_data_import['warnings'] );
+			}
 		}
 
 		// Replace shortcodes if we have mappings.
@@ -1032,7 +1057,10 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 		$wpdb->query( $safe_sql );
 	}
 
-	return $imported_pages;
+	return array(
+		'imported_pages' => $imported_pages,
+		'warnings'       => $warnings,
+	);
 }
 
 /**

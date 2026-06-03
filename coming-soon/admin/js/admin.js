@@ -91,9 +91,47 @@
 			e.preventDefault();
 			window.open(seedprod_admin.urls.ai_theme_builder, '_blank');
 		});
-		
+
 	});
-	
+
+	/**
+	 * Render a non-blocking warning notice listing images that could not be
+	 * sideloaded during a theme or landing-page import. No-op when the list
+	 * is empty so the happy-path UX is unchanged.
+	 *
+	 * @param {Array}  warnings  Array of { url, reason } objects from the import response.
+	 * @param {jQuery} $statusEl The .seedprod-import-status element to append the notice to.
+	 */
+	function seedprodRenderImportWarnings(warnings, $statusEl) {
+		if (!warnings || !warnings.length || !$statusEl || !$statusEl.length) {
+			return;
+		}
+
+		$statusEl.find('.seedprod-import-warnings').remove();
+
+		var heading = (seedprod_admin.strings && seedprod_admin.strings.import_warnings_heading)
+			? seedprod_admin.strings.import_warnings_heading
+			: 'These images couldn\'t be imported and will not appear on your site:';
+
+		var $notice = $('<div class="notice notice-warning seedprod-import-warnings"></div>');
+		$notice.append($('<p></p>').text(heading));
+
+		var $list = $('<ul></ul>');
+		for (var i = 0; i < warnings.length; i++) {
+			var entry = warnings[i] || {};
+			var url = entry.url || '';
+			var reason = entry.reason || '';
+			var $li = $('<li></li>').text(url);
+			if (reason && reason !== 'download-failed') {
+				$li.append(document.createTextNode(' (' + reason + ')'));
+			}
+			$list.append($li);
+		}
+		$notice.append($list);
+		$statusEl.append($notice);
+		$statusEl.show();
+	}
+
 	/**
 	 * Initialize dashboard functionality
 	 */
@@ -731,10 +769,18 @@
 				success: function(response) {
 					if (response.success) {
 						showNotice(seedprod_admin.strings.theme_import_success.replace('%s', themeName), 'success');
-						// Redirect to theme templates page after short delay
+
+						var warnings = (response.data && response.data.warnings) ? response.data.warnings : [];
+						var $warningHost = $('.seedprod-dashboard-container').first();
+						if (warnings.length && $warningHost.length) {
+							seedprodRenderImportWarnings(warnings, $warningHost);
+						}
+
+						// Redirect to theme templates page after short delay; hold longer when warnings shown.
+						var redirectDelay = warnings.length ? 8000 : 2000;
 						setTimeout(function() {
 							window.location.href = seedprod_admin.admin_url + 'admin.php?page=seedprod_lite_website_builder';
-						}, 2000);
+						}, redirectDelay);
 					} else {
 						showNotice(seedprod_admin.strings.theme_import_error.replace('%s', response.data || seedprod_admin.strings.unknown_error), 'error');
 						// Reset button state
@@ -4095,23 +4141,7 @@
 			'custom': 'Custom'
 		};
 		
-		// Template type labels
-		var typeLabels = {
-			'header': 'Header',
-			'footer': 'Footer',
-			'part': 'Template Part',
-			'page': 'Page',
-			'post': 'Single Post',
-			'archive': 'Archive',
-			'search': 'Search',
-			'author': 'Author',
-			'single_page': 'Single Page',
-			'single_post': 'Single Post',
-			'single_product': 'Single Product',
-			'archive_product': 'Product Archive',
-			'woocommerce_single': 'Single Product',
-			'woocommerce_archive': 'Product Archive'
-		};
+		var typeLabels = ( window.seedprod_admin && seedprod_admin.template_type_labels ) || {};
 		
 		// Open modal when Edit Conditions is clicked
 		$(document).on('click', '.seedprod-edit-conditions', function(e) {
@@ -4636,15 +4666,19 @@
 						$btn.prop('disabled', false);
 						$spinner.hide();
 						$text.text('Import Templates');
-						
+
 						// The import function returns just true/false, not {success: true}
 						if (response === true || response.success) {
 							$status.find('.notice').removeClass('notice-info').addClass('notice-success').find('p').text('Templates imported successfully!');
-							
-							// Reload page after 2 seconds
+
+							var warnings = (response && response.data && response.data.warnings) ? response.data.warnings : [];
+							seedprodRenderImportWarnings(warnings, $status);
+
+							// Hold the page longer when there are warnings so users can read the list.
+							var reloadDelay = warnings.length ? 8000 : 2000;
 							setTimeout(function() {
 								window.location.reload();
-							}, 2000);
+							}, reloadDelay);
 						} else if (response === false) {
 							$status.find('.notice').removeClass('notice-info').addClass('notice-error').find('p').text(seedprod_admin.strings.error_occurred || 'An error occurred. Please try again.');
 						} else {
@@ -4677,15 +4711,18 @@
 					$btn.prop('disabled', false);
 					$spinner.hide();
 					$text.text('Import Templates');
-					
+
 					// The import function returns just true/false, not {success: true}
 					if (response === true || response.success) {
 						$status.find('.notice').removeClass('notice-info').addClass('notice-success').find('p').text('Templates imported successfully!');
-						
-						// Reload page after 2 seconds
+
+						var warnings = (response && response.data && response.data.warnings) ? response.data.warnings : [];
+						seedprodRenderImportWarnings(warnings, $status);
+
+						var reloadDelay = warnings.length ? 8000 : 2000;
 						setTimeout(function() {
 							window.location.reload();
-						}, 2000);
+						}, reloadDelay);
 					} else if (response === false) {
 						$status.find('.notice').removeClass('notice-info').addClass('notice-error').find('p').text('Import failed. Please check the URL and try again.');
 					} else {
@@ -4981,15 +5018,18 @@
 						$spinner.hide();
 						$text.text('Import Landing Pages');
 						console.log('Import response:', response);
-						
+
 						// The import function returns just true/false, not {success: true}
 						if (response === true || response.success) {
 							$status.find('.notice').removeClass('notice-info').addClass('notice-success').find('p').text(seedprod_admin.strings.import_success || 'Import completed successfully!');
-							
-							// Reload page after 2 seconds
+
+							var warnings = (response && response.data && response.data.warnings) ? response.data.warnings : [];
+							seedprodRenderImportWarnings(warnings, $status);
+
+							var reloadDelay = warnings.length ? 8000 : 2000;
 							setTimeout(function() {
 								window.location.reload();
-							}, 2000);
+							}, reloadDelay);
 						} else if (response === false) {
 							$status.find('.notice').removeClass('notice-info').addClass('notice-error').find('p').text(seedprod_admin.strings.error_occurred || 'An error occurred. Please try again.');
 						} else {

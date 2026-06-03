@@ -6385,6 +6385,9 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/StarRatingOptions.vue
 	__( 'Empty Star Color', 'coming-soon' ),
 
+	// Reference: src/components/SpacingSectionControl.vue
+	__( 'Padding adds space inside the background. Margin adds space outside it.', 'coming-soon' ),
+
 	// Reference: src/components/SpacerOptions.vue
 	__( 'Spacer', 'coming-soon' ),
 
@@ -7966,6 +7969,22 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/OpenAIControl.vue
 	__( 'Credits:', 'coming-soon' ),
 
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image edit failed — please try again or pick a different source image.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image edit failed — please try again.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image generation failed — please try again.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Variations failed — please try again or pick a different source image.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Variations failed — please try again.', 'coming-soon' ),
+
 	// Reference: src/components/OpenAIControl.vue
 	__( 'Generate AI Text', 'coming-soon' ),
 
@@ -8714,6 +8733,12 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/AnimationEffectControl.vue
 	// Reference: src/components/AnimatedHeadlineOptions.vue
 	__( 'Level', 'coming-soon' ),
+
+	// Reference: src/components/IconFeatureOptions.vue
+	// Reference: src/components/ContentToggleOptions.vue
+	// Reference: src/components/BeforeAfterToggleOptions.vue
+	// Reference: src/components/AlignControl.vue
+	__( 'Align', 'coming-soon' ),
 
 	// Reference: src/components/Icon-Pro.vue
 	__( 'Select an Icon', 'coming-soon' ),
@@ -9536,11 +9561,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'Section Content', 'coming-soon' ),
-
-	// Reference: src/components/ContentToggleOptions.vue
-	// Reference: src/components/BeforeAfterToggleOptions.vue
-	// Reference: src/components/AlignControl.vue
-	__( 'Align', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'First Background Color', 'coming-soon' ),
