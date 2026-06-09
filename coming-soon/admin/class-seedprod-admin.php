@@ -100,6 +100,8 @@ class SeedProd_Lite_Admin {
 		// Load system info functions (V2 admin).
 		require_once $includes_dir . 'system-info-functions.php';
 
+		// Load "Edit with SeedProd" functionality (V2 admin).
+		require_once $includes_dir . 'edit-with-seedprod-functions.php';
 
 		// Load debug functions (V2 admin).
 		require_once $includes_dir . 'debug-functions.php';

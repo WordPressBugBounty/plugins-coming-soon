@@ -670,7 +670,7 @@ function seedprod_lite_save_lpage() {
 			// end html custom comment.
 			$html = preg_replace( "'contenteditable=\"true\"'", '', $html );
 			$html = preg_replace( "'spellcheck=\"false\"'", '', $html );
-			$html = str_replace( 'function(e,n,r,i){return fn(t,e,n,r,i,!0)}', '', $html );
+			$html = seedprod_lite_strip_vue_render_helpers( $html );
 			// remove preview animation.
 			$html = str_replace( 'animate__', '', $html );
 			// remove sp-theme-template id.

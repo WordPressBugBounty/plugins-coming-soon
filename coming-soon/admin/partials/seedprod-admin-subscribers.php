@@ -46,7 +46,7 @@ if ( $is_lite_view ) {
 					
 					<!-- Temporary link to old Vue interface if needed -->
 					<p>
-						<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite#/subscribers' ) ); ?>" class="button button-secondary">
+						<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite_settings&tab=subscribers' ) ); ?>" class="button button-secondary">
 							<?php esc_html_e( 'View in Legacy Interface', 'coming-soon' ); ?>
 						</a>
 					</p>

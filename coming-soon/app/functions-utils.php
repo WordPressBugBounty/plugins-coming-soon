@@ -2149,6 +2149,43 @@ function seedprod_lite_get_expire_times() {
 	);
 }
 
+/**
+ * Strip stringified Vue render-helper source from rendered SeedProd HTML.
+ *
+ * Vue 2 can serialize its `$createElement`/`_c` render helper into saved block
+ * markup, which then renders as literal text such as
+ * `function(e,n,r,i){return In(t,e,n,r,i,!0)}`. The inner helper name is a
+ * minified symbol that changes whenever the builder bundle is rebuilt, so it is
+ * matched by shape rather than by a hard-coded name (a previous fix hard-coded
+ * the name and silently stopped working when the minifier renamed it). Covers
+ * both the `!0` (`$createElement`) and `!1` (`_c`) variants.
+ *
+ * @param string $html The HTML to clean.
+ * @return string The HTML with any render-helper source removed.
+ */
+function seedprod_lite_strip_vue_render_helpers( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+
+	// The pattern can only match strings containing `function`; skip the regex otherwise.
+	if ( false === strpos( $html, 'function' ) ) {
+		return $html;
+	}
+
+	// Match Vue's render-helper delegation specifically: the inner call repeats the
+	// four outer args verbatim (backreferences \1-\4) after a context arg, so generic
+	// minified wrapper/currying functions are not stripped.
+	$cleaned = preg_replace(
+		'/function\s*\(\s*([\w$]+)\s*,\s*([\w$]+)\s*,\s*([\w$]+)\s*,\s*([\w$]+)\s*\)\s*\{\s*return\s+[\w$]+\(\s*[\w$]+\s*,\s*\1\s*,\s*\2\s*,\s*\3\s*,\s*\4\s*,\s*!\s*[01]\s*\)\s*;?\s*\}/',
+		'',
+		$html
+	);
+
+	// preg_replace returns null on PCRE failure; never lose the original markup.
+	return null === $cleaned ? $html : $cleaned;
+}
+
 
 
 /**

@@ -5,6 +5,64 @@
 require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 
 /**
+ * Custom merge function that preserves existing values but ensures all default keys exist
+ *
+ * @param array   $defaults Defaults.
+ * @param array   $settings Settings.
+ * @param integer $depth    Depth.
+ * @return array
+ */
+function seedprod_lite_merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
+	// Guard clauses for safety.
+	if ( ! is_array( $defaults ) ) {
+		return $settings;
+	}
+	if ( ! is_array( $settings ) ) {
+		return $defaults;
+	}
+	// Prevent infinite recursion.
+	if ( $depth > 100 ) {
+		return $settings;
+	}
+
+	$result = $defaults;
+
+	foreach ( $settings as $key => $value ) {
+		// Special handling for 'items' array - preserve as-is without merging defaults.
+		if ( 'items' === $key || 'featuresList' === $key ) {
+			if ( is_array( $value ) ) {
+				$result[ $key ] = $value;
+			}
+			// If not an array (e.g. empty string), skip so the default from $result is used.
+			continue;
+		}
+
+		// If both values are arrays, merge recursively.
+		if ( isset( $result[ $key ] ) && is_array( $result[ $key ] ) && is_array( $value ) ) {
+			$result[ $key ] = seedprod_lite_merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
+		} else {
+			// If the value is not an array, preserve the setting value.
+			$result[ $key ] = $value;
+		}
+	}
+
+	return $result;
+}
+
+/**
+ * Apply block-type defaults to a builder element's settings.
+ *
+ * @param array $element  Element passed by reference; its 'settings' are hydrated.
+ * @param array $defaults Block-type default templates keyed by type.
+ * @return void
+ */
+function seedprod_lite_apply_defaults( &$element, $defaults ) {
+	$type                = $element['type'] ?? '';
+	$element_defaults    = $defaults[ $type ] ?? array();
+	$element['settings'] = seedprod_lite_merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
+}
+
+/**
  * Rehydrate settings for the builder
  *
  * @param array  $object_to_hydrate            Object to hydrate.
@@ -21,57 +79,6 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 
 	if ( ! is_array( $object_to_hydrate ) ) {
 		$object_to_hydrate = array();
-	}
-
-	/**
-	 * Custom merge function that preserves existing values but ensures all default keys exist
-	 *
-	 * @param array   $defaults Defaults.
-	 * @param array   $settings Settings.
-	 * @param integer $depth    Depth.
-	 * @return array
-	 */
-	function seedprod_lite_merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
-		// Guard clauses for safety.
-		if ( ! is_array( $defaults ) ) {
-			return $settings;
-		}
-		if ( ! is_array( $settings ) ) {
-			return $defaults;
-		}
-		// Prevent infinite recursion.
-		if ( $depth > 100 ) {
-			return $settings;
-		}
-
-		$result = $defaults;
-
-		foreach ( $settings as $key => $value ) {
-			// Special handling for 'items' array - preserve as-is without merging defaults.
-			if ( 'items' === $key || 'featuresList' === $key ) {
-				if ( is_array( $value ) ) {
-					$result[ $key ] = $value;
-				}
-				// If not an array (e.g. empty string), skip so the default from $result is used.
-				continue;
-			}
-
-			// If both values are arrays, merge recursively.
-			if ( isset( $result[ $key ] ) && is_array( $result[ $key ] ) && is_array( $value ) ) {
-				$result[ $key ] = seedprod_lite_merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
-			} else {
-				// If the value is not an array, preserve the setting value.
-				$result[ $key ] = $value;
-			}
-		}
-
-		return $result;
-	}
-
-	function seedprod_lite_apply_defaults( &$element, $defaults ) {
-		$type                = $element['type'] ?? '';
-		$element_defaults    = $defaults[ $type ] ?? array();
-		$element['settings'] = seedprod_lite_merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
 	}
 
 	$document_defaults = $defaults['document'] ?? array();

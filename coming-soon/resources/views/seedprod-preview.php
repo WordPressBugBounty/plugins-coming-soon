@@ -97,8 +97,7 @@ if ( ! empty( $settings ) && isset( $settings->no_conflict_mode ) ) {
 	$lpage_uuid       = get_post_meta( $post->ID, '_seedprod_page_uuid', true );
 }
 
-// remove vue comment bug.
-$content = str_replace( 'function(e,n,r,i){return fn(t,e,n,r,i,!0)}', '', $content );
+$content = seedprod_lite_strip_vue_render_helpers( $content );
 
 $plugin_url = SEEDPROD_PLUGIN_URL;
 

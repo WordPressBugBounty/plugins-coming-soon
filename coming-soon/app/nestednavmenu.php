@@ -77,7 +77,7 @@ class SeedProd_Lite_Menu_Walker extends Walker_Nav_Menu {
 
 		if ( 0 === $depth ) {
 			if ( '' !== $this->separators ) {
-				$output .= "<li class='separator menu-item'>" . $this->separators . '</li>';
+				$output .= "<li class='separator menu-item'>" . esc_html( $this->separators ) . '</li>';
 			}
 		}
 	}
@@ -111,7 +111,7 @@ function seedprod_lite_wordpress_menuwidget( $atts ) {
 	}
 	$navmenu_seperator = '';
 	if ( isset( $menu_atts['menudivider'] ) ) {
-		$navmenu_seperator = $menu_atts['menudivider'];
+		$navmenu_seperator = sanitize_text_field( $menu_atts['menudivider'] );
 	}
 	$layout = '';
 	if ( isset( $menu_atts['layout'] ) ) {
