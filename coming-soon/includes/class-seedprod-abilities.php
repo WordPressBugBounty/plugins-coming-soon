@@ -626,12 +626,16 @@ class SeedProd_Lite_Abilities {
 						),
 						'sections' => array(
 							'type'        => 'array',
-							'description' => __( 'The document sections array containing rows, columns, and blocks. This is the page content.', 'coming-soon' ),
+							'description' => __( 'The page content: an array of section objects following the SeedProd document hierarchy — section > rows[] > cols[] > blocks[]. Every node (section, row, col, block) needs a unique "id". Each block also has a "type", an "elType" of "block", and a "settings" object.', 'coming-soon' ),
 						),
 						'condition' => array(
 							'type'        => 'string',
 							'enum'        => array( '_entire_site', 'is_front_page', 'is_home', 'is_page(x)', 'is_single(x)', 'is_404', 'is_archive' ),
-							'description' => __( 'Template condition for theme templates. Controls where the template renders. Required when creating a header/footer/page-template/part; ignored when updating an existing page (id is set).', 'coming-soon' ),
+							'description' => __( 'Template condition for theme templates. Controls where the template renders. Conditions ending in "(x)" (is_page(x), is_single(x)) target specific content and must be paired with condition_value. Required when creating a header/footer/page-template/part; ignored when updating an existing page (id is set).', 'coming-soon' ),
+						),
+						'condition_value' => array(
+							'type'        => 'string',
+							'description' => __( 'Target for a parametric condition (one ending in "(x)", e.g. is_page(x) or is_single(x)): a comma-separated list of page or post IDs or slugs, such as "42", "about,contact", or "42,about". Required when condition is parametric; ignored otherwise.', 'coming-soon' ),
 						),
 						'activate' => array(
 							'type'        => 'boolean',
@@ -673,7 +677,7 @@ class SeedProd_Lite_Abilities {
 					'show_in_rest' => true,
 					'annotations'  => array(
 						'idempotent'   => false,
-						'instructions' => 'Load load_skill("seedprod-building") first for page structure, JSON hierarchy, and design guidelines. Then load load_skill("seedprod-blocks") for block schemas before building sections.',
+						'instructions' => 'Build the page content in the "sections" parameter, following the SeedProd document hierarchy: section > rows[] > cols[] > blocks[], where each block is an object with a "type" and a "settings" object. To learn the exact JSON shape and the block types a page already uses, read an existing SeedProd page with seedprod/get-page using include_sections=true.',
 					),
 				),
 			)
@@ -692,12 +696,25 @@ class SeedProd_Lite_Abilities {
 		$title    = isset( $input['title'] ) ? sanitize_text_field( $input['title'] ) : '';
 		$status   = isset( $input['status'] ) ? sanitize_text_field( $input['status'] ) : 'draft';
 		$sections = isset( $input['sections'] ) ? $input['sections'] : array();
-		$condition = isset( $input['condition'] ) ? sanitize_text_field( $input['condition'] ) : '';
-		$activate = isset( $input['activate'] ) ? (bool) $input['activate'] : false;
+		$condition       = isset( $input['condition'] ) ? sanitize_text_field( $input['condition'] ) : '';
+		$condition_value = isset( $input['condition_value'] ) ? sanitize_text_field( $input['condition_value'] ) : '';
+		$activate        = isset( $input['activate'] ) ? (bool) $input['activate'] : false;
 
-		// Validate sections is an array.
-		if ( ! empty( $sections ) && ! is_array( $sections ) ) {
-			return new WP_Error( 'invalid_sections', __( 'sections must be an array of section objects.', 'coming-soon' ) );
+		if ( ! empty( $sections ) ) {
+			if ( ! is_array( $sections ) ) {
+				return new WP_Error( 'invalid_sections', __( 'sections must be an array of section objects.', 'coming-soon' ), array( 'status' => 400 ) );
+			}
+			$violations = $this->validate_sections( $sections );
+			if ( ! empty( $violations ) ) {
+				return new WP_Error(
+					'invalid_sections',
+					__( 'The sections tree is malformed; fix these and retry.', 'coming-soon' ) . ' ' . implode( ' | ', $violations ),
+					array(
+						'status'     => 400,
+						'violations' => $violations,
+					)
+				);
+			}
 		}
 
 		// --- Update existing page ---
@@ -789,6 +806,16 @@ class SeedProd_Lite_Abilities {
 			return new WP_Error( 'missing_condition', __( 'condition is required for theme templates (header, footer, page-template, part).', 'coming-soon' ) );
 		}
 
+		// A parametric condition (type ending in "(x)") with an empty value matches
+		// every page or post of its type, so require an explicit target.
+		$condition_is_parametric = ( '' !== $condition && false !== strpos( $condition, '(x)' ) );
+		if ( $config['is_theme'] && $condition_is_parametric && '' === $condition_value ) {
+			return new WP_Error(
+				'missing_condition_value',
+				__( 'condition_value is required for parametric conditions like is_page(x) or is_single(x). Pass a comma-separated list of page or post IDs or slugs.', 'coming-soon' )
+			);
+		}
+
 		// Build the document.
 		$document = $this->build_document( $sections );
 
@@ -817,7 +844,7 @@ class SeedProd_Lite_Abilities {
 		if ( $config['is_theme'] ) {
 			$meta_input['_seedprod_is_theme_template'] = true;
 			$meta_input['_seedprod_theme_template_condition'] = wp_json_encode(
-				array( array( 'condition' => 'include', 'type' => $condition, 'value' => '' ) )
+				array( array( 'condition' => 'include', 'type' => $condition, 'value' => $condition_is_parametric ? $condition_value : '' ) )
 			);
 		}
 
@@ -872,6 +899,87 @@ class SeedProd_Lite_Abilities {
 			'edit_url'  => admin_url( 'admin.php?page=seedprod_lite_builder&id=' . $post_id ),
 			'activated' => $activated,
 		);
+	}
+
+	/**
+	 * Structurally validate an AI-supplied sections tree before saving.
+	 *
+	 * @param array $sections The document sections array.
+	 * @return string[] Human-readable violations; empty when the tree is valid.
+	 */
+	private function validate_sections( $sections ) {
+		$violations = array();
+		$seen_ids   = array();
+
+		$check_id = function ( $node, $path ) use ( &$violations, &$seen_ids ) {
+			if ( ! isset( $node['id'] ) || ! is_string( $node['id'] ) || '' === $node['id'] ) {
+				$violations[] = $path . ': missing required string "id".';
+				return;
+			}
+			if ( isset( $seen_ids[ $node['id'] ] ) ) {
+				$violations[] = sprintf( '%s: duplicate id "%s" (ids must be unique across the page).', $path, $node['id'] );
+			}
+			$seen_ids[ $node['id'] ] = true;
+		};
+
+		foreach ( $sections as $si => $section ) {
+			$spath = "sections[{$si}]";
+			if ( ! is_array( $section ) ) {
+				$violations[] = $spath . ': must be an object.';
+				continue;
+			}
+			$check_id( $section, $spath );
+			if ( ! isset( $section['rows'] ) || ! is_array( $section['rows'] ) ) {
+				$violations[] = $spath . ': missing "rows" array.';
+				continue;
+			}
+			foreach ( $section['rows'] as $ri => $row ) {
+				$rpath = "{$spath}.rows[{$ri}]";
+				if ( ! is_array( $row ) ) {
+					$violations[] = $rpath . ': must be an object.';
+					continue;
+				}
+				$check_id( $row, $rpath );
+				if ( ! isset( $row['cols'] ) || ! is_array( $row['cols'] ) ) {
+					$violations[] = $rpath . ': missing "cols" array (the field is "cols", not "columns").';
+					continue;
+				}
+				foreach ( $row['cols'] as $ci => $col ) {
+					$cpath = "{$rpath}.cols[{$ci}]";
+					if ( ! is_array( $col ) ) {
+						$violations[] = $cpath . ': must be an object.';
+						continue;
+					}
+					$check_id( $col, $cpath );
+					if ( ! isset( $col['blocks'] ) || ! is_array( $col['blocks'] ) ) {
+						$violations[] = $cpath . ': missing "blocks" array.';
+						continue;
+					}
+					foreach ( $col['blocks'] as $bi => $block ) {
+						$bpath = "{$cpath}.blocks[{$bi}]";
+						if ( ! is_array( $block ) ) {
+							$violations[] = $bpath . ': must be an object.';
+							continue;
+						}
+						$check_id( $block, $bpath );
+						if ( empty( $block['type'] ) || ! is_string( $block['type'] ) ) {
+							$violations[] = $bpath . ': missing required block "type" (e.g. "header", "text").';
+						}
+						if ( empty( $block['elType'] ) || ! is_string( $block['elType'] ) ) {
+							$violations[] = $bpath . ': missing "elType" (blocks use elType "block").';
+						}
+					}
+				}
+			}
+		}
+
+		if ( count( $violations ) > 50 ) {
+			$extra        = count( $violations ) - 50;
+			$violations   = array_slice( $violations, 0, 50 );
+			$violations[] = sprintf( '...and %d more.', $extra );
+		}
+
+		return $violations;
 	}
 
 	/**
@@ -1051,6 +1159,10 @@ class SeedProd_Lite_Abilities {
 							'type'        => 'string',
 							'description' => __( 'Template routing condition (theme templates only; empty string otherwise).', 'coming-soon' ),
 						),
+						'condition_value' => array(
+							'type'        => 'string',
+							'description' => __( 'Target value for a parametric condition (comma-separated page or post IDs or slugs); empty string when the condition takes no value.', 'coming-soon' ),
+						),
 						'settings'      => array(
 							'type'        => 'object',
 							'description' => __( 'Page-level globals (fonts, layout). Populated for landing pages.', 'coming-soon' ),
@@ -1082,7 +1194,7 @@ class SeedProd_Lite_Abilities {
 					'annotations'  => array(
 						'readonly'     => true,
 						'idempotent'   => true,
-						'instructions' => 'Load load_skill("seedprod-building") for the document JSON hierarchy if you plan to modify and round-trip the sections.',
+						'instructions' => 'Pass include_sections=true to retrieve the full document sections array (section > rows[] > cols[] > blocks[]) for read-modify-write edits, then save the modified array back through seedprod/save-page.',
 					),
 				),
 			)
@@ -1141,12 +1253,16 @@ class SeedProd_Lite_Abilities {
 		// objects. v1 returns the first entry's type — matches the single
 		// condition string save-page accepts. If future versions accept
 		// multi-rule conditions, return the full array instead.
-		$condition      = '';
-		$condition_meta = get_post_meta( $id, '_seedprod_theme_template_condition', true );
+		$condition       = '';
+		$condition_value = '';
+		$condition_meta  = get_post_meta( $id, '_seedprod_theme_template_condition', true );
 		if ( $condition_meta ) {
 			$decoded = json_decode( $condition_meta, true );
 			if ( is_array( $decoded ) && isset( $decoded[0]['type'] ) ) {
 				$condition = (string) $decoded[0]['type'];
+			}
+			if ( is_array( $decoded ) && isset( $decoded[0]['value'] ) ) {
+				$condition_value = (string) $decoded[0]['value'];
 			}
 		}
 
@@ -1185,7 +1301,8 @@ class SeedProd_Lite_Abilities {
 			'type'          => (string) $this->page_type_long_form( $type_short ),
 			'status'        => $post->post_status,
 			'slug'          => $post->post_name,
-			'condition'     => $condition,
+			'condition'       => $condition,
+			'condition_value' => $condition_value,
 			// Cast empty arrays through stdClass so wp_json_encode emits {} not [].
 			'settings'      => empty( $page_settings ) ? (object) array() : $page_settings,
 			'section_count' => count( $sections ),

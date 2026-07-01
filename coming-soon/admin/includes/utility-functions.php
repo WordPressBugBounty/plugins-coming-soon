@@ -156,6 +156,43 @@ function seedprod_lite_v2_is_lite_view() {
 }
 
 /**
+ * Check whether the Pro plugin is installed (active or not).
+ *
+ * @return boolean True if the Pro plugin is present on the site.
+ */
+function seedprod_lite_v2_is_pro_plugin_installed() {
+	if ( ! function_exists( 'get_plugins' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+	$all_plugins = get_plugins();
+	return isset( $all_plugins['seedprod-coming-soon-pro-5/seedprod-coming-soon-pro-5.php'] );
+}
+
+/**
+ * Whether the Lite plugin holds a valid license but the Pro plugin is not active.
+ *
+ * This is the state where a customer entered a Pro license in Lite and needs to
+ * install/activate the separate Pro plugin to use it.
+ *
+ * @return boolean True when Lite should prompt the user to install Pro.
+ */
+function seedprod_lite_v2_needs_pro_plugin() {
+	if ( ! seedprod_lite_v2_is_lite_view() ) {
+		return false;
+	}
+
+	if ( empty( get_option( 'seedprod_a' ) ) || empty( get_option( 'seedprod_api_key' ) ) ) {
+		return false;
+	}
+
+	if ( ! function_exists( 'is_plugin_active' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+
+	return ! is_plugin_active( 'seedprod-coming-soon-pro-5/seedprod-coming-soon-pro-5.php' );
+}
+
+/**
  * Get user IP address (V2 Admin)
  * Helper function needed by license validation
  *

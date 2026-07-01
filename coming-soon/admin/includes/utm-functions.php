@@ -125,6 +125,38 @@ function seedprod_lite_get_pricing_link( $medium = 'settings-license', $campaign
 }
 
 /**
+ * Get the SeedProd account downloads link with UTM parameters.
+ *
+ * Points the user to their account dashboard to download the Pro plugin.
+ *
+ * @param string $medium   UTM medium context.
+ * @param string $campaign UTM campaign.
+ * @return string Full downloads URL with UTM parameters.
+ */
+function seedprod_lite_get_account_download_link( $medium = 'settings-license', $campaign = 'liteplugin' ) {
+	$base_url = 'https://app.seedprod.com/downloads';
+
+	// Get referrer if exists.
+	$source      = 'WordPress';
+	$referred_by = get_option( 'seedprod_referred_by' );
+	if ( ! empty( $referred_by ) ) {
+		$source .= '-' . $referred_by;
+	}
+
+	// Build UTM parameters.
+	$utm_params = array(
+		'utm_source'   => sanitize_key( $source ),
+		'utm_medium'   => sanitize_key( $medium ),
+		'utm_campaign' => sanitize_key( $campaign ),
+	);
+
+	// Apply filter for customization.
+	$utm_params = apply_filters( 'seedprod_lite_account_download_utm_params', $utm_params, $medium );
+
+	return add_query_arg( $utm_params, $base_url );
+}
+
+/**
  * Get external link with UTM parameters
  *
  * @param string $url      Base URL.

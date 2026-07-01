@@ -2186,6 +2186,52 @@ function seedprod_lite_strip_vue_render_helpers( $html ) {
 	return null === $cleaned ? $html : $cleaned;
 }
 
+/**
+ * Convert seedprod-jscode comment wrappers to live <script> tags and remove any
+ * remaining HTML comments from rendered SeedProd markup.
+ *
+ * The builder serializes Vue's rendered DOM with `comments: true`, so genuine
+ * template comments (e.g. `<!-- Background Video -->`) and conditional placeholder
+ * comments survive into the saved HTML. The legacy clean-up removed only the
+ * `<!--`/`-->` delimiters, which left each comment's inner text behind as visible
+ * front-end content. This removes whole comments instead, while still un-commenting
+ * the `<!--<seedprod-jscode>…-->` wrappers the builder relies on to ship inline
+ * scripts. User-authored comments are escaped to `<!!--`/`--!>` by CustomHTML.vue,
+ * so they contain no literal `<!--`/`-->` pair and are not matched here.
+ *
+ * @param string $html The HTML to clean.
+ * @return string The cleaned HTML.
+ */
+function seedprod_lite_uncomment_jscode_and_strip_comments( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+
+	// Un-comment the seedprod-jscode wrappers so they ship as live <script> tags.
+	$cleaned = preg_replace(
+		'/<!--\s*<seedprod-jscode>([\s\S]*?)<\/seedprod-jscode>\s*-->/',
+		'<script>$1</script>',
+		$html
+	);
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	// Rename any bare seedprod-jscode tag that was not wrapped in a comment.
+	$cleaned = preg_replace( '/seedprod-jscode/', 'script', $html );
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	// Remove any remaining genuine HTML comments so their inner text never leaks.
+	$cleaned = preg_replace( '/<!--[\s\S]*?-->/', '', $html );
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	return $html;
+}
+
 
 
 /**
@@ -2356,3 +2402,70 @@ function seedprod_lite_wprocket_disable_minify() {
 
 
 
+
+/**
+ * Wrap baked-in SeedProd inline block scripts in a wait-for-function guard.
+ *
+ * Several blocks store an inline `jQuery(function(){ FN(args); })` (or a
+ * `jQuery(document).ready(...)`) call in page HTML, while FN is defined in the
+ * footer sp-scripts bundle. Async/deferred JS optimizers (Rocket Loader, "delay
+ * JS") can run that bundle after jQuery ready fires, throwing a ReferenceError.
+ * Rewriting each call into a guarded poll waits for the function instead of
+ * throwing. Only the known footer-bundle helpers are rewritten, so unrelated
+ * inline scripts (e.g. Vue mounts) are left untouched.
+ *
+ * @param string $html Rendered page HTML.
+ * @return string HTML with guarded inline block scripts.
+ */
+function seedprod_lite_guard_inline_block_scripts( $html ) {
+	if ( false === strpos( $html, 'jQuery(' ) ) {
+		return $html;
+	}
+
+	$names = implode(
+		'|',
+		array(
+			'image_dynamic_tags',
+			'beforeafterslider',
+			'countdown',
+			'postcomments',
+			'initDropdowns',
+			'seedprod_animatedheadline',
+			'seedprod_rotateheadline',
+			'seedprod_tabbedlayout',
+			'seedprod_add_basic_lightbox',
+			'seedprod_add_gallery_lightbox',
+			'seedprod_add_gallery_js',
+			'seedprod_add_content_toggle_js',
+			'seedprod_particlessectionjs',
+			// Match either prefix: the frontend exposes seedprod_lite_ and/or
+			// seedprod_lite_ variants, and the literal-free form survives the
+			// Lite build rename. Keep both prefixes.
+			'seedprod_(?:pro|lite)_generate_toc',
+			'seedprod_(?:pro|lite)_video_pop_up_trigger_video',
+			'seedprod_(?:pro|lite)_init_background_video',
+			'seedprod_edd_add_submit_class',
+			'seedprod_twittertweetbutton',
+			'seedprod_twitterembedtimeline',
+		)
+	);
+
+	// Match both jQuery ready wrappers and capture the call. The body may itself
+	// contain '<' (e.g. the video popup's iframe markup), so it is bounded by
+	// "not </script>" rather than "no <" to stay inside a single <script>.
+	$pattern = '~<script>\s*jQuery\(\s*(?:function\s*\(\s*\)|document\)\.ready\(\s*function\s*\(\s*\))\s*\{\s*(' . $names . ')(\((?:(?!</script>)[\s\S])*)\}\s*\)\s*;?\s*</script>~';
+
+	$out = preg_replace_callback(
+		$pattern,
+		function ( $m ) {
+			$fn   = $m[1];
+			$call = $m[1] . $m[2];
+			return '<script>jQuery(function(){var n=0;(function r(){if(typeof ' . $fn . '==="function"){' . $call . '}else if(n++<100){setTimeout(r,50);}})();});</script>';
+		},
+		$html
+	);
+
+	return null === $out ? $html : $out;
+}
+add_filter( 'seedprod_lpage_content', 'seedprod_lite_guard_inline_block_scripts' );
+add_filter( 'seedprod_the_code', 'seedprod_lite_guard_inline_block_scripts' );

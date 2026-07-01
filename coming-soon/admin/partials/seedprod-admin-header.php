@@ -93,6 +93,36 @@ if ( class_exists( 'SeedProd_Notifications' ) ) {
 		);
 	}
 }
+
+if ( seedprod_lite_v2_needs_pro_plugin() ) {
+	if ( seedprod_lite_v2_is_pro_plugin_installed() ) {
+		$sp_pro_btn = array(
+			'text' => __( 'Activate Pro', 'coming-soon' ),
+			'url'  => admin_url( 'plugins.php' ),
+		);
+	} else {
+		$sp_pro_btn = array(
+			'text'   => __( 'Download Pro', 'coming-soon' ),
+			'url'    => seedprod_lite_get_account_download_link( 'admin-header-install-pro' ),
+			'target' => '_blank',
+		);
+	}
+	$sp_pro_link = '<a href="' . esc_url( 'https://www.seedprod.com/docs/installing-and-activating-the-coming-soon-pro-plugin/' ) . '" target="_blank" rel="noopener noreferrer">'
+		/* translators: %s: Pro (the edition name). */
+		. esc_html( sprintf( __( 'separate SeedProd %s plugin', 'coming-soon' ), 'Pro' ) ) . '</a>';
+
+	$sp_pro_content = sprintf(
+		/* translators: %s: linked text pointing to the Pro plugin install docs. */
+		__( 'Your license is valid, but you are running SeedProd Lite. Pro features come from the %s. Install it to start using your license.', 'coming-soon' ),
+		$sp_pro_link
+	);
+	$notification_to_show = array(
+		'id'      => 'install-pro',
+		'title'   => __( 'Action Required: Install the Pro Plugin', 'coming-soon' ),
+		'content' => $sp_pro_content,
+		'btns'    => array( 'main' => $sp_pro_btn ),
+	);
+}
 ?>
 
 <?php if ( $show_license_warning ) : ?>

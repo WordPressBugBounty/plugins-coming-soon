@@ -660,10 +660,7 @@ function seedprod_lite_save_lpage() {
 		if ( ! empty( $html ) ) {
 			$html = preg_replace( "'<span class=\"sp-hidden\">START-REMOVE</span>[\s\S]+?<span class=\"sp-hidden\">END-REMOVE</span>'", '', $html );
 			$html = preg_replace( "'<span class=\"sp-hidden\">START-COUNTDOWN-REMOVE</span>[\s\S]+?<span class=\"sp-hidden\">END-COUNTDOWN-REMOVE</span>'", '', $html );
-			$html = preg_replace( "'seedprod-jscode'", 'script', $html );
-			$html = preg_replace( "'<!---->'", '', $html );
-			$html = preg_replace( "'<!--'", '', $html );
-			$html = preg_replace( "'-->'", '', $html );
+			$html = seedprod_lite_uncomment_jscode_and_strip_comments( $html );
 			// html custom comment.
 			$html = preg_replace( "'--!'", '-->', $html );
 			$html = preg_replace( "'!--'", '<!--', $html );

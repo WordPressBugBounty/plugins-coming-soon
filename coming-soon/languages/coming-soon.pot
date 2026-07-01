@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.3\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-08T14:35:03+00:00\n"
+"POT-Creation-Date: 2026-06-30T13:01:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: coming-soon\n"
@@ -262,7 +262,7 @@ msgstr ""
 #: admin/class-seedprod-admin.php:1747
 #: admin/includes/product-education-functions.php:76
 #: admin/includes/product-education-functions.php:243
-#: admin/partials/seedprod-admin-header.php:126
+#: admin/partials/seedprod-admin-header.php:156
 #: admin/partials/seedprod-admin-landing-pages.php:176
 #: admin/partials/seedprod-admin-landing-pages.php:230
 #: admin/partials/seedprod-admin-settings.php:643
@@ -1535,7 +1535,7 @@ msgid "Invalid data format."
 msgstr ""
 
 #: admin/includes/import-export-functions.php:616
-#: admin/includes/import-export-utilities.php:1146
+#: admin/includes/import-export-utilities.php:1153
 msgid "Failed to read export file."
 msgstr ""
 
@@ -1664,25 +1664,25 @@ msgstr ""
 msgid "Landing page data file (export_page.json) not found in ZIP"
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:1095
+#: admin/includes/import-export-utilities.php:1102
 msgid "Failed to save export JSON file."
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:1100
+#: admin/includes/import-export-utilities.php:1107
 msgid "ZipArchive class not available. Please contact your host."
 msgstr ""
 
 #. translators: %s: ZipArchive error code.
-#: admin/includes/import-export-utilities.php:1110
+#: admin/includes/import-export-utilities.php:1117
 #, php-format
 msgid "Cannot create ZIP file. Error code: %s"
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:1116
+#: admin/includes/import-export-utilities.php:1123
 msgid "Failed to add JSON file to ZIP."
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:1131
+#: admin/includes/import-export-utilities.php:1138
 msgid "ZIP file was not created successfully."
 msgstr ""
 
@@ -2180,8 +2180,8 @@ msgid "Invalid page ID."
 msgstr ""
 
 #: admin/includes/template-functions.php:577
-#: includes/class-seedprod-abilities.php:707
-#: includes/class-seedprod-abilities.php:1108
+#: includes/class-seedprod-abilities.php:724
+#: includes/class-seedprod-abilities.php:1220
 msgid "Page not found."
 msgstr ""
 
@@ -2661,8 +2661,8 @@ msgid "Support Center"
 msgstr ""
 
 #: admin/partials/seedprod-admin-dashboard.php:562
-#: admin/partials/seedprod-admin-header.php:146
-#: admin/partials/seedprod-admin-header.php:152
+#: admin/partials/seedprod-admin-header.php:176
+#: admin/partials/seedprod-admin-header.php:182
 msgid "Get Help"
 msgstr ""
 
@@ -2935,23 +2935,47 @@ msgstr ""
 msgid "Watch Demo"
 msgstr ""
 
-#: admin/partials/seedprod-admin-header.php:103
-msgid "License Activation Required"
+#: admin/partials/seedprod-admin-header.php:100
+msgid "Activate Pro"
 msgstr ""
 
-#: admin/partials/seedprod-admin-header.php:106
-msgid "Activate now to unlock updates, support & all Pro features"
+#: admin/partials/seedprod-admin-header.php:105
+msgid "Download Pro"
 msgstr ""
 
-#: admin/partials/seedprod-admin-header.php:120
-msgid "You're using SeedProd Lite."
+#. translators: %s: Pro (the edition name).
+#: admin/partials/seedprod-admin-header.php:112
+#, php-format
+msgid "separate SeedProd %s plugin"
+msgstr ""
+
+#. translators: %s: linked text pointing to the Pro plugin install docs.
+#: admin/partials/seedprod-admin-header.php:116
+#, php-format
+msgid "Your license is valid, but you are running SeedProd Lite. Pro features come from the %s. Install it to start using your license."
 msgstr ""
 
 #: admin/partials/seedprod-admin-header.php:121
+msgid "Action Required: Install the Pro Plugin"
+msgstr ""
+
+#: admin/partials/seedprod-admin-header.php:133
+msgid "License Activation Required"
+msgstr ""
+
+#: admin/partials/seedprod-admin-header.php:136
+msgid "Activate now to unlock updates, support & all Pro features"
+msgstr ""
+
+#: admin/partials/seedprod-admin-header.php:150
+msgid "You're using SeedProd Lite."
+msgstr ""
+
+#: admin/partials/seedprod-admin-header.php:151
 msgid "Unlock more features and grow your website faster with SeedProd!"
 msgstr ""
 
-#: admin/partials/seedprod-admin-header.php:207
+#: admin/partials/seedprod-admin-header.php:237
 msgid "Dismiss this notice"
 msgstr ""
 
@@ -4704,19 +4728,19 @@ msgstr ""
 msgid "The minimum required version of PHP to run this plugin is PHP Version 5.3.3. Please contact your hosting company and ask them to upgrade this site's php verison."
 msgstr ""
 
-#: app/lpage.php:732
+#: app/lpage.php:729
 msgid "Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support."
 msgstr ""
 
-#: app/lpage.php:886
+#: app/lpage.php:883
 msgid "Starts in"
 msgstr ""
 
-#: app/lpage.php:888
+#: app/lpage.php:885
 msgid "Ended"
 msgstr ""
 
-#: app/lpage.php:1049
+#: app/lpage.php:1046
 #: app/theme-templates.php:858
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
@@ -5045,119 +5069,135 @@ msgid "Post status. Default: draft."
 msgstr ""
 
 #: includes/class-seedprod-abilities.php:629
-msgid "The document sections array containing rows, columns, and blocks. This is the page content."
+msgid "The page content: an array of section objects following the SeedProd document hierarchy — section > rows[] > cols[] > blocks[]. Every node (section, row, col, block) needs a unique \"id\". Each block also has a \"type\", an \"elType\" of \"block\", and a \"settings\" object."
 msgstr ""
 
 #: includes/class-seedprod-abilities.php:634
-msgid "Template condition for theme templates. Controls where the template renders. Required when creating a header/footer/page-template/part; ignored when updating an existing page (id is set)."
+msgid "Template condition for theme templates. Controls where the template renders. Conditions ending in \"(x)\" (is_page(x), is_single(x)) target specific content and must be paired with condition_value. Required when creating a header/footer/page-template/part; ignored when updating an existing page (id is set)."
 msgstr ""
 
 #: includes/class-seedprod-abilities.php:638
+msgid "Target for a parametric condition (one ending in \"(x)\", e.g. is_page(x) or is_single(x)): a comma-separated list of page or post IDs or slugs, such as \"42\", \"about,contact\", or \"42,about\". Required when condition is parametric; ignored otherwise."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:642
 msgid "For coming-soon, maintenance, login, and 404 pages: whether to bind this page as the active mode after saving. Works on both create and update. Coming-soon and maintenance are mutually exclusive (activating one disables the other); login and 404 are independent. Default: false."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:648
+#: includes/class-seedprod-abilities.php:652
 msgid "The post ID of the created or updated page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:652
+#: includes/class-seedprod-abilities.php:656
 msgid "The page title."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:656
+#: includes/class-seedprod-abilities.php:660
 msgid "The page type."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:660
+#: includes/class-seedprod-abilities.php:664
 msgid "URL to edit this page in the SeedProd builder."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:664
+#: includes/class-seedprod-abilities.php:668
 msgid "Whether a mode was activated (for coming-soon/maintenance)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:700
+#: includes/class-seedprod-abilities.php:705
 msgid "sections must be an array of section objects."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:735
-#: includes/class-seedprod-abilities.php:845
+#: includes/class-seedprod-abilities.php:711
+msgid "The sections tree is malformed; fix these and retry."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:752
+#: includes/class-seedprod-abilities.php:872
 msgid "Failed to encode page content as JSON. Check that sections contain valid data."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:749
+#: includes/class-seedprod-abilities.php:766
 msgid "Failed to update page content."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:773
+#: includes/class-seedprod-abilities.php:790
 msgid "type is required when creating a new page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:776
+#: includes/class-seedprod-abilities.php:793
 msgid "title is required when creating a new page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:782
+#: includes/class-seedprod-abilities.php:799
 msgid "Invalid page type for this build."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:789
+#: includes/class-seedprod-abilities.php:806
 msgid "condition is required for theme templates (header, footer, page-template, part)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:860
+#: includes/class-seedprod-abilities.php:815
+msgid "condition_value is required for parametric conditions like is_page(x) or is_single(x). Pass a comma-separated list of page or post IDs or slugs."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:887
 msgid "Failed to save page content."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1021
+#: includes/class-seedprod-abilities.php:1129
 msgid "Get SeedProd Page"
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1022
+#: includes/class-seedprod-abilities.php:1130
 msgid "Get a single SeedProd page by ID. Returns metadata by default (lightweight); pass include_sections=true to also return the full sections JSON for editing."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1029
+#: includes/class-seedprod-abilities.php:1137
 msgid "The post ID of the page to retrieve."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1033
+#: includes/class-seedprod-abilities.php:1141
 msgid "When true, include the full document sections array. Default false returns metadata only — much cheaper for inspection, since sections can be hundreds of KB on complex pages."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1046
+#: includes/class-seedprod-abilities.php:1154
 msgid "Long-form page type (landing-page, coming-soon, ...)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1052
+#: includes/class-seedprod-abilities.php:1160
 msgid "Template routing condition (theme templates only; empty string otherwise)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1056
+#: includes/class-seedprod-abilities.php:1164
+msgid "Target value for a parametric condition (comma-separated page or post IDs or slugs); empty string when the condition takes no value."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:1168
 msgid "Page-level globals (fonts, layout). Populated for landing pages."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1062
+#: includes/class-seedprod-abilities.php:1174
 msgid "True when this page is currently the bound active mode page (coming-soon, maintenance, login, or 404)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1066
+#: includes/class-seedprod-abilities.php:1178
 msgid "ISO 8601 last-modified timestamp."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1072
+#: includes/class-seedprod-abilities.php:1184
 msgid "Full document sections array. null when include_sections is false; an array (possibly empty) when true."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1103
+#: includes/class-seedprod-abilities.php:1215
 msgid "id is required."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1115
+#: includes/class-seedprod-abilities.php:1227
 msgid "Post is not a SeedProd page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1123
+#: includes/class-seedprod-abilities.php:1235
 msgid "Global CSS is not a content page."
 msgstr ""
 

@@ -77,7 +77,7 @@ $tabs_array = array(
 								?>
 							</p>
 						<?php endif; ?>
-						
+
 						<table class="form-table">
 							<tbody>
 								<tr>

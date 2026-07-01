@@ -485,7 +485,10 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 			// Browsers do not unescape "\/" inside HTML attributes; normalize so <img src> renders.
 			$content          = str_replace( '\\/', '/', base64_decode( $v->post_content ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
 			$content_filtered = str_replace( '\\/', '/', base64_decode( $v->post_content_filtered ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-			$imports[]        = array(
+			if ( function_exists( 'seedprod_lite_heal_import_pcf' ) ) {
+				$content_filtered = seedprod_lite_heal_import_pcf( $content_filtered );
+			}
+			$imports[] = array(
 				'post_content'          => $content,
 				'post_content_filtered' => $content_filtered,
 				'post_title'            => base64_decode( $v->post_title ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
@@ -852,6 +855,10 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 		$post_status           = ! empty( $v->post_status ) ? base64_decode( $v->post_status ) : 'draft';
 		$ptype                 = ! empty( $v->ptype ) ? base64_decode( $v->ptype ) : '';
 		$meta                  = ! empty( $v->meta ) ? json_decode( base64_decode( $v->meta ), true ) : array();
+
+		if ( function_exists( 'seedprod_lite_heal_import_pcf' ) ) {
+			$post_content_filtered = seedprod_lite_heal_import_pcf( $post_content_filtered );
+		}
 
 		// Create post.
 		$post_data = array(
