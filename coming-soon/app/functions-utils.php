@@ -2430,6 +2430,7 @@ function seedprod_lite_guard_inline_block_scripts( $html ) {
 			'countdown',
 			'postcomments',
 			'initDropdowns',
+			'hotspotTooltips',
 			'seedprod_animatedheadline',
 			'seedprod_rotateheadline',
 			'seedprod_tabbedlayout',
@@ -2450,6 +2451,10 @@ function seedprod_lite_guard_inline_block_scripts( $html ) {
 		)
 	);
 
+	$guard = function ( $fn_name, $body ) {
+		return '<script>jQuery(function(){var n=0;(function r(){if(typeof ' . $fn_name . '==="function"){' . $body . '}else if(n++<100){setTimeout(r,50);}})();});</script>';
+	};
+
 	// Match both jQuery ready wrappers and capture the call. The body may itself
 	// contain '<' (e.g. the video popup's iframe markup), so it is bounded by
 	// "not </script>" rather than "no <" to stay inside a single <script>.
@@ -2457,15 +2462,30 @@ function seedprod_lite_guard_inline_block_scripts( $html ) {
 
 	$out = preg_replace_callback(
 		$pattern,
-		function ( $m ) {
-			$fn   = $m[1];
-			$call = $m[1] . $m[2];
-			return '<script>jQuery(function(){var n=0;(function r(){if(typeof ' . $fn . '==="function"){' . $call . '}else if(n++<100){setTimeout(r,50);}})();});</script>';
+		function ( $m ) use ( $guard ) {
+			return $guard( $m[1], $m[1] . $m[2] );
 		},
 		$html
 	);
 
-	return null === $out ? $html : $out;
+	$out = null === $out ? $html : $out;
+
+	// The counter block registers a scroll/resize handler whose body calls the
+	// bundle's jQuery.fn.isInViewport and counter() helpers when it fires, so
+	// the whole registration waits on the bundle instead. Older saves emit the
+	// handler bare, newer ones wrap it in jQuery(function(){}); both start at
+	// jQuery(window).on("resize and carry the #sp-counter-number- marker.
+	$counter_pattern = '~<script>\s*((?:jQuery\(\s*function\s*\(\s*\)\s*\{\s*)?jQuery\(window\)\.on\(\s*"resize[^"]*"(?:(?!</script>)[\s\S])*#sp-counter-number-(?:(?!</script>)[\s\S])*)</script>~';
+
+	$guarded = preg_replace_callback(
+		$counter_pattern,
+		function ( $m ) use ( $guard ) {
+			return $guard( 'jQuery.fn.isInViewport', $m[1] );
+		},
+		$out
+	);
+
+	return null === $guarded ? $out : $guarded;
 }
 add_filter( 'seedprod_lpage_content', 'seedprod_lite_guard_inline_block_scripts' );
 add_filter( 'seedprod_the_code', 'seedprod_lite_guard_inline_block_scripts' );

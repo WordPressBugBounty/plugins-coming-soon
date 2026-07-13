@@ -128,3 +128,30 @@ if ( ! function_exists( 'seedprod_lite_resolve_effective_template_type' ) ) {
 		return $type;
 	}
 }
+
+if ( ! function_exists( 'seedprod_lite_normalize_conditions_json' ) ) {
+	/**
+	 * Normalize the theme-template conditions meta value to a JSON string.
+	 *
+	 * External tools can store this meta as an array or object; passing a
+	 * non-string into json_decode() is fatal on PHP 8.
+	 *
+	 * @since 6.21.0
+	 *
+	 * @param mixed $conditions Raw conditions meta value.
+	 * @return string JSON-encoded conditions, or an empty string when the
+	 *                value cannot be represented as JSON.
+	 */
+	function seedprod_lite_normalize_conditions_json( $conditions ) {
+		if ( is_string( $conditions ) ) {
+			return $conditions;
+		}
+
+		if ( is_array( $conditions ) || is_object( $conditions ) ) {
+			$encoded = wp_json_encode( $conditions );
+			return false === $encoded ? '' : $encoded;
+		}
+
+		return '';
+	}
+}

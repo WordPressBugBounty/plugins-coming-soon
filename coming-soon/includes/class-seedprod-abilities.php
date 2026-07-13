@@ -501,6 +501,31 @@ class SeedProd_Lite_Abilities {
 	}
 
 	/**
+	 * Flat list of valid theme-template condition values, sourced from the
+	 * builder's own condition picker so the two never drift. Includes the
+	 * per-post-type is_singular(<post_type>) values and, when WooCommerce or
+	 * EDD are active, their condition groups.
+	 *
+	 * @return string[] Condition values accepted by save-page.
+	 */
+	private function get_condition_enum() {
+		if ( ! function_exists( 'seedprod_lite_theme_template_conditons' ) ) {
+			return array( '_entire_site', 'is_front_page', 'is_home', 'is_page(x)', 'is_single(x)', 'is_404', 'is_archive' );
+		}
+
+		$values = array();
+		foreach ( seedprod_lite_theme_template_conditons() as $group ) {
+			foreach ( (array) $group as $entry ) {
+				if ( isset( $entry['value'] ) && '' !== $entry['value'] ) {
+					$values[] = (string) $entry['value'];
+				}
+			}
+		}
+
+		return array_values( array_unique( $values ) );
+	}
+
+	/**
 	 * Map a stored short-form page_type (e.g. "lp", "cs", "page") to the long-form
 	 * value used by the save-page input enum (e.g. "landing-page", "coming-soon",
 	 * "page-template"). Derived from get_save_page_type_map() so the two stay in
@@ -622,7 +647,7 @@ class SeedProd_Lite_Abilities {
 						'status' => array(
 							'type'        => 'string',
 							'enum'        => array( 'publish', 'draft' ),
-							'description' => __( 'Post status. Default: draft.', 'coming-soon' ),
+							'description' => __( 'Post status. Defaults to draft when creating; omit on update to keep the current status.', 'coming-soon' ),
 						),
 						'sections' => array(
 							'type'        => 'array',
@@ -630,12 +655,16 @@ class SeedProd_Lite_Abilities {
 						),
 						'condition' => array(
 							'type'        => 'string',
-							'enum'        => array( '_entire_site', 'is_front_page', 'is_home', 'is_page(x)', 'is_single(x)', 'is_404', 'is_archive' ),
-							'description' => __( 'Template condition for theme templates. Controls where the template renders. Conditions ending in "(x)" (is_page(x), is_single(x)) target specific content and must be paired with condition_value. Required when creating a header/footer/page-template/part; ignored when updating an existing page (id is set).', 'coming-soon' ),
+							'enum'        => $this->get_condition_enum(),
+							'description' => __( 'Template condition for theme templates. Controls where the template renders. Some values carry their target in the name (is_singular(post) = every post); conditions ending in "(x)" (is_page(x), is_single(x), has_category(x)) target specific content and must be paired with condition_value. Required when creating a header/footer/page-template/part; pass on update to change where an existing theme template renders.', 'coming-soon' ),
 						),
 						'condition_value' => array(
 							'type'        => 'string',
 							'description' => __( 'Target for a parametric condition (one ending in "(x)", e.g. is_page(x) or is_single(x)): a comma-separated list of page or post IDs or slugs, such as "42", "about,contact", or "42,about". Required when condition is parametric; ignored otherwise.', 'coming-soon' ),
+						),
+						'menu_order' => array(
+							'type'        => 'integer',
+							'description' => __( 'Theme-template priority. When several templates of the same type match a URL, the highest menu_order wins (first match after sorting high to low). Works on create and update. Default: 0.', 'coming-soon' ),
 						),
 						'activate' => array(
 							'type'        => 'boolean',
@@ -694,11 +723,26 @@ class SeedProd_Lite_Abilities {
 		$id       = isset( $input['id'] ) ? absint( $input['id'] ) : 0;
 		$type     = isset( $input['type'] ) ? sanitize_text_field( $input['type'] ) : '';
 		$title    = isset( $input['title'] ) ? sanitize_text_field( $input['title'] ) : '';
-		$status   = isset( $input['status'] ) ? sanitize_text_field( $input['status'] ) : 'draft';
+		// Empty means "not provided": updates keep the current status (a defaulted
+		// 'draft' silently unpublished live pages on every edit); creates fall
+		// back to draft below.
+		$status   = isset( $input['status'] ) ? sanitize_text_field( $input['status'] ) : '';
 		$sections = isset( $input['sections'] ) ? $input['sections'] : array();
 		$condition       = isset( $input['condition'] ) ? sanitize_text_field( $input['condition'] ) : '';
 		$condition_value = isset( $input['condition_value'] ) ? sanitize_text_field( $input['condition_value'] ) : '';
 		$activate        = isset( $input['activate'] ) ? (bool) $input['activate'] : false;
+		$menu_order      = isset( $input['menu_order'] ) ? intval( $input['menu_order'] ) : null;
+
+		// A parametric condition (type ending in "(x)") with an empty value matches
+		// every page or post of its type, so require an explicit target.
+		$condition_is_parametric = ( '' !== $condition && false !== strpos( $condition, '(x)' ) );
+		if ( $condition_is_parametric && '' === $condition_value ) {
+			return new WP_Error(
+				'missing_condition_value',
+				__( 'condition_value is required for parametric conditions like is_page(x) or is_single(x). Pass a comma-separated list of page or post IDs or slugs.', 'coming-soon' ),
+				array( 'status' => 400 )
+			);
+		}
 
 		if ( ! empty( $sections ) ) {
 			if ( ! is_array( $sections ) ) {
@@ -744,6 +788,21 @@ class SeedProd_Lite_Abilities {
 
 			if ( $status && $status !== $post->post_status ) {
 				wp_update_post( array( 'ID' => $id, 'post_status' => $status ) );
+			}
+
+			if ( null !== $menu_order ) {
+				wp_update_post( array( 'ID' => $id, 'menu_order' => $menu_order ) );
+			}
+
+			if ( '' !== $condition ) {
+				if ( ! get_post_meta( $id, '_seedprod_is_theme_template', true ) ) {
+					return new WP_Error( 'not_theme_template', __( 'condition can only be changed on theme templates (header, footer, page-template, part).', 'coming-soon' ), array( 'status' => 400 ) );
+				}
+				update_post_meta(
+					$id,
+					'_seedprod_theme_template_condition',
+					wp_json_encode( array( array( 'condition' => 'include', 'type' => $condition, 'value' => $condition_is_parametric ? $condition_value : '' ) ) )
+				);
 			}
 
 			// Validate JSON before saving.
@@ -806,18 +865,12 @@ class SeedProd_Lite_Abilities {
 			return new WP_Error( 'missing_condition', __( 'condition is required for theme templates (header, footer, page-template, part).', 'coming-soon' ) );
 		}
 
-		// A parametric condition (type ending in "(x)") with an empty value matches
-		// every page or post of its type, so require an explicit target.
-		$condition_is_parametric = ( '' !== $condition && false !== strpos( $condition, '(x)' ) );
-		if ( $config['is_theme'] && $condition_is_parametric && '' === $condition_value ) {
-			return new WP_Error(
-				'missing_condition_value',
-				__( 'condition_value is required for parametric conditions like is_page(x) or is_single(x). Pass a comma-separated list of page or post IDs or slugs.', 'coming-soon' )
-			);
-		}
-
 		// Build the document.
 		$document = $this->build_document( $sections );
+
+		if ( '' === $status ) {
+			$status = 'draft';
+		}
 
 		// Build the content_filtered JSON wrapper.
 		$content = array(
@@ -856,6 +909,7 @@ class SeedProd_Lite_Abilities {
 				'post_name'    => sanitize_title( $title ),
 				'post_status'  => $status,
 				'post_content' => '',
+				'menu_order'   => null !== $menu_order ? $menu_order : 0,
 				'meta_input'   => $meta_input,
 			),
 			true
@@ -1255,7 +1309,7 @@ class SeedProd_Lite_Abilities {
 		// multi-rule conditions, return the full array instead.
 		$condition       = '';
 		$condition_value = '';
-		$condition_meta  = get_post_meta( $id, '_seedprod_theme_template_condition', true );
+		$condition_meta  = seedprod_lite_normalize_conditions_json( get_post_meta( $id, '_seedprod_theme_template_condition', true ) );
 		if ( $condition_meta ) {
 			$decoded = json_decode( $condition_meta, true );
 			if ( is_array( $decoded ) && isset( $decoded[0]['type'] ) ) {

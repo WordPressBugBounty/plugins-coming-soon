@@ -649,7 +649,7 @@ function seedprod_lite_v2_theme_import_json( $json_content = null ) {
 						seedprod_lite_generate_css_file( $id, $code['css'] );
 					}
 				}
-				$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? $meta->_seedprod_theme_template_condition[0] : '';
+				$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? seedprod_lite_normalize_conditions_json( $meta->_seedprod_theme_template_condition[0] ) : '';
 				update_post_meta( $id, '_seedprod_theme_template_condition', $template_condition );
 				// Process conditon to see if we need to create a placeholder page.
 				$conditions = $template_condition;

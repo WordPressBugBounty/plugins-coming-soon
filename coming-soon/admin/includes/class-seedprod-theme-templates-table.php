@@ -374,9 +374,10 @@ class SeedProd_Theme_Templates_Table extends WP_List_Table {
 	/**
 	 * Get conditions display string
 	 *
-	 * @param string $conditions_json The conditions JSON string.
+	 * @param mixed $conditions_json Raw conditions meta value.
 	 */
 	private function get_conditions_display( $conditions_json ) {
+		$conditions_json = seedprod_lite_normalize_conditions_json( $conditions_json );
 		if ( empty( $conditions_json ) ) {
 			return '';
 		}

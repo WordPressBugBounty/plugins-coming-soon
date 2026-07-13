@@ -259,7 +259,7 @@ function seedprod_lite_v2_get_template_conditions() {
 	$priority = $post && isset( $post->menu_order ) ? $post->menu_order : 20;
 
 	// Get conditions.
-	$conditions_json = get_post_meta( $template_id, '_seedprod_theme_template_condition', true );
+	$conditions_json = seedprod_lite_normalize_conditions_json( get_post_meta( $template_id, '_seedprod_theme_template_condition', true ) );
 	$conditions      = array();
 
 	if ( ! empty( $conditions_json ) ) {
@@ -1193,7 +1193,7 @@ function seedprod_lite_v2_import_theme_request() {
 			$code = seedprod_lite_extract_page_css( $v1['post_content'], $id );
 
 			if ( isset( $meta->_seedprod_theme_template_condition[0] ) ) {
-				update_post_meta( $id, '_seedprod_theme_template_condition', $meta->_seedprod_theme_template_condition[0] );
+				update_post_meta( $id, '_seedprod_theme_template_condition', seedprod_lite_normalize_conditions_json( $meta->_seedprod_theme_template_condition[0] ) );
 			}
 
 			update_post_meta( $id, '_seedprod_css', $code['css'] );
@@ -1206,7 +1206,7 @@ function seedprod_lite_v2_import_theme_request() {
 
 			// Process condition to see if we need to create a placeholder page (matching old logic).
 			if ( isset( $meta->_seedprod_theme_template_condition[0] ) ) {
-				$conditions = $meta->_seedprod_theme_template_condition[0];
+				$conditions = seedprod_lite_normalize_conditions_json( $meta->_seedprod_theme_template_condition[0] );
 
 				if ( ! empty( $conditions ) ) {
 					$conditions = json_decode( $conditions );

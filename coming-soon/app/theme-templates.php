@@ -132,7 +132,7 @@ function seedprod_lite_themetemplate_datatable() {
 
 			$type              = get_post_meta( $v->ID, '_seedprod_page_template_type', true );
 			$conditions_return = '';
-			$conditions        = get_post_meta( $v->ID, '_seedprod_theme_template_condition', true );
+			$conditions        = seedprod_lite_normalize_conditions_json( get_post_meta( $v->ID, '_seedprod_theme_template_condition', true ) );
 			$type              = seedprod_lite_resolve_effective_template_type( $type, $conditions );
 			if ( ! empty( $conditions ) ) {
 				$conditions     = json_decode( $conditions );
@@ -326,7 +326,7 @@ function seedprod_lite_duplicate_themetemplate() {
 		$post          = get_post( $id );
 		$json          = $post->post_content_filtered;
 		$template_type = get_post_meta( $id, '_seedprod_page_template_type', true );
-		$conditions    = get_post_meta( $id, '_seedprod_theme_template_condition', true );
+		$conditions    = seedprod_lite_normalize_conditions_json( get_post_meta( $id, '_seedprod_theme_template_condition', true ) );
 
 		$args = array(
 			'comment_status' => 'closed',
@@ -970,7 +970,7 @@ function seedprod_lite_theme_import( $id = null ) {
 			seedprod_lite_generate_css_file( $id, $css );
 		} else {
 			$code               = seedprod_lite_extract_page_css( $v1['post_content'], $id );
-			$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? $meta->_seedprod_theme_template_condition[0] : '';
+			$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? seedprod_lite_normalize_conditions_json( $meta->_seedprod_theme_template_condition[0] ) : '';
 			update_post_meta( $id, '_seedprod_theme_template_condition', $template_condition );
 			update_post_meta( $id, '_seedprod_css', $code['css'] );
 			update_post_meta( $id, '_seedprod_html', $code['html'] );
