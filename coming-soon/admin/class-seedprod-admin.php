@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:ignore WordPress.Files.FileName -- Legacy filename retained for compatibility.
 /**
  * The admin-specific functionality of the plugin.
@@ -296,6 +300,7 @@ class SeedProd_Lite_Admin {
 
 			// Load growth tools CSS on promotional pages.
 			if ( strpos( $screen->id, 'seedprod_lite_popups' ) !== false ||
+				strpos( $screen->id, 'seedprod_lite_manage_with_ai' ) !== false ||
 				strpos( $screen->id, 'seedprod_lite_custom_code' ) !== false ) {
 				wp_enqueue_style(
 					$this->plugin_name . '-growth-tools',
@@ -581,6 +586,16 @@ class SeedProd_Lite_Admin {
 			apply_filters( 'seedprod_ai_themes_menu_capability', 'edit_others_posts' ),
 			'seedprod_lite_ai_themes',
 			'__return_false'
+		);
+
+		// Manage with AI education page (V2 WordPress-native).
+		add_submenu_page(
+			'seedprod_lite',
+			__( 'Manage with AI', 'coming-soon' ),
+			__( 'Manage with AI', 'coming-soon' ) . ' <span class="seedprod-menu-highlight">&nbsp;NEW</span>',
+			'manage_options',
+			'seedprod_lite_manage_with_ai',
+			array( $this, 'display_manage_with_ai_page' )
 		);
 
 		// Website Builder page (V2 WordPress-native).
@@ -1285,6 +1300,62 @@ class SeedProd_Lite_Admin {
 		<div class="seedprod-dashboard-page">
 			<?php
 			$page_title = __( 'Popups', 'coming-soon' );
+			require_once plugin_dir_path( __FILE__ ) . 'partials/seedprod-admin-header.php';
+			?>
+			<div class="seedprod-dashboard-container">
+				<?php require_once plugin_dir_path( __FILE__ ) . 'partials/seedprod-admin-growth-tool.php'; ?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Display the Manage with AI education page
+	 *
+	 * @since 6.20.6
+	 */
+	public function display_manage_with_ai_page() {
+		// Configure WPVibe promotional content.
+		$growth_tool_config = array(
+			'partner_name' => __( 'WPVibe', 'coming-soon' ),
+			'headline'     => __( 'Manage Your Entire Site With the AI You Already Use', 'coming-soon' ),
+			'subheadline'  => __( 'WPVibe connects Claude, ChatGPT, and other AI assistants to WordPress — build SeedProd pages, and run everything else, by chatting.', 'coming-soon' ),
+			'benefits'     => array(
+				__( 'Build and edit SeedProd landing pages, coming soon pages, and themes by describing what you want', 'coming-soon' ),
+				__( 'Manage everything, not just pages — posts, media, plugins, comments, and WooCommerce', 'coming-soon' ),
+				__( 'Clean up old content, fix alt text, and bulk edit in minutes instead of hours', 'coming-soon' ),
+				__( 'AI drafts, you approve — nothing touches your live site without you saying go', 'coming-soon' ),
+				__( 'Uses the AI you already pay for — no second AI subscription', 'coming-soon' ),
+			),
+			'testimonials' => array(
+				array(
+					'text'   => __( '“You can simply send an article, give instructions through chat, or even speak naturally… It is a bridge between conversational AI and a real, working WordPress website. I believe it represents the future of WordPress management.”', 'coming-soon' ),
+					'author' => 'odi',
+				),
+				array(
+					'text'   => __( '“Now Claude can actually interact with and help manage my WordPress site in meaningful ways… This is the missing bridge between WordPress and the agent-powered workflows many of us rely on.”', 'coming-soon' ),
+					'author' => 'Justin Sternberg',
+				),
+				array(
+					'text'   => __( '“Giving Claude direct access to WordPress meant it could see things the copy-paste process simply couldn’t capture — and it fixed every problem we’d been stuck on.”', 'coming-soon' ),
+					'author' => 'mariuslamprecht',
+				),
+			),
+			'cta_headline' => __( 'Give Your Website an AI Assistant', 'coming-soon' ),
+			'cta_subtext'  => __( 'Free plugin • Free plan included • 2-minute setup', 'coming-soon' ),
+			'social_proof' => __( 'From SeedProd — the team behind the website builder you already use', 'coming-soon' ),
+			'image'           => 'wpvibe-image.png',
+			'plugin_slug'     => 'vibe-ai/vibe-ai.php',
+			'plugin_id'       => 'vibeai',
+			'setup_url'       => admin_url( 'admin.php?page=vibe-ai' ),
+			'learn_more_url'  => 'https://wpvibe.ai/?utm_source=seedprod-plugin&utm_medium=manage-with-ai-page&utm_campaign=wpvibe-bridge',
+			'learn_more_text' => __( 'Or learn more at wpvibe.ai', 'coming-soon' ),
+		);
+
+		?>
+		<div class="seedprod-dashboard-page">
+			<?php
+			$page_title = __( 'Manage with AI', 'coming-soon' );
 			require_once plugin_dir_path( __FILE__ ) . 'partials/seedprod-admin-header.php';
 			?>
 			<div class="seedprod-dashboard-container">

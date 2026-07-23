@@ -6,6 +6,10 @@
  * @subpackage SeedProd/app
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Dashboard page - V2 WordPress native.
  * This redirects to our new V2 dashboard.

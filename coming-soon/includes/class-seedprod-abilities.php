@@ -26,6 +26,8 @@ class SeedProd_Lite_Abilities {
 	 * Initialize the abilities registration.
 	 */
 	public function __construct() {
+		// Registration must stay on these hooks: they only fire on WP 6.9+, so the
+		// wp_register_ability*() calls below never run on older WordPress versions.
 		add_action( 'wp_abilities_api_categories_init', array( $this, 'register_category' ) );
 		add_action( 'wp_abilities_api_init', array( $this, 'register_abilities' ) );
 	}
@@ -827,6 +829,10 @@ class SeedProd_Lite_Abilities {
 
 			clean_post_cache( $id );
 
+			if ( get_post_meta( $id, '_seedprod_is_theme_template', true ) ) {
+				$this->maybe_create_placeholder_pages( $id );
+			}
+
 			// _seedprod_page_template_type post meta is the authoritative source
 			// (it's what list-pages reads, and it survives content_filtered drift).
 			// Fall back to the JSON page_type, then to "lp", for older rows that
@@ -943,6 +949,10 @@ class SeedProd_Lite_Abilities {
 
 		clean_post_cache( $post_id );
 
+		if ( $config['is_theme'] ) {
+			$this->maybe_create_placeholder_pages( $post_id );
+		}
+
 		// Activate mode if requested.
 		$activated = $this->maybe_activate_mode( $post_id, $config['template_type'], $activate );
 
@@ -953,6 +963,61 @@ class SeedProd_Lite_Abilities {
 			'edit_url'  => admin_url( 'admin.php?page=seedprod_lite_builder&id=' . $post_id ),
 			'activated' => $activated,
 		);
+	}
+
+	/**
+	 * Create published placeholder pages for a published theme template whose
+	 * condition is a single include is_page(x), so the targeted URLs resolve.
+	 * Best effort: numeric IDs, path-style values, and slugs already used by
+	 * a page are skipped, and the caller must be able to publish pages.
+	 *
+	 * @param integer $post_id Theme template post ID.
+	 * @return void
+	 */
+	private function maybe_create_placeholder_pages( $post_id ) {
+		if ( 'publish' !== get_post_status( $post_id ) || ! current_user_can( 'publish_pages' ) ) {
+			return;
+		}
+
+		$conditions = json_decode( seedprod_lite_normalize_conditions_json( get_post_meta( $post_id, '_seedprod_theme_template_condition', true ) ) );
+		if ( ! is_array( $conditions ) || 1 !== count( $conditions ) ) {
+			return;
+		}
+
+		$condition = $conditions[0];
+		if ( ! isset( $condition->condition, $condition->type, $condition->value ) || 'include' !== $condition->condition || 'is_page(x)' !== $condition->type || '' === (string) $condition->value ) {
+			return;
+		}
+
+		foreach ( array_map( 'trim', explode( ',', (string) $condition->value ) ) as $slug ) {
+			if ( '' === $slug || is_numeric( $slug ) || false !== strpos( $slug, '/' ) ) {
+				continue;
+			}
+
+			// Match by post_name at any depth, like the is_page(x) runtime check.
+			$existing = get_posts(
+				array(
+					'name'        => $slug,
+					'post_type'   => 'page',
+					'post_status' => array( 'publish', 'future', 'draft', 'pending', 'private' ),
+					'numberposts' => 1,
+					'fields'      => 'ids',
+				)
+			);
+			if ( ! empty( $existing ) ) {
+				continue;
+			}
+
+			wp_insert_post(
+				array(
+					'post_title'   => ucwords( str_replace( array( '-', '_' ), ' ', $slug ) ),
+					'post_name'    => $slug,
+					'post_content' => __( 'This page was auto-generated as a placeholder page for your SeedProd theme. To manage its contents, visit SeedProd > Website Builder in the WordPress menu.', 'coming-soon' ),
+					'post_status'  => 'publish',
+					'post_type'    => 'page',
+				)
+			);
+		}
 	}
 
 	/**

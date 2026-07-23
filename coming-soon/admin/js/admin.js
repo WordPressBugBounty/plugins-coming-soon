@@ -456,9 +456,15 @@
 						// Update status text
 						$item.find('.seedprod-plugin-status strong').text(seedprod_admin.strings.plugin_active);
 						showNotice('success', response.data || seedprod_admin.strings.plugin_activated);
-						// Reload page after activation to ensure UI is fully updated
+						// Reload page after activation, or follow the button's redirect
+						// so setup can start right away (e.g. growth tool pages).
+						var redirectUrl = $button.data('redirect');
 						setTimeout(function() {
-							window.location.reload();
+							if (redirectUrl) {
+								window.location.href = redirectUrl;
+							} else {
+								window.location.reload();
+							}
 						}, 1000);
 					}
 				} else {

@@ -6,6 +6,10 @@
  * @subpackage SeedProd/app
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Save Settings: Coming Soon Mode, Maintenance Mode, Login Page, 404 Page
  */

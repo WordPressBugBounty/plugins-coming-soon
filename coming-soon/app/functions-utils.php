@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  *  Get IP
@@ -1614,7 +1617,7 @@ function seedprod_lite_get_api_key() {
 	}
 
 	if ( empty( $seedprod_api_key ) ) {
-		$seedprod_api_key = get_option( 'seedprod_api_key ' );
+		$seedprod_api_key = get_option( 'seedprod_api_key' );
 	}
 
 	return $seedprod_api_key;

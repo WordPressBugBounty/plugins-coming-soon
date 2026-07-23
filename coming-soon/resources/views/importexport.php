@@ -6,6 +6,10 @@
  * @subpackage SeedProd\Views
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:disable WordPress.Security.NonceVerification.Recommended
 $sp_post_id = isset( $_GET['id'] ) ? absint( wp_unslash( $_GET['id'] ) ) : null;
 // phpcs:enable WordPress.Security.NonceVerification.Recommended

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 $width_class    = $shortcode_args['extra']['width_class'];
 $index_carousel = $shortcode_args['extra']['index_carousel'];
 $k              = $shortcode_args['extra']['k'];

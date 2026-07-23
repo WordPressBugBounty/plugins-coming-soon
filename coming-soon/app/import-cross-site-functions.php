@@ -3,6 +3,10 @@
  * Cross-site paste ajax functions
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_seedprod_lite_import_cross_site_paste', 'seedprod_lite_import_cross_site_paste' );
 }

@@ -8,6 +8,10 @@
  * phpcs:ignore WordPress.Files.FileName -- Legacy filename retained for compatibility.
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Register all actions and filters for the plugin
  *

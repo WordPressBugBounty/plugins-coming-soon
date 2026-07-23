@@ -6,6 +6,10 @@
  * @subpackage SeedProd/app
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Get Datatable Info for the Theme Template parts page.
  *

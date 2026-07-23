@@ -5,6 +5,11 @@
  * Welcome Page On Activation
  * DEPRECATED: Now using V2 admin redirect - seedprod_lite_v2_welcome_screen_do_activation_redirect
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // add_action( 'admin_init', 'seedprod_lite_welcome_screen_do_activation_redirect' );
 
 /**
@@ -89,7 +94,7 @@ function seedprod_lite_save_api_key( $api_key = null ) {
 		if ( empty( $data['license_key'] ) ) {
 			$response = array(
 				'status' => 'false',
-				'msg'    => __( 'License Key is Required.', '' ),
+				'msg'    => __( 'License Key is Required.', 'coming-soon' ),
 			);
 			wp_send_json( $response );
 			exit;

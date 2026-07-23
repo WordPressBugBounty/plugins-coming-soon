@@ -1,4 +1,8 @@
 <?php // phpcs:ignore WordPress.Files.FileName.NotHyphenatedLowercase
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // Must load first.
 require_once SEEDPROD_PLUGIN_PATH . 'app/functions-utils.php';
 

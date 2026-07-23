@@ -310,6 +310,11 @@ function seedprod_lite_v2_complete_setup_wizard() {
 								$needs_install = true;
 							}
 							break;
+						case 'vibe-ai':
+							if ( ! isset( $all_plugins['vibe-ai/vibe-ai.php'] ) ) {
+								$needs_install = true;
+							}
+							break;
 					}
 
 					if ( $needs_install ) {
@@ -367,6 +372,10 @@ function seedprod_lite_v2_install_addon_setup() {
 		'optinmonster' => array(
 			'slug' => 'optinmonster/optin-monster-wp-api.php',
 			'url'  => 'https://downloads.wordpress.org/plugin/optinmonster.zip',
+		),
+		'vibe-ai'      => array(
+			'slug' => 'vibe-ai/vibe-ai.php',
+			'url'  => 'https://downloads.wordpress.org/plugin/vibe-ai.zip',
 		),
 	);
 

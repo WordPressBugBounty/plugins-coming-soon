@@ -6,6 +6,10 @@
  * @subpackage SeedProd/app
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Enqueue admin assets.
  *
@@ -258,15 +262,6 @@ function seedprod_lite_admin_enqueue_scripts( $hook_suffix ) {
 		false
 	);
 	wp_enqueue_script( 'seedprod-tsparticles-js' );
-
-	wp_register_script(
-		'seedprod-masonry-js',
-		SEEDPROD_PLUGIN_URL . 'public/js/masonry.pkgd.js',
-		array( 'jquery' ),
-		SEEDPROD_VERSION,
-		false
-	);
-	wp_enqueue_script( 'seedprod-masonry-js' );
 
 	wp_register_script(
 		'seedprod-imagesloaded-js',

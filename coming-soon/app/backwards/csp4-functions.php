@@ -1,5 +1,9 @@
 <?php
-// phpcs:disable WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput, WordPress.WP.I18n.TextDomainMismatch, WordPress.NamingConventions.PrefixAllGlobals -- Legacy backward compatibility code for CSP4.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// phpcs:disable WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput, WordPress.WP.I18n.TextDomainMismatch, WordPress.NamingConventions.PrefixAllGlobals, WordPress.WP.EnqueuedResources -- Legacy backward compatibility code for CSP4; it renders a self-contained HTML document outside the theme, so assets cannot go through the enqueue system.
 
 /**
  * Display the legacy free coming soon page
@@ -10,7 +14,7 @@ if ( ! function_exists( 'seedprod_lite_csp4_render_comingsoon_page' ) ) {
 
 		if ( ! isset( $status ) ) {
 			$err = new WP_Error( 'error', __( 'Please enter your settings.', 'coming-soon' ) );
-			echo $err->get_error_message();
+			echo esc_html( $err->get_error_message() );
 			exit();
 		}
 
@@ -90,9 +94,9 @@ if ( ! function_exists( 'seedprod_lite_csp4_render_comingsoon_page' ) ) {
 				'{Credit}'          => seedprod_lite_seed_csp4_credit(),
 				'{Append_HTML}'     => seed_csp4_append_html(),
 			);
-			echo strtr( $template, $template_tags );
+			echo strtr( $template, $template_tags ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- full HTML document assembled from the plugin's own template parts.
 		} else {
-			echo $html;
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- full HTML document authored by the site admin in the legacy CSP4 editor.
 		}
 		exit();
 	}
@@ -199,7 +203,7 @@ if ( ! function_exists( 'seed_csp4_head' ) ) {
 			;
 			?>
 			<?php if ( isset( $bg_cover ) && in_array( '1', $bg_cover ) ) : ?>
-				background: <?php echo $bg_color; ?> url('<?php echo $bg_image; ?>') no-repeat top center fixed;
+				background: <?php echo esc_attr( $bg_color ); ?> url("<?php echo esc_url_raw( $bg_image ); ?>") no-repeat top center fixed;
 				<?php if ( isset( $bg_size ) && $bg_size == 'contain' ) : ?>
 				-webkit-background-size: contain;
 				-moz-background-size: contain;
@@ -213,13 +217,13 @@ if ( ! function_exists( 'seed_csp4_head' ) ) {
 				background-size: cover;
 				<?php endif ?>
 			<?php else : ?>
-				background: <?php echo $bg_color; ?> url('<?php echo $bg_image; ?>') <?php echo $bg_repeat; ?> <?php echo $bg_position; ?> <?php echo $bg_attahcment; ?>;
+				background: <?php echo esc_attr( $bg_color ); ?> url("<?php echo esc_url_raw( $bg_image ); ?>") <?php echo esc_attr( $bg_repeat ); ?> <?php echo esc_attr( $bg_position ); ?> <?php echo esc_attr( $bg_attahcment ); ?>;
 			<?php endif ?>
 			<?php
 		else :
 			if ( ! empty( $bg_color ) ) :
 				?>
-			background: <?php echo $bg_color; ?>;
+			background: <?php echo esc_attr( $bg_color ); ?>;
 				<?php
 		endif;
 		endif;
@@ -227,7 +231,7 @@ if ( ! function_exists( 'seed_csp4_head' ) ) {
 	}
 	.seed-csp4 body{
 			<?php if ( ! empty( $bg_effect ) ) : ?>
-				background: transparent url('<?php echo plugins_url( 'images/bg-' . $bg_effect . '.png', __FILE__ ); ?>') repeat;
+				background: transparent url("<?php echo esc_url_raw( plugins_url( 'images/bg-' . $bg_effect . '.png', __FILE__ ) ); ?>") repeat;
 			<?php else : ?>
 				background: transparent;
 			<?php endif; ?>
@@ -260,17 +264,17 @@ if ( ! function_exists( 'seed_csp4_head' ) ) {
 	/* Text Styles */
 		<?php if ( ! empty( $text_font ) ) : ?>
 		.seed-csp4 body{
-			font-family: <?php echo seedprod_lite_seed_csp4_get_font_family( $text_font ); ?>
+			font-family: <?php seedprod_lite_seed_csp4_get_font_family( $text_font ); ?>
 		}
 
 		.seed-csp4 h1, .seed-csp4 h2, .seed-csp4 h3, .seed-csp4 h4, .seed-csp4 h5, .seed-csp4 h6{
-			font-family: <?php echo seedprod_lite_seed_csp4_get_font_family( $text_font ); ?>
+			font-family: <?php seedprod_lite_seed_csp4_get_font_family( $text_font ); ?>
 		}
 	<?php endif; ?>
 
 		<?php if ( ! empty( $text_color ) ) { ?>
 		.seed-csp4 body{
-			color:<?php echo $text_color; ?>;
+			color:<?php echo esc_attr( $text_color ); ?>;
 		}
 	<?php } ?>
 
@@ -285,14 +289,14 @@ if ( ! function_exists( 'seed_csp4_head' ) ) {
 
 		<?php if ( ! empty( $headline_color ) ) { ?>
 		.seed-csp4 h1, .seed-csp4 h2, .seed-csp4 h3, .seed-csp4 h4, .seed-csp4 h5, .seed-csp4 h6{
-			color:<?php echo $headline_color; ?>;
+			color:<?php echo esc_attr( $headline_color ); ?>;
 		}
 	<?php } ?>
 
 
 		<?php if ( ! empty( $link_color ) ) { ?>
 		.seed-csp4 a, .seed-csp4 a:visited, .seed-csp4 a:hover, .seed-csp4 a:active, .seed-csp4 a:focus{
-			color:<?php echo $link_color; ?>;
+			color:<?php echo esc_attr( $link_color ); ?>;
 		}
 
 
@@ -374,7 +378,7 @@ if ( ! function_exists( 'seedprod_lite_seed_csp4_get_font_family' ) ) {
 			$font_family = 'Helvetica Neue, Arial, sans-serif';
 		}
 
-		echo $font_family;
+		echo $font_family; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- value comes from the hardcoded font map above; escaping would corrupt the quoted font stacks.
 	}
 }
 

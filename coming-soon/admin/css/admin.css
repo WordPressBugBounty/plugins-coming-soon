@@ -5212,8 +5212,9 @@ body.seedprod-modal-open {
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-	max-width: 500px;
+	max-width: 560px;
 	width: 90%;
+	height: auto;
 	max-height: 80vh;
 	overflow-y: auto;
 	/* Use absolute positioning with transform for reliable centering */
@@ -5282,6 +5283,7 @@ body.seedprod-modal-open {
 
 .seedprod-modal-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 10px;
 	justify-content: center;
 	margin-top: 25px;

@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 add_filter( 'template_include', 'seedprod_lite_lppage_render', PHP_INT_MAX );
 

@@ -715,6 +715,9 @@ $wizard_id = isset( $_GET['wizard_id'] ) ? sanitize_text_field( wp_unslash( $_GE
 				<a id="seedprod-edit-page-button" href="#" class="button button-primary">
 					<?php esc_html_e( 'Finish Setup', 'coming-soon' ); ?>
 				</a>
+				<a id="seedprod-wpvibe-setup-button" href="<?php echo esc_url( admin_url( 'admin.php?page=vibe-ai' ) ); ?>" class="button button-secondary" style="display: none;">
+					<?php esc_html_e( 'Set Up Your AI Assistant', 'coming-soon' ); ?>
+				</a>
 				<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite' ) ); ?>" class="button button-secondary">
 					<?php esc_html_e( 'Go to Dashboard', 'coming-soon' ); ?>
 				</a>
@@ -797,6 +800,7 @@ jQuery(document).ready(function($) {
 		if (data.options.includes('wpforms')) plugins.push('WPForms');
 		if (data.options.includes('optinmonster')) plugins.push('OptinMonster');
 		if (data.options.includes('ga')) plugins.push('MonsterInsights');
+		if (data.options.includes('vibe-ai')) plugins.push('WPVibe (AI Assistant)');
 		
 		if (plugins.length > 0) {
 			$('#seedprod-recommended-plugins-list').html('<ul><li>' + plugins.join('</li><li>') + '</li></ul>');
@@ -870,6 +874,10 @@ jQuery(document).ready(function($) {
 			},
 			success: function(response) {
 				if (response.success) {
+					// Offer the WPVibe setup step when it was just installed.
+					if (window.wizardData.options && window.wizardData.options.includes('vibe-ai')) {
+						$('#seedprod-wpvibe-setup-button').show();
+					}
 					showSuccessState(window.wizardData);
 				} else {
 					alert('<?php esc_html_e( 'There was an error installing the plugins.', 'coming-soon' ); ?>');

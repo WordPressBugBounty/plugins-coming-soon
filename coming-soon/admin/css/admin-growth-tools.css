@@ -139,6 +139,51 @@
 }
 
 
+/* Testimonials Section */
+.seedprod-growth-testimonials {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 20px;
+	margin: 50px 0;
+}
+
+.seedprod-growth-testimonial {
+	margin: 0;
+	padding: 25px;
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 12px;
+}
+
+.seedprod-testimonial-stars .dashicons {
+	color: #ffb900;
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.seedprod-growth-testimonial p {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #1e1e1e;
+	margin: 12px 0 15px;
+}
+
+.seedprod-growth-testimonial cite {
+	display: block;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 13px;
+	color: #1e1e1e;
+}
+
+.seedprod-testimonial-source {
+	display: block;
+	font-weight: 400;
+	color: #50575e;
+	margin-top: 2px;
+}
+
 /* CTA Section */
 .seedprod-growth-cta {
 	text-align: center;

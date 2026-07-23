@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Get WP Forms.
@@ -42,7 +45,7 @@ function seedprod_lite_get_wpform() {
 		$form_description = filter_input( INPUT_GET, 'form_description', FILTER_VALIDATE_BOOLEAN );
 		ob_start();
 		?>
-		<link rel='stylesheet' id='wpforms-full-css' href='<?php echo content_url(); ?>/plugins/wpforms-lite/assets/css/wpforms-full.css' media='all' /><?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
+		<link rel='stylesheet' id='wpforms-full-css' href='<?php echo esc_url( content_url() ); ?>/plugins/wpforms-lite/assets/css/wpforms-full.css' media='all' /><?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet ?>
 		<?php
 		wpforms_display( $form_id, $form_title, $form_description );
 		wp_send_json( ob_get_clean() );

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 		// Load WooCommerce default styles if WooCommerce is active.
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) && function_exists( 'WC' ) ) {
 	wp_enqueue_style(
@@ -436,9 +440,8 @@ if ( ! empty( $settings ) ) {
 	<?php
 	if ( true === $include_masonarylayout_sdk ) {
 		?>
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/masonry.pkgd.js" defer></script> 
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/imagesloaded.pkgd.min.js" defer></script> 
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/isotope.pkgd.js" defer></script> 
+		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/imagesloaded.pkgd.min.js" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
+		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/isotope.pkgd.js" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
 
 
 		<?php

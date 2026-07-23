@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // phpcs:disable WordPress.Security.EscapeOutput -- Third-party Simple HTML DOM Parser library.
 
 /**

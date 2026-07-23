@@ -4,6 +4,11 @@
  *
  * @since 7.10.5
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'SeedProd_Notifications' ) ) {
 
 	/**

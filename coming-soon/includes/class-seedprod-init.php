@@ -8,6 +8,10 @@
  * phpcs:ignore WordPress.Files.FileName -- Legacy filename retained for compatibility.
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Initialize the new WordPress-native admin pages
  *

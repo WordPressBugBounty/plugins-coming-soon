@@ -513,9 +513,14 @@ $tabs_array = array(
 					if ( $filter && isset( $all_plugins[ $filter ] ) ) {
 						$filtered_plugins = array( $filter => $all_plugins[ $filter ] );
 					} else {
-						// Shuffle the plugins array to randomize order on each page load.
+						// Shuffle the plugins array to randomize order on each page load, keeping WPVibe pinned first.
 						$keys = array_keys( $all_plugins );
 						shuffle( $keys );
+						$pinned = array_search( 'vibeai', $keys, true );
+						if ( false !== $pinned ) {
+							unset( $keys[ $pinned ] );
+							array_unshift( $keys, 'vibeai' );
+						}
 						$shuffled_plugins = array();
 						foreach ( $keys as $key ) {
 							$shuffled_plugins[ $key ] = $all_plugins[ $key ];

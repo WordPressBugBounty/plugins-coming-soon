@@ -44,6 +44,7 @@ function seedprod_lite_v2_verify_installed_plugin( $plugin_id, $plugin_data ) {
 		'searchwp'             => array( 'SearchWP Live Ajax Search' ),
 		'affiliatewp'          => array( 'AffiliateWP', 'AffiliateWP - Affiliate Area Shortcodes' ),
 		'duplicator'           => array( 'Duplicator', 'Duplicator – WordPress Migration Plugin' ),
+		'vibeai'               => array( 'WPVibe' ),
 	);
 
 	// Check if we have expected names for this plugin.
@@ -81,6 +82,7 @@ function seedprod_lite_v2_verify_installed_plugin( $plugin_id, $plugin_data ) {
 		'WPBeginner',
 		'WPCode',
 		'Awesome Motive',
+		'SeedProd',
 	);
 
 	$plugin_author = $plugin_data['Author'] ?? '';
@@ -124,6 +126,7 @@ function seedprod_lite_v2_get_plugin_download_url( $plugin_id ) {
 		'searchwp'             => 'https://downloads.wordpress.org/plugin/searchwp-live-ajax-search.zip',
 		'affiliatewp'          => 'https://downloads.wordpress.org/plugin/affiliatewp-affiliate-area-shortcodes.zip',
 		'duplicator'           => 'https://downloads.wordpress.org/plugin/duplicator.zip',
+		'vibeai'               => 'https://downloads.wordpress.org/plugin/vibe-ai.zip',
 	);
 
 	// Check if plugin ID exists in our allowed list.
@@ -324,6 +327,14 @@ function seedprod_lite_v2_get_recommended_plugins() {
 			'desc'      => __( 'Cookie consent banner and privacy compliance suite for WordPress.', 'coming-soon' ),
 			'priority'  => 12,
 		),
+		'vibeai'               => array(
+			'slug_base' => 'vibe-ai',
+			'slug'      => 'vibe-ai/vibe-ai.php',
+			'icon'      => SEEDPROD_PLUGIN_URL . 'admin/images/plugin-vibeai.png',
+			'name'      => __( 'WPVibe', 'coming-soon' ),
+			'desc'      => __( 'Connect Claude, ChatGPT & any AI assistant to manage your entire site.', 'coming-soon' ),
+			'priority'  => 13,
+		),
 	);
 
 	// Get plugin statuses.
@@ -425,8 +436,9 @@ function seedprod_lite_v2_get_all_recommended_plugins() {
 
 /**
  * Get dashboard recommended plugins.
- * Shows specific plugins: WPConsent, AIOSEO, WPForms, Duplicator.
- * If any are active, replaces them with other available plugins to always show 4.
+ * WPVibe is pinned to the first slot; the remaining slots show WPConsent,
+ * AIOSEO, WPForms, Duplicator. If any are active, replaces them with other
+ * available plugins to always show 4.
  *
  * @return array Array of dashboard plugins.
  */
@@ -434,7 +446,7 @@ function seedprod_lite_v2_get_dashboard_recommended_plugins() {
 	$all_plugins = seedprod_lite_v2_get_recommended_plugins();
 
 	// Primary plugins to show on dashboard (in priority order).
-	$dashboard_plugins = array( 'wpconsent', 'aioseo', 'wpforms', 'duplicator' );
+	$dashboard_plugins = array( 'vibeai', 'wpconsent', 'aioseo', 'wpforms', 'duplicator' );
 
 	$filtered_plugins = array();
 	$backup_plugins   = array();
@@ -615,6 +627,7 @@ function seedprod_lite_v2_get_plugins_status() {
 		'searchwp/searchwp.php'                           => 'searchwp-pro',
 		'affiliatewp-affiliate-area-shortcodes/affiliatewp-affiliate-area-shortcodes.php' => 'affiliatewp',
 		'affiliate-wp/affiliate-wp.php'                   => 'affiliatewp-pro',
+		'vibe-ai/vibe-ai.php'                             => 'vibeai',
 	);
 
 	$all_plugins = get_plugins();

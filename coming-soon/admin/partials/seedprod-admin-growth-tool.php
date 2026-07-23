@@ -11,6 +11,10 @@
  * - cta_headline: Call-to-action headline
  * - cta_subtext: Text below the button
  * - social_proof: Social proof text
+ * - testimonials: Optional array of quotes, each with 'text' and 'author' keys
+ * - setup_url: Optional URL to redirect to after the plugin is activated
+ * - learn_more_url: Optional external partner-site link shown under the CTA
+ * - learn_more_text: Link text for learn_more_url
  * - image: Image filename in growth-tools folder
  * - plugin_slug: Full plugin path (e.g., 'optinmonster/optin-monster-wp-api.php')
  * - plugin_id: Plugin ID for installation (e.g., 'optinmonster')
@@ -106,16 +110,39 @@ if ( 2 === $status_code ) {
 				</ul>
 			</div>
 
+			<?php if ( ! empty( $config['testimonials'] ) ) : ?>
+				<!-- Testimonials Section -->
+				<div class="seedprod-growth-testimonials">
+					<?php foreach ( $config['testimonials'] as $testimonial ) : ?>
+						<blockquote class="seedprod-growth-testimonial">
+							<span class="seedprod-testimonial-stars" aria-label="<?php esc_attr_e( '5-star rating', 'coming-soon' ); ?>">
+								<?php for ( $i = 0; $i < 5; $i++ ) : ?>
+									<span class="dashicons dashicons-star-filled"></span>
+								<?php endfor; ?>
+							</span>
+							<p><?php echo esc_html( $testimonial['text'] ); ?></p>
+							<cite>
+								<?php echo esc_html( $testimonial['author'] ); ?>
+								<span class="seedprod-testimonial-source"><?php esc_html_e( 'WordPress.org review', 'coming-soon' ); ?></span>
+							</cite>
+						</blockquote>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+
 			<!-- CTA Section -->
 			<div class="seedprod-growth-cta">
 				<p class="seedprod-cta-headline">
 					<?php echo esc_html( $config['cta_headline'] ); ?>
 				</p>
-				<button 
+				<button
 					class="<?php echo esc_attr( $button_class ); ?>"
 					data-plugin-slug="<?php echo esc_attr( $config['plugin_slug'] ); ?>"
 					data-plugin-id="<?php echo esc_attr( $config['plugin_id'] ); ?>"
-					data-status="<?php echo esc_attr( $status_code ); ?>">
+					data-status="<?php echo esc_attr( $status_code ); ?>"
+					<?php if ( ! empty( $config['setup_url'] ) ) : ?>
+						data-redirect="<?php echo esc_url( $config['setup_url'] ); ?>"
+					<?php endif; ?>>
 					<span class="button-text"><?php echo esc_html( $button_text ); ?></span>
 					<span class="button-spinner" style="display:none;">
 						<span class="spinner is-active" style="float: none; margin: 0;"></span>
@@ -127,6 +154,13 @@ if ( 2 === $status_code ) {
 				<p class="seedprod-cta-social-proof">
 					<?php echo esc_html( $config['social_proof'] ); ?>
 				</p>
+				<?php if ( ! empty( $config['learn_more_url'] ) ) : ?>
+					<p class="seedprod-cta-learn-more">
+						<a href="<?php echo esc_url( $config['learn_more_url'] ); ?>" target="_blank" rel="noopener noreferrer">
+							<?php echo esc_html( $config['learn_more_text'] ?? __( 'Learn more', 'coming-soon' ) ); ?> &rarr;
+						</a>
+					</p>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
