@@ -812,16 +812,14 @@ function seedprod_lite_delete_theme_pages() {
 		}
 
 		global $wpdb;
-		$tablename      = $wpdb->prefix . 'posts';
-		$meta_tablename = $wpdb->prefix . 'postmeta';
 
-		$sql = "SELECT p.ID FROM $tablename p 
-				LEFT JOIN $meta_tablename pm ON (pm.post_id = p.ID)
-				WHERE post_type = 'seedprod' 
+		$results = $wpdb->get_results(
+			"SELECT p.ID FROM {$wpdb->posts} p
+				LEFT JOIN {$wpdb->postmeta} pm ON (pm.post_id = p.ID)
+				WHERE post_type = 'seedprod'
 				AND meta_key = '_seedprod_is_theme_template'
-				AND post_status != 'trash'";
-
-		$results = $wpdb->get_results( $sql );
+				AND post_status != 'trash'"
+		);
 
 		if ( empty( $results ) ) {
 			wp_send_json_error( 'No theme template pages found to delete' );

@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 5.6
-Stable tag: 6.20.5
+Stable tag: 6.20.6
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,17 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.6 =
+
+* Added - Manage with AI page: connect Claude, ChatGPT, or any AI assistant to manage your site with the free WPVibe plugin.
+* Added - WPVibe in Recommended Plugins with one-click install.
+* Fixed - Setup wizard completion now installs plugins selected in the wizard reliably.
+* Fixed - License update checks no longer clear a valid license.
+* Fixed - Import shows a clearer message when a ZIP of the wrong type is uploaded.
+* Fixed - PHP warnings when bypass settings were missing keys.
+* Tweak - Security hardening: output escaping, ABSPATH guards, and text domain corrections.
+* Tweak - Removed an unused bundled script library.
 
 = 6.12.2 =
 [Changelog &raquo;](https://www.seedprod.com/docs/changelog/)

@@ -1346,12 +1346,12 @@ class SeedProd_Lite_Abilities {
 			return new WP_Error( 'not_seedprod', __( 'Post is not a SeedProd page.', 'coming-soon' ), array( 'status' => 400 ) );
 		}
 
-		// Global CSS is a different shape (no sections/rows/cols, just a CSS
-		// string in document.globalHeadCss) and save-page rejects type=css, so
-		// keep the read/write surface symmetric — list-pages hides css rows for
-		// the same reason. Hand back not_seedprod with an explanatory message.
+		// Global CSS is a different shape (no sections/rows/cols) and save-page
+		// rejects type=css, so keep the page read/write surface symmetric —
+		// list-pages hides css rows for the same reason. It has its own
+		// abilities: seedprod/get-global-css and seedprod/save-global-css.
 		if ( 'css' === get_post_meta( $id, '_seedprod_page_template_type', true ) ) {
-			return new WP_Error( 'not_seedprod', __( 'Global CSS is not a content page.', 'coming-soon' ), array( 'status' => 400 ) );
+			return new WP_Error( 'not_seedprod', __( 'Global CSS is not a content page. Use seedprod/get-global-css and seedprod/save-global-css instead.', 'coming-soon' ), array( 'status' => 400 ) );
 		}
 
 		$content = json_decode( $post->post_content_filtered, true );

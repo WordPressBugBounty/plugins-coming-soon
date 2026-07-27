@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.6\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-23T19:12:21+00:00\n"
+"POT-Creation-Date: 2026-07-27T16:12:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: coming-soon\n"
@@ -1425,11 +1425,11 @@ msgstr ""
 msgid "Drafts"
 msgstr ""
 
-#: admin/includes/class-seedprod-landing-pages-table.php:485
+#: admin/includes/class-seedprod-landing-pages-table.php:488
 msgid "No landing pages found for your search."
 msgstr ""
 
-#: admin/includes/class-seedprod-landing-pages-table.php:487
+#: admin/includes/class-seedprod-landing-pages-table.php:490
 msgid "No landing pages found."
 msgstr ""
 
@@ -2126,8 +2126,8 @@ msgstr ""
 msgid "Settings saved successfully"
 msgstr ""
 
+#: admin/includes/setup-wizard-functions.php:242
 #: admin/includes/setup-wizard-functions.php:244
-#: admin/includes/setup-wizard-functions.php:246
 #: app/lpage.php:207
 #: app/lpage.php:209
 #: app/setup-wizard.php:199
@@ -4834,7 +4834,7 @@ msgid "Ended"
 msgstr ""
 
 #: app/lpage.php:1050
-#: app/theme-templates.php:862
+#: app/theme-templates.php:860
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
 
@@ -5008,7 +5008,7 @@ msgstr ""
 msgid "You're using the <a href=\"%s\">SeedProd</a> Theme to build your web site, which disables the WordPress theme system."
 msgstr ""
 
-#: app/theme-templates.php:1000
+#: app/theme-templates.php:998
 msgid "This page was auto-generated and is a placeholder page for the SeedProd theme. To manage the contents of this page please visit SeedProd > Theme Builder in the left menu in WordPress. "
 msgstr ""
 
@@ -5303,7 +5303,7 @@ msgid "Post is not a SeedProd page."
 msgstr ""
 
 #: includes/class-seedprod-abilities.php:1354
-msgid "Global CSS is not a content page."
+msgid "Global CSS is not a content page. Use seedprod/get-global-css and seedprod/save-global-css instead."
 msgstr ""
 
 #: languages/seedprod-lite.php:11

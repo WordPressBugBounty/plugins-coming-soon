@@ -327,26 +327,29 @@ class SeedProd_Landing_Pages_Table extends WP_List_Table {
 			$p404_id   = get_option( 'seedprod_404_page_id' );
 			$loginp_id = get_option( 'seedprod_login_page_id' );
 
-			// Build exclusion list (only include non-empty IDs).
-			$exclude_ids = array_filter( array( $csp_id, $mmp_id, $p404_id, $loginp_id ) );
-
-			// Build query with dynamic exclusions.
-			$exclude_clause = '';
-			if ( ! empty( $exclude_ids ) ) {
-				$exclude_ids_string = implode( ',', array_map( 'absint', $exclude_ids ) );
-				$exclude_clause     = "AND p.ID NOT IN ($exclude_ids_string)";
+			// Build exclusion list (only include non-empty IDs). Post ID 0 never
+			// exists, so it acts as a no-op exclusion when the list is empty.
+			$exclude_ids = array_filter( array_map( 'absint', array( $csp_id, $mmp_id, $p404_id, $loginp_id ) ) );
+			if ( empty( $exclude_ids ) ) {
+				$exclude_ids = array( 0 );
 			}
+			$placeholders = implode( ',', array_fill( 0, count( $exclude_ids ), '%d' ) );
 
 			// Query to get counts - All pages with _seedprod_page (landing pages only, excludes theme pages)
+			// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $placeholders is a generated list of %d markers.
 			$results = $wpdb->get_results(
-				"SELECT p.post_status, COUNT(*) as count
-				FROM {$wpdb->posts} p
-				INNER JOIN {$wpdb->postmeta} pm ON (p.ID = pm.post_id AND pm.meta_key = '_seedprod_page')
-				WHERE p.post_type = 'page'
-				$exclude_clause
-				GROUP BY p.post_status",
+				$wpdb->prepare(
+					"SELECT p.post_status, COUNT(*) as count
+					FROM {$wpdb->posts} p
+					INNER JOIN {$wpdb->postmeta} pm ON (p.ID = pm.post_id AND pm.meta_key = '_seedprod_page')
+					WHERE p.post_type = 'page'
+					AND p.ID NOT IN ($placeholders)
+					GROUP BY p.post_status",
+					$exclude_ids
+				),
 				ARRAY_A
 			);
+			// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 
 			foreach ( $results as $row ) {
 				$status = $row['post_status'];
