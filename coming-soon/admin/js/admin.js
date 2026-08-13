@@ -2494,6 +2494,24 @@
 			var templateId = $(this).data('template-id');
 			toggleFavorite(templateId);
 		});
+
+		// Delete saved template
+		$(document).on('click', '.seedprod-delete-saved', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			var $icon = $(this);
+
+			if ($icon.hasClass('deleting')) {
+				return;
+			}
+
+			if (!confirm(seedprod_admin.strings.template_delete_confirm)) {
+				return;
+			}
+
+			deleteSavedTemplate($icon.data('template-id'), $icon);
+		});
 		
 		/**
 		 * Load templates from API
@@ -2703,7 +2721,7 @@
 						<img src="${thumbnailUrl}" alt="${templateName}" class="seedprod-template-image" loading="lazy"
 							 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
 						<div class="seedprod-template-image-fallback" style="display: none; height: 200px; background: #f6f7f7; align-items: center; justify-content: center; color: #8c8f94; font-size: 14px;">
-							<span>' + (seedprod_admin.strings.preview_not_available || 'Preview Not Available') + '</span>
+							<span>${seedprod_admin.strings.preview_not_available || 'Preview Not Available'}</span>
 						</div>
 						<div class="seedprod-template-overlay" style="display: none;">
 							<button class="seedprod-template-select" data-template-id="${templateId}">
@@ -3029,7 +3047,41 @@
 				}
 			});
 		}
-		
+
+		/**
+		 * Delete a saved template
+		 */
+		function deleteSavedTemplate(templateId, $icon) {
+			$icon.addClass('deleting').css('pointer-events', 'none').css('opacity', '0.5');
+
+			$.ajax({
+				url: seedprodTemplateData.ajaxUrl,
+				type: 'POST',
+				data: {
+					action: 'seedprod_lite_v2_delete_saved_template',
+					template_id: templateId,
+					_wpnonce: seedprodTemplateData.nonce
+				},
+				success: function(response) {
+					if (response.success) {
+						$('.seedprod-template-card[data-template-id="' + templateId + '"]').fadeOut(function() {
+							$(this).remove();
+							if ($('#saved-templates-grid .seedprod-template-card').length === 0) {
+								showNoTemplatesMessage($('#saved-templates-grid'), seedprod_admin.strings.template_no_saved);
+							}
+						});
+					} else {
+						alert(response.data || seedprod_admin.strings.template_delete_error);
+						$icon.removeClass('deleting').css('pointer-events', '').css('opacity', '');
+					}
+				},
+				error: function() {
+					alert(seedprod_admin.strings.template_delete_error);
+					$icon.removeClass('deleting').css('pointer-events', '').css('opacity', '');
+				}
+			});
+		}
+
 		/**
 		 * Initialize masonry layout
 		 */

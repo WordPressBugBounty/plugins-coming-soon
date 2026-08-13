@@ -13,60 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Check if theme templates exist.
- *
- * @return boolean True if theme templates exist, false otherwise.
- */
-function seedprod_lite_v2_has_theme_templates() {
-	$args = array(
-		'post_type'      => 'seedprod',
-		'posts_per_page' => 1,
-		'post_status'    => 'any',
-		'meta_query'     => array(
-			array(
-				'key'   => '_seedprod_is_theme_template',
-				'value' => true,
-			),
-		),
-		'fields'         => 'ids',
-	);
-
-	$query = new WP_Query( $args );
-	return $query->have_posts();
-}
-
-/**
- * Delete all existing theme templates.
- *
- * @return integer Number of templates deleted.
- */
-function seedprod_lite_v2_delete_theme_templates() {
-	$args = array(
-		'post_type'      => 'seedprod',
-		'posts_per_page' => -1,
-		'post_status'    => 'any',
-		'meta_query'     => array(
-			array(
-				'key'   => '_seedprod_is_theme_template',
-				'value' => true,
-			),
-		),
-		'fields'         => 'ids',
-	);
-
-	$query = new WP_Query( $args );
-	$count = 0;
-
-	if ( $query->have_posts() ) {
-		foreach ( $query->posts as $post_id ) {
-				wp_delete_post( $post_id, true ); // Force delete.
-			++$count;
-		}
-	}
-
-	return $count;
-}
 
 /**
  * Recursively remove directory (V2 implementation).
@@ -320,46 +266,6 @@ function seedprod_lite_v2_process_image_filenames( $data, $html ) {
 }
 
 /**
- * Process image filenames for import (V2 implementation).
- * Replaces image placeholders with actual URLs.
- *
- * @param string $data Page data with image placeholders.
- * @param string $html Page HTML with image placeholders.
- * @return array Processed data and HTML.
- */
-function seedprod_lite_v2_process_image_filenames_import( $data, $html ) {
-	// Skip if template/placeholder content.
-	if ( false !== strpos( $data, 'unsplash.com' ) ) {
-		return array(
-			'data' => $data,
-			'html' => $html,
-		);
-	}
-
-	$upload_dir = wp_upload_dir();
-	$import_url = trailingslashit( $upload_dir['baseurl'] ) . 'seedprod-themes-imports/';
-
-	// Find and replace image placeholders.
-	$pattern = '/{{image}}([^{}]+){{\/image}}/';
-	preg_match_all( $pattern, $data, $matches );
-
-	if ( ! empty( $matches[0] ) ) {
-		foreach ( $matches[0] as $index => $placeholder ) {
-			$filename = $matches[1][ $index ];
-			$new_url  = $import_url . $filename;
-
-			$data = str_replace( $placeholder, $new_url, $data );
-			$html = str_replace( $placeholder, $new_url, $html );
-		}
-	}
-
-	return array(
-		'data' => $data,
-		'html' => $html,
-	);
-}
-
-/**
  * Save images locally (V2 implementation).
  * Downloads remote images and saves them locally.
  *
@@ -430,373 +336,6 @@ function seedprod_lite_v2_save_images_locally( $img_arr ) {
 	return $failed_images;
 }
 
-/**
- * Recursively add directory contents to ZIP (V2 implementation).
- *
- * @param string     $source      Source directory path.
- * @param ZipArchive $zip         ZIP archive object.
- * @param integer    $path_length Length of base path to remove.
- * @return void
- */
-function seedprod_lite_v2_zipdir( $source, $zip, $path_length ) {
-	if ( ! is_dir( $source ) ) {
-		return;
-	}
-
-	$files = scandir( $source );
-	foreach ( $files as $file ) {
-		if ( in_array( $file, array( '.', '..' ), true ) ) {
-			continue;
-		}
-
-		// Skip ZIP files to prevent self-archiving.
-		if ( pathinfo( $file, PATHINFO_EXTENSION ) === 'zip' ) {
-			continue;
-		}
-
-		$file_path  = $source . '/' . $file;
-		$local_path = substr( $file_path, $path_length );
-
-		if ( is_dir( $file_path ) ) {
-			$zip->addEmptyDir( $local_path );
-			seedprod_lite_v2_zipdir( $file_path, $zip, $path_length );
-		} else {
-			$zip->addFile( $file_path, $local_path );
-		}
-	}
-}
-
-/**
- * Import theme JSON data (V2 implementation).
- * Processes and imports theme data.
- *
- * @param object $json_content Theme data object.
- * @return array Per-image warnings collected from the sideload step.
- */
-function seedprod_lite_v2_theme_import_json( $json_content = null ) {
-
-	$warnings = array();
-
-	// Validate input data.
-	if ( null === $json_content || ! is_object( $json_content ) ) {
-		return $warnings;
-	}
-
-	$full_code = $json_content;
-
-	$theme            = isset( $full_code->theme ) ? $full_code->theme : array();
-	$shortcode_update = isset( $full_code->mapped ) ? $full_code->mapped : array();
-	$old_home_url     = isset( $full_code->current_home_url ) ? $full_code->current_home_url : '';
-	$new_home_url     = home_url();
-
-	$imports = array();
-	if ( is_array( $theme ) && count( $theme ) > 0 ) {
-		foreach ( $theme as $k => $v ) {
-			// Browsers do not unescape "\/" inside HTML attributes; normalize so <img src> renders.
-			$content          = str_replace( '\\/', '/', base64_decode( $v->post_content ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-			$content_filtered = str_replace( '\\/', '/', base64_decode( $v->post_content_filtered ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-			if ( function_exists( 'seedprod_lite_heal_import_pcf' ) ) {
-				$content_filtered = seedprod_lite_heal_import_pcf( $content_filtered );
-			}
-			$imports[] = array(
-				'post_content'          => $content,
-				'post_content_filtered' => $content_filtered,
-				'post_title'            => base64_decode( $v->post_title ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'meta'                  => json_decode( base64_decode( $v->meta ) ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'order'                 => $v->order,
-				// New fields for distinguishing theme templates from edited pages.
-				'page_category'         => isset( $v->page_category ) ? base64_decode( $v->page_category ) : 'theme_template', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'post_type'             => isset( $v->post_type ) ? base64_decode( $v->post_type ) : 'seedprod', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'post_status'           => isset( $v->post_status ) ? base64_decode( $v->post_status ) : 'publish', // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-			);
-		}
-	}
-
-	$shortcode_array = array();
-	if ( is_array( $shortcode_update ) && count( $shortcode_update ) > 0 ) {
-		foreach ( $shortcode_update as $k => $t ) {
-			$shortcode_array[] = array(
-				'shortcode'  => base64_decode( $t->shortcode ), // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
-				'page_title' => $t->page_title,
-			);
-		}
-	}
-
-	$import_page_array = array();
-	if ( count( $imports ) > 0 ) {
-		foreach ( $imports as $k1 => $v1 ) {
-
-			$meta = $v1['meta'];
-
-			// Determine if this is an edited page or theme template.
-			$page_category      = isset( $v1['page_category'] ) ? $v1['page_category'] : 'theme_template';
-			$import_post_type   = isset( $v1['post_type'] ) ? $v1['post_type'] : 'seedprod';
-			$import_post_status = isset( $v1['post_status'] ) ? $v1['post_status'] : 'publish';
-
-			if ( 'edited_page' === $page_category ) {
-				// Import as WordPress page with _seedprod_edited_with_seedprod meta.
-				$data = array(
-					'comment_status' => 'closed',
-					'menu_order'     => $v1['order'],
-					'ping_status'    => 'closed',
-					'post_status'    => $import_post_status,
-					'post_title'     => $v1['post_title'],
-					'post_type'      => 'page',
-					'meta_input'     => array(
-						'_seedprod_edited_with_seedprod' => '1',
-						'_seedprod_page_uuid'            => wp_generate_uuid4(),
-					),
-				);
-			} else {
-				// Existing theme template logic.
-				$data = array(
-					'comment_status' => 'closed',
-					'menu_order'     => $v1['order'],
-					'ping_status'    => 'closed',
-					'post_status'    => 'publish',
-					'post_title'     => $v1['post_title'],
-					'post_type'      => 'seedprod',
-					'meta_input'     => array(
-						'_seedprod_page'               => true,
-						'_seedprod_is_theme_template'  => true,
-						'_seedprod_page_uuid'          => wp_generate_uuid4(),
-						'_seedprod_page_template_type' => isset( $meta->_seedprod_page_template_type[0] ) ? $meta->_seedprod_page_template_type[0] : '',
-					),
-				);
-			}
-
-			$id = wp_insert_post(
-				$data,
-				true
-			);
-
-			$import_page_array[] = array(
-				'id'                    => $id,
-				'title'                 => $v1['post_title'],
-				'post_content'          => $v1['post_content'],
-				'post_content_filtered' => $v1['post_content_filtered'],
-				'page_category'         => $page_category,
-			);
-
-			// reinsert settings because wp_insert screws up json.
-			$post_content_filtered = $v1['post_content_filtered'];
-			$post_content          = $v1['post_content'];
-
-			// For CSS templates, ensure page_type is set in the JSON.
-			if ( 'theme_template' === $page_category && isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
-				$json_data = json_decode( $post_content_filtered, true );
-				if ( null !== $json_data ) {
-					// Ensure page_type is set at the root level.
-					$json_data['page_type'] = 'css';
-					$post_content_filtered  = wp_json_encode( $json_data );
-				}
-			}
-
-			global $wpdb;
-			$tablename = esc_sql( $wpdb->prefix . 'posts' );
-			$sql       = "UPDATE $tablename SET post_content_filtered = %s,post_content = %s WHERE id = %d";
-			$safe_sql  = $wpdb->prepare( $sql, $post_content_filtered, $post_content, $id ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table name escaped with esc_sql(), dynamic SQL assembled for prepare().
-			// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Table name escaped with esc_sql(), values prepared with wpdb->prepare().
-			$wpdb->query( $safe_sql );
-
-			// Handle edited pages differently - they don't have theme template conditions.
-			if ( 'edited_page' === $page_category ) {
-				// Find and replace preview urls for edited pages.
-				$new_post_content = str_replace( $old_home_url, $new_home_url, $v1['post_content'] );
-				$new_post_content = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $new_post_content );
-				// Extract CSS from page content.
-				if ( function_exists( 'seedprod_lite_extract_page_css' ) ) {
-					$code = seedprod_lite_extract_page_css( $new_post_content, $id );
-					update_post_meta( $id, '_seedprod_css', $code['css'] );
-					update_post_meta( $id, '_seedprod_html', $code['html'] );
-
-					if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
-						seedprod_lite_generate_css_file( $id, $code['css'] );
-					}
-				}
-				// Don't continue - fall through to shortcode processing loop below.
-			} else {
-				// Add meta for theme templates.
-				if ( isset( $meta->_seedprod_page_template_type[0] ) && 'css' === $meta->_seedprod_page_template_type[0] ) {
-				// Set css file.
-				// Find and replace url.
-				$css = str_replace( $old_home_url, $new_home_url, $v1['post_content'] );
-				$css = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $css );
-				// Custom CSS is intentionally set to empty (following old logic).
-				$custom_css  = '';
-				$builder_css = isset( $meta->_seedprod_builder_css[0] ) ? $meta->_seedprod_builder_css[0] : '';
-
-				update_post_meta( $id, '_seedprod_css', $css );
-				update_post_meta( $id, '_seedprod_custom_css', $custom_css );
-				update_post_meta( $id, '_seedprod_builder_css', $builder_css );
-				update_option( 'global_css_page_id', $id );
-				// Generate CSS with proper @import handling.
-				$css = seedprod_lite_merge_global_custom_css( $css, $custom_css );
-
-				// Trash current css file and set css file pointer.
-				$current_css_file = get_option( 'seedprod_global_css_page_id' );
-				if ( ! empty( $current_css_file ) ) {
-					wp_trash_post( $current_css_file );
-				}
-
-				update_option( 'seedprod_global_css_page_id', $id );
-
-				// Generate CSS file.
-				if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
-					seedprod_lite_generate_css_file( $id, $css );
-				}
-			} else {
-				// Find and replace preview urls.
-				$new_post_content = str_replace( $old_home_url, $new_home_url, $v1['post_content'] );
-				$new_post_content = str_replace( 'seedprod-themes-exports', 'seedprod-themes-imports', $new_post_content );
-				// Extract CSS from page content.
-				if ( function_exists( 'seedprod_lite_extract_page_css' ) ) {
-					$code = seedprod_lite_extract_page_css( $new_post_content, $id );
-					update_post_meta( $id, '_seedprod_css', $code['css'] );
-					update_post_meta( $id, '_seedprod_html', $code['html'] );
-
-					if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
-						seedprod_lite_generate_css_file( $id, $code['css'] );
-					}
-				}
-				$template_condition = isset( $meta->_seedprod_theme_template_condition[0] ) ? seedprod_lite_normalize_conditions_json( $meta->_seedprod_theme_template_condition[0] ) : '';
-				update_post_meta( $id, '_seedprod_theme_template_condition', $template_condition );
-				// Process conditon to see if we need to create a placeholder page.
-				$conditions = $template_condition;
-
-				if ( ! empty( $conditions ) ) {
-
-					$conditions = json_decode( $conditions );
-					if ( is_array( $conditions ) ) {
-						if ( 1 === count( $conditions ) && 'include' === $conditions[0]->condition && 'is_page(x)' === $conditions[0]->type && ! empty( $conditions[0]->value ) && ! is_numeric( $conditions[0]->value ) ) {
-							// Check if slug exists.
-							$slug_tablename = esc_sql( $wpdb->prefix . 'posts' );
-							$sql            = "SELECT id FROM $slug_tablename WHERE post_name = %s AND post_type = 'page' AND post_status != 'trash'";
-							$safe_sql       = $wpdb->prepare( $sql, $conditions[0]->value ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table name escaped with esc_sql(), dynamic SQL assembled for prepare().
-							// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Table name escaped with esc_sql(), values prepared with wpdb->prepare().
-							$this_slug_exist = $wpdb->get_var( $safe_sql );
-							if ( empty( $this_slug_exist ) ) {
-								// Create page with content.
-								$page_details                  = array(
-									'post_title'   => $v1['post_title'],
-									'post_name'    => $conditions[0]->value,
-									'post_content' => $new_post_content,
-									'post_status'  => 'publish',
-									'post_type'    => 'page',
-								);
-								$seedprod_remove_page_template = apply_filters( 'seedprod_remove_page_template', true );
-								if ( $seedprod_remove_page_template ) {
-									$new_page_id = wp_insert_post( $page_details );
-									if ( ! empty( $new_page_id ) ) {
-										// Add meta.
-										update_post_meta( $new_page_id, '_seedprod_edited_with_seedprod', '1' );
-										// Reinsert settings because wp_insert screws up json.
-										$post_content_filtered_new_page = $v1['post_content_filtered'];
-										global $wpdb;
-										$tablename = esc_sql( $wpdb->prefix . 'posts' );
-										$sql       = "UPDATE $tablename SET post_content_filtered = %s,post_content = %s WHERE id = %d";
-										$safe_sql  = $wpdb->prepare( $sql, $post_content_filtered_new_page, $new_post_content, $new_page_id ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table name escaped with esc_sql(), dynamic SQL assembled for prepare().
-										// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Table name escaped with esc_sql(), values prepared with wpdb->prepare().
-										$wpdb->query( $safe_sql );
-										// Update import array map with new id.
-										foreach ( $import_page_array as $k5 => $v5 ) {
-											if ( $id == $v5['id'] ) { // phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison -- Intentional loose comparison for mixed types.
-												$import_page_array[ $k5 ]['id'] = $new_page_id;
-											}
-										}
-
-										// Remove template page.
-										wp_delete_post( $id, true );
-
-									}
-								} else {
-									// Add place holder page.
-									wp_insert_post( $page_details );
-								}
-							}
-						}
-					}
-				}
-			}
-			} // End else block for edited_page check.
-		}
-	}
-
-	// Find and replace shortcodes.
-	if ( count( $import_page_array ) > 0 ) {
-		foreach ( $import_page_array as $t => $val ) {
-			if ( 'Global CSS' !== $val['title'] ) {
-				$post_content          = $val['post_content'];
-				$post_content_filtered = $val['post_content_filtered'];
-				$post_id               = $val['id'];
-
-				// Process image filenames.
-				if ( function_exists( 'seedprod_lite_process_image_filenames_import_theme' ) ) {
-					$processed_data_import = seedprod_lite_process_image_filenames_import_theme( $post_content_filtered, $post_content );
-					$post_content          = $processed_data_import['html'];
-					$post_content_filtered = $processed_data_import['data'];
-					if ( ! empty( $processed_data_import['warnings'] ) ) {
-						$warnings = array_merge( $warnings, $processed_data_import['warnings'] );
-					}
-				}
-
-				// Extract and generate CSS for non-Global CSS templates.
-				if ( function_exists( 'seedprod_lite_extract_page_css' ) ) {
-					$code = seedprod_lite_extract_page_css( $post_content, $post_id );
-					update_post_meta( $post_id, '_seedprod_css', $code['css'] );
-					update_post_meta( $post_id, '_seedprod_html', $code['html'] );
-
-					if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
-						seedprod_lite_generate_css_file( $post_id, $code['css'] );
-					}
-				}
-
-				if ( count( $shortcode_array ) > 0 ) {
-					foreach ( $shortcode_array as $k => $t ) {
-						$shortcode_page_title = $shortcode_array[ $k ]['page_title'];
-						$fetch_shortcode_key  = array_search( $shortcode_page_title, array_column( $import_page_array, 'title' ), true ); // phpcs:ignore WordPress.PHP.StrictInArray.MissingTrueStrict -- Handled by third parameter.
-						$fetch_shortcode_id   = $import_page_array[ $fetch_shortcode_key ]['id'];
-
-						$shortcode_page_sc = $shortcode_array[ $k ]['shortcode'];
-						$shortcode_page_sc = str_replace( '[sp_template_part id="', '', $shortcode_page_sc );
-						$shortcode_page_sc = str_replace( '"]', '', $shortcode_page_sc );
-
-						if ( $fetch_shortcode_id ) {
-							$shortcode_array[ $k ]['updated_shortcode'] = '[sp_template_part id="' . $fetch_shortcode_id . '"]';
-							$post_content                               = str_replace( $shortcode_array[ $k ]['shortcode'], $shortcode_array[ $k ]['updated_shortcode'], $post_content );
-
-							$shortcode_array[ $k ]['updated_shortcode_filtered'] = '"templateparts":"' . $fetch_shortcode_id . '"';
-							$shortcode_array[ $k ]['shortcode_filtered_id']      = $shortcode_page_sc;
-							$shortcode_array[ $k ]['shortcode_filtered']         = '"templateparts":"' . $shortcode_page_sc . '"';
-
-							$post_content_filtered = str_replace( $shortcode_array[ $k ]['shortcode_filtered'], $shortcode_array[ $k ]['updated_shortcode_filtered'], $post_content_filtered );
-
-							// update generated html.
-							$generate_html = get_post_meta( $post_id, '_seedprod_html', true );
-							$generate_html = str_replace( $shortcode_array[ $k ]['shortcode'], $shortcode_array[ $k ]['updated_shortcode'], $generate_html );
-							update_post_meta( $post_id, '_seedprod_html', $generate_html );
-						}
-					}
-				}
-
-				// Replace any remaining URLs from the source domain.
-				if ( ! empty( $old_home_url ) ) {
-					$post_content          = str_replace( $old_home_url, $new_home_url, $post_content );
-					$post_content_filtered = str_replace( $old_home_url, $new_home_url, $post_content_filtered );
-				}
-
-				global $wpdb;
-				$tablename = esc_sql( $wpdb->prefix . 'posts' );
-				$sql       = "UPDATE $tablename SET post_content_filtered = %s,post_content = %s WHERE id = %d";
-				$safe_sql  = $wpdb->prepare( $sql, $post_content_filtered, $post_content, absint( $post_id ) ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Table name escaped with esc_sql(), dynamic SQL assembled for prepare().
-				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Table name escaped with esc_sql(), values prepared with wpdb->prepare().
-				$wpdb->query( $safe_sql );
-			}
-		}
-	}
-
-	return $warnings;
-}
 
 /**
  * Import landing page JSON data (V2 implementation).
@@ -884,7 +423,7 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 
 		if ( ! is_wp_error( $post_id ) ) {
 			// For CSS templates, ensure page_type is set in the JSON.
-			if ( ! empty( $meta['_seedprod_page_template_type'] ) && 'css' === $meta['_seedprod_page_template_type'] ) {
+			if ( ! empty( $meta['_seedprod_page_template_type'][0] ) && 'css' === $meta['_seedprod_page_template_type'][0] ) {
 				$json_data = json_decode( $post_content_filtered, true );
 				if ( null !== $json_data ) {
 					// Ensure page_type is set at the root level.
@@ -911,6 +450,7 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 				'title'                 => $post_title,
 				'post_content'          => $post_content,
 				'post_content_filtered' => $post_content_filtered,
+				'meta'                  => $meta,
 			);
 
 			// Reinsert content to preserve JSON integrity using direct database update.
@@ -1008,32 +548,27 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 			}
 		}
 
-		// Extract and generate CSS (but not for CSS templates).
-		$is_css_template = isset( $meta['_seedprod_page_template_type'] ) &&
-							'css' === $meta['_seedprod_page_template_type'];
+		// CSS templates carry their CSS in meta; every other page has it extracted
+		// from HTML below. Meta values are get_post_meta() shaped, so index them.
+		$item_meta       = isset( $val['meta'] ) && is_array( $val['meta'] ) ? $val['meta'] : array();
+		$is_css_template = isset( $item_meta['_seedprod_page_template_type'][0] ) &&
+							'css' === $item_meta['_seedprod_page_template_type'][0];
 
 		if ( $is_css_template ) {
 			// For CSS templates (Global CSS), handle special CSS meta.
 			// Get CSS from meta if available (following old import logic exactly).
-			$css         = '';
 			$custom_css  = '';
 			$builder_css = '';
 
-			if ( isset( $meta['_seedprod_css'] ) ) {
-				$css = str_replace( 'TO_BE_REPLACED', home_url(), $meta['_seedprod_css'] );
+			if ( isset( $item_meta['_seedprod_css'][0] ) ) {
+				$css = str_replace( 'TO_BE_REPLACED', home_url(), $item_meta['_seedprod_css'][0] );
 			} else {
 				// Fallback to post_content if no meta.
 				$css = str_replace( 'TO_BE_REPLACED', home_url(), $post_content );
 			}
 
-			if ( isset( $meta['_seedprod_custom_css'] ) ) {
-				$custom_css = str_replace( 'TO_BE_REPLACED', home_url(), $meta['_seedprod_custom_css'] );
-			}
-			// Old logic explicitly sets custom_css to empty string.
-			$custom_css = '';
-
-			if ( isset( $meta['_seedprod_builder_css'] ) ) {
-				$builder_css = str_replace( 'TO_BE_REPLACED', home_url(), $meta['_seedprod_builder_css'] );
+			if ( isset( $item_meta['_seedprod_builder_css'][0] ) ) {
+				$builder_css = str_replace( 'TO_BE_REPLACED', home_url(), $item_meta['_seedprod_builder_css'][0] );
 			}
 
 			// Update all CSS meta fields.
@@ -1042,19 +577,23 @@ function seedprod_lite_v2_landing_import_json( $json_content = null ) {
 			update_post_meta( $post_id, '_seedprod_builder_css', $builder_css );
 
 			// Set BOTH option names (old system uses both).
+			$previous_css_page_id = get_option( 'seedprod_global_css_page_id' );
 			update_option( 'global_css_page_id', $post_id );
-
-			// Trash current CSS file and set new pointer (following old logic).
-			$current_css_file = get_option( 'seedprod_global_css_page_id' );
-			if ( ! empty( $current_css_file ) ) {
-				wp_trash_post( $current_css_file );
-			}
+			// seedprod_lite_generate_css_file() reads this option to decide whether to
+			// write style-global.css, so it must point at the new page before generating.
 			update_option( 'seedprod_global_css_page_id', $post_id );
 
 			// Generate CSS file with combined CSS and proper @import handling.
-			$combined_css = seedprod_lite_merge_global_custom_css( $css, $custom_css );
+			$combined_css = function_exists( 'seedprod_lite_merge_global_custom_css' )
+				? seedprod_lite_merge_global_custom_css( $css, $custom_css )
+				: $css;
 			if ( function_exists( 'seedprod_lite_generate_css_file' ) ) {
 				seedprod_lite_generate_css_file( $post_id, $combined_css );
+			}
+
+			// Trash the superseded page last so a failure above leaves it in place.
+			if ( ! empty( $previous_css_page_id ) && (int) $previous_css_page_id !== (int) $post_id ) {
+				wp_trash_post( $previous_css_page_id );
 			}
 		} elseif ( function_exists( 'seedprod_lite_extract_page_css' ) ) {
 			// For regular templates, extract CSS from HTML.

@@ -797,6 +797,9 @@ class SeedProd_Lite_Abilities {
 			}
 
 			if ( '' !== $condition ) {
+				if ( 'lite' === SEEDPROD_BUILD ) {
+					return new WP_Error( 'not_supported', __( 'condition is not supported in this version.', 'coming-soon' ), array( 'status' => 400 ) );
+				}
 				if ( ! get_post_meta( $id, '_seedprod_is_theme_template', true ) ) {
 					return new WP_Error( 'not_theme_template', __( 'condition can only be changed on theme templates (header, footer, page-template, part).', 'coming-soon' ), array( 'status' => 400 ) );
 				}

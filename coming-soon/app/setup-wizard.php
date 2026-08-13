@@ -214,7 +214,9 @@ function seedprod_lite_complete_setup_wizard() {
 		// install theme if theme is the type.
 		if ( $type == 'websitebuilder' || $type == 'woocommerce' ) {
 			$template_id = $onboarding->template_id;
-			seedprod_lite_theme_import( $template_id );
+			if ( function_exists( 'seedprod_lite_theme_import' ) ) {
+				seedprod_lite_theme_import( $template_id );
+			}
 		}
 
 		// install plugins.

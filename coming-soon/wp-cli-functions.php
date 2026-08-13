@@ -63,9 +63,11 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$imported_pages = $result;
 			}
 
-			// Output imported page IDs and titles.
+			// Output imported page IDs and titles. The V2 importer returns bare IDs;
+			// the older one returned an array per page.
 			foreach ( $imported_pages as $page ) {
-				WP_CLI::success( 'Imported Page ID: ' . $page['id'] );
+				$page_id = is_array( $page ) && isset( $page['id'] ) ? $page['id'] : $page;
+				WP_CLI::success( 'Imported Page ID: ' . $page_id );
 			}
 
 			//WP_CLI::success( 'Landing pages imported successfully.' );
@@ -96,6 +98,12 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
 		if ( $is_ajax_request || ! empty( $theme_url ) ) {
 
+			// The V2 importer and its helpers live in the admin layer, which does
+			// not load under WP-CLI because is_admin() is false there.
+			if ( ! function_exists( 'seedprod_lite_v2_extract_zip' ) ) {
+				require_once SEEDPROD_PLUGIN_PATH . 'admin/includes/import-export-functions.php';
+			}
+
 			$url   = wp_nonce_url( 'admin.php?page=seedprod_lite_import_landing_pages', 'seedprod_import_landing_pages' );
 			$creds = request_filesystem_credentials( $url, '', false, false, null );
 			if ( false === $creds ) {
@@ -107,11 +115,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				return array( 'error' => 'Failed to initialize filesystem.' );
 			}
 
-			$source = isset( $_REQUEST['seedprod_landing_url'] ) ? wp_kses_post( wp_unslash( $_REQUEST['seedprod_landing_url'] ) ) : '';
-
-			if ( ! empty( $theme_url ) ) {
-				$source = $theme_url;
-			}
+			$source = ! empty( $theme_url ) ? $theme_url : '';
 
 			$file_import_url_json = wp_remote_get( $source, array( 'sslverify' => false ) );
 			if ( is_wp_error( $file_import_url_json ) ) {
@@ -120,30 +124,21 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				return array( 'error' => $error_message );
 			}
 
-			preg_match( '/zip/', $file_import_url_json['headers']['content-type'], $match );
-			if ( is_array( $match ) && count( $match ) <= 0 ) {
-				return array( 'error' => 'Invalid file format. Please upload a .zip file.' );
+			$response_code = (int) wp_remote_retrieve_response_code( $file_import_url_json );
+			if ( 200 !== $response_code ) {
+				return array( 'error' => sprintf( 'The import URL returned HTTP %d.', $response_code ) );
 			}
 
 			if ( '' !== $source && $file_import_url_json['body'] ) {
 				$url_data = pathinfo( $source );
 
 				$filename = $url_data['basename'];
-				$type     = $url_data['extension'];
 
-				$filename = substr( $filename, 0, strpos( $filename, '.zip' ) + 4 );
-
-				$name           = explode( '.', $filename );
-				$accepted_types = array( 'application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed' );
-				foreach ( $accepted_types as $mime_type ) {
-					if ( $mime_type === $type ) {
-						$okay = true;
-						break;
-					}
+				if ( false !== strpos( $filename, '.zip' ) ) {
+					$filename = substr( $filename, 0, strpos( $filename, '.zip' ) + 4 );
 				}
 
-				$continue = strtolower( $name[1] ) === 'zip' ? true : false;
-				if ( ! $continue ) {
+				if ( ! preg_match( '/\.zip$/i', $filename ) ) {
 					return array( 'error' => 'The file you are trying to upload is not a .zip file.' );
 				}
 
@@ -162,41 +157,39 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				$target_url = $path_baseurl . $filenoext;
 
 				if ( is_dir( $targetdir ) ) {
-					recursive_rmdir( $targetdir );
+					seedprod_lite_v2_recursive_rmdir( $targetdir );
 				}
 				wp_mkdir_p( $targetdir );
 
 				// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- WP_Filesystem may not be initialized in CLI context.
 				if ( file_put_contents( $targetzip, $file_import_url_json['body'] ) ) {
-					$zip = new ZipArchive();
-					$x   = $zip->open( $targetzip );
-					if ( true === $x ) {
-						$zip->extractTo( $targetdir );
-						$zip->close();
-
-						wp_delete_file( $targetzip );
+					$extract_result = seedprod_lite_v2_extract_zip( $targetzip, $targetdir, false );
+					wp_delete_file( $targetzip );
+					if ( is_wp_error( $extract_result ) ) {
+						return array( 'error' => $extract_result->get_error_message() );
 					}
 
 					$theme_json_data     = $targetdir . '/export_page.json';
 					$theme_json_data_url = $target_url . '/export_page.json';
 
-					if ( file_exists( $theme_json_data ) ) {
-						$file_theme_json = wp_remote_get( $theme_json_data_url, array( 'sslverify' => false ) );
-						if ( is_wp_error( $file_theme_json ) ) {
-							$error_code    = wp_remote_retrieve_response_code( $file_theme_json );
-							$error_message = wp_remote_retrieve_response_message( $file_theme_json );
-							return array( 'error' => $error_message );
-						}
-						$data = json_decode( $file_theme_json['body'] );
-						if ( ! empty( $data->type ) && 'landing-page' !== $data->type ) {
-							return array( 'error' => 'This does not appear to be a SeedProd landing page.' );
-						}
-						$import_result = seedprod_lite_landing_import_json( $data );
-						// remove the json file for security.
-						wp_delete_file( $theme_json_data );
-
-						return $import_result;
+					if ( ! file_exists( $theme_json_data ) ) {
+						return array( 'error' => 'The ZIP did not contain export_page.json.' );
 					}
+
+					$data = seedprod_lite_v2_read_json_file( $theme_json_data, $theme_json_data_url );
+					if ( is_wp_error( $data ) ) {
+						return array( 'error' => $data->get_error_message() );
+					}
+
+					if ( ! empty( $data->type ) && 'landing-page' !== $data->type ) {
+						return array( 'error' => 'This does not appear to be a SeedProd landing page.' );
+					}
+
+					$import_result = seedprod_lite_v2_landing_import_json( $data );
+					// remove the json file for security.
+					wp_delete_file( $theme_json_data );
+
+					return $import_result;
 				} else {
 					return array( 'error' => 'There was a problem with the upload. Please try again.' );
 				}

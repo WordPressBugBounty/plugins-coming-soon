@@ -332,16 +332,64 @@ function seedprod_lite_v2_get_saved_templates() {
 }
 
 /**
+ * Delete a saved template.
+ */
+function seedprod_lite_v2_delete_saved_template() {
+	check_ajax_referer( 'seedprod_v2_nonce' );
+
+	if ( ! current_user_can( apply_filters( 'seedprod_lpage_capability', 'edit_others_posts' ) ) ) {
+		wp_send_json_error( __( 'You do not have permission to delete saved templates.', 'coming-soon' ) );
+	}
+
+	$template_id = isset( $_POST['template_id'] ) ? sanitize_text_field( wp_unslash( $_POST['template_id'] ) ) : '';
+
+	if ( empty( $template_id ) ) {
+		wp_send_json_error( __( 'Invalid template ID', 'coming-soon' ) );
+	}
+
+	// Saved templates live on the SeedProd API, same endpoint the old Vue chooser used.
+	$api_token  = get_option( 'seedprod_api_token', '' );
+	$site_token = get_option( 'seedprod_token', '' );
+
+	$response = wp_remote_post(
+		SEEDPROD_API_URL . 'template-update',
+		array(
+			'body'    => array(
+				'template_id' => $template_id,
+				'method'      => 'remove-saved',
+				'api_token'   => $api_token,
+				'site_token'  => $site_token,
+			),
+			'timeout' => 10,
+		)
+	);
+
+	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		wp_send_json_error( __( 'Failed to delete saved template', 'coming-soon' ) );
+	}
+
+	wp_send_json_success();
+}
+
+/**
  * Create page from template.
  */
 function seedprod_lite_v2_create_page_from_template() {
 	check_ajax_referer( 'seedprod_v2_nonce' );
+
+	if ( ! current_user_can( apply_filters( 'seedprod_lpage_capability', 'edit_others_posts' ) ) ) {
+		wp_send_json_error( __( 'You do not have permission to create pages.', 'coming-soon' ) );
+	}
 
 	$template_id = isset( $_POST['template_id'] ) ? sanitize_text_field( wp_unslash( $_POST['template_id'] ) ) : '';
 	$page_name   = isset( $_POST['page_name'] ) ? sanitize_text_field( wp_unslash( $_POST['page_name'] ) ) : '';
 	$page_slug   = isset( $_POST['page_slug'] ) ? sanitize_text_field( wp_unslash( $_POST['page_slug'] ) ) : '';
 	$page_type   = isset( $_POST['page_type'] ) ? sanitize_text_field( wp_unslash( $_POST['page_type'] ) ) : 'lp';
 	$page_id     = isset( $_POST['page_id'] ) ? absint( $_POST['page_id'] ) : 0;
+
+	if ( 'lite' === SEEDPROD_BUILD && in_array( $page_type, array( 'header', 'footer', 'part', 'page' ), true ) ) {
+		wp_send_json_error( __( 'Theme templates are not available in this version.', 'coming-soon' ) );
+	}
 
 	// Override slug and name for special pages to match old flow requirements.
 	// These hardcoded slugs are critical for system identification.

@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 5.6
-Stable tag: 6.20.6
+Stable tag: 6.20.8
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,18 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.8 =
+
+* Added - Per-device font size controls on more blocks in the builder.
+* Fixed - PHP 8 fatal error when saving certain pages.
+* Fixed - reCAPTCHA now executes on optin forms inside theme templates.
+* Fixed - Importing a landing page now includes its Global CSS instead of silently dropping it.
+* Fixed - Deleting a saved template from the template chooser works again.
+* Fixed - Template previews no longer show a raw placeholder in the fallback text.
+* Fixed - WP-CLI imports now report failures instead of exiting successfully.
+* Tweak - Hardened the import path and removed unused import/export code.
+* Tweak - Removed Pro theme builder files from the Lite build.
 
 = 6.20.6 =
 

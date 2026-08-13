@@ -116,8 +116,6 @@ class SeedProd_Lite_Admin {
 		// Load template functions (V2 admin).
 		require_once $includes_dir . 'template-functions.php';
 
-		// Load theme functions (V2 admin).
-		require_once $includes_dir . 'theme-functions.php';
 
 		// Load import/export functions (V2 admin).
 		require_once $includes_dir . 'import-export-functions.php';
@@ -169,37 +167,10 @@ class SeedProd_Lite_Admin {
 		add_action( 'wp_ajax_seedprod_lite_v2_get_favorite_templates', 'seedprod_lite_v2_get_favorite_templates' );
 		add_action( 'wp_ajax_seedprod_lite_v2_toggle_favorite_template', 'seedprod_lite_v2_toggle_favorite_template' );
 		add_action( 'wp_ajax_seedprod_lite_v2_get_saved_templates', 'seedprod_lite_v2_get_saved_templates' );
+		add_action( 'wp_ajax_seedprod_lite_v2_delete_saved_template', 'seedprod_lite_v2_delete_saved_template' );
 		add_action( 'wp_ajax_seedprod_lite_v2_create_page_from_template', 'seedprod_lite_v2_create_page_from_template' );
 		add_action( 'wp_ajax_seedprod_lite_v2_subscribe_free_templates', 'seedprod_lite_v2_subscribe_free_templates' );
 
-		// Theme functions (V2 - new admin system).
-		add_action( 'wp_ajax_seedprod_lite_v2_update_theme_enabled', 'seedprod_lite_v2_update_theme_enabled' );
-		add_action( 'wp_ajax_seedprod_lite_v2_check_default_pages', 'seedprod_lite_v2_check_default_pages' );
-		add_action( 'wp_ajax_seedprod_lite_v2_create_default_pages', 'seedprod_lite_v2_create_default_pages' );
-		add_action( 'wp_ajax_seedprod_lite_v2_create_template', 'seedprod_lite_v2_create_template' );
-		add_action( 'wp_ajax_seedprod_lite_v2_get_template_conditions', 'seedprod_lite_v2_get_template_conditions' );
-		add_action( 'wp_ajax_seedprod_lite_v2_save_template_conditions', 'seedprod_lite_v2_save_template_conditions' );
-		add_action( 'wp_ajax_seedprod_lite_v2_toggle_template_status', 'seedprod_lite_v2_toggle_template_status' );
-		add_action( 'wp_ajax_seedprod_lite_v2_duplicate_template', 'seedprod_lite_v2_duplicate_template' );
-		add_action( 'wp_ajax_seedprod_lite_v2_trash_template', 'seedprod_lite_v2_trash_template' );
-		add_action( 'wp_ajax_seedprod_lite_v2_restore_template', 'seedprod_lite_v2_restore_template' );
-		add_action( 'wp_ajax_seedprod_lite_v2_delete_template', 'seedprod_lite_v2_delete_template' );
-		add_action( 'wp_ajax_seedprod_lite_v2_bulk_action_templates', 'seedprod_lite_v2_bulk_action_templates' );
-
-		// Theme kits actions (V2 - new admin system).
-		add_action( 'wp_ajax_seedprod_lite_v2_get_theme_kits', 'seedprod_lite_v2_get_theme_kits' );
-		add_action( 'wp_ajax_seedprod_lite_v2_toggle_favorite_theme', 'seedprod_lite_v2_toggle_favorite_theme' );
-
-		// Theme import actions (V2 - new admin system).
-		add_action( 'wp_ajax_seedprod_lite_v2_import_theme_request', 'seedprod_lite_v2_import_theme_request' );
-		add_action( 'wp_ajax_seedprod_lite_v2_delete_theme_pages', 'seedprod_lite_v2_delete_theme_pages' );
-		add_action( 'wp_ajax_seedprod_lite_v2_get_total_theme_pages', 'seedprod_lite_v2_get_total_theme_pages' );
-
-		// Theme Export/Import File actions (V2 - new admin system).
-		add_action( 'wp_ajax_seedprod_lite_v2_export_theme_files', 'seedprod_lite_v2_export_theme_files' );
-		add_action( 'wp_ajax_seedprod_lite_v2_import_theme_files', 'seedprod_lite_v2_import_theme_files' );
-		add_action( 'wp_ajax_seedprod_lite_v2_import_theme_by_url', 'seedprod_lite_v2_import_theme_by_url' );
-		add_action( 'wp_ajax_seedprod_lite_v2_check_existing_theme', 'seedprod_lite_v2_check_existing_theme' );
 
 		// Landing Pages Export/Import File actions (V2 - new admin system).
 		add_action( 'wp_ajax_seedprod_lite_v2_export_landing_pages', 'seedprod_lite_v2_export_landing_pages' );
@@ -449,6 +420,8 @@ class SeedProd_Lite_Admin {
 						'template_network_error'        => __( 'Network error. Please check your connection and try again.', 'coming-soon' ),
 						'template_no_favorites'         => __( 'No favorite templates found. Click the heart icon on any template to add it to your favorites.', 'coming-soon' ),
 						'template_no_saved'             => __( 'No saved templates found. You can save pages as templates in the builder.', 'coming-soon' ),
+						'template_delete_confirm'       => __( 'Are you sure you want to delete this saved template?', 'coming-soon' ),
+						'template_delete_error'         => __( 'Could not delete saved template. Please try again.', 'coming-soon' ),
 						'template_no_found'             => __( 'No theme templates found.', 'coming-soon' ),
 
 						// Conditions modal.

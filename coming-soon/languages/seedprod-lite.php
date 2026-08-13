@@ -4913,20 +4913,14 @@ page plugin.', 'coming-soon' ),
 	__( 'Edit', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
-	// Reference: src/components/TextOptions.vue
-	// Reference: src/components/TabbedLayoutOptions.vue
 	// Reference: src/components/ProductGalleryImagesOptions.vue
 	// Reference: src/components/OptinFormOptions.vue
-	// Reference: src/components/NavOptions.vue
 	// Reference: src/components/HeaderOptions.vue
 	// Reference: src/components/FontSizeControl.vue
 	// Reference: src/components/FacebookPageOptions.vue
 	// Reference: src/components/FacebookLikeOptions.vue
 	// Reference: src/components/FacebookEmbedOptions.vue
 	// Reference: src/components/FacebookCommentsOptions.vue
-	// Reference: src/components/BulletListOptions.vue
-	// Reference: src/components/AnimatedHeadlineOptions.vue
-	// Reference: src/components/AccordionOptions.vue
 	__( 'Font Size', 'coming-soon' ),
 
 	// Reference: src/components/TypographyControl.vue
