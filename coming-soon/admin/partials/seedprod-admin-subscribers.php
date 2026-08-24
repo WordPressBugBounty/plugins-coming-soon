@@ -38,16 +38,10 @@ if ( $is_lite_view ) {
 				<div class="inside">
 					<h2><?php esc_html_e( 'Email Subscribers', 'coming-soon' ); ?></h2>
 					<p><?php esc_html_e( 'Manage email subscribers collected from your landing pages and coming soon pages.', 'coming-soon' ); ?></p>
-					
-					<!-- Placeholder for future subscriber management functionality -->
-					<div class="notice notice-info">
-						<p><?php esc_html_e( 'Subscriber management interface coming soon. Subscribers are currently stored in the database and can be accessed via the legacy interface.', 'coming-soon' ); ?></p>
-					</div>
-					
-					<!-- Temporary link to old Vue interface if needed -->
+
 					<p>
-						<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite_settings&tab=subscribers' ) ); ?>" class="button button-secondary">
-							<?php esc_html_e( 'View in Legacy Interface', 'coming-soon' ); ?>
+						<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite_settings&tab=subscribers' ) ); ?>" class="button button-primary">
+							<?php esc_html_e( 'View Subscribers', 'coming-soon' ); ?>
 						</a>
 					</p>
 				</div>

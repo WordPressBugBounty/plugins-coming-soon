@@ -1043,15 +1043,25 @@ function postcomments(blockId) {
   // Get comment policy content.
   var commentPolicyElement = "#sp-".concat(blockId, " .sp-postcomments-content-policy-").concat(blockId);
   var commentPolicyContent = jQuery(commentPolicyElement).html();
-
-  // Create comment policy element, add class & append content.
-  var commentPolicyHtml = jQuery('<p class="commentpolicy"></p>').html(commentPolicyContent);
-
-  // Find commentform on current block & append comment policy
   var currentBlock = "#sp-".concat(blockId, " #commentform");
   var currentBlockHtml = document.querySelector(currentBlock);
-  if (currentBlockHtml) {
-    jQuery(currentBlock).prepend(commentPolicyHtml);
+  if (!currentBlockHtml) {
+    return;
+  }
+
+  // Replace any server-rendered policy paragraph (e.g. cached markup from
+  // older versions) so the block's Comment Policy setting is the only note.
+  var existingPolicy = jQuery(currentBlock).find('.commentpolicy');
+  if (existingPolicy.length) {
+    if (commentPolicyContent) {
+      // Cached markup can hold more than one paragraph; collapse to a single note.
+      existingPolicy.not(':first').remove();
+      existingPolicy.first().html(commentPolicyContent);
+    } else {
+      existingPolicy.remove();
+    }
+  } else if (commentPolicyContent) {
+    jQuery(currentBlock).prepend(jQuery('<p class="commentpolicy"></p>').html(commentPolicyContent));
   }
 }
 function beforeafterslider(blockId, options) {

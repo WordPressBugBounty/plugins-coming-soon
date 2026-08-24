@@ -3,9 +3,9 @@ Contributors: seedprod, smub
 Donate link: http://www.seedprod.com
 Tags: maintenance mode, coming soon page, landing page, website builder, page builder
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.8
+Stable tag: 6.20.9
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,13 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.9 =
+
+* Fixed - The Back to WordPress option works again for pages edited with SeedProd.
+* Fixed - The Comment Form block no longer prints hardcoded comment policy text.
+* Fixed - Pro opens the subscriber table instead of a "coming soon" placeholder.
+* Fixed - The two buttons in the SeedProd-managed page notice no longer sit flush together.
 
 = 6.20.8 =
 

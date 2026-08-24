@@ -201,9 +201,26 @@ class SeedProd_Lite_Admin {
 			// Check if we're in Lite view.
 			if ( seedprod_lite_v2_is_lite_view() ) {
 				// Redirect to the hidden subscribers page which shows the education content.
-				wp_safe_redirect( admin_url( 'admin.php?page=seedprod_lite_subscribers' ) );
+				$education_url = admin_url( 'admin.php?page=seedprod_lite_subscribers' );
+
+				// Carry test_lite through, or a Pro build reads the hidden page as
+				// Pro and bounces it straight back here.
+				if ( isset( $_GET['test_lite'] ) && '1' === $_GET['test_lite'] ) {
+					$education_url = add_query_arg( 'test_lite', '1', $education_url );
+				}
+
+				wp_safe_redirect( $education_url );
 				exit;
 			}
+		}
+
+		// The hidden page exists to show Lite the upgrade education. Pro only
+		// reaches it by direct URL, so send it to the subscriber table instead.
+		if ( isset( $_GET['page'] ) && 'seedprod_lite_subscribers' === $_GET['page'] &&
+			! seedprod_lite_v2_is_lite_view() ) {
+
+			wp_safe_redirect( admin_url( 'admin.php?page=seedprod_lite_settings&tab=subscribers' ) );
+			exit;
 		}
 	}
 

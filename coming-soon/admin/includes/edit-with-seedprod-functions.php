@@ -146,6 +146,10 @@ function seedprod_lite_v2_enqueue_admin_css() {
 			height: auto;
 		}
 
+		#seedprod-managed-message .button + .button {
+			margin-left: 12px;
+		}
+
 		#seedprod-managed-message .button img {
 			margin-right: 8px;
 			width: 20px;
@@ -230,7 +234,34 @@ function seedprod_lite_v2_add_managed_message() {
 				'<img src="<?php echo esc_url( SEEDPROD_PLUGIN_URL . 'public/svg/admin-bar-icon.svg' ); ?>" />' +
 				'<?php echo esc_js( __( 'Edit with SeedProd', 'coming-soon' ) ); ?>' +
 			'</a>' +
+			<?php if ( ! $template_edit_url ) : ?>
+			'<a href="#" id="seedprod-back-to-wp" class="button button-large">' +
+				'<?php echo esc_js( __( 'Back to WordPress', 'coming-soon' ) ); ?>' +
+			'</a>' +
+			<?php endif; ?>
 		'</div>';
+
+		$(document).on('click', '#seedprod-back-to-wp', function(e) {
+			e.preventDefault();
+
+			if (!window.confirm('<?php echo esc_js( __( 'Return this page to the WordPress editor? The SeedProd design will no longer be used on this page.', 'coming-soon' ) ); ?>')) {
+				return;
+			}
+
+			$.post(ajaxurl, {
+				action: 'seedprod_lite_v2_remove_post',
+				nonce: '<?php echo esc_js( wp_create_nonce( 'seedprod_gutenberg_nonce' ) ); ?>',
+				post_id: <?php echo absint( $post_id ); ?>
+			}).done(function(response) {
+				if (response && response.success) {
+					window.location.reload();
+				} else {
+					window.alert(response && response.data && response.data.message ? response.data.message : '<?php echo esc_js( __( 'Could not switch back to the WordPress editor. Please try again.', 'coming-soon' ) ); ?>');
+				}
+			}).fail(function() {
+				window.alert('<?php echo esc_js( __( 'Could not switch back to the WordPress editor. Please try again.', 'coming-soon' ) ); ?>');
+			});
+		});
 
 		// Wait for Gutenberg to load
 		var checkExist = setInterval(function() {
@@ -900,7 +931,38 @@ add_action( 'wp_ajax_seedprod_lite_v2_get_redirect_url', 'seedprod_lite_v2_get_r
  * Remove SeedProd post meta when user clicks "Back to WordPress Editor"
  */
 function seedprod_lite_v2_remove_post() {
-	// TODO: Add logic here.
+	check_ajax_referer( 'seedprod_gutenberg_nonce', 'nonce' );
+
+	$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+	if ( ! $post_id ) {
+		wp_send_json_error( array( 'message' => __( 'Invalid post ID', 'coming-soon' ) ) );
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		wp_send_json_error( array( 'message' => __( 'Permission denied', 'coming-soon' ) ) );
+	}
+
+	delete_post_meta( $post_id, '_seedprod_edited_with_seedprod' );
+	delete_post_meta( $post_id, '_seedprod_page' );
+
+	// SeedProd JSON in post_content_filtered also marks a page as managed, so it
+	// must be cleared as well; stash it in meta so the design is recoverable.
+	$post_content_filtered = get_post_field( 'post_content_filtered', $post_id );
+	if ( ! empty( $post_content_filtered ) ) {
+		$decoded = json_decode( $post_content_filtered, true );
+		if ( is_array( $decoded ) && isset( $decoded['template_id'] ) ) {
+			update_post_meta( $post_id, '_seedprod_removed_settings', wp_slash( $post_content_filtered ) );
+			wp_update_post(
+				array(
+					'ID'                    => $post_id,
+					'post_content_filtered' => '',
+				)
+			);
+		}
+	}
+
+	wp_send_json_success();
 }
 add_action( 'wp_ajax_seedprod_lite_v2_remove_post', 'seedprod_lite_v2_remove_post' );
 
