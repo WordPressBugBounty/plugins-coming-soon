@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.9\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.10\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-24T13:12:05+00:00\n"
+"POT-Creation-Date: 2026-09-29T08:50:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: coming-soon\n"
@@ -1432,11 +1432,11 @@ msgstr ""
 
 #: admin/includes/debug-functions.php:25
 #: admin/includes/license-functions.php:173
-#: admin/includes/template-functions.php:606
-#: admin/includes/template-functions.php:701
-#: admin/includes/template-functions.php:736
-#: admin/includes/template-functions.php:771
-#: admin/includes/template-functions.php:806
+#: admin/includes/template-functions.php:610
+#: admin/includes/template-functions.php:705
+#: admin/includes/template-functions.php:740
+#: admin/includes/template-functions.php:775
+#: admin/includes/template-functions.php:810
 #: resources/views/debug.php:19
 msgid "Security check failed."
 msgstr ""
@@ -2130,144 +2130,148 @@ msgid_plural "%d subscribers exported."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/includes/template-functions.php:24
+#: admin/includes/template-functions.php:21
+msgid "You do not have permission to subscribe to free templates."
+msgstr ""
+
+#: admin/includes/template-functions.php:28
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: admin/includes/template-functions.php:45
+#: admin/includes/template-functions.php:49
 msgid "Failed to subscribe. Please try again."
 msgstr ""
 
-#: admin/includes/template-functions.php:56
+#: admin/includes/template-functions.php:60
 msgid "You now have access to 10 FREE templates!"
 msgstr ""
 
-#: admin/includes/template-functions.php:195
-#: admin/includes/template-functions.php:347
+#: admin/includes/template-functions.php:199
+#: admin/includes/template-functions.php:351
 msgid "Invalid template ID"
 msgstr ""
 
-#: admin/includes/template-functions.php:237
+#: admin/includes/template-functions.php:241
 msgid "Failed to update favorite status"
 msgstr ""
 
-#: admin/includes/template-functions.php:341
+#: admin/includes/template-functions.php:345
 msgid "You do not have permission to delete saved templates."
 msgstr ""
 
-#: admin/includes/template-functions.php:368
+#: admin/includes/template-functions.php:372
 msgid "Failed to delete saved template"
 msgstr ""
 
-#: admin/includes/template-functions.php:381
+#: admin/includes/template-functions.php:385
 msgid "You do not have permission to create pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:391
+#: admin/includes/template-functions.php:395
 msgid "Theme templates are not available in this version."
 msgstr ""
 
-#: admin/includes/template-functions.php:411
+#: admin/includes/template-functions.php:415
 msgid "Missing required fields"
 msgstr ""
 
-#: admin/includes/template-functions.php:419
+#: admin/includes/template-functions.php:423
 msgid "Page not found"
 msgstr ""
 
-#: admin/includes/template-functions.php:525
+#: admin/includes/template-functions.php:529
 msgid "Failed to update page"
 msgstr ""
 
-#: admin/includes/template-functions.php:543
+#: admin/includes/template-functions.php:547
 msgid "Failed to create page"
 msgstr ""
 
-#: admin/includes/template-functions.php:611
+#: admin/includes/template-functions.php:615
 msgid "You do not have permission to duplicate pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:618
-#: admin/includes/template-functions.php:713
-#: admin/includes/template-functions.php:748
-#: admin/includes/template-functions.php:783
+#: admin/includes/template-functions.php:622
+#: admin/includes/template-functions.php:717
+#: admin/includes/template-functions.php:752
+#: admin/includes/template-functions.php:787
 msgid "Invalid page ID."
 msgstr ""
 
-#: admin/includes/template-functions.php:625
+#: admin/includes/template-functions.php:629
 #: includes/class-seedprod-abilities.php:770
 #: includes/class-seedprod-abilities.php:1342
 msgid "Page not found."
 msgstr ""
 
-#: admin/includes/template-functions.php:685
+#: admin/includes/template-functions.php:689
 msgid "Page duplicated successfully."
 msgstr ""
 
-#: admin/includes/template-functions.php:706
+#: admin/includes/template-functions.php:710
 msgid "You do not have permission to trash pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:720
+#: admin/includes/template-functions.php:724
 msgid "Failed to trash page."
 msgstr ""
 
-#: admin/includes/template-functions.php:725
+#: admin/includes/template-functions.php:729
 msgid "Page moved to trash."
 msgstr ""
 
-#: admin/includes/template-functions.php:741
+#: admin/includes/template-functions.php:745
 msgid "You do not have permission to restore pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:755
+#: admin/includes/template-functions.php:759
 msgid "Failed to restore page."
 msgstr ""
 
-#: admin/includes/template-functions.php:760
+#: admin/includes/template-functions.php:764
 msgid "Page restored successfully."
 msgstr ""
 
-#: admin/includes/template-functions.php:776
+#: admin/includes/template-functions.php:780
 msgid "You do not have permission to delete pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:790
+#: admin/includes/template-functions.php:794
 msgid "Failed to delete page."
 msgstr ""
 
-#: admin/includes/template-functions.php:795
+#: admin/includes/template-functions.php:799
 msgid "Page deleted permanently."
 msgstr ""
 
-#: admin/includes/template-functions.php:811
+#: admin/includes/template-functions.php:815
 msgid "You do not have permission to perform bulk actions."
 msgstr ""
 
-#: admin/includes/template-functions.php:819
+#: admin/includes/template-functions.php:823
 msgid "Invalid request."
-msgstr ""
-
-#. translators: %d: number of pages
-#: admin/includes/template-functions.php:851
-#, php-format
-msgid "%d pages moved to trash."
 msgstr ""
 
 #. translators: %d: number of pages
 #: admin/includes/template-functions.php:855
 #, php-format
-msgid "%d pages restored."
+msgid "%d pages moved to trash."
 msgstr ""
 
 #. translators: %d: number of pages
 #: admin/includes/template-functions.php:859
 #, php-format
+msgid "%d pages restored."
+msgstr ""
+
+#. translators: %d: number of pages
+#: admin/includes/template-functions.php:863
+#, php-format
 msgid "%d pages deleted permanently."
 msgstr ""
 
 #. translators: %d: number of pages
-#: admin/includes/template-functions.php:865
+#: admin/includes/template-functions.php:869
 #, php-format
 msgid "%d pages failed."
 msgstr ""
@@ -4574,7 +4578,7 @@ msgstr ""
 msgid "Ended"
 msgstr ""
 
-#: app/lpage.php:1050
+#: app/lpage.php:1056
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
 

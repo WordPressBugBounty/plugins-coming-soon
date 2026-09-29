@@ -229,7 +229,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
 		try {
 			// Call the function to enable/disable the coming soon page with nonce.
-			$result = seedprod_enable_coming_soon_page_function_cli( $enable, $nonce, $page_id );
+			$result = seedprod_lite_enable_coming_soon_page_function_cli( $enable, $nonce, $page_id );
 
 			if ( false !== $result ) {
 				$action = $enable ? 'enabled' : 'disabled';
@@ -252,7 +252,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	 * @param integer|null $page_id The ID of the page to use for coming soon.
 	 * @return boolean True on success, false on failure.
 	 */
-	function seedprod_enable_coming_soon_page_function_cli( $enable, $nonce, $page_id = null ) {
+	function seedprod_lite_enable_coming_soon_page_function_cli( $enable, $nonce, $page_id = null ) {
 		// Verify the nonce.
 		if ( ! wp_verify_nonce( $nonce, 'seedprod_enable_coming_soon_page' ) ) {
 			return false;

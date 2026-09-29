@@ -1265,6 +1265,13 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
 
   // Only enable if image overlay is enabled.
   if (options.enable_image_overlay) {
+    if (options.source === 'custom') {
+      videoHtml = videoHtml.replace('<video ', '<video autoplay ');
+    } else {
+      // Stop at # so a Vimeo #t= start time stays at the end of the URL.
+      var autoplayParams = options.source === 'vimeo' ? '&autoplay=1&autopause=0' : '&autoplay=1';
+      videoHtml = videoHtml.replace(/(src="[^"#]*)/, "$1".concat(autoplayParams));
+    }
     if (options.enable_lightbox) {
       // Open lightbox modal onclick
       jQuery("#sp-".concat(blockId, " .sp-video-pop-up-image-overlay-container")).click(function () {
@@ -1276,6 +1283,7 @@ function seedprod_pro_video_pop_up_trigger_video(blockId, videoHtml, blockOption
       // Close lightbox
       jQuery("#sp-".concat(blockId, " #video-pop-up-lightbox-modal-").concat(blockId, " span.close")).click(function () {
         jQuery("#sp-".concat(blockId, " #video-pop-up-lightbox-modal-").concat(blockId)).css('display', 'none');
+        jQuery("#sp-".concat(blockId, " #video-pop-up-lightbox-modal-").concat(blockId, " .modal-content")).empty();
       });
     } else {
       // When image overlay is clicked, display video.

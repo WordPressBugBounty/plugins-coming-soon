@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.9
+Stable tag: 6.20.10
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,13 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.10 =
+
+* Fixed - A click on a Video Pop Up image overlay now starts the video.
+* Fixed - The template subscribe request now checks the nonce and the user permission.
+* Fixed - WP-CLI no longer stops with a "Cannot redeclare function" error when Lite and Pro are both active.
+* Fixed - Pro: login pages that AI tools create with the save-page ability no longer return a 404.
 
 = 6.20.9 =
 

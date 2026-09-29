@@ -904,6 +904,12 @@ function seedprod_lite_get_utc_offset() {
  * @return void
  */
 function seedprod_lite_template_subscribe() {
+	check_ajax_referer( 'seedprod_lite_template_subscribe' );
+
+	if ( ! current_user_can( apply_filters( 'seedprod_lpage_capability', 'edit_others_posts' ) ) ) {
+		wp_send_json_error();
+	}
+
 	update_option( 'seedprod_free_templates_subscribed', true );
 	exit();
 }

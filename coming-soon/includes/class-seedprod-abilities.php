@@ -486,7 +486,7 @@ class SeedProd_Lite_Abilities {
 		);
 
 		if ( 'lite' !== SEEDPROD_BUILD ) {
-			$type_map['login']         = array( 'post_type' => 'seedprod', 'template_type' => 'loginp', 'is_theme' => false );
+			$type_map['login']         = array( 'post_type' => 'page',     'template_type' => 'loginp', 'is_theme' => false );
 			$type_map['404']           = array( 'post_type' => 'seedprod', 'template_type' => 'p404',   'is_theme' => false );
 			$type_map['header']        = array( 'post_type' => 'seedprod', 'template_type' => 'header', 'is_theme' => true );
 			$type_map['footer']        = array( 'post_type' => 'seedprod', 'template_type' => 'footer', 'is_theme' => true );

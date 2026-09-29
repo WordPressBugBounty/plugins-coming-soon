@@ -17,6 +17,10 @@ function seedprod_lite_v2_subscribe_free_templates() {
 	// Check nonce.
 	check_ajax_referer( 'seedprod_v2_nonce' );
 
+	if ( ! current_user_can( apply_filters( 'seedprod_lpage_capability', 'edit_others_posts' ) ) ) {
+		wp_send_json_error( __( 'You do not have permission to subscribe to free templates.', 'coming-soon' ) );
+	}
+
 	// Get email.
 	$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
 
