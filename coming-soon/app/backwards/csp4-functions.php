@@ -30,7 +30,7 @@ if ( ! function_exists( 'seedprod_lite_csp4_render_comingsoon_page' ) ) {
 
 		// Exit if a custom login page
 		if ( empty( $disable_default_excluded_urls ) ) {
-			if ( preg_match( '/login|admin|dashboard|account/i', $_SERVER['REQUEST_URI'] ) > 0 && $is_preview == false ) {
+			if ( preg_match( '/login|admin|dashboard|account/i', seedprod_lite_get_excluded_url_path() ) > 0 && $is_preview == false ) {
 				return false;
 			}
 		}

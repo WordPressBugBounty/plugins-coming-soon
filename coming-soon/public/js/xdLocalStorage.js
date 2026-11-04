@@ -27,6 +27,7 @@ window.xdLocalStorage = window.xdLocalStorage || (function () {
   };
   var requestId = -1;
   var iframe;
+  var bridgeOrigin;
   var requests = {};
   var wasInit = false;
   var iframeReady = true;
@@ -39,6 +40,10 @@ window.xdLocalStorage = window.xdLocalStorage || (function () {
   }
 
   function receiveMessage(event) {
+    // Accept only messages from the bridge iframe on the bridge origin.
+    if (!iframe || event.source !== iframe.contentWindow || event.origin !== bridgeOrigin) {
+      return;
+    }
     var data;
     try {
       data = JSON.parse(event.data);
@@ -65,11 +70,12 @@ window.xdLocalStorage = window.xdLocalStorage || (function () {
       key: key,
       value: value
     };
-    iframe.contentWindow.postMessage(JSON.stringify(data), '*');
+    iframe.contentWindow.postMessage(JSON.stringify(data), bridgeOrigin);
   }
 
   function init(customOptions) {
     options = XdUtils.extend(customOptions, options);
+    bridgeOrigin = new URL(options.iframeUrl, window.location.href).origin;
     var temp = document.createElement('div');
 
     if (window.addEventListener) {

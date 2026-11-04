@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.10\n"
+"Project-Id-Version: Coming Soon Page, Maintenance Mode, Landing Pages & WordPress Website Builder by SeedProd 6.20.11\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/coming-soon\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-29T08:50:35+00:00\n"
+"POT-Creation-Date: 2026-11-04T08:59:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: coming-soon\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: admin/class-seedprod-admin.php:354
 #: admin/class-seedprod-admin.php:370
 #: admin/class-seedprod-admin.php:500
-#: admin/class-seedprod-admin.php:803
+#: admin/class-seedprod-admin.php:804
 msgid "An error occurred. Please try again."
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 #: admin/partials/seedprod-admin-landing-pages.php:147
 #: admin/partials/seedprod-admin-landing-pages.php:201
 #: admin/partials/seedprod-admin-landing-pages.php:255
-#: admin/partials/seedprod-admin-settings.php:552
+#: admin/partials/seedprod-admin-settings.php:560
 #: admin/partials/seedprod-admin-website-builder.php:106
 msgid "ACTIVE"
 msgstr ""
@@ -106,7 +106,7 @@ msgstr ""
 #: admin/partials/seedprod-admin-landing-pages.php:149
 #: admin/partials/seedprod-admin-landing-pages.php:203
 #: admin/partials/seedprod-admin-landing-pages.php:257
-#: admin/partials/seedprod-admin-settings.php:555
+#: admin/partials/seedprod-admin-settings.php:563
 #: admin/partials/seedprod-admin-website-builder.php:108
 msgid "INACTIVE"
 msgstr ""
@@ -117,7 +117,7 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:365
 #: admin/includes/plugin-functions.php:900
-#: admin/partials/seedprod-admin-settings.php:580
+#: admin/partials/seedprod-admin-settings.php:588
 #: languages/seedprod-lite.php:974
 msgid "Activate"
 msgstr ""
@@ -125,7 +125,7 @@ msgstr ""
 #: admin/class-seedprod-admin.php:366
 #: admin/includes/plugin-functions.php:898
 #: admin/partials/seedprod-admin-growth-tool.php:65
-#: admin/partials/seedprod-admin-settings.php:577
+#: admin/partials/seedprod-admin-settings.php:585
 msgid "Deactivate"
 msgstr ""
 
@@ -145,9 +145,9 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:371
 #: admin/class-seedprod-admin.php:437
-#: admin/class-seedprod-admin.php:1264
-#: admin/class-seedprod-admin.php:1383
-#: admin/class-seedprod-admin.php:1447
+#: admin/class-seedprod-admin.php:1265
+#: admin/class-seedprod-admin.php:1384
+#: admin/class-seedprod-admin.php:1448
 msgid "Network error. Please check your connection and try again."
 msgstr ""
 
@@ -198,7 +198,7 @@ msgid "Dismiss this notice."
 msgstr ""
 
 #: admin/class-seedprod-admin.php:382
-#: admin/partials/seedprod-admin-settings.php:299
+#: admin/partials/seedprod-admin-settings.php:306
 msgid "Copy to Clipboard"
 msgstr ""
 
@@ -239,19 +239,19 @@ msgid "Please enter a page name."
 msgstr ""
 
 #: admin/class-seedprod-admin.php:398
-#: admin/class-seedprod-admin.php:806
+#: admin/class-seedprod-admin.php:807
 #: admin/partials/seedprod-admin-debug.php:75
 #: languages/seedprod-lite.php:906
 msgid "Pro Tip:"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:399
-#: admin/class-seedprod-admin.php:807
+#: admin/class-seedprod-admin.php:808
 msgid "Convert more visitors with 90+ Pro blocks plus MailChimp, ConvertKit integrations"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:400
-#: admin/class-seedprod-admin.php:808
+#: admin/class-seedprod-admin.php:809
 #: admin/partials/seedprod-admin-growth-tool.php:160
 msgid "Learn more"
 msgstr ""
@@ -259,14 +259,14 @@ msgstr ""
 #: admin/class-seedprod-admin.php:401
 #: admin/class-seedprod-admin.php:639
 #: admin/class-seedprod-admin.php:640
-#: admin/class-seedprod-admin.php:809
-#: admin/class-seedprod-admin.php:1808
+#: admin/class-seedprod-admin.php:810
+#: admin/class-seedprod-admin.php:1809
 #: admin/includes/product-education-functions.php:76
 #: admin/includes/product-education-functions.php:243
 #: admin/partials/seedprod-admin-header.php:156
 #: admin/partials/seedprod-admin-landing-pages.php:176
 #: admin/partials/seedprod-admin-landing-pages.php:230
-#: admin/partials/seedprod-admin-settings.php:648
+#: admin/partials/seedprod-admin-settings.php:656
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -584,15 +584,15 @@ msgid "No subscribers found."
 msgstr ""
 
 #: admin/class-seedprod-admin.php:504
-#: admin/partials/seedprod-admin-settings.php:429
+#: admin/partials/seedprod-admin-settings.php:437
 #: languages/seedprod-lite.php:6314
 msgid "Delete"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:505
-#: admin/class-seedprod-admin.php:1261
-#: admin/class-seedprod-admin.php:1380
-#: admin/class-seedprod-admin.php:1444
+#: admin/class-seedprod-admin.php:1262
+#: admin/class-seedprod-admin.php:1381
+#: admin/class-seedprod-admin.php:1445
 #: admin/partials/seedprod-admin-template-selection.php:172
 #: languages/seedprod-lite.php:852
 msgid "Loading templates..."
@@ -603,9 +603,9 @@ msgid "Preview Not Available"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:507
-#: admin/class-seedprod-admin.php:1260
-#: admin/class-seedprod-admin.php:1379
-#: admin/class-seedprod-admin.php:1443
+#: admin/class-seedprod-admin.php:1261
+#: admin/class-seedprod-admin.php:1380
+#: admin/class-seedprod-admin.php:1444
 msgid "Unable to Load Templates"
 msgstr ""
 
@@ -657,14 +657,14 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:584
 #: admin/class-seedprod-admin.php:585
-#: admin/class-seedprod-admin.php:1348
+#: admin/class-seedprod-admin.php:1349
 msgid "Manage with AI"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:594
 #: admin/class-seedprod-admin.php:595
-#: admin/class-seedprod-admin.php:1494
-#: admin/class-seedprod-admin.php:1557
+#: admin/class-seedprod-admin.php:1495
+#: admin/class-seedprod-admin.php:1558
 #: admin/includes/product-education-functions.php:322
 #: admin/partials/seedprod-admin-dashboard.php:294
 #: admin/partials/seedprod-admin-website-builder.php:83
@@ -682,7 +682,7 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:614
 #: admin/class-seedprod-admin.php:615
-#: admin/class-seedprod-admin.php:1797
+#: admin/class-seedprod-admin.php:1798
 #: admin/partials/seedprod-admin-dashboard.php:593
 #: admin/partials/seedprod-admin-settings.php:28
 #: languages/seedprod-lite.php:1379
@@ -691,22 +691,22 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:655
 #: admin/class-seedprod-admin.php:656
-#: admin/class-seedprod-admin.php:1141
-#: admin/class-seedprod-admin.php:1292
+#: admin/class-seedprod-admin.php:1142
+#: admin/class-seedprod-admin.php:1293
 msgid "Popups"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:664
 #: admin/class-seedprod-admin.php:665
-#: admin/class-seedprod-admin.php:1194
-#: admin/class-seedprod-admin.php:1412
+#: admin/class-seedprod-admin.php:1195
+#: admin/class-seedprod-admin.php:1413
 msgid "Cookie Consent"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:673
 #: admin/class-seedprod-admin.php:674
-#: admin/class-seedprod-admin.php:1228
-#: admin/class-seedprod-admin.php:1475
+#: admin/class-seedprod-admin.php:1229
+#: admin/class-seedprod-admin.php:1476
 #: languages/seedprod-lite.php:9419
 msgid "Custom Code"
 msgstr ""
@@ -730,7 +730,7 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:713
 #: admin/class-seedprod-admin.php:714
-#: admin/class-seedprod-admin.php:1730
+#: admin/class-seedprod-admin.php:1731
 #: languages/seedprod-lite.php:1489
 msgid "Get Support"
 msgstr ""
@@ -750,8 +750,8 @@ msgstr ""
 
 #: admin/class-seedprod-admin.php:753
 #: admin/class-seedprod-admin.php:754
-#: admin/class-seedprod-admin.php:1576
-#: admin/class-seedprod-admin.php:1625
+#: admin/class-seedprod-admin.php:1577
+#: admin/class-seedprod-admin.php:1626
 #: admin/partials/seedprod-admin-dashboard.php:428
 #: admin/partials/seedprod-admin-settings.php:19
 #: admin/partials/seedprod-admin-subscribers.php:33
@@ -766,534 +766,538 @@ msgstr ""
 msgid "Export Selected Page"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:799
-msgid "Import completed successfully!"
+#: admin/class-seedprod-admin.php:798
+msgid "Download starting..."
 msgstr ""
 
 #: admin/class-seedprod-admin.php:800
-msgid "Uploading file..."
+msgid "Import completed successfully!"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:801
+msgid "Uploading file..."
+msgstr ""
+
+#: admin/class-seedprod-admin.php:802
 msgid "Processing import..."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:804
+#: admin/class-seedprod-admin.php:805
 msgid "Please select a valid ZIP file."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1008
+#: admin/class-seedprod-admin.php:1009
 msgid "Coming Soon Mode Active"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1010
+#: admin/class-seedprod-admin.php:1011
 msgid "Maintenance Mode Active"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1012
+#: admin/class-seedprod-admin.php:1013
 msgid "Theme Preview Mode Active"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1142
+#: admin/class-seedprod-admin.php:1143
 msgid "Popups by OptinMonster"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1195
+#: admin/class-seedprod-admin.php:1196
 msgid "Cookie Consent & Privacy Compliance"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1229
+#: admin/class-seedprod-admin.php:1230
 msgid "Custom Code - Insert Headers, Footers, and Code Snippets"
-msgstr ""
-
-#: admin/class-seedprod-admin.php:1262
-#: admin/class-seedprod-admin.php:1381
-#: admin/class-seedprod-admin.php:1445
-msgid "Error loading templates"
 msgstr ""
 
 #: admin/class-seedprod-admin.php:1263
 #: admin/class-seedprod-admin.php:1382
 #: admin/class-seedprod-admin.php:1446
+msgid "Error loading templates"
+msgstr ""
+
+#: admin/class-seedprod-admin.php:1264
+#: admin/class-seedprod-admin.php:1383
+#: admin/class-seedprod-admin.php:1447
 msgid "No templates found"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1271
+#: admin/class-seedprod-admin.php:1272
 #: admin/includes/plugin-functions.php:182
 msgid "OptinMonster"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1272
+#: admin/class-seedprod-admin.php:1273
 msgid "Stop Losing 95% of Your Visitors Without Their Email"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1273
+#: admin/class-seedprod-admin.php:1274
 msgid "Add Smart Popups to Your SeedProd Pages in Under 60 Seconds"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1275
+#: admin/class-seedprod-admin.php:1276
 msgid "Exit Intent™ technology captures visitors before they leave"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1276
+#: admin/class-seedprod-admin.php:1277
 msgid "700+ proven templates ready to customize"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1277
+#: admin/class-seedprod-admin.php:1278
 msgid "Target by behavior, location, and page visits"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1278
+#: admin/class-seedprod-admin.php:1279
 msgid "A/B test popups to maximize conversions"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1279
+#: admin/class-seedprod-admin.php:1280
 msgid "Works with MailChimp, ConvertKit, ActiveCampaign & more"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1281
+#: admin/class-seedprod-admin.php:1282
 msgid "⏰ Every Minute You Wait = More Lost Subscribers"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1282
+#: admin/class-seedprod-admin.php:1283
 msgid "Free version includes 3 campaigns • 60-second setup"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1283
+#: admin/class-seedprod-admin.php:1284
 msgid "Join 1,213,437+ websites already using OptinMonster"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1310
+#: admin/class-seedprod-admin.php:1311
 #: admin/includes/plugin-functions.php:334
 msgid "WPVibe"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1311
+#: admin/class-seedprod-admin.php:1312
 msgid "Manage Your Entire Site With the AI You Already Use"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1312
+#: admin/class-seedprod-admin.php:1313
 msgid "WPVibe connects Claude, ChatGPT, and other AI assistants to WordPress — build SeedProd pages, and run everything else, by chatting."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1314
+#: admin/class-seedprod-admin.php:1315
 msgid "Build and edit SeedProd landing pages, coming soon pages, and themes by describing what you want"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1315
+#: admin/class-seedprod-admin.php:1316
 msgid "Manage everything, not just pages — posts, media, plugins, comments, and WooCommerce"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1316
+#: admin/class-seedprod-admin.php:1317
 msgid "Clean up old content, fix alt text, and bulk edit in minutes instead of hours"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1317
+#: admin/class-seedprod-admin.php:1318
 msgid "AI drafts, you approve — nothing touches your live site without you saying go"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1318
+#: admin/class-seedprod-admin.php:1319
 msgid "Uses the AI you already pay for — no second AI subscription"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1322
+#: admin/class-seedprod-admin.php:1323
 msgid "“You can simply send an article, give instructions through chat, or even speak naturally… It is a bridge between conversational AI and a real, working WordPress website. I believe it represents the future of WordPress management.”"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1326
+#: admin/class-seedprod-admin.php:1327
 msgid "“Now Claude can actually interact with and help manage my WordPress site in meaningful ways… This is the missing bridge between WordPress and the agent-powered workflows many of us rely on.”"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1330
+#: admin/class-seedprod-admin.php:1331
 msgid "“Giving Claude direct access to WordPress meant it could see things the copy-paste process simply couldn’t capture — and it fixed every problem we’d been stuck on.”"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1334
+#: admin/class-seedprod-admin.php:1335
 msgid "Give Your Website an AI Assistant"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1335
+#: admin/class-seedprod-admin.php:1336
 msgid "Free plugin • Free plan included • 2-minute setup"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1336
+#: admin/class-seedprod-admin.php:1337
 msgid "From SeedProd — the team behind the website builder you already use"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1342
+#: admin/class-seedprod-admin.php:1343
 msgid "Or learn more at wpvibe.ai"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1390
+#: admin/class-seedprod-admin.php:1391
 #: admin/includes/plugin-functions.php:326
 #: languages/seedprod-lite.php:918
 msgid "WPConsent"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1391
+#: admin/class-seedprod-admin.php:1392
 msgid "Make Your Site Privacy Compliant in Minutes"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1392
+#: admin/class-seedprod-admin.php:1393
 msgid "Add Professional Cookie Consent Banners Without Coding"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1394
+#: admin/class-seedprod-admin.php:1395
 msgid "GDPR & CCPA compliant cookie consent management"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1395
+#: admin/class-seedprod-admin.php:1396
 msgid "Automatic website cookie scanning and script blocking"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1396
+#: admin/class-seedprod-admin.php:1397
 msgid "Customizable banners that match your brand perfectly"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1397
+#: admin/class-seedprod-admin.php:1398
 msgid "Searchable consent records with user management"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1398
+#: admin/class-seedprod-admin.php:1399
 msgid "Self-hosted solution with geolocation detection"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1400
+#: admin/class-seedprod-admin.php:1401
 msgid "⚖️ Protect Your Business from Privacy Violations"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1401
+#: admin/class-seedprod-admin.php:1402
 msgid "Quick setup • No coding required • 14-day money-back guarantee"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1402
+#: admin/class-seedprod-admin.php:1403
 msgid "Join thousands of WordPress sites achieving privacy compliance"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1454
+#: admin/class-seedprod-admin.php:1455
 #: admin/includes/plugin-functions.php:230
 #: languages/seedprod-lite.php:912
 msgid "WPCode"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1455
+#: admin/class-seedprod-admin.php:1456
 msgid "Add Custom Code Without Breaking Your Site"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1456
+#: admin/class-seedprod-admin.php:1457
 msgid "Safely Add Headers, Footers & Scripts That Work Perfectly with SeedProd"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1458
+#: admin/class-seedprod-admin.php:1459
 msgid "Replace 6-8 plugins on average with lightweight code snippets"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1459
+#: admin/class-seedprod-admin.php:1460
 msgid "Add Google Analytics, Facebook Pixel & tracking scripts safely"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1460
+#: admin/class-seedprod-admin.php:1461
 msgid "100+ expert-approved snippets ready to use instantly"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1461
+#: admin/class-seedprod-admin.php:1462
 msgid "Automatic error detection prevents site crashes"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1462
+#: admin/class-seedprod-admin.php:1463
 msgid "Your code survives theme updates and changes"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1464
+#: admin/class-seedprod-admin.php:1465
 msgid "⏰ Start Adding Custom Code Safely in Seconds"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1465
+#: admin/class-seedprod-admin.php:1466
 msgid "100% free • Installs in seconds"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1466
+#: admin/class-seedprod-admin.php:1467
 msgid "Join 2,000,000+ websites already using WPCode"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1495
+#: admin/class-seedprod-admin.php:1496
 msgid "Get a Full Website With One-Click Without Being a Developer"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1496
+#: admin/class-seedprod-admin.php:1497
 msgid "Stop losing customers to DIY-looking websites. Get a conversion-optimized site that looks like you paid $10k for it."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1497
+#: admin/class-seedprod-admin.php:1498
 msgid "Transform your entire WordPress site into a pixel-perfect, professionally designed website in minutes. No coding skills required."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1499
+#: admin/class-seedprod-admin.php:1500
 msgid "Build headers, footers, pages, posts & sidebars - control your entire theme"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1500
+#: admin/class-seedprod-admin.php:1501
 msgid "350+ professionally designed templates ready to import instantly"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1501
+#: admin/class-seedprod-admin.php:1502
 msgid "AI Builder generates complete custom themes in seconds"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1502
+#: admin/class-seedprod-admin.php:1503
 msgid "WooCommerce ready - design product pages, shop & checkout"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1503
+#: admin/class-seedprod-admin.php:1504
 msgid "Lightning-fast imports & bloat-free code for better conversions"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1504
+#: admin/class-seedprod-admin.php:1505
 msgid "No coding required - 100% visual drag and drop builder"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1509
+#: admin/class-seedprod-admin.php:1510
 msgid "Theme Builder"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1510
+#: admin/class-seedprod-admin.php:1511
 msgid "Design every part of your WordPress theme visually including headers, footers, sidebars, and content areas."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1514
+#: admin/class-seedprod-admin.php:1515
 msgid "Dynamic Content"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1515
+#: admin/class-seedprod-admin.php:1516
 msgid "Create templates for posts, pages, categories, tags, and custom post types that automatically update."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1519
+#: admin/class-seedprod-admin.php:1520
 msgid "WooCommerce Builder"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1520
+#: admin/class-seedprod-admin.php:1521
 msgid "Design custom product pages, shop layouts, cart, and checkout pages that convert."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1524
+#: admin/class-seedprod-admin.php:1525
 msgid "Responsive Controls"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1525
+#: admin/class-seedprod-admin.php:1526
 msgid "Perfect control over how your site looks on desktop, tablet, and mobile devices."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1539
+#: admin/class-seedprod-admin.php:1540
 msgid "🚀 Ready to Build Your Dream Website?"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1544
+#: admin/class-seedprod-admin.php:1545
 msgid "Try Free: AI Builds Your Site in 60 Seconds"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1577
+#: admin/class-seedprod-admin.php:1578
 msgid "Start Collecting Emails in 60 Seconds - No Email Service Required"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1578
+#: admin/class-seedprod-admin.php:1579
 msgid "Build your list from day one. Store unlimited subscribers in WordPress and export them anywhere, anytime."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1579
+#: admin/class-seedprod-admin.php:1580
 msgid "Never miss a lead again. Collect email addresses from your visitors and manage them all in one place, even before your email service is connected."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1581
+#: admin/class-seedprod-admin.php:1582
 msgid "Store unlimited email subscribers directly in WordPress"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1582
+#: admin/class-seedprod-admin.php:1583
 msgid "Export subscriber lists to CSV for easy import to any email service"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1583
+#: admin/class-seedprod-admin.php:1584
 msgid "Never lose a lead - capture emails even without an email service connected"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1584
+#: admin/class-seedprod-admin.php:1585
 msgid "One-click sync with 15+ providers: Mailchimp, ConvertKit, ActiveCampaign & more"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1585
+#: admin/class-seedprod-admin.php:1586
 msgid "Connect Zapier to sync with 3000+ apps automatically"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1586
+#: admin/class-seedprod-admin.php:1587
 msgid "Works day one - collect emails instantly, connect your service later"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1591
+#: admin/class-seedprod-admin.php:1592
 msgid "Subscriber Dashboard"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1592
+#: admin/class-seedprod-admin.php:1593
 msgid "View all your subscribers in one organized dashboard with search and filter capabilities."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1596
-#: admin/partials/seedprod-admin-settings.php:345
+#: admin/class-seedprod-admin.php:1597
+#: admin/partials/seedprod-admin-settings.php:353
 msgid "Export to CSV"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1597
+#: admin/class-seedprod-admin.php:1598
 msgid "Download your subscriber lists in CSV format for easy import to any email marketing service."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1601
+#: admin/class-seedprod-admin.php:1602
 msgid "Conversion Tracking"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1602
+#: admin/class-seedprod-admin.php:1603
 msgid "Track how many visitors convert to subscribers and monitor your growth trends."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1606
+#: admin/class-seedprod-admin.php:1607
 msgid "Privacy Compliant"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1607
+#: admin/class-seedprod-admin.php:1608
 msgid "Built-in GDPR compliance features including consent checkboxes and data management."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1616
+#: admin/class-seedprod-admin.php:1617
 msgid "📧 Ready to Start Building Your Email List?"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1654
 #: admin/class-seedprod-admin.php:1655
+#: admin/class-seedprod-admin.php:1656
 msgid "Premium Support"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1656
+#: admin/class-seedprod-admin.php:1657
 msgid "Get Unstuck in Minutes, Not Days"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1657
+#: admin/class-seedprod-admin.php:1658
 msgid "Our WordPress experts solve your issues fast so you can focus on growing your business"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1658
+#: admin/class-seedprod-admin.php:1659
 msgid "Stop wasting hours on forums hoping someone might help. With Pro support, you get direct access to our expert developers who know exactly how to fix your issue - usually within hours, not days."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1659
+#: admin/class-seedprod-admin.php:1660
 msgid "Get Priority Support from the SeedProd Team"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1660
+#: admin/class-seedprod-admin.php:1661
 msgid "Upgrade to SeedProd Pro and get access to our world-class support team. Our experts are ready to help you build amazing websites faster with priority email support."
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1662
+#: admin/class-seedprod-admin.php:1663
 msgid "Priority email support - faster responses than community forums"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1663
+#: admin/class-seedprod-admin.php:1664
 msgid "Direct help from the developers who built SeedProd"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1664
+#: admin/class-seedprod-admin.php:1665
 msgid "Premium documentation and video tutorials for every feature"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1665
+#: admin/class-seedprod-admin.php:1666
 msgid "Personalized solutions and code snippets for your specific needs"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1666
+#: admin/class-seedprod-admin.php:1667
 msgid "Pro optimization tips to improve your site performance"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1667
+#: admin/class-seedprod-admin.php:1668
 msgid "14-day money-back guarantee - zero risk to try"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1671
+#: admin/class-seedprod-admin.php:1672
 msgid "Support Comparison"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1673
+#: admin/class-seedprod-admin.php:1674
 msgid "Support Feature"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1674
+#: admin/class-seedprod-admin.php:1675
 msgid "Free Version"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1675
+#: admin/class-seedprod-admin.php:1676
 #: admin/includes/plugin-functions.php:400
 msgid "Pro Version"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1679
+#: admin/class-seedprod-admin.php:1680
 msgid "Support Channel"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1680
+#: admin/class-seedprod-admin.php:1681
 msgid "WordPress.org Forums"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1681
+#: admin/class-seedprod-admin.php:1682
 msgid "Priority Email Support"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1684
+#: admin/class-seedprod-admin.php:1685
 msgid "Response Time"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1685
+#: admin/class-seedprod-admin.php:1686
 msgid "Community-based"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1686
+#: admin/class-seedprod-admin.php:1687
 msgid "Within 24 hours"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1689
+#: admin/class-seedprod-admin.php:1690
 msgid "Support Team"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1690
+#: admin/class-seedprod-admin.php:1691
 msgid "Community volunteers"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1691
+#: admin/class-seedprod-admin.php:1692
 msgid "SeedProd experts"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1694
+#: admin/class-seedprod-admin.php:1695
 msgid "Custom Solutions"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1699
+#: admin/class-seedprod-admin.php:1700
 #: admin/partials/seedprod-admin-dashboard.php:106
 #: admin/partials/seedprod-admin-dashboard.php:549
 msgid "Video Tutorials"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1700
+#: admin/class-seedprod-admin.php:1701
 msgid "Basic tutorials"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1701
+#: admin/class-seedprod-admin.php:1702
 msgid "Premium video library"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1704
+#: admin/class-seedprod-admin.php:1705
 msgid "Pro Feature Support"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1715
+#: admin/class-seedprod-admin.php:1716
 msgid "🎯 Get Expert Help When You Need It"
 msgstr ""
 
-#: admin/class-seedprod-admin.php:1720
+#: admin/class-seedprod-admin.php:1721
 msgid "Continue to Free Community Support"
 msgstr ""
 
@@ -1303,9 +1307,9 @@ msgid "Landing Page"
 msgstr ""
 
 #: admin/includes/class-seedprod-landing-pages-table.php:42
-#: admin/partials/seedprod-admin-settings.php:390
-#: admin/partials/seedprod-admin-settings.php:417
-#: admin/partials/seedprod-admin-settings.php:464
+#: admin/partials/seedprod-admin-settings.php:398
+#: admin/partials/seedprod-admin-settings.php:425
+#: admin/partials/seedprod-admin-settings.php:472
 #: languages/seedprod-lite.php:5609
 msgid "Name"
 msgstr ""
@@ -1432,11 +1436,11 @@ msgstr ""
 
 #: admin/includes/debug-functions.php:25
 #: admin/includes/license-functions.php:173
-#: admin/includes/template-functions.php:610
-#: admin/includes/template-functions.php:705
-#: admin/includes/template-functions.php:740
-#: admin/includes/template-functions.php:775
-#: admin/includes/template-functions.php:810
+#: admin/includes/template-functions.php:639
+#: admin/includes/template-functions.php:738
+#: admin/includes/template-functions.php:777
+#: admin/includes/template-functions.php:816
+#: admin/includes/template-functions.php:855
 #: resources/views/debug.php:19
 msgid "Security check failed."
 msgstr ""
@@ -1578,39 +1582,45 @@ msgstr ""
 msgid "Export failed during processing: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:475
-msgid "Failed to encode export data. The page data may be too large or contain invalid characters."
-msgstr ""
-
-#: admin/includes/import-export-functions.php:488
+#: admin/includes/import-export-functions.php:480
 msgid "Failed to create export directory."
 msgstr ""
 
 #. translators: %s: Error message from the exception
-#: admin/includes/import-export-functions.php:536
+#: admin/includes/import-export-functions.php:528
 #, php-format
 msgid "Export failed during image processing: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:546
+#: admin/includes/import-export-functions.php:537
+msgid "Failed to encode export data. The page data may be too large or contain invalid characters."
+msgstr ""
+
+#. translators: %d: number of failed images
+#: admin/includes/import-export-functions.php:548
+#, php-format
+msgid "%d images could not be downloaded and were excluded from the export."
+msgstr ""
+
+#: admin/includes/import-export-functions.php:556
 msgid "Export completed but file data not generated."
 msgstr ""
 
 #. translators: %s: Error message from the exception
-#: admin/includes/import-export-functions.php:550
+#: admin/includes/import-export-functions.php:560
 #, php-format
 msgid "Export failed during ZIP creation: %s"
 msgstr ""
 
-#: admin/includes/import-export-functions.php:633
+#: admin/includes/import-export-functions.php:643
 msgid "This does not appear to be a SeedProd landing page."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:651
+#: admin/includes/import-export-functions.php:661
 msgid "There was a problem with the upload. Please try again."
 msgstr ""
 
-#: admin/includes/import-export-functions.php:655
+#: admin/includes/import-export-functions.php:665
 msgid "Invalid file upload."
 msgstr ""
 
@@ -1654,29 +1664,29 @@ msgstr ""
 msgid "Landing page data file (export_page.json) not found in ZIP"
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:651
+#: admin/includes/import-export-utilities.php:646
 msgid "Failed to save export JSON file."
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:656
+#: admin/includes/import-export-utilities.php:651
 msgid "ZipArchive class not available. Please contact your host."
 msgstr ""
 
 #. translators: %s: ZipArchive error code.
-#: admin/includes/import-export-utilities.php:666
+#: admin/includes/import-export-utilities.php:661
 #, php-format
 msgid "Cannot create ZIP file. Error code: %s"
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:672
+#: admin/includes/import-export-utilities.php:667
 msgid "Failed to add JSON file to ZIP."
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:687
+#: admin/includes/import-export-utilities.php:682
 msgid "ZIP file was not created successfully."
 msgstr ""
 
-#: admin/includes/import-export-utilities.php:702
+#: admin/includes/import-export-utilities.php:697
 msgid "Failed to read export file."
 msgstr ""
 
@@ -1911,7 +1921,7 @@ msgstr ""
 #: admin/includes/plugin-functions.php:891
 #: admin/includes/plugin-functions.php:896
 #: admin/includes/plugin-functions.php:902
-#: admin/partials/seedprod-admin-settings.php:574
+#: admin/partials/seedprod-admin-settings.php:582
 #: languages/seedprod-lite.php:970
 msgid "Install"
 msgstr ""
@@ -2044,10 +2054,14 @@ msgstr ""
 msgid "Settings saved successfully"
 msgstr ""
 
-#: admin/includes/setup-wizard-functions.php:242
-#: admin/includes/setup-wizard-functions.php:244
-#: app/lpage.php:207
-#: app/lpage.php:209
+#: admin/includes/setup-wizard-functions.php:108
+msgid "The theme was not imported. You do not have permission to import themes."
+msgstr ""
+
+#: admin/includes/setup-wizard-functions.php:250
+#: admin/includes/setup-wizard-functions.php:252
+#: app/lpage.php:211
+#: app/lpage.php:213
 #: app/setup-wizard.php:199
 #: app/setup-wizard.php:201
 msgid "New Page"
@@ -2175,103 +2189,130 @@ msgstr ""
 msgid "Missing required fields"
 msgstr ""
 
-#: admin/includes/template-functions.php:423
+#: admin/includes/template-functions.php:419
+#: admin/includes/template-functions.php:457
+msgid "You do not have permission to create this page type."
+msgstr ""
+
+#: admin/includes/template-functions.php:427
 msgid "Page not found"
 msgstr ""
 
-#: admin/includes/template-functions.php:529
+#: admin/includes/template-functions.php:430
+#: app/lpage.php:690
+#: includes/class-seedprod-abilities.php:780
+msgid "You do not have permission to edit this page."
+msgstr ""
+
+#: admin/includes/template-functions.php:540
 msgid "Failed to update page"
 msgstr ""
 
-#: admin/includes/template-functions.php:547
+#: admin/includes/template-functions.php:558
 msgid "Failed to create page"
 msgstr ""
 
-#: admin/includes/template-functions.php:615
+#: admin/includes/template-functions.php:644
 msgid "You do not have permission to duplicate pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:622
-#: admin/includes/template-functions.php:717
-#: admin/includes/template-functions.php:752
-#: admin/includes/template-functions.php:787
+#: admin/includes/template-functions.php:651
+#: admin/includes/template-functions.php:750
+#: admin/includes/template-functions.php:789
+#: admin/includes/template-functions.php:828
 msgid "Invalid page ID."
 msgstr ""
 
-#: admin/includes/template-functions.php:629
-#: includes/class-seedprod-abilities.php:770
-#: includes/class-seedprod-abilities.php:1342
+#: admin/includes/template-functions.php:658
+#: includes/class-seedprod-abilities.php:774
+#: includes/class-seedprod-abilities.php:1362
 msgid "Page not found."
 msgstr ""
 
-#: admin/includes/template-functions.php:689
+#: admin/includes/template-functions.php:662
+msgid "You do not have permission to duplicate this page."
+msgstr ""
+
+#: admin/includes/template-functions.php:722
 msgid "Page duplicated successfully."
 msgstr ""
 
-#: admin/includes/template-functions.php:710
+#: admin/includes/template-functions.php:743
 msgid "You do not have permission to trash pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:724
+#: admin/includes/template-functions.php:754
+msgid "You do not have permission to trash this page."
+msgstr ""
+
+#: admin/includes/template-functions.php:761
 msgid "Failed to trash page."
 msgstr ""
 
-#: admin/includes/template-functions.php:729
+#: admin/includes/template-functions.php:766
 msgid "Page moved to trash."
 msgstr ""
 
-#: admin/includes/template-functions.php:745
+#: admin/includes/template-functions.php:782
 msgid "You do not have permission to restore pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:759
+#: admin/includes/template-functions.php:793
+msgid "You do not have permission to restore this page."
+msgstr ""
+
+#: admin/includes/template-functions.php:800
 msgid "Failed to restore page."
 msgstr ""
 
-#: admin/includes/template-functions.php:764
+#: admin/includes/template-functions.php:805
 msgid "Page restored successfully."
 msgstr ""
 
-#: admin/includes/template-functions.php:780
+#: admin/includes/template-functions.php:821
 msgid "You do not have permission to delete pages."
 msgstr ""
 
-#: admin/includes/template-functions.php:794
+#: admin/includes/template-functions.php:832
+msgid "You do not have permission to delete this page."
+msgstr ""
+
+#: admin/includes/template-functions.php:839
 msgid "Failed to delete page."
 msgstr ""
 
-#: admin/includes/template-functions.php:799
+#: admin/includes/template-functions.php:844
 msgid "Page deleted permanently."
 msgstr ""
 
-#: admin/includes/template-functions.php:815
+#: admin/includes/template-functions.php:860
 msgid "You do not have permission to perform bulk actions."
 msgstr ""
 
-#: admin/includes/template-functions.php:823
+#: admin/includes/template-functions.php:868
 msgid "Invalid request."
 msgstr ""
 
 #. translators: %d: number of pages
-#: admin/includes/template-functions.php:855
+#: admin/includes/template-functions.php:905
 #, php-format
 msgid "%d pages moved to trash."
 msgstr ""
 
 #. translators: %d: number of pages
-#: admin/includes/template-functions.php:859
+#: admin/includes/template-functions.php:909
 #, php-format
 msgid "%d pages restored."
 msgstr ""
 
 #. translators: %d: number of pages
-#: admin/includes/template-functions.php:863
+#: admin/includes/template-functions.php:913
 #, php-format
 msgid "%d pages deleted permanently."
 msgstr ""
 
 #. translators: %d: number of pages
-#: admin/includes/template-functions.php:869
+#: admin/includes/template-functions.php:919
 #, php-format
 msgid "%d pages failed."
 msgstr ""
@@ -2445,7 +2486,7 @@ msgstr ""
 
 #: admin/partials/seedprod-admin-dashboard.php:462
 #: admin/partials/seedprod-admin-settings.php:20
-#: admin/partials/seedprod-admin-settings.php:499
+#: admin/partials/seedprod-admin-settings.php:507
 msgid "Recommended Plugins"
 msgstr ""
 
@@ -3137,137 +3178,137 @@ msgstr ""
 msgid "Disable admin notifications from SeedProd"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:278
+#: admin/partials/seedprod-admin-settings.php:282
 msgid "Debug Information"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:284
+#: admin/partials/seedprod-admin-settings.php:289
 msgid "View System Information"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:288
+#: admin/partials/seedprod-admin-settings.php:294
 msgid "Advanced Debug Tools"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:294
+#: admin/partials/seedprod-admin-settings.php:301
 msgid "Copy this information when contacting support to help us assist you better."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:339
+#: admin/partials/seedprod-admin-settings.php:347
 msgid "Subscribers Overview"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:349
+#: admin/partials/seedprod-admin-settings.php:357
 msgid "All Pages"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:365
+#: admin/partials/seedprod-admin-settings.php:373
 msgid "Search by email or name..."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:368
+#: admin/partials/seedprod-admin-settings.php:376
 #: languages/seedprod-lite.php:3964
 msgid "Search"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:371
+#: admin/partials/seedprod-admin-settings.php:379
 #: languages/seedprod-lite.php:1474
 msgid "Clear"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:384
-#: admin/partials/seedprod-admin-settings.php:416
-#: admin/partials/seedprod-admin-settings.php:458
+#: admin/partials/seedprod-admin-settings.php:392
+#: admin/partials/seedprod-admin-settings.php:424
+#: admin/partials/seedprod-admin-settings.php:466
 #: languages/seedprod-lite.php:6442
 msgid "Email"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:396
-#: admin/partials/seedprod-admin-settings.php:418
-#: admin/partials/seedprod-admin-settings.php:470
+#: admin/partials/seedprod-admin-settings.php:404
+#: admin/partials/seedprod-admin-settings.php:426
+#: admin/partials/seedprod-admin-settings.php:478
 msgid "Created"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:400
-#: admin/partials/seedprod-admin-settings.php:419
-#: admin/partials/seedprod-admin-settings.php:474
+#: admin/partials/seedprod-admin-settings.php:408
+#: admin/partials/seedprod-admin-settings.php:427
+#: admin/partials/seedprod-admin-settings.php:482
 msgid "Actions"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:407
+#: admin/partials/seedprod-admin-settings.php:415
 msgid "Loading subscribers..."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:428
+#: admin/partials/seedprod-admin-settings.php:436
 #: languages/seedprod-lite.php:8516
 msgid "Bulk Actions"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:432
+#: admin/partials/seedprod-admin-settings.php:440
 #: languages/seedprod-lite.php:2176
 msgid "Apply"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:439
+#: admin/partials/seedprod-admin-settings.php:447
 #: languages/seedprod-lite.php:8519
 msgid "items"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:495
+#: admin/partials/seedprod-admin-settings.php:503
 msgid "View All Plugins"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:500
+#: admin/partials/seedprod-admin-settings.php:508
 msgid "Supercharge your website with our recommended WordPress plugins."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:549
+#: admin/partials/seedprod-admin-settings.php:557
 msgid "NOT INSTALLED"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:558
+#: admin/partials/seedprod-admin-settings.php:566
 msgid "PRO VERSION"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:603
+#: admin/partials/seedprod-admin-settings.php:611
 msgid "About SeedProd"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:606
+#: admin/partials/seedprod-admin-settings.php:614
 msgid "Hello and welcome to SeedProd, the #1 WordPress Website Builder with AI. At SeedProd, we build software that helps you create stunning WordPress websites in minutes, not weeks. Our drag & drop builder and AI-powered tools help you design complete websites, landing pages, and custom themes without writing any code."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:610
+#: admin/partials/seedprod-admin-settings.php:618
 msgid "What started as a simple coming soon page plugin has evolved into a complete website builder. Today, SeedProd powers millions of websites with our AI website generator, 90+ professional design blocks, theme builder, and extensive template library. Build everything from business websites to online stores, portfolios, and blogs."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:614
+#: admin/partials/seedprod-admin-settings.php:622
 msgid "Our mission is simple: empower anyone to build a professional WordPress website without technical skills. With our new AI technology, you can describe your business and watch as a complete website is generated in just 60 seconds."
 msgstr ""
 
 #. translators: 1: WPBeginner link, 2: OptinMonster link, 3: MonsterInsights link, 4: WPForms link, 5: RafflePress link, 6: TrustPulse link
-#: admin/partials/seedprod-admin-settings.php:620
+#: admin/partials/seedprod-admin-settings.php:628
 #, php-format
 msgid "SeedProd is brought to you by the same team that's behind the largest WordPress resource site, %1$s, the most popular lead-generation software, %2$s, the best WordPress analytics plugin, %3$s, the best WordPress forms plugin, %4$s, the best WordPress giveaway plugin, %5$s, and finally the best WordPress FOMO plugin, %6$s."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:625
+#: admin/partials/seedprod-admin-settings.php:633
 msgid "Yup, we know a thing or two about building awesome products that customers love."
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:631
+#: admin/partials/seedprod-admin-settings.php:639
 msgid "SeedProd Team photo"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:634
+#: admin/partials/seedprod-admin-settings.php:642
 msgid "The Awesome Motive Team"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:642
+#: admin/partials/seedprod-admin-settings.php:650
 msgid "Unlock SeedProd Lite Today"
 msgstr ""
 
-#: admin/partials/seedprod-admin-settings.php:643
+#: admin/partials/seedprod-admin-settings.php:651
 msgid "Get access to all our premium features including theme builder, WooCommerce blocks, advanced integrations, and more!"
 msgstr ""
 
@@ -3811,688 +3852,697 @@ msgstr ""
 msgid "Failed to process image mask."
 msgstr ""
 
-#: app/functions-utils.php:57
+#: app/functions-utils.php:97
 msgid "SuperAdmin"
 msgstr ""
 
-#: app/functions-utils.php:59
+#: app/functions-utils.php:99
 msgid "Anyone Logged In"
 msgstr ""
 
-#: app/functions-utils.php:120
+#: app/functions-utils.php:160
 #: languages/seedprod-lite.php:712
 msgid "Column"
 msgstr ""
 
-#: app/functions-utils.php:138
+#: app/functions-utils.php:178
 #: languages/seedprod-lite.php:8818
 msgid "Headline"
 msgstr ""
 
-#: app/functions-utils.php:150
+#: app/functions-utils.php:190
 #: languages/seedprod-lite.php:429
 msgid "Text"
 msgstr ""
 
-#: app/functions-utils.php:158
+#: app/functions-utils.php:198
 #: languages/seedprod-lite.php:9897
 msgid "List"
 msgstr ""
 
-#: app/functions-utils.php:167
+#: app/functions-utils.php:207
 #: languages/seedprod-lite.php:1810
 msgid "Button"
 msgstr ""
 
-#: app/functions-utils.php:175
+#: app/functions-utils.php:215
 #: languages/seedprod-lite.php:3449
 msgid "Image"
 msgstr ""
 
-#: app/functions-utils.php:183
+#: app/functions-utils.php:223
 #: languages/seedprod-lite.php:4361
 msgid "Video"
 msgstr ""
 
-#: app/functions-utils.php:191
+#: app/functions-utils.php:231
 #: languages/seedprod-lite.php:5871
 msgid "Divider"
 msgstr ""
 
-#: app/functions-utils.php:200
+#: app/functions-utils.php:240
 msgid "Table of Contents"
 msgstr ""
 
-#: app/functions-utils.php:208
+#: app/functions-utils.php:248
 #: languages/seedprod-lite.php:6389
 msgid "Spacer"
 msgstr ""
 
-#: app/functions-utils.php:217
+#: app/functions-utils.php:257
 msgid " Payment Button"
 msgstr ""
 
-#: app/functions-utils.php:227
+#: app/functions-utils.php:267
 #: languages/seedprod-lite.php:8858
 msgid "Giveaway"
 msgstr ""
 
-#: app/functions-utils.php:238
+#: app/functions-utils.php:278
 #: languages/seedprod-lite.php:8344
 msgid "MyPayKit"
 msgstr ""
 
-#: app/functions-utils.php:249
+#: app/functions-utils.php:289
 #: languages/seedprod-lite.php:7011
 msgid "Contact Form"
 msgstr ""
 
-#: app/functions-utils.php:258
+#: app/functions-utils.php:298
 msgid "Envira Gallery"
 msgstr ""
 
-#: app/functions-utils.php:268
+#: app/functions-utils.php:308
 msgid "Custom HTML"
 msgstr ""
 
-#: app/functions-utils.php:278
+#: app/functions-utils.php:318
 msgid "Optin Form"
 msgstr ""
 
-#: app/functions-utils.php:287
+#: app/functions-utils.php:327
 #: languages/seedprod-lite.php:6236
 msgid "Tabs"
 msgstr ""
 
-#: app/functions-utils.php:296
+#: app/functions-utils.php:336
 msgid "Countdown"
 msgstr ""
 
-#: app/functions-utils.php:305
+#: app/functions-utils.php:345
 msgid "Social Profiles"
 msgstr ""
 
-#: app/functions-utils.php:314
+#: app/functions-utils.php:354
 #: languages/seedprod-lite.php:6392
 msgid "Social Sharing"
 msgstr ""
 
-#: app/functions-utils.php:324
+#: app/functions-utils.php:364
 msgid "Video Pop Up"
 msgstr ""
 
-#: app/functions-utils.php:335
+#: app/functions-utils.php:375
 msgid "Animated Headline"
 msgstr ""
 
-#: app/functions-utils.php:345
+#: app/functions-utils.php:385
 #: languages/seedprod-lite.php:7014
 msgid "Progress Bar"
 msgstr ""
 
-#: app/functions-utils.php:354
+#: app/functions-utils.php:394
 #: languages/seedprod-lite.php:5591
 msgid "Icon"
 msgstr ""
 
-#: app/functions-utils.php:363
+#: app/functions-utils.php:403
 #: languages/seedprod-lite.php:5657
 msgid "Testimonials"
 msgstr ""
 
-#: app/functions-utils.php:373
+#: app/functions-utils.php:413
 msgid "Image Carousel"
 msgstr ""
 
-#: app/functions-utils.php:386
+#: app/functions-utils.php:426
 msgid "Image Box"
 msgstr ""
 
-#: app/functions-utils.php:396
+#: app/functions-utils.php:436
 msgid "Before After Toggle"
 msgstr ""
 
-#: app/functions-utils.php:409
+#: app/functions-utils.php:449
 msgid "Icon Box"
 msgstr ""
 
-#: app/functions-utils.php:419
+#: app/functions-utils.php:459
 msgid "Nav Menu"
 msgstr ""
 
-#: app/functions-utils.php:427
+#: app/functions-utils.php:467
 msgid "Content Toggle"
 msgstr ""
 
-#: app/functions-utils.php:439
+#: app/functions-utils.php:479
 msgid "Pricing Table"
 msgstr ""
 
-#: app/functions-utils.php:451
+#: app/functions-utils.php:491
 msgid "Business Reviews"
 msgstr ""
 
-#: app/functions-utils.php:470
+#: app/functions-utils.php:510
 #: languages/seedprod-lite.php:6888
 msgid "Anchor"
 msgstr ""
 
-#: app/functions-utils.php:479
+#: app/functions-utils.php:519
 #: languages/seedprod-lite.php:6373
 msgid "Star Rating"
 msgstr ""
 
-#: app/functions-utils.php:488
+#: app/functions-utils.php:528
 #: languages/seedprod-lite.php:10326
 msgid "Accordion"
 msgstr ""
 
-#: app/functions-utils.php:497
+#: app/functions-utils.php:537
 #: languages/seedprod-lite.php:6514
 msgid "Shortcode"
 msgstr ""
 
-#: app/functions-utils.php:506
+#: app/functions-utils.php:546
 msgid "Login Form"
 msgstr ""
 
-#: app/functions-utils.php:516
+#: app/functions-utils.php:556
 #: languages/seedprod-lite.php:8822
 msgid "Google Maps"
 msgstr ""
 
-#: app/functions-utils.php:526
+#: app/functions-utils.php:566
 msgid "Search Form"
 msgstr ""
 
-#: app/functions-utils.php:536
+#: app/functions-utils.php:576
 msgid "Facebook Like"
 msgstr ""
 
-#: app/functions-utils.php:550
+#: app/functions-utils.php:590
 msgid "Facebook Comments"
 msgstr ""
 
-#: app/functions-utils.php:562
+#: app/functions-utils.php:602
 msgid "Facebook Page"
 msgstr ""
 
-#: app/functions-utils.php:574
+#: app/functions-utils.php:614
 msgid "Facebook Embed"
 msgstr ""
 
-#: app/functions-utils.php:587
+#: app/functions-utils.php:627
 msgid "X (Twitter) Embed Tweet"
 msgstr ""
 
-#: app/functions-utils.php:599
+#: app/functions-utils.php:639
 msgid "X (Twitter) Embed Timeline"
 msgstr ""
 
-#: app/functions-utils.php:611
+#: app/functions-utils.php:651
 msgid "X (Twitter) Tweet Button"
 msgstr ""
 
-#: app/functions-utils.php:623
+#: app/functions-utils.php:663
 msgid "X (Twitter) Follow Button"
 msgstr ""
 
-#: app/functions-utils.php:635
+#: app/functions-utils.php:675
 msgid "Advanced Gallery"
 msgstr ""
 
-#: app/functions-utils.php:646
+#: app/functions-utils.php:686
 #: languages/seedprod-lite.php:8974
 msgid "Gallery"
 msgstr ""
 
-#: app/functions-utils.php:657
+#: app/functions-utils.php:697
 msgid "Business Hours"
 msgstr ""
 
-#: app/functions-utils.php:665
+#: app/functions-utils.php:705
 msgid "Team Member"
 msgstr ""
 
-#: app/functions-utils.php:676
+#: app/functions-utils.php:716
 msgid "Price List"
 msgstr ""
 
-#: app/functions-utils.php:685
-#: app/functions-utils.php:1025
+#: app/functions-utils.php:725
+#: app/functions-utils.php:1065
 msgid "Add To Cart"
 msgstr ""
 
-#: app/functions-utils.php:695
-#: app/functions-utils.php:1223
+#: app/functions-utils.php:735
+#: app/functions-utils.php:1263
 msgid "Checkout"
 msgstr ""
 
-#: app/functions-utils.php:707
-#: app/functions-utils.php:1211
+#: app/functions-utils.php:747
+#: app/functions-utils.php:1251
 #: languages/seedprod-lite.php:2383
 msgid "Cart"
 msgstr ""
 
-#: app/functions-utils.php:720
+#: app/functions-utils.php:760
 msgid "Products Grid"
 msgstr ""
 
-#: app/functions-utils.php:732
+#: app/functions-utils.php:772
 #: languages/seedprod-lite.php:2882
 msgid "Recent Products"
 msgstr ""
 
-#: app/functions-utils.php:743
+#: app/functions-utils.php:783
 #: languages/seedprod-lite.php:2874
 msgid "Sale Products"
 msgstr ""
 
-#: app/functions-utils.php:754
+#: app/functions-utils.php:794
 #: languages/seedprod-lite.php:2878
 msgid "Best Selling Products"
 msgstr ""
 
-#: app/functions-utils.php:763
+#: app/functions-utils.php:803
 #: languages/seedprod-lite.php:2870
 msgid "Featured Products"
 msgstr ""
 
-#: app/functions-utils.php:772
+#: app/functions-utils.php:812
 #: languages/seedprod-lite.php:2886
 msgid "Top Rated Products"
 msgstr ""
 
-#: app/functions-utils.php:782
-#: app/functions-utils.php:793
+#: app/functions-utils.php:822
+#: app/functions-utils.php:833
 msgid "Posts"
 msgstr ""
 
-#: app/functions-utils.php:804
+#: app/functions-utils.php:844
 #: languages/seedprod-lite.php:10278
 msgid "Alert"
 msgstr ""
 
-#: app/functions-utils.php:820
+#: app/functions-utils.php:860
 #: languages/seedprod-lite.php:9320
 msgid "Post Title"
 msgstr ""
 
-#: app/functions-utils.php:832
+#: app/functions-utils.php:872
 msgid "Post Content"
 msgstr ""
 
-#: app/functions-utils.php:844
+#: app/functions-utils.php:884
 #: languages/seedprod-lite.php:9323
 msgid "Post Excerpt"
 msgstr ""
 
-#: app/functions-utils.php:856
+#: app/functions-utils.php:896
 msgid "Featured Image"
 msgstr ""
 
-#: app/functions-utils.php:868
+#: app/functions-utils.php:908
 msgid "Author Box"
 msgstr ""
 
-#: app/functions-utils.php:880
+#: app/functions-utils.php:920
 msgid "Author Bio"
 msgstr ""
 
-#: app/functions-utils.php:893
+#: app/functions-utils.php:933
 msgid "Post Comments"
 msgstr ""
 
-#: app/functions-utils.php:905
+#: app/functions-utils.php:945
 msgid "Post Navigation"
 msgstr ""
 
-#: app/functions-utils.php:918
+#: app/functions-utils.php:958
 msgid "Post Info"
 msgstr ""
 
-#: app/functions-utils.php:930
+#: app/functions-utils.php:970
 #: languages/seedprod-lite.php:9191
 msgid "Archive Title"
 msgstr ""
 
-#: app/functions-utils.php:952
+#: app/functions-utils.php:992
 #: languages/seedprod-lite.php:9347
 msgid "Site Logo"
 msgstr ""
 
-#: app/functions-utils.php:965
-#: app/functions-utils.php:1370
+#: app/functions-utils.php:1005
+#: app/functions-utils.php:1410
 msgid "Template Parts"
 msgstr ""
 
-#: app/functions-utils.php:977
+#: app/functions-utils.php:1017
 msgid "Menu Cart"
 msgstr ""
 
-#: app/functions-utils.php:989
+#: app/functions-utils.php:1029
 msgid "Product Title"
 msgstr ""
 
-#: app/functions-utils.php:1001
+#: app/functions-utils.php:1041
 msgid "Product Featured Image"
 msgstr ""
 
-#: app/functions-utils.php:1013
+#: app/functions-utils.php:1053
 msgid "Product Price"
 msgstr ""
 
-#: app/functions-utils.php:1036
+#: app/functions-utils.php:1076
 msgid "Product Meta"
 msgstr ""
 
-#: app/functions-utils.php:1047
+#: app/functions-utils.php:1087
 msgid "Product Content"
 msgstr ""
 
-#: app/functions-utils.php:1058
+#: app/functions-utils.php:1098
 msgid "Short Description"
 msgstr ""
 
-#: app/functions-utils.php:1071
+#: app/functions-utils.php:1111
 msgid "Additional Information"
 msgstr ""
 
-#: app/functions-utils.php:1082
+#: app/functions-utils.php:1122
 msgid "Products Related"
 msgstr ""
 
-#: app/functions-utils.php:1094
+#: app/functions-utils.php:1134
 msgid "Upsells"
 msgstr ""
 
-#: app/functions-utils.php:1106
+#: app/functions-utils.php:1146
 msgid "Product Rating"
 msgstr ""
 
-#: app/functions-utils.php:1119
+#: app/functions-utils.php:1159
 msgid "Product Stock"
 msgstr ""
 
-#: app/functions-utils.php:1131
+#: app/functions-utils.php:1171
 #: languages/seedprod-lite.php:3995
 msgid "Archive Products"
 msgstr ""
 
-#: app/functions-utils.php:1142
+#: app/functions-utils.php:1182
 msgid "Product Data Tabs"
 msgstr ""
 
-#: app/functions-utils.php:1155
+#: app/functions-utils.php:1195
 #: languages/seedprod-lite.php:8750
 msgid "Hotspot"
 msgstr ""
 
-#: app/functions-utils.php:1174
+#: app/functions-utils.php:1214
 msgid "Counter"
 msgstr ""
 
-#: app/functions-utils.php:1187
+#: app/functions-utils.php:1227
 msgid "Product Gallery Images"
 msgstr ""
 
-#: app/functions-utils.php:1200
+#: app/functions-utils.php:1240
 msgid "Downloads Grid"
 msgstr ""
 
-#: app/functions-utils.php:1234
+#: app/functions-utils.php:1274
 msgid "Buy Now Button"
 msgstr ""
 
-#: app/functions-utils.php:1252
+#: app/functions-utils.php:1292
 msgid "Download Title"
 msgstr ""
 
-#: app/functions-utils.php:1263
+#: app/functions-utils.php:1303
 msgid "Download Featured Image"
 msgstr ""
 
-#: app/functions-utils.php:1274
+#: app/functions-utils.php:1314
 msgid "Download Price"
 msgstr ""
 
-#: app/functions-utils.php:1285
+#: app/functions-utils.php:1325
 msgid "Download Content"
 msgstr ""
 
-#: app/functions-utils.php:1296
+#: app/functions-utils.php:1336
 msgid "Download Add To Cart"
 msgstr ""
 
-#: app/functions-utils.php:1307
+#: app/functions-utils.php:1347
 msgid "Download Excerpt"
 msgstr ""
 
-#: app/functions-utils.php:1318
+#: app/functions-utils.php:1358
 msgid "Download Instructions"
 msgstr ""
 
-#: app/functions-utils.php:1329
+#: app/functions-utils.php:1369
 msgid "Push Notifications"
 msgstr ""
 
-#: app/functions-utils.php:1411
+#: app/functions-utils.php:1451
 msgid "Select Time"
 msgstr ""
 
+#: app/functions-utils.php:2093
 #: app/functions-utils.php:2098
-msgid "1 Hour"
-msgstr ""
-
-#: app/functions-utils.php:2099
-msgid "2 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2100
-msgid "3 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2101
-msgid "4 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2102
-msgid "5 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2103
-msgid "6 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2104
-msgid "7 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2105
-msgid "8 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2106
-msgid "9 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2107
-msgid "10 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2108
-msgid "11 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2109
-msgid "12 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2110
-msgid "13 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2111
-msgid "14 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2112
-msgid "15 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2113
-msgid "16 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2114
-msgid "17 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2115
-msgid "18 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2116
-msgid "19 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2117
-msgid "20 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2118
-msgid "21 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2119
-msgid "22 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2120
-msgid "23 Hours"
-msgstr ""
-
-#: app/functions-utils.php:2121
-msgid "1 Day"
-msgstr ""
-
-#: app/functions-utils.php:2122
-msgid "2 Days"
-msgstr ""
-
-#: app/functions-utils.php:2123
-msgid "3 Days"
-msgstr ""
-
-#: app/functions-utils.php:2124
-msgid "4 Days"
-msgstr ""
-
-#: app/functions-utils.php:2125
-msgid "5 Days"
-msgstr ""
-
-#: app/functions-utils.php:2126
-msgid "6 Days"
-msgstr ""
-
-#: app/functions-utils.php:2127
-msgid "7 Days"
-msgstr ""
-
-#: app/functions-utils.php:2128
-msgid "8 Days"
-msgstr ""
-
-#: app/functions-utils.php:2129
-msgid "9 Days"
-msgstr ""
-
-#: app/functions-utils.php:2130
-msgid "10 Days"
-msgstr ""
-
-#: app/functions-utils.php:2131
-msgid "11 Days"
-msgstr ""
-
-#: app/functions-utils.php:2132
-msgid "12 Days"
-msgstr ""
-
-#: app/functions-utils.php:2133
-msgid "13 Days"
-msgstr ""
-
-#: app/functions-utils.php:2134
-msgid "14 Days"
-msgstr ""
-
-#: app/functions-utils.php:2135
-msgid "15 Days"
-msgstr ""
-
-#: app/functions-utils.php:2136
-msgid "16 Days"
-msgstr ""
-
-#: app/functions-utils.php:2137
-msgid "17 Days"
-msgstr ""
-
-#: app/functions-utils.php:2138
-msgid "18 Days"
-msgstr ""
-
-#: app/functions-utils.php:2139
-msgid "19 Days"
+msgid "The URL is not allowed."
 msgstr ""
 
 #: app/functions-utils.php:2140
+msgid "Too many redirects."
+msgstr ""
+
+#: app/functions-utils.php:2409
+msgid "1 Hour"
+msgstr ""
+
+#: app/functions-utils.php:2410
+msgid "2 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2411
+msgid "3 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2412
+msgid "4 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2413
+msgid "5 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2414
+msgid "6 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2415
+msgid "7 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2416
+msgid "8 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2417
+msgid "9 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2418
+msgid "10 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2419
+msgid "11 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2420
+msgid "12 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2421
+msgid "13 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2422
+msgid "14 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2423
+msgid "15 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2424
+msgid "16 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2425
+msgid "17 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2426
+msgid "18 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2427
+msgid "19 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2428
+msgid "20 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2429
+msgid "21 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2430
+msgid "22 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2431
+msgid "23 Hours"
+msgstr ""
+
+#: app/functions-utils.php:2432
+msgid "1 Day"
+msgstr ""
+
+#: app/functions-utils.php:2433
+msgid "2 Days"
+msgstr ""
+
+#: app/functions-utils.php:2434
+msgid "3 Days"
+msgstr ""
+
+#: app/functions-utils.php:2435
+msgid "4 Days"
+msgstr ""
+
+#: app/functions-utils.php:2436
+msgid "5 Days"
+msgstr ""
+
+#: app/functions-utils.php:2437
+msgid "6 Days"
+msgstr ""
+
+#: app/functions-utils.php:2438
+msgid "7 Days"
+msgstr ""
+
+#: app/functions-utils.php:2439
+msgid "8 Days"
+msgstr ""
+
+#: app/functions-utils.php:2440
+msgid "9 Days"
+msgstr ""
+
+#: app/functions-utils.php:2441
+msgid "10 Days"
+msgstr ""
+
+#: app/functions-utils.php:2442
+msgid "11 Days"
+msgstr ""
+
+#: app/functions-utils.php:2443
+msgid "12 Days"
+msgstr ""
+
+#: app/functions-utils.php:2444
+msgid "13 Days"
+msgstr ""
+
+#: app/functions-utils.php:2445
+msgid "14 Days"
+msgstr ""
+
+#: app/functions-utils.php:2446
+msgid "15 Days"
+msgstr ""
+
+#: app/functions-utils.php:2447
+msgid "16 Days"
+msgstr ""
+
+#: app/functions-utils.php:2448
+msgid "17 Days"
+msgstr ""
+
+#: app/functions-utils.php:2449
+msgid "18 Days"
+msgstr ""
+
+#: app/functions-utils.php:2450
+msgid "19 Days"
+msgstr ""
+
+#: app/functions-utils.php:2451
 msgid "20 Days"
 msgstr ""
 
-#: app/functions-utils.php:2141
+#: app/functions-utils.php:2452
 msgid "21 Days"
 msgstr ""
 
-#: app/functions-utils.php:2142
+#: app/functions-utils.php:2453
 msgid "22 Days"
 msgstr ""
 
-#: app/functions-utils.php:2143
+#: app/functions-utils.php:2454
 msgid "23 Days"
 msgstr ""
 
-#: app/functions-utils.php:2144
+#: app/functions-utils.php:2455
 msgid "24 Days"
 msgstr ""
 
-#: app/functions-utils.php:2145
+#: app/functions-utils.php:2456
 msgid "25 Days"
 msgstr ""
 
-#: app/functions-utils.php:2146
+#: app/functions-utils.php:2457
 msgid "26 Days"
 msgstr ""
 
-#: app/functions-utils.php:2147
+#: app/functions-utils.php:2458
 msgid "27 Days"
 msgstr ""
 
-#: app/functions-utils.php:2148
+#: app/functions-utils.php:2459
 msgid "28 Days"
 msgstr ""
 
-#: app/functions-utils.php:2149
+#: app/functions-utils.php:2460
 msgid "29 Days"
 msgstr ""
 
-#: app/functions-utils.php:2150
+#: app/functions-utils.php:2461
 msgid "30 Days"
 msgstr ""
 
-#: app/functions-utils.php:2151
+#: app/functions-utils.php:2462
 msgid "1 Year"
 msgstr ""
 
@@ -4535,6 +4585,10 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
+#: app/includes/tracking.php:215
+msgid "Once Weekly"
+msgstr ""
+
 #: app/includes/upgrade.php:14
 msgid "You are not allowed to install plugins."
 msgstr ""
@@ -4566,31 +4620,31 @@ msgstr ""
 msgid "The minimum required version of PHP to run this plugin is PHP Version 5.3.3. Please contact your hosting company and ask them to upgrade this site's php verison."
 msgstr ""
 
-#: app/lpage.php:733
+#: app/lpage.php:734
 msgid "Page cannot be saved. Invalid JSON. This sometimes happens if you copy and paste text in. Please contact support."
 msgstr ""
 
-#: app/lpage.php:887
+#: app/lpage.php:888
 msgid "Starts in"
 msgstr ""
 
-#: app/lpage.php:889
+#: app/lpage.php:890
 msgid "Ended"
 msgstr ""
 
-#: app/lpage.php:1056
+#: app/lpage.php:1060
 msgid "<br><br>Please enter a valid license key to access the themes. You can still proceed to create a page with the default theme.<br> <a class='seedprod_no_themes' href='?theme=0'>Click to continue &#8594;</a>"
 msgstr ""
 
-#: app/render-csp-mm.php:281
+#: app/render-csp-mm.php:283
 msgid "Please create your Maintenance Page in the plugin settings."
 msgstr ""
 
-#: app/render-csp-mm.php:293
+#: app/render-csp-mm.php:295
 msgid "Please create enter your redirect url in the plugin settings."
 msgstr ""
 
-#: app/render-csp-mm.php:298
+#: app/render-csp-mm.php:300
 msgid "Please create your Coming Soon Page in the plugin settings."
 msgstr ""
 
@@ -4722,28 +4776,28 @@ msgstr ""
 msgid "Page Not Found"
 msgstr ""
 
-#: app/render-dynamic-tags.php:538
+#: app/render-dynamic-tags.php:595
 msgid "Options"
 msgstr ""
 
-#: app/render-dynamic-tags.php:1047
+#: app/render-dynamic-tags.php:1104
 #: languages/seedprod-lite.php:9177
 msgid "Select Key"
 msgstr ""
 
-#: app/settings.php:101
+#: app/settings.php:109
 msgid "Settings Updated"
 msgstr ""
 
-#: app/settings.php:107
+#: app/settings.php:115
 msgid "Error Updating Settings"
 msgstr ""
 
-#: app/settings.php:165
+#: app/settings.php:173
 msgid "App Settings Updated"
 msgstr ""
 
-#: app/settings.php:171
+#: app/settings.php:179
 msgid "Error Updating App Settings"
 msgstr ""
 
@@ -4936,113 +4990,123 @@ msgstr ""
 msgid "Whether a mode was activated (for coming-soon/maintenance)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:744
+#: includes/class-seedprod-abilities.php:739
+msgid "You do not have permission to activate a mode page."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:748
 msgid "condition_value is required for parametric conditions like is_page(x) or is_single(x). Pass a comma-separated list of page or post IDs or slugs."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:751
+#: includes/class-seedprod-abilities.php:755
 msgid "sections must be an array of section objects."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:757
+#: includes/class-seedprod-abilities.php:761
 msgid "The sections tree is malformed; fix these and retry."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:801
-msgid "condition is not supported in this version."
+#: includes/class-seedprod-abilities.php:777
+#: includes/class-seedprod-abilities.php:1377
+msgid "Global CSS is not a content page. Use seedprod/get-global-css and seedprod/save-global-css instead."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:804
-msgid "condition can only be changed on theme templates (header, footer, page-template, part)."
+#: includes/class-seedprod-abilities.php:785
+#: includes/class-seedprod-abilities.php:894
+msgid "You need the unfiltered_html capability to save page sections."
 msgstr ""
 
 #: includes/class-seedprod-abilities.php:816
-#: includes/class-seedprod-abilities.php:935
+msgid "condition is not supported in this version."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:819
+msgid "condition can only be changed on theme templates (header, footer, page-template, part)."
+msgstr ""
+
+#: includes/class-seedprod-abilities.php:831
+#: includes/class-seedprod-abilities.php:955
 msgid "Failed to encode page content as JSON. Check that sections contain valid data."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:830
+#: includes/class-seedprod-abilities.php:845
 msgid "Failed to update page content."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:858
+#: includes/class-seedprod-abilities.php:873
 msgid "type is required when creating a new page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:861
+#: includes/class-seedprod-abilities.php:876
 msgid "title is required when creating a new page."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:867
+#: includes/class-seedprod-abilities.php:882
 msgid "Invalid page type for this build."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:874
+#: includes/class-seedprod-abilities.php:889
 msgid "condition is required for theme templates (header, footer, page-template, part)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:950
+#: includes/class-seedprod-abilities.php:970
 msgid "Failed to save page content."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1018
+#: includes/class-seedprod-abilities.php:1038
 msgid "This page was auto-generated as a placeholder page for your SeedProd theme. To manage its contents, visit SeedProd > Website Builder in the WordPress menu."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1251
+#: includes/class-seedprod-abilities.php:1271
 msgid "Get SeedProd Page"
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1252
+#: includes/class-seedprod-abilities.php:1272
 msgid "Get a single SeedProd page by ID. Returns metadata by default (lightweight); pass include_sections=true to also return the full sections JSON for editing."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1259
+#: includes/class-seedprod-abilities.php:1279
 msgid "The post ID of the page to retrieve."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1263
+#: includes/class-seedprod-abilities.php:1283
 msgid "When true, include the full document sections array. Default false returns metadata only — much cheaper for inspection, since sections can be hundreds of KB on complex pages."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1276
+#: includes/class-seedprod-abilities.php:1296
 msgid "Long-form page type (landing-page, coming-soon, ...)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1282
+#: includes/class-seedprod-abilities.php:1302
 msgid "Template routing condition (theme templates only; empty string otherwise)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1286
+#: includes/class-seedprod-abilities.php:1306
 msgid "Target value for a parametric condition (comma-separated page or post IDs or slugs); empty string when the condition takes no value."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1290
+#: includes/class-seedprod-abilities.php:1310
 msgid "Page-level globals (fonts, layout). Populated for landing pages."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1296
+#: includes/class-seedprod-abilities.php:1316
 msgid "True when this page is currently the bound active mode page (coming-soon, maintenance, login, or 404)."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1300
+#: includes/class-seedprod-abilities.php:1320
 msgid "ISO 8601 last-modified timestamp."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1306
+#: includes/class-seedprod-abilities.php:1326
 msgid "Full document sections array. null when include_sections is false; an array (possibly empty) when true."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1337
+#: includes/class-seedprod-abilities.php:1357
 msgid "id is required."
 msgstr ""
 
-#: includes/class-seedprod-abilities.php:1349
+#: includes/class-seedprod-abilities.php:1369
 msgid "Post is not a SeedProd page."
-msgstr ""
-
-#: includes/class-seedprod-abilities.php:1357
-msgid "Global CSS is not a content page. Use seedprod/get-global-css and seedprod/save-global-css instead."
 msgstr ""
 
 #: languages/seedprod-lite.php:11

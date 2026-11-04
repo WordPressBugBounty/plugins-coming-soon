@@ -293,12 +293,7 @@ function seedprod_lite_v2_save_images_locally( $img_arr ) {
 		}
 
 		// Download image.
-		$response = wp_remote_get(
-			$image['old_url'],
-			array(
-				'sslverify' => false,
-			)
-		);
+		$response = seedprod_lite_safe_remote_get( $image['old_url'] );
 
 		if ( is_wp_error( $response ) ) {
 			$failed_images[] = $image;

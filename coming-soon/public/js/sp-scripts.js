@@ -336,6 +336,11 @@ jQuery(document).ready(function ($) {
   var default_format = "{MM}/{dd}/{yyyy}";
   var html = $("body").html();
   var newTxt = html.split("[#");
+
+  // Date.create comes from dynamic-text.js, which does not load on every page.
+  if (typeof Date.create !== "function") {
+    newTxt = [];
+  }
   for (var i = 1; i < newTxt.length; i++) {
     var format = default_format;
     var tag = newTxt[i].split("]")[0];

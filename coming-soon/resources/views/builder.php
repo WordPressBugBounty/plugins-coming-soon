@@ -318,7 +318,7 @@ if ( empty( $seedprod_site_token ) ) {
 	$seedprod_site_token = wp_generate_uuid4();
 	update_option( 'seedprod_token', $seedprod_site_token );
 }
-$license_key           = get_option( 'seedprod_api_key' );
+$license_key           = seedprod_lite_get_license_key_for_display();
 $email_integration_url = '';
 
 // Stripe connect.
@@ -328,16 +328,7 @@ if ( empty( $seedprod_stripe_connect_origin ) ) {
 	add_option( 'seedprod_stripe_connect_origin', $seedprod_stripe_connect_origin );
 }
 // Set stripe token.
-// phpcs:disable WordPress.Security.NonceVerification.Recommended
-if ( ! empty( $_GET['seedprod_stripe_connect_token'] ) ) {
-	if ( ! empty( $_GET['seedprod_stripe_connect_origin'] ) ) {
-		$stripe_origin = sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_origin'] ) );
-		if ( $seedprod_stripe_connect_origin === $stripe_origin && current_user_can( 'manage_options' ) ) {
-			update_option( 'seedprod_stripe_connect_token', sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_token'] ) ) );
-		}
-	}
-}
-// phpcs:enable WordPress.Security.NonceVerification.Recommended
+seedprod_lite_save_stripe_connect_token( $seedprod_stripe_connect_origin );
 // Get stripe token.
 $seedprod_stripe_connect_token = get_option( 'seedprod_stripe_connect_token' );
 if ( empty( $seedprod_stripe_connect_token ) ) {
@@ -515,6 +506,7 @@ foreach ( $fontawesome_json as $v ) {
 <script>
 //var seedprod_copy_paste_enabled = false;
 var seedprod_nonce = <?php echo wp_json_encode( $seedprod_nonce ); ?>;
+var seedprod_can_manage_options = <?php echo wp_json_encode( current_user_can( 'manage_options' ) ); ?>;
 <?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 var seedprod_page = <?php echo wp_json_encode( isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '' ); ?>;
 var seedprod_remote_api = "<?php echo esc_url( SEEDPROD_API_URL ); ?>";
@@ -640,6 +632,8 @@ var seedprod_dismiss_upsell = <?php echo wp_json_encode( esc_url_raw( $ajax_url 
 <?php $ajax_url = html_entity_decode( wp_nonce_url( 'admin-ajax.php?action=seedprod_lite_import_cross_site_paste', 'seedprod_lite_import_cross_site_paste' ) ); ?>
 var seedprod_import_cross_site_url = <?php echo wp_json_encode( esc_url_raw( $ajax_url ) ); ?>;
 
+var seedprod_stripe_connect_nonce_url = <?php echo wp_json_encode( esc_url_raw( 'admin-ajax.php?action=seedprod_lite_stripe_connect_nonce' ) ); ?>;
+
 <?php
 	// User has to have this capability.
 	$unfiltered_html = false;
@@ -691,7 +685,7 @@ var seedprod_data =
 $seedprod_data = array(
 	'seedprod_web_api'                    => $seedprod_web_api,
 	'seedprod_stripe_connect_token'       => $seedprod_stripe_connect_token,
-	'seedprod_stripe_connect_origin'      => $seedprod_stripe_connect_origin,
+	'seedprod_stripe_connect_origin'      => current_user_can( 'manage_options' ) ? $seedprod_stripe_connect_origin : '',
 	'seedprod_settings'                   => $seedprod_settings,
 	'mixed_content'                       => $mixed_content,
 	'is_landing_page'                     => $is_landing_page,

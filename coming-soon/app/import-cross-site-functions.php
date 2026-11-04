@@ -39,6 +39,10 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 	// interfering with Unsplash URLs & making it hard to find / replace URLs in strings.
 	$processed_data = wp_specialchars_decode( $data );
 
+	$web_ports = function () {
+		return array( 80, 443 );
+	};
+
 	foreach ( $unique_img_srcs_extensions as $old_url => $extension ) {
 		if ( false !== strpos( $old_url, 'w3.org' ) ) {
 			continue;
@@ -59,8 +63,15 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 
 		$plugin_img_url = $old_url_decoded;
 
-		$new_url_id = seedprod_lite_insert_attachment_from_url( $plugin_img_url );
-		$new_url    = wp_get_attachment_url( $new_url_id );
+		// Allow only ports 80 and 443, and the home port on this site's own host. The helper
+		// checks the port itself, because older WordPress versions do not have this filter.
+		add_filter( 'http_allowed_safe_ports', $web_ports, PHP_INT_MAX );
+		try {
+			$new_url_id = seedprod_lite_insert_attachment_from_url( $plugin_img_url, null, $web_ports() );
+		} finally {
+			remove_filter( 'http_allowed_safe_ports', $web_ports, PHP_INT_MAX );
+		}
+		$new_url = wp_get_attachment_url( $new_url_id );
 
 		if ( is_wp_error( $new_url ) || empty( $new_url ) ) {
 			// Skip replacement — keep original URL if image import fails.

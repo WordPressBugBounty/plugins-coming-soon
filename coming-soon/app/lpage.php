@@ -88,6 +88,10 @@ function seedprod_lite_new_lpage() {
 			}
 		}
 
+		if ( in_array( $type, array( 'cs', 'mm', 'p404', 'loginp' ), true ) && ! current_user_can( 'manage_options' ) ) {
+			wp_die();
+		}
+
 		// base page settings.
 		require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 		$settings            = json_decode( $seedprod_basic_lpage );
@@ -615,10 +619,7 @@ function seedprod_lite_save_lpage() {
 			$has_permission = true;
 		}
 
-		// unfiltered html check.
-		if ( current_user_can( 'unfiltered_html' ) && ! defined( 'DISALLOW_UNFILTERED_HTML' ) || ( defined( 'DISALLOW_UNFILTERED_HTML' ) && ! DISALLOW_UNFILTERED_HTML ) ) {
-			$has_permission = true;
-		} else {
+		if ( ! current_user_can( 'unfiltered_html' ) ) {
 			$has_permission = false;
 		}
 
@@ -650,10 +651,7 @@ function seedprod_lite_save_lpage() {
 		}
 
 		if ( false === $has_permission ) {
-			header( 'Content-Type: application/json' );
-			header( 'Status: 400 Bad Request' );
-			echo '0';
-			exit();
+			wp_die( '0', '', array( 'response' => 400 ) );
 		}
 
 		// clean slashes post.
@@ -687,7 +685,10 @@ function seedprod_lite_save_lpage() {
 		}
 
 		// sanitize post.
-		$lpage_id          = absint( $sp_post['lpage_id'] );
+		$lpage_id = absint( $sp_post['lpage_id'] );
+		if ( $lpage_id && ! current_user_can( 'edit_post', $lpage_id ) ) {
+			wp_die( esc_html__( 'You do not have permission to edit this page.', 'coming-soon' ), '', array( 'response' => 403 ) );
+		}
 		$lpage_name        = sanitize_text_field( $sp_post['lpage_name'] );
 		$lpage_slug        = sanitize_title( $sp_post['lpage_slug'] );
 		$lpage_post_status = sanitize_title( $sp_post['lpage_post_status'] );
@@ -939,6 +940,9 @@ function seedprod_lite_save_template() {
 			wp_send_json( $response, 403 );
 		} else {
 			$lpage_id    = absint( $_POST['lpage_id'] );
+			if ( ! current_user_can( 'edit_post', $lpage_id ) ) {
+				wp_send_json_error( null, 403 );
+			}
 			$template_id = isset( $_POST['lpage_template_id'] ) ? absint( $_POST['lpage_template_id'] ) : null;
 
 			if ( 99999 != $template_id ) {

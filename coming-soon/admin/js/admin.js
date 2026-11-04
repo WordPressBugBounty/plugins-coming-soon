@@ -4942,7 +4942,11 @@
 
 					if (response.success && response.data && response.data.filedata) {
 						// Show success message
-						$status.show().find('.notice').removeClass('notice-info notice-error').addClass('notice-success').find('p').text(seedprod_admin.strings.export_completed || 'Export completed successfully! Starting download...');
+						var successMsg = seedprod_admin.strings.export_completed || 'Export completed successfully! Starting download...';
+						if (response.data.warning) {
+							successMsg = response.data.warning + ' ' + ( seedprod_admin.strings.download_starting || 'Download starting...' );
+						}
+						$status.show().find('.notice').removeClass('notice-info notice-error').addClass('notice-success').find('p').text(successMsg);
 
 						// Trigger download from inline base64 data via Blob URL.
 						seedprod_lite_v2_download_base64_file(response.data.filedata, response.data.filename || 'seedprod-page-export.zip');

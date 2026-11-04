@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function seedprod_lite_save_settings() {
 	if ( check_ajax_referer( 'seedprod_nonce' ) ) {
-		if ( ! current_user_can( apply_filters( 'seedprod_save_settings_capability', 'edit_others_posts' ) ) ) {
+		if ( ! current_user_can( apply_filters( 'seedprod_save_settings_capability', 'manage_options' ) ) ) {
 			wp_send_json_error( null, 400 );
 		}
 		if ( ! empty( $_POST['settings'] ) ) {
@@ -23,11 +23,18 @@ function seedprod_lite_save_settings() {
 
 			$s = json_decode( $settings );
 
-			$s->api_key                 = sanitize_text_field( $s->api_key );
-			$s->enable_coming_soon_mode = sanitize_text_field( $s->enable_coming_soon_mode );
-			$s->enable_maintenance_mode = sanitize_text_field( $s->enable_maintenance_mode );
-			$s->enable_login_mode       = sanitize_text_field( $s->enable_login_mode );
-			$s->enable_404_mode         = sanitize_text_field( $s->enable_404_mode );
+			if ( ! is_object( $s ) ) {
+				wp_send_json_error( null, 400 );
+			}
+
+			$s_clean = array(
+				'api_key' => isset( $s->api_key ) ? sanitize_text_field( $s->api_key ) : '',
+			);
+			foreach ( array( 'enable_coming_soon_mode', 'enable_maintenance_mode', 'enable_login_mode', 'enable_404_mode' ) as $flag ) {
+				$value            = isset( $s->$flag ) && is_scalar( $s->$flag ) ? trim( sanitize_text_field( (string) $s->$flag ) ) : '';
+				$s_clean[ $flag ] = '' !== $value && 'false' !== $value && '0' !== $value;
+				$s->$flag         = $s_clean[ $flag ];
+			}
 
 			// Get old settings to check if there has been a change.
 			$settings_old = get_option( 'seedprod_settings' );
@@ -69,7 +76,8 @@ function seedprod_lite_save_settings() {
 				}
 			}
 
-			update_option( 'seedprod_settings', $settings );
+			$s_existing = json_decode( (string) $settings_old, true );
+			update_option( 'seedprod_settings', wp_json_encode( array_merge( is_array( $s_existing ) ? $s_existing : array(), $s_clean ) ) );
 
 			// Check if we should show AI website builder message (lite users only).
 			$show_ai_message = false;

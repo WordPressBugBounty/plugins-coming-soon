@@ -29,8 +29,8 @@ class SeedProd_Lite_Render {
 		$get_post_type = ! empty( $_GET['post_type'] ) ? sanitize_text_field( wp_unslash( $_GET['post_type'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$get_preview   = ! empty( $_GET['preview'] ) ? sanitize_text_field( wp_unslash( $_GET['preview'] ) ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-		// exit if preview.
-		if ( null !== $get_post_type && null !== $get_preview && 'seedprod' == $get_post_type && 'true' == $get_preview ) {
+		// exit if a builder user previews.
+		if ( 'seedprod' === $get_post_type && 'true' === $get_preview && current_user_can( apply_filters( 'seedprod_builder_menu_capability', 'edit_others_posts' ) ) ) {
 			return false;
 		}
 
@@ -71,7 +71,7 @@ class SeedProd_Lite_Render {
 					// TODO Check if coming soon mode or mm mode and import settings.
 					$seedprod_show_csp4  = get_option( 'seedprod_show_csp4' );
 					$seedprod_show_cspv5 = get_option( 'seedprod_show_cspv5' );
-					if ( $seedprod_show_cspv5 ) {
+					if ( $seedprod_show_cspv5 && file_exists( SEEDPROD_PLUGIN_PATH . 'app/backwards/cspv5-functions.php' ) ) {
 						require_once SEEDPROD_PLUGIN_PATH . 'app/backwards/cspv5-functions.php';
 						add_action( 'template_redirect', 'seedprod_lite_cspv5_render_comingsoon_page', $priority );
 					} elseif ( $seedprod_show_csp4 ) {
@@ -117,7 +117,7 @@ class SeedProd_Lite_Render {
 	/**
 	 *  coming soon mode/maintence mode api
 	 *   mode 0 /disable 1/ coming soon mode 2/maintenance mode
-	 *  curl http://wordpress.dev/?seed_cspv5_token=4b51fd72-69b7-4796-8d24-f3499c2ec44b&seed_cspv5_mode=1
+	 *  Request: ?seedprod_token=<license key>&seedprod_mode=<0|1|2>
 	 */
 	public function csp_mm_api() {
 		$seedprod_api_key = '';
@@ -128,7 +128,7 @@ class SeedProd_Lite_Render {
 			$seedprod_api_key = get_option( 'seedprod_api_key' );
 		}
 		if ( ! empty( $seedprod_api_key ) ) {
-			if ( isset( $_REQUEST['seedprod_token'] ) && $_REQUEST['seedprod_token'] == $seedprod_api_key ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( isset( $_REQUEST['seedprod_token'] ) && is_string( $_REQUEST['seedprod_token'] ) && hash_equals( (string) $seedprod_api_key, wp_unslash( $_REQUEST['seedprod_token'] ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Compared to the license key, never stored or printed.
 				if ( isset( $_REQUEST['seedprod_mode'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					$mode              = absint( $_REQUEST['seedprod_mode'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					$ts                = get_option( 'seedprod_settings' );
@@ -223,7 +223,7 @@ class SeedProd_Lite_Render {
 
 		// Exit if a custom login page.
 		if ( ! empty( $settings->disable_default_excluded_urls ) ) {
-			if ( preg_match( '/privacy|imprint|login|admin|dashboard|account/i', $get_request_uri ) > 0 ) {
+			if ( preg_match( '/privacy|imprint|login|admin|dashboard|account/i', seedprod_lite_get_excluded_url_path() ) > 0 ) {
 				return false;
 			}
 		}
@@ -241,8 +241,10 @@ class SeedProd_Lite_Render {
 			return false;
 		}
 
-		// Limit access by role.
-		if ( ! empty( $settings->access_by_role ) && ! isset( $_COOKIE['wp-seedprod-bypass'] ) ) {
+		// Limit access by role. The bypass user has no role, so a valid bypass cookie skips the list.
+		$bypass_cookie = isset( $_COOKIE['wp-seedprod-bypass'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['wp-seedprod-bypass'] ) ) : '';
+		$has_bypass    = ! empty( $settings->bypass_phrase ) && hash_equals( md5( $settings->bypass_phrase . get_current_blog_id() ), $bypass_cookie );
+		if ( ! empty( $settings->access_by_role ) && ! $has_bypass ) {
 			foreach ( $settings->access_by_role as $v ) {
 				$v = str_replace( ' ', '', strtolower( $v ) );
 				if ( 'anyoneloggedin' == $v && is_user_logged_in() ) {

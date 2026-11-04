@@ -292,9 +292,8 @@ function seedprod_lite_check_for_free_version() {
 					}
 
 					// set exclude urls
-					if ( ! empty( $csp4_settings['disable_default_excluded_urls'] ) ) {
-						$csp4_template['disable_default_excluded_urls'] = true;
-					}
+					// The legacy option turns the exclusion off. The new key turns it on.
+					$csp4_template['disable_default_excluded_urls'] = empty( $csp4_settings['disable_default_excluded_urls'] );
 
 					// set header scripts
 					if ( ! empty( $csp4_settings['header_scripts'] ) ) {

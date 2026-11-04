@@ -467,14 +467,6 @@ function seedprod_lite_v2_export_landing_pages() {
 		}
 	}
 
-	$export_json = wp_json_encode( $export );
-
-	// Check if JSON encoding failed
-	if ( false === $export_json ) {
-		$json_error = json_last_error_msg();
-		wp_send_json_error( __( 'Failed to encode export data. The page data may be too large or contain invalid characters.', 'coming-soon' ) . ' Error: ' . $json_error );
-	}
-
 	$files_to_download = array();
 
 	global $wp_filesystem;
@@ -536,11 +528,29 @@ function seedprod_lite_v2_export_landing_pages() {
 		wp_send_json_error( sprintf( __( 'Export failed during image processing: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
+	$export      = seedprod_lite_restore_failed_image_urls( $export, $all_failed_images );
+	$export_json = wp_json_encode( $export );
+
+	// Check if JSON encoding failed
+	if ( false === $export_json ) {
+		$json_error = json_last_error_msg();
+		wp_send_json_error( __( 'Failed to encode export data. The page data may be too large or contain invalid characters.', 'coming-soon' ) . ' Error: ' . $json_error );
+	}
+
 	// Create zip and return download URL
 	try {
 		$zip_result = seedprod_lite_v2_prepare_zip( $files_to_download, $export_json, 'page' );
 
 		if ( $zip_result && isset( $zip_result['filedata'] ) ) {
+			if ( ! empty( $all_failed_images ) ) {
+				$zip_result['warning'] = sprintf(
+					/* translators: %d: number of failed images */
+					__( '%d images could not be downloaded and were excluded from the export.', 'coming-soon' ),
+					count( $all_failed_images )
+				);
+
+				$zip_result['failed_images'] = count( $all_failed_images );
+			}
 			wp_send_json_success( $zip_result );
 		} else {
 			wp_send_json_error( __( 'Export completed but file data not generated.', 'coming-soon' ) );

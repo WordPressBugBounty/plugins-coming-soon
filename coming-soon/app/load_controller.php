@@ -24,6 +24,7 @@ require_once SEEDPROD_PLUGIN_PATH . 'app/render-csp-mm.php';
 
 require_once SEEDPROD_PLUGIN_PATH . 'app/nestednavmenu.php';
 
+require_once SEEDPROD_PLUGIN_PATH . 'app/includes/tracking.php';
 require_once SEEDPROD_PLUGIN_PATH . 'app/setup-wizard.php';
 require_once SEEDPROD_PLUGIN_PATH . 'app/backwards/backwards_compatibility.php';
 require_once SEEDPROD_PLUGIN_PATH . 'app/subscriber.php';

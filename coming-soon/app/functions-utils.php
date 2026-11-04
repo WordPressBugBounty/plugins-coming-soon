@@ -28,6 +28,46 @@ function seedprod_lite_get_ip() {
 }
 
 /**
+ * Get the path that the default excluded URL keywords are tested against.
+ *
+ * A post or page that WordPress resolved is tested by its own page path. A home or front
+ * page view of a plugin route (a matched rewrite rule that sets a query var core does not
+ * define) is tested by the rule's own pattern. A 404 is tested by its request path.
+ *
+ * @return string The path to test, or an empty string when no keyword may apply.
+ */
+function seedprod_lite_get_excluded_url_path() {
+	global $wp;
+
+	// Count only the query vars that the matched rewrite rule sets.
+	$rule_vars = array();
+	parse_str( (string) $wp->matched_query, $rule_vars );
+	$plugin_vars = array_diff(
+		array_intersect( array_keys( $rule_vars ), (array) $wp->public_query_vars ),
+		get_class_vars( 'WP' )['public_query_vars']
+	);
+
+	$object       = get_queried_object();
+	$plugin_route = ( is_home() || is_front_page() ) && ! empty( $wp->matched_rule ) && ! empty( $plugin_vars );
+
+	if ( $object instanceof WP_Post && ! $plugin_route ) {
+		return (string) get_page_uri( $object );
+	}
+
+	if ( $plugin_route ) {
+		return (string) $wp->matched_rule;
+	}
+
+	if ( is_404() ) {
+		$uri  = ! empty( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+		$path = explode( '?', $uri );
+		return $path[0];
+	}
+
+	return '';
+}
+
+/**
  * Update cookie length for bypass url
  *
  * @param int $expirein Cookie expiration time in seconds.
@@ -1624,6 +1664,52 @@ function seedprod_lite_get_api_key() {
 }
 
 /**
+ * Get the stored license key for a page that prints it.
+ *
+ * @return string|false The key (false when none is saved), or an empty string when the current user cannot manage the license.
+ */
+function seedprod_lite_get_license_key_for_display() {
+	if ( ! current_user_can( apply_filters( 'seedprod_license_capability', 'manage_options' ) ) ) {
+		return '';
+	}
+
+	return get_option( 'seedprod_api_key' );
+}
+
+/**
+ * Save the Stripe connect token that app.seedprod.com sends back to the builder page.
+ *
+ * @param string $origin The site's Stripe connect origin.
+ * @return void
+ */
+function seedprod_lite_save_stripe_connect_token( $origin ) {
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- The nonce is checked below.
+	if ( empty( $_GET['seedprod_stripe_connect_token'] ) || empty( $_GET['seedprod_stripe_connect_origin'] ) || empty( $_GET['seedprod_stripe_connect_nonce'] ) ) {
+		return;
+	}
+
+	$stripe_origin = sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_origin'] ) );
+	$stripe_nonce  = sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_nonce'] ) );
+	if ( $origin === $stripe_origin && current_user_can( 'manage_options' ) && wp_verify_nonce( $stripe_nonce, 'seedprod_stripe_connect' ) ) {
+		update_option( 'seedprod_stripe_connect_token', sanitize_text_field( wp_unslash( $_GET['seedprod_stripe_connect_token'] ) ) );
+	}
+	// phpcs:enable WordPress.Security.NonceVerification.Recommended
+}
+
+/**
+ * Send a fresh nonce for the Stripe connect redirect.
+ *
+ * @return void
+ */
+function seedprod_lite_stripe_connect_nonce() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error();
+	}
+
+	wp_send_json_success( wp_create_nonce( 'seedprod_stripe_connect' ) );
+}
+
+/**
  * Get timezones
  */
 function seedprod_lite_get_timezones() {
@@ -1853,6 +1939,231 @@ function seedprod_lite_is_dev_url( $url = '' ) {
 		}
 	}
 	return $is_local_url;
+}
+
+/**
+ * Get the IPv4 addresses of a host.
+ *
+ * A result is cached per host for the request. A failed lookup is not cached. An IP literal
+ * returns itself. The seedprod_lite_host_addresses filter lets a test or a site inject the
+ * addresses.
+ *
+ * @param string $host Host name.
+ * @return array The IPv4 addresses, or an empty array when the host does not resolve.
+ */
+function seedprod_lite_resolve_host( $host ) {
+	static $cache = array();
+
+	$host = strtolower( trim( (string) $host, '.' ) );
+
+	$filtered = apply_filters( 'seedprod_lite_host_addresses', null, $host );
+	if ( null !== $filtered ) {
+		return (array) $filtered;
+	}
+
+	if ( isset( $cache[ $host ] ) ) {
+		return $cache[ $host ];
+	}
+
+	$addresses = filter_var( $host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ? array( $host ) : gethostbynamel( $host );
+	if ( ! is_array( $addresses ) || empty( $addresses ) ) {
+		return array();
+	}
+
+	$cache[ $host ] = $addresses;
+	return $addresses;
+}
+
+/**
+ * Check if an IPv4 address is not a public address.
+ *
+ * The code refuses loopback, private, link-local, shared address space, reserved and
+ * multicast addresses.
+ *
+ * @param string $ip IPv4 address.
+ * @return boolean True if the address is not a public address.
+ */
+function seedprod_lite_ip_is_blocked( $ip ) {
+	if ( ! filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+		return true;
+	}
+
+	$p = array_map( 'intval', explode( '.', $ip ) );
+
+	return 127 === $p[0] || 10 === $p[0] || 0 === $p[0]
+		|| ( 172 === $p[0] && 16 <= $p[1] && 31 >= $p[1] )
+		|| ( 192 === $p[0] && 168 === $p[1] )
+		|| ( 192 === $p[0] && 0 === $p[1] && ( 0 === $p[2] || 2 === $p[2] ) )
+		|| ( 192 === $p[0] && 88 === $p[1] && 99 === $p[2] )
+		|| ( 198 === $p[0] && 51 === $p[1] && 100 === $p[2] )
+		|| ( 203 === $p[0] && 0 === $p[1] && 113 === $p[2] )
+		|| ( 169 === $p[0] && 254 === $p[1] )
+		|| ( 100 === $p[0] && 64 <= $p[1] && 127 >= $p[1] )
+		|| ( 198 === $p[0] && 18 <= $p[1] && 19 >= $p[1] )
+		|| 224 <= $p[0];
+}
+
+/**
+ * Check if the server must not fetch a host.
+ *
+ * The host is refused when it has no IPv4 address or when any of its addresses is not a
+ * public address. A site can still
+ * allow a named internal host with the core http_request_host_is_external filter.
+ *
+ * @param string $host Host name.
+ * @param string $url  The full URL, for the filter.
+ * @return boolean True if the server must not fetch the host.
+ */
+function seedprod_lite_host_is_blocked( $host, $url ) {
+	if ( apply_filters( 'http_request_host_is_external', false, $host, $url ) ) {
+		return false;
+	}
+
+	$addresses = seedprod_lite_resolve_host( $host );
+	if ( empty( $addresses ) ) {
+		return true;
+	}
+
+	foreach ( $addresses as $ip ) {
+		if ( seedprod_lite_ip_is_blocked( $ip ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
+ * Get the cURL options that pin a connection to one checked address and force IPv4.
+ *
+ * The entry holds one address, because libcurl before 7.59.0 skips an entry with several.
+ *
+ * @param string  $host      Host name. cURL still sends it in the TLS SNI and the Host header.
+ * @param integer $port      Port of the connection.
+ * @param array   $addresses The checked IPv4 addresses of the host. The first one is used.
+ * @return array The cURL options.
+ */
+function seedprod_lite_curl_pin_options( $host, $port, $addresses ) {
+	return array(
+		CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+		CURLOPT_RESOLVE   => array( $host . ':' . (int) $port . ':' . reset( $addresses ) ),
+	);
+}
+
+/**
+ * Get a remote file through wp_safe_remote_get().
+ *
+ * The request and each redirect get the same checks. The server does not fetch a private,
+ * reserved, link-local or shared-space address, an unsafe port or an unsafe redirect
+ * target. The code resolves all addresses of the host and refuses the host when any address
+ * is not public. On cURL, the code pins the connection to a checked address and forces
+ * IPv4, so a second lookup cannot reach a different address. The host name stays in the TLS
+ * SNI and in the Host header. The hosts of this site skip the address check, as in core. For
+ * these hosts, the https_local_ssl_verify filter sets the TLS check. For all other hosts, the
+ * TLS check is on.
+ *
+ * @param string     $url           URL of the file.
+ * @param array|null $allowed_ports Optional. The ports that the plugin allows, besides the
+ *                                  home port on an own host. null allows core's safe ports.
+ * @return array|WP_Error The response or a WP_Error.
+ */
+function seedprod_lite_safe_remote_get( $url, $allowed_ports = null ) {
+	$own_hosts = array_map(
+		'strtolower',
+		array_filter(
+			array(
+				wp_parse_url( get_option( 'home' ), PHP_URL_HOST ),
+				wp_parse_url( get_option( 'siteurl' ), PHP_URL_HOST ),
+			)
+		)
+	);
+	$home_port = wp_parse_url( get_option( 'home' ), PHP_URL_PORT );
+
+	$cookies = array();
+
+	// Follow the redirects here, so that each target gets the same checks as the first URL.
+	for ( $redirects = 0; $redirects <= 5; $redirects++ ) {
+		$host     = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+		$port     = wp_parse_url( $url, PHP_URL_PORT );
+		$own_host = in_array( $host, $own_hosts, true );
+
+		if ( is_array( $allowed_ports ) && ! empty( $port )
+			&& ! in_array( (int) $port, array_map( 'intval', $allowed_ports ), true )
+			&& ! ( $own_host && (int) $port === (int) $home_port ) ) {
+			return new WP_Error( 'http_request_failed', __( 'The URL is not allowed.', 'coming-soon' ) );
+		}
+
+		$addresses = $own_host ? array() : seedprod_lite_resolve_host( $host );
+		if ( ! $own_host && seedprod_lite_host_is_blocked( $host, $url ) ) {
+			return new WP_Error( 'http_request_failed', __( 'The URL is not allowed.', 'coming-soon' ) );
+		}
+
+		// Pin the connection to a checked address, so a second lookup cannot reach a
+		// different one. cURL only. On another transport, the checks above still apply.
+		$pin = null;
+		if ( ! empty( $addresses ) && defined( 'CURLOPT_RESOLVE' ) ) {
+			$pin_port = ! empty( $port ) ? (int) $port : ( 'https' === strtolower( (string) wp_parse_url( $url, PHP_URL_SCHEME ) ) ? 443 : 80 );
+			$options  = seedprod_lite_curl_pin_options( $host, $pin_port, $addresses );
+			$pin      = function ( $handle ) use ( $options ) {
+				curl_setopt_array( $handle, $options ); // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt_array -- The http_api_curl action gives a cURL handle.
+			};
+			add_action( 'http_api_curl', $pin );
+		}
+
+		try {
+			$response = wp_safe_remote_get(
+				$url,
+				array(
+					'redirection' => 0,
+					'sslverify'   => $own_host ? apply_filters( 'https_local_ssl_verify', false, $url ) : true,
+					'cookies'     => $cookies,
+				)
+			);
+		} finally {
+			if ( null !== $pin ) {
+				remove_action( 'http_api_curl', $pin );
+			}
+		}
+
+		$code     = (int) wp_remote_retrieve_response_code( $response );
+		$location = wp_remote_retrieve_header( $response, 'location' );
+		if ( $code < 300 || $code > 399 || ! is_string( $location ) || '' === $location ) {
+			return $response;
+		}
+
+		$next      = WP_Http::make_absolute_url( $location, $url );
+		$next_host = strtolower( (string) wp_parse_url( $next, PHP_URL_HOST ) );
+		$cookies   = ( $next_host === $host ) ? wp_remote_retrieve_cookies( $response ) : array();
+		$url       = $next;
+	}
+
+	return new WP_Error( 'http_request_failed', __( 'Too many redirects.', 'coming-soon' ) );
+}
+
+/**
+ * Put back the original URL of each image that an export did not save.
+ *
+ * @param array $export        Export data. Each item in 'theme' has base64 post_content and post_content_filtered.
+ * @param array $failed_images Images that were not saved, each with 'old_url' and 'new_url'.
+ * @return array The export data.
+ */
+function seedprod_lite_restore_failed_image_urls( $export, $failed_images ) {
+	if ( empty( $failed_images ) || empty( $export['theme'] ) ) {
+		return $export;
+	}
+
+	$new_urls = wp_list_pluck( $failed_images, 'new_url' );
+	$old_urls = wp_list_pluck( $failed_images, 'old_url' );
+
+	foreach ( $export['theme'] as $i => $entry ) {
+		foreach ( array( 'post_content', 'post_content_filtered' ) as $field ) {
+			if ( isset( $entry[ $field ] ) ) {
+				$export['theme'][ $i ][ $field ] = base64_encode( str_replace( $new_urls, $old_urls, base64_decode( $entry[ $field ] ) ) ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode, WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode -- The export format stores page content as base64.
+			}
+		}
+	}
+
+	return $export;
 }
 
 /**

@@ -37,22 +37,22 @@ function seedprod_lite_v2_save_debug_settings() {
 	$messages = array();
 
 	// Process reset options.
-	if ( ! empty( $_POST['sp_reset_cs'] ) && 1 === (int) $_POST['sp_reset_cs'] ) {
+	if ( current_user_can( 'manage_options' ) && ! empty( $_POST['sp_reset_cs'] ) && 1 === (int) $_POST['sp_reset_cs'] ) {
 		delete_option( 'seedprod_coming_soon_page_id' );
 		$messages[] = __( 'Coming Soon page has been reset.', 'coming-soon' );
 	}
 
-	if ( ! empty( $_POST['sp_reset_mm'] ) && 1 === (int) $_POST['sp_reset_mm'] ) {
+	if ( current_user_can( 'manage_options' ) && ! empty( $_POST['sp_reset_mm'] ) && 1 === (int) $_POST['sp_reset_mm'] ) {
 		delete_option( 'seedprod_maintenance_mode_page_id' );
 		$messages[] = __( 'Maintenance Mode page has been reset.', 'coming-soon' );
 	}
 
-	if ( ! empty( $_POST['sp_reset_p404'] ) && 1 === (int) $_POST['sp_reset_p404'] ) {
+	if ( current_user_can( 'manage_options' ) && ! empty( $_POST['sp_reset_p404'] ) && 1 === (int) $_POST['sp_reset_p404'] ) {
 		delete_option( 'seedprod_404_page_id' );
 		$messages[] = __( '404 page has been reset.', 'coming-soon' );
 	}
 
-	if ( ! empty( $_POST['sp_reset_loginp'] ) && 1 === (int) $_POST['sp_reset_loginp'] ) {
+	if ( current_user_can( 'manage_options' ) && ! empty( $_POST['sp_reset_loginp'] ) && 1 === (int) $_POST['sp_reset_loginp'] ) {
 		delete_option( 'seedprod_login_page_id' );
 		$messages[] = __( 'Login page has been reset.', 'coming-soon' );
 	}

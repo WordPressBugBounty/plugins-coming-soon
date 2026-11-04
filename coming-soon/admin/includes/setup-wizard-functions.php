@@ -94,6 +94,20 @@ function seedprod_lite_v2_complete_setup_wizard() {
 		// Store the wizard id and data locally.
 		$onboarding = $body->onboarding;
 
+		// Get template type that was setup in the onboarding.
+		$type = 'lp';
+		if ( ! empty( $onboarding->sp_type ) ) {
+			$type = $onboarding->sp_type;
+		}
+
+		if ( in_array( $type, array( 'cs', 'mm', 'p404', 'loginp' ), true ) && ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error();
+		}
+
+		if ( in_array( $type, array( 'websitebuilder', 'woocommerce' ), true ) && ! current_user_can( apply_filters( 'seedprod_import_export', 'install_themes' ) ) ) {
+			wp_send_json_error( array( 'message' => __( 'The theme was not imported. You do not have permission to import themes.', 'coming-soon' ) ) );
+		}
+
 		// Store the wizard verify plugins.
 		update_option( 'seedprod_verify_wizard_options', $onboarding->options );
 
@@ -101,19 +115,13 @@ function seedprod_lite_v2_complete_setup_wizard() {
 		update_option( 'seedprod_dismiss_setup_wizard', 1 );
 
 		// Set tracking if they have opted in.
-		if ( ! empty( $onboarding->allow_usagetracking ) ) {
+		if ( ! empty( $onboarding->allow_usagetracking ) && current_user_can( apply_filters( 'seedprod_save_app_settings_capability', 'manage_options' ) ) ) {
 			update_option( 'seedprod_allow_usage_tracking', true );
 		}
 
 		// Free templates.
 		if ( ! empty( $onboarding->email ) ) {
 			update_option( 'seedprod_free_templates_subscribed', true );
-		}
-
-		// Get template type that was setup in the onboarding.
-		$type = 'lp';
-		if ( ! empty( $onboarding->sp_type ) ) {
-			$type = $onboarding->sp_type;
 		}
 
 		$id = null;
@@ -140,7 +148,7 @@ function seedprod_lite_v2_complete_setup_wizard() {
 			}
 
 			// Base page settings.
-			require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
+			require SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 			$basic_settings              = json_decode( $seedprod_basic_lpage, true );
 			$basic_settings['is_new']    = true;
 			$basic_settings['page_type'] = $type;

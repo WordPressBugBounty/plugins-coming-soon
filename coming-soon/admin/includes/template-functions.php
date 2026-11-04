@@ -415,6 +415,10 @@ function seedprod_lite_v2_create_page_from_template() {
 		wp_send_json_error( __( 'Missing required fields', 'coming-soon' ) );
 	}
 
+	if ( in_array( $page_type, array( 'cs', 'mm', 'p404', 'loginp' ), true ) && ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( __( 'You do not have permission to create this page type.', 'coming-soon' ) );
+	}
+
 	// Check if we're updating an existing page (edge case: page without template).
 	if ( $page_id > 0 ) {
 		// Verify the page exists.
@@ -422,12 +426,15 @@ function seedprod_lite_v2_create_page_from_template() {
 		if ( ! $existing_page ) {
 			wp_send_json_error( __( 'Page not found', 'coming-soon' ) );
 		}
+		if ( ! current_user_can( 'edit_post', $page_id ) ) {
+			wp_send_json_error( __( 'You do not have permission to edit this page.', 'coming-soon' ) );
+		}
 
 		// Load existing settings from the page.
 		$existing_settings = json_decode( $existing_page->post_content_filtered, true );
 		if ( ! is_array( $existing_settings ) ) {
 			// If no valid settings, load defaults.
-			require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
+			require SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 			$settings = json_decode( $seedprod_basic_lpage, true );
 		} else {
 			$settings = $existing_settings;
@@ -442,8 +449,12 @@ function seedprod_lite_v2_create_page_from_template() {
 		}
 	} else {
 		// Load basic page defaults first (matching old flow which always loads basic-page.php).
-		require_once SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
+		require SEEDPROD_PLUGIN_PATH . 'resources/data-templates/basic-page.php';
 		$settings = json_decode( $seedprod_basic_lpage, true );
+	}
+
+	if ( in_array( $page_type, array( 'cs', 'mm', 'p404', 'loginp' ), true ) && ! current_user_can( 'manage_options' ) ) {
+		wp_send_json_error( __( 'You do not have permission to create this page type.', 'coming-soon' ) );
 	}
 
 	// Override with our specific settings.
@@ -599,6 +610,24 @@ function seedprod_lite_v2_create_page_from_template() {
 }
 
 /**
+ * Check that the current user may act on a SeedProd page.
+ *
+ * @param int    $id  Post ID.
+ * @param string $cap Meta capability to check for the post.
+ * @return bool
+ */
+function seedprod_lite_v2_can_act_on_lpage( $id, $cap ) {
+	$post = get_post( $id );
+	if ( ! $post ) {
+		return false;
+	}
+	if ( 'seedprod' !== $post->post_type && ! get_post_meta( $id, '_seedprod_page', true ) ) {
+		return false;
+	}
+	return current_user_can( $cap, $id );
+}
+
+/**
  * Duplicate landing page - V2 wrapper
  *
  * This function wraps the existing seedprod_lite_duplicate_lpage function
@@ -627,6 +656,10 @@ function seedprod_lite_v2_duplicate_lpage() {
 
 	if ( ! $post ) {
 		wp_send_json_error( __( 'Page not found.', 'coming-soon' ) );
+	}
+
+	if ( ! seedprod_lite_v2_can_act_on_lpage( $id, 'edit_post' ) ) {
+		wp_send_json_error( __( 'You do not have permission to duplicate this page.', 'coming-soon' ) );
 	}
 
 	// Get the page content.
@@ -717,6 +750,10 @@ function seedprod_lite_v2_trash_lpage() {
 		wp_send_json_error( __( 'Invalid page ID.', 'coming-soon' ) );
 	}
 
+	if ( ! seedprod_lite_v2_can_act_on_lpage( $id, 'delete_post' ) ) {
+		wp_send_json_error( __( 'You do not have permission to trash this page.', 'coming-soon' ) );
+	}
+
 	// Trash the post.
 	$result = wp_trash_post( $id );
 
@@ -752,6 +789,10 @@ function seedprod_lite_v2_restore_lpage() {
 		wp_send_json_error( __( 'Invalid page ID.', 'coming-soon' ) );
 	}
 
+	if ( ! seedprod_lite_v2_can_act_on_lpage( $id, 'delete_post' ) ) {
+		wp_send_json_error( __( 'You do not have permission to restore this page.', 'coming-soon' ) );
+	}
+
 	// Restore the post.
 	$result = wp_untrash_post( $id );
 
@@ -785,6 +826,10 @@ function seedprod_lite_v2_delete_lpage() {
 
 	if ( ! $id ) {
 		wp_send_json_error( __( 'Invalid page ID.', 'coming-soon' ) );
+	}
+
+	if ( ! seedprod_lite_v2_can_act_on_lpage( $id, 'delete_post' ) ) {
+		wp_send_json_error( __( 'You do not have permission to delete this page.', 'coming-soon' ) );
 	}
 
 	// Delete the post permanently.
@@ -828,6 +873,11 @@ function seedprod_lite_v2_bulk_action_lpages() {
 
 	foreach ( $page_ids as $id ) {
 		$result = false;
+
+		if ( ! seedprod_lite_v2_can_act_on_lpage( $id, 'delete_post' ) ) {
+			++$error_count;
+			continue;
+		}
 
 		switch ( $action ) {
 			case 'trash':

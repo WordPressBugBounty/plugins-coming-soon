@@ -86,7 +86,7 @@ $tabs_array = array(
 									</th>
 									<td>
 										<?php
-										$license_key  = get_option( 'seedprod_api_key' );
+										$license_key  = seedprod_lite_get_license_key_for_display();
 										$license_name = get_option( 'seedprod_license_name' );
 										?>
 										<input type="password" 
@@ -273,22 +273,29 @@ $tabs_array = array(
 						</p>
 					</form>
 					
+					<?php
+					// Use the Site Health capability on WordPress 5.2.2 and later. Use install_plugins on older versions.
+					$seedprod_can_view_system_info = current_user_can( function_exists( 'wp_maybe_grant_site_health_caps' ) ? 'view_site_health_checks' : 'install_plugins' );
+					?>
 					<!-- Debug Information Section -->
 					<hr />
 					<h2><?php esc_html_e( 'Debug Information', 'coming-soon' ); ?></h2>
 					
 					<div class="seedprod-debug-section">
 						<p>
+							<?php if ( $seedprod_can_view_system_info ) : ?>
 							<button type="button" class="button seedprod-button-secondary" id="seedprod-toggle-system-info">
 								<span class="dashicons dashicons-arrow-down-alt2"></span>
 								<?php esc_html_e( 'View System Information', 'coming-soon' ); ?>
 							</button>
+							<?php endif; ?>
 							<a href="<?php echo esc_url( admin_url( 'admin.php?page=seedprod_lite_debug' ) ); ?>" class="button seedprod-button-secondary">
 								<span class="dashicons dashicons-admin-tools"></span>
 								<?php esc_html_e( 'Advanced Debug Tools', 'coming-soon' ); ?>
 							</a>
 						</p>
 						
+						<?php if ( $seedprod_can_view_system_info ) : ?>
 						<div id="seedprod-system-info" style="display: none; margin-top: 20px;">
 							<p class="description">
 								<?php esc_html_e( 'Copy this information when contacting support to help us assist you better.', 'coming-soon' ); ?>
@@ -300,6 +307,7 @@ $tabs_array = array(
 								</button>
 							</p>
 						</div>
+						<?php endif; ?>
 					</div>
 				</div>
 

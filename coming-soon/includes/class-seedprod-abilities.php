@@ -735,6 +735,10 @@ class SeedProd_Lite_Abilities {
 		$activate        = isset( $input['activate'] ) ? (bool) $input['activate'] : false;
 		$menu_order      = isset( $input['menu_order'] ) ? intval( $input['menu_order'] ) : null;
 
+		if ( $activate && ! current_user_can( 'manage_options' ) ) {
+			return new WP_Error( 'forbidden', __( 'You do not have permission to activate a mode page.', 'coming-soon' ), array( 'status' => 403 ) );
+		}
+
 		// A parametric condition (type ending in "(x)") with an empty value matches
 		// every page or post of its type, so require an explicit target.
 		$condition_is_parametric = ( '' !== $condition && false !== strpos( $condition, '(x)' ) );
@@ -768,6 +772,17 @@ class SeedProd_Lite_Abilities {
 			$post = get_post( $id );
 			if ( ! $post ) {
 				return new WP_Error( 'not_found', __( 'Page not found.', 'coming-soon' ) );
+			}
+			if ( 'css' === get_post_meta( $id, '_seedprod_page_template_type', true ) ) {
+				return new WP_Error( 'not_seedprod', __( 'Global CSS is not a content page. Use seedprod/get-global-css and seedprod/save-global-css instead.', 'coming-soon' ), array( 'status' => 400 ) );
+			}
+			if ( ( 'seedprod' !== $post->post_type && ! get_post_meta( $id, '_seedprod_page', true ) && ! get_post_meta( $id, '_seedprod_edited_with_seedprod', true ) ) || ! current_user_can( 'edit_post', $id ) ) {
+				return new WP_Error( 'forbidden', __( 'You do not have permission to edit this page.', 'coming-soon' ), array( 'status' => 403 ) );
+			}
+
+			// Saving sections needs unfiltered_html.
+			if ( ! empty( $sections ) && ! current_user_can( 'unfiltered_html' ) ) {
+				return new WP_Error( 'forbidden', __( 'You need the unfiltered_html capability to save page sections.', 'coming-soon' ), array( 'status' => 403 ) );
 			}
 
 			// Read existing content_filtered and merge sections into it.
@@ -872,6 +887,11 @@ class SeedProd_Lite_Abilities {
 		// Require condition for theme templates.
 		if ( $config['is_theme'] && ! $condition ) {
 			return new WP_Error( 'missing_condition', __( 'condition is required for theme templates (header, footer, page-template, part).', 'coming-soon' ) );
+		}
+
+		// Saving sections needs unfiltered_html.
+		if ( ! empty( $sections ) && ! current_user_can( 'unfiltered_html' ) ) {
+			return new WP_Error( 'forbidden', __( 'You need the unfiltered_html capability to save page sections.', 'coming-soon' ), array( 'status' => 403 ) );
 		}
 
 		// Build the document.

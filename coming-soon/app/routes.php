@@ -67,7 +67,7 @@ if ( defined( 'DOING_AJAX' ) ) {
 	add_action( 'wp_ajax_seedprod_lite_save_api_key', 'seedprod_lite_save_api_key' );
 
 	add_action( 'wp_ajax_seedprod_lite_save_app_settings', 'seedprod_lite_save_app_settings' );
-	// phpcs:ignore Squiz.Commenting.BlockComment
+	add_action( 'wp_ajax_seedprod_lite_stripe_connect_nonce', 'seedprod_lite_stripe_connect_nonce' );
 
 	add_action( 'wp_ajax_seedprod_lite_template_subscribe', 'seedprod_lite_template_subscribe' );
 	add_action( 'wp_ajax_seedprod_lite_save_template', 'seedprod_lite_save_template' );

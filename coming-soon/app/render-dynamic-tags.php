@@ -183,7 +183,14 @@ function seedprod_lite_get_archive_meta( $meta_key = '', $fallback = '' ) {
 	if ( ! empty( $meta_key ) && ( is_category() || is_tax() ) ) {
 		$output = get_term_meta( get_queried_object_id(), $meta_key, true );
 	} elseif ( ! empty( $meta_key ) && is_author() ) {
-		$output = get_user_meta( get_queried_object_id(), $meta_key, true );
+		// Only the one user of a single-author archive.
+		$author = get_queried_object();
+		if ( $author instanceof WP_User && (string) $author->ID === (string) get_query_var( 'author' ) && seedprod_lite_is_printable_user_key( $meta_key ) ) {
+			$output = get_user_meta( $author->ID, $meta_key, true );
+			if ( ! is_scalar( $output ) ) {
+				$output = '';
+			}
+		}
 	}
 
 	// Fallback if value is empty.
@@ -404,6 +411,48 @@ function seedprod_lite_get_featured_image_data( $attachment_data = '', $fallback
 }
 
 /**
+ * Whether a user field or meta key may be printed on the front end.
+ *
+ * Password and reset-key fields and protected (underscore) user meta are never printed.
+ *
+ * @param string $key User field or meta key.
+ * @return boolean
+ */
+function seedprod_lite_is_printable_user_key( $key ) {
+	return ! in_array( strtolower( trim( $key ) ), array( 'user_pass', 'pass', 'user_activation_key', 'activation_key' ), true ) && ! is_protected_meta( $key, 'user' );
+}
+
+/**
+ * Escape the bracket in front of every registered shortcode name in text, so that a later do_shortcode() pass
+ * prints the text as is. A shortcode needs a literal [ before its name. A [ at the end of the text, with or
+ * without part of a name, is escaped too, because the next text on the page can complete the name.
+ *
+ * Uses a hex entity: do_shortcode() turns &#91; and &#93; back into brackets (unescape_invalid_shortcodes()),
+ * so those two entities in the text are treated as brackets too.
+ *
+ * @param string $text Text from a post, a user, a visitor or the query.
+ * @return string
+ */
+function seedprod_lite_escape_shortcodes( $text ) {
+	global $shortcode_tags;
+
+	if ( ! is_string( $text ) || empty( $shortcode_tags ) ) {
+		return $text;
+	}
+
+	$text = str_replace( array( '&#91;', '&#93;' ), array( '[', ']' ), $text );
+	if ( false === strpos( $text, '[' ) ) {
+		return $text;
+	}
+
+	$names   = implode( '|', array_map( 'preg_quote', array_keys( $shortcode_tags ) ) );
+	// The end-of-text part uses the name characters that do_shortcode() accepts.
+	$escaped = preg_replace( '/\[(?=\/?(?:' . $names . ')(?![\w-])|\/?[^<>&\/\[\]\x00-\x20=]*\z)/', '&#x5B;', $text );
+
+	return null === $escaped ? str_replace( '[', '&#x5B;', $text ) : $escaped;
+}
+
+/**
  * Get author information.
  *
  * @param string $key Author meta to fetch.
@@ -414,7 +463,15 @@ function seedprod_lite_get_author_info( $key = '', $fallback = '' ) {
 		return;
 	}
 
+	if ( ! seedprod_lite_is_printable_user_key( $key ) ) {
+		echo wp_kses_post( $fallback );
+		return;
+	}
+
 	$value = get_the_author_meta( $key );
+	if ( ! is_scalar( $value ) ) {
+		$value = '';
+	}
 
 	// Fallback if value is empty.
 	if ( empty( $value ) && $fallback ) {

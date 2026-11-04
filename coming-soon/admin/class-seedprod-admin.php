@@ -795,6 +795,7 @@ class SeedProd_Lite_Admin {
 					'export_selected_page'          => __( 'Export Selected Page', 'coming-soon' ),
 					'export_completed'              => __( 'Export completed successfully!', 'coming-soon' ),
 					'preparing_export'              => __( 'Preparing export file...', 'coming-soon' ),
+					'download_starting'             => __( 'Download starting...', 'coming-soon' ),
 					// Import messages.
 					'import_success'                => __( 'Import completed successfully!', 'coming-soon' ),
 					'uploading_file'                => __( 'Uploading file...', 'coming-soon' ),

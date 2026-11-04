@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.10
+Stable tag: 6.20.11
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,26 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.11 =
+
+* Fixed - Pro: The [seedprod] shortcode accepts only the builder's dynamic tag names.
+* Fixed - Pro: A logged-out visitor can no longer turn a post into a SeedProd page.
+* Fixed - Visitors can no longer get past the Coming Soon or Maintenance Mode page with preview links, URL keywords or a fake bypass cookie. The bypass link redirects only to your own site.
+* Fixed - Editors no longer see the license key or the Stripe connection details. SeedProd now signs the license deactivation request.
+* Fixed - Pages with "[#" in the text no longer show a "Date.create is not a function" error in the browser console.
+* Fixed - Theme imports, default page settings and system info now need the matching admin permission, not just Editor access.
+* Fixed - Saving builder sections now requires the unfiltered_html capability.
+* Fixed - Legacy 5.x Coming Soon pages: the forms check their nonce, the contact form has a rate limit and the debug output is removed.
+* Fixed - Image imports and exports download only from public addresses on safe ports, with the SSL check on.
+* Fixed - Cross-site copy and paste accepts messages only from the SeedProd storage frame.
+* Fixed - SeedProd shortcodes escape their attributes and output.
+* Tweak - The [seedprodwpwidget] shortcode shows only WordPress core and WooCommerce widgets. Developers can allow other widgets with the seedprod_widget_shortcode_allowed_classes filter.
+* Fixed - The author_info and author_meta tags no longer show password fields or protected user meta.
+* Fixed - Pro: The archive meta tag shows only the meta of the archive's own author.
+* Fixed - Pro: Search terms and text from posts blocks in theme templates no longer run as shortcodes.
+* Fixed - The weekly usage check-in sends a per-site token that protects the site's usage record.
+* Fixed - Lite: The Enable Usage Tracking setting works now. Lite sends the weekly check-in only when the setting is on.
 
 = 6.20.10 =
 
