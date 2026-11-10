@@ -416,7 +416,7 @@ if ( ! empty( $settings ) ) {
 	$seedprod_theme_enabled = get_option( 'seedprod_theme_enabled' );
 	if ( ! $seedprod_theme_enabled || ! empty( $settings->no_conflict_mode ) ) {
 		?>
-	<script src="<?php echo esc_url( $plugin_url ); ?>public/js/sp-scripts.min.js" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
+	<script src="<?php echo esc_url( $plugin_url . 'public/js/sp-scripts.min.js?ver=' . SEEDPROD_VERSION ); ?>" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
 	<?php } ?>
 	<?php
 	?>

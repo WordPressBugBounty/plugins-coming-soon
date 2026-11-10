@@ -879,6 +879,9 @@ $generated_i18n_strings = array(
 	__( 'Please make sure to perform a Save before saving as a global template. Click OK to proceed.', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
+	__( 'Saved, but the Stripe Payment price is not signed. Save again to retry.', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
 	__( 'Something has prevented the page from being saved. Please make sure you are at least an Editor and have the unfiltered_html capability.', 'coming-soon' ),
 
 	// Reference: src/views/SettingsScripts.vue

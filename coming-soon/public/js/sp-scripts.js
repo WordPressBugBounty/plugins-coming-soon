@@ -117,13 +117,24 @@ function sp_send_request(token, id) {
   // add ajax class
   jQuery("#sp-optin-form-" + id + ' .sp-optin-submit').addClass('sp-ajax-striped sp-ajax-animated');
 
-  //var j2 = jQuery.ajax( "/" );
-
-  var j2 = jQuery.ajax({
-    url: sp_subscriber_callback_url,
-    type: 'post',
-    timeout: 30000,
-    data: data
+  // The site's own handler gets the receipt that api.seedprod.com returns.
+  var sp_save_local = function sp_save_local(res) {
+    var local_data = data;
+    if (res && res.receipt) {
+      local_data += "&" + jQuery.param({
+        seedprod_receipt: res.receipt,
+        seedprod_receipt_rc: res.rc
+      });
+    }
+    return jQuery.ajax({
+      url: sp_subscriber_callback_url,
+      type: 'post',
+      timeout: 30000,
+      data: local_data
+    });
+  };
+  var j2 = j1.then(sp_save_local, function () {
+    return sp_save_local(null);
   });
   jQuery.when(j1, j2).done(function (a1, a2) {
     // take next action

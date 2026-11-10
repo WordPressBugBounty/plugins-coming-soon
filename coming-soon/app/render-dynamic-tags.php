@@ -907,6 +907,33 @@ function seedprod_lite_get_acf_number_data( $field_data = array(), $fallback = '
 }
 
 /**
+ * Checks whether the current viewer can see the custom fields of a post.
+ *
+ * A public post is open to all. A private post is open to a user who can read it. A post with a
+ * password needs the password first. Any other post needs edit_post.
+ *
+ * @param integer $post_id Post ID.
+ * @return boolean
+ */
+function seedprod_lite_can_view_post_meta( $post_id ) {
+	$post_id = absint( $post_id );
+	$post    = $post_id ? get_post( $post_id ) : null;
+	if ( ! $post ) {
+		return false;
+	}
+	if ( ! post_password_required( $post ) ) {
+		if ( function_exists( 'is_post_publicly_viewable' ) ? is_post_publicly_viewable( $post ) : 'publish' === get_post_status( $post ) && is_post_type_viewable( $post->post_type ) ) {
+			return true;
+		}
+		$status = get_post_status_object( get_post_status( $post ) );
+		if ( $status && $status->private && current_user_can( 'read_post', $post->ID ) ) {
+			return true;
+		}
+	}
+	return current_user_can( 'edit_post', $post->ID );
+}
+
+/**
  * Get ACF Number field data.
  *
  * @param array $settings Array of field description data.
@@ -926,7 +953,8 @@ function seedprod_lite_get_custom_post_field_value( $settings = array(), $fallba
 		}
 	}
 
-	$value = get_post_meta( get_the_ID(), $key, false );
+	$post_id = get_the_ID();
+	$value   = seedprod_lite_can_view_post_meta( $post_id ) ? get_post_meta( $post_id, $key, false ) : array();
 
 	// Check if value is array.
 	$value = is_array( $value ) && isset( $value[0] ) ? $value[0] : '';

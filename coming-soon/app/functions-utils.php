@@ -1710,6 +1710,51 @@ function seedprod_lite_stripe_connect_nonce() {
 }
 
 /**
+ * Get a signature for the price of a Stripe payment block from the SeedProd API.
+ *
+ * @return void
+ */
+function seedprod_lite_stripe_checkout_sign() {
+	check_ajax_referer( 'seedprod_nonce' );
+
+	// Only a user who can save the page can sign its price.
+	$lpage_id = isset( $_POST['lpage_id'] ) ? absint( $_POST['lpage_id'] ) : 0;
+	if ( ! current_user_can( apply_filters( 'seedprod_save_lpage_capability', 'edit_others_posts' ) ) || ! current_user_can( 'unfiltered_html' ) || ! current_user_can( 'edit_post', $lpage_id ) ) {
+		wp_send_json_error( array( 'status' => 'forbidden' ), 403 );
+	}
+
+	$token  = get_option( 'seedprod_stripe_connect_token' );
+	$origin = get_option( 'seedprod_stripe_connect_origin' );
+	if ( empty( $token ) || empty( $origin ) ) {
+		wp_send_json_error( array( 'status' => 'not_connected' ) );
+	}
+
+	$response = wp_remote_post(
+		SEEDPROD_API_URL . 'stripecheckout-sign',
+		array(
+			'timeout'     => 5,
+			'redirection' => 0,
+			'body'        => array(
+				'amount'                => isset( $_POST['amount'] ) ? sanitize_text_field( wp_unslash( $_POST['amount'] ) ) : '',
+				'payment_currency'      => isset( $_POST['payment_currency'] ) ? sanitize_text_field( wp_unslash( $_POST['payment_currency'] ) ) : '',
+				'stripe_connect_token'  => $token,
+				'stripe_connect_origin' => $origin,
+			),
+		)
+	);
+
+	$code      = (int) wp_remote_retrieve_response_code( $response );
+	$body      = json_decode( wp_remote_retrieve_body( $response ), true );
+	$signature = is_array( $body ) && isset( $body['signature'] ) && is_string( $body['signature'] ) ? $body['signature'] : '';
+	// The signature goes into a page script, so accept only the API's key id and MAC format.
+	if ( 200 !== $code || ! preg_match( '/^[a-z0-9]{1,8}\.[A-Za-z0-9_-]{43}\z/', $signature ) ) {
+		wp_send_json_error( array( 'status' => $code ) );
+	}
+
+	wp_send_json_success( array( 'signature' => $signature ) );
+}
+
+/**
  * Get timezones
  */
 function seedprod_lite_get_timezones() {

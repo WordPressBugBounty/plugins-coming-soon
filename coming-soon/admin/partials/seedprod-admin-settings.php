@@ -196,10 +196,52 @@ $tabs_array = array(
 										<input type="text" 
 												id="seedprod-yelp-api-key" 
 												name="seedprod_yelp_api_key" 
-												value="<?php echo esc_attr( $yelp_key ); ?>" 
+												value="<?php echo esc_attr( $yelp_key ); ?>"
 												class="regular-text" />
 									</td>
 								</tr>
+									<?php if ( current_user_can( 'manage_options' ) && current_user_can( 'unfiltered_html' ) ) : ?>
+								<tr id="seedprod-live-widgets">
+									<th scope="row">
+										<?php esc_html_e( 'Widgets on Live Pages', 'coming-soon' ); ?>
+									</th>
+									<td>
+										<?php
+										global $wp_widget_factory;
+										$seedprod_allowed_widgets = seedprod_lite_get_allowed_widget_classes();
+										$seedprod_other_widgets   = array();
+										foreach ( $wp_widget_factory->widgets as $seedprod_widget_class => $seedprod_widget ) {
+											if ( ! in_array( seedprod_lite_get_widget_live_type( $seedprod_widget_class ), array( 'core', 'woocommerce', 'brand' ), true ) ) {
+												$seedprod_other_widgets[ $seedprod_widget_class ] = $seedprod_widget;
+											}
+										}
+										?>
+										<fieldset>
+											<legend class="screen-reader-text"><span><?php esc_html_e( 'Widgets on Live Pages', 'coming-soon' ); ?></span></legend>
+											<p class="description">
+												<?php esc_html_e( 'The WordPress Widget block always shows WordPress and WooCommerce widgets on live pages. Select the other widgets that it can show. Allow only widgets from plugins that you trust, because users who can edit posts can change the settings of an allowed widget.', 'coming-soon' ); ?>
+											</p>
+											<?php if ( empty( $seedprod_other_widgets ) ) : ?>
+												<p><?php esc_html_e( 'No other widgets are registered on this site.', 'coming-soon' ); ?></p>
+											<?php else : ?>
+												<?php foreach ( $seedprod_other_widgets as $seedprod_widget_class => $seedprod_widget ) : ?>
+													<label>
+														<input type="checkbox"
+																class="seedprod-live-widget"
+																value="<?php echo esc_attr( $seedprod_widget_class ); ?>"
+																<?php checked( in_array( $seedprod_widget_class, $seedprod_allowed_widgets, true ) ); ?> />
+														<?php echo esc_html( $seedprod_widget->name ); ?>
+														<code><?php echo esc_html( $seedprod_widget_class ); ?></code>
+													</label><br />
+													<?php if ( in_array( $seedprod_widget_class, $seedprod_allowed_widgets, true ) && '' === seedprod_lite_get_widget_live_type( $seedprod_widget_class ) ) : ?>
+														<p class="description"><?php esc_html_e( 'This widget cannot show on live pages, because it does not sanitize its own settings.', 'coming-soon' ); ?></p>
+													<?php endif; ?>
+												<?php endforeach; ?>
+											<?php endif; ?>
+										</fieldset>
+									</td>
+								</tr>
+									<?php endif; ?>
 								<?php endif; ?>
 								
 								<tr>

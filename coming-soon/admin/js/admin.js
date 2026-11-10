@@ -1299,6 +1299,12 @@
 			disable_seedprod_notification: $('#seedprod-disable-notifications').is(':checked')
 		};
 		
+		if ($('#seedprod-live-widgets').length) {
+			appSettings.live_widget_classes = JSON.stringify($('.seedprod-live-widget:checked').map(function() {
+				return $(this).val();
+			}).get());
+		}
+
 		$button.prop('disabled', true).text(seedprod_admin.strings.saving);
 		
 		$.ajax({

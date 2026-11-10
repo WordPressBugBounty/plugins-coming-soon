@@ -68,6 +68,7 @@ if ( defined( 'DOING_AJAX' ) ) {
 
 	add_action( 'wp_ajax_seedprod_lite_save_app_settings', 'seedprod_lite_save_app_settings' );
 	add_action( 'wp_ajax_seedprod_lite_stripe_connect_nonce', 'seedprod_lite_stripe_connect_nonce' );
+	add_action( 'wp_ajax_seedprod_lite_stripe_checkout_sign', 'seedprod_lite_stripe_checkout_sign' );
 
 	add_action( 'wp_ajax_seedprod_lite_template_subscribe', 'seedprod_lite_template_subscribe' );
 	add_action( 'wp_ajax_seedprod_lite_save_template', 'seedprod_lite_save_template' );

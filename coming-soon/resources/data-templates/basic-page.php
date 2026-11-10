@@ -7378,6 +7378,7 @@ $seedprod_lite_block_templates = '
     "widgetdataoptions": "",
     "widgetresult": "",
     "widgetdata": "",
+    "widget_shortcode": "",
     "marginTop": "",
     "marginBottom": "",
     "marginLeft": "",

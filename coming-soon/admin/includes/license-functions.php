@@ -206,6 +206,25 @@ function seedprod_lite_v2_save_app_settings() {
 			$new_app_settings['facebook_g_app_id']     = isset( $app_settings['facebook_g_app_id'] ) ? sanitize_text_field( $app_settings['facebook_g_app_id'] ) : '';
 			$new_app_settings['google_places_app_key'] = isset( $app_settings['google_places_app_key'] ) ? sanitize_text_field( $app_settings['google_places_app_key'] ) : '';
 			$new_app_settings['yelp_app_api_key']      = isset( $app_settings['yelp_app_api_key'] ) ? sanitize_text_field( $app_settings['yelp_app_api_key'] ) : '';
+
+			if ( isset( $app_settings['live_widget_classes'] ) && is_string( $app_settings['live_widget_classes'] ) && current_user_can( 'manage_options' ) && current_user_can( 'unfiltered_html' ) ) {
+				global $wp_widget_factory;
+				$live_widgets = json_decode( $app_settings['live_widget_classes'], true );
+				$live_widgets = is_array( $live_widgets ) ? $live_widgets : array();
+				$allowed      = array();
+				// The settings page lists only registered widgets, so keep the allowed widgets that are not registered now.
+				foreach ( seedprod_lite_get_allowed_widget_classes() as $widget_class ) {
+					if ( ! isset( $wp_widget_factory->widgets[ $widget_class ] ) ) {
+						$allowed[ $widget_class ] = $widget_class;
+					}
+				}
+				foreach ( $live_widgets as $widget_class ) {
+					if ( is_string( $widget_class ) && isset( $wp_widget_factory->widgets[ $widget_class ] ) ) {
+						$allowed[ $widget_class ] = $widget_class;
+					}
+				}
+				update_option( 'seedprod_allowed_widget_classes', array_values( $allowed ) );
+			}
 		}
 
 		// Save settings.

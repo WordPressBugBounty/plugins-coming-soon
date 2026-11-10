@@ -205,74 +205,15 @@ function seedprod_lite_wordpress_widget( $atts ) {
 		// Replace - with \.
 		$widget_name = str_replace( '-', '\\', $atts['class'] );
 	}
-	if ( ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
+	$live_type = seedprod_lite_get_widget_live_type( $widget_name );
+	if ( '' === $live_type ) {
 		return $content;
 	}
 
-	$widget = $wp_widget_factory->widgets[ $widget_name ];
-	if ( ! $widget instanceof WP_Widget ) {
-		return $content;
-	}
-
-	// The base WP_Widget::update() returns its input unchanged, so it cannot sanitize.
-	$update = new ReflectionMethod( $widget, 'update' );
-	if ( 'WP_Widget' === $update->getDeclaringClass()->getName() ) {
-		/**
-		 * Filters whether [seedprodwpwidget] renders a widget class that does not override update().
-		 *
-		 * The class must also be in the seedprod_widget_shortcode_allowed_classes list. Its update() does not
-		 * sanitize, so the class must sanitize its settings and escape its own output. The shortcode filters
-		 * each string value that holds a tag with wp_kses_post().
-		 *
-		 * @param boolean $allow       True to render the widget. Default false.
-		 * @param string  $widget_name Widget class name.
-		 */
-		if ( ! apply_filters( 'seedprod_widget_shortcode_allow_base_update', false, $widget_name ) ) {
-			return $content;
-		}
-	}
-
-	$core_classes = array( 'WP_Widget_Pages', 'WP_Widget_Calendar', 'WP_Widget_Archives', 'WP_Widget_Media_Audio', 'WP_Widget_Media_Image', 'WP_Widget_Media_Gallery', 'WP_Widget_Media_Video', 'WP_Widget_Meta', 'WP_Widget_Search', 'WP_Widget_Text', 'WP_Widget_Categories', 'WP_Widget_Recent_Posts', 'WP_Widget_Recent_Comments', 'WP_Widget_RSS', 'WP_Widget_Tag_Cloud', 'WP_Nav_Menu_Widget', 'WP_Widget_Custom_HTML', 'WP_Widget_Block' );
-	$is_core      = in_array( $widget_name, $core_classes, true );
-	// Only WooCommerce's own WC_Widget classes. An extension widget needs the filter below.
-	$is_wc_widget = false;
-	if ( defined( 'WC_ABSPATH' ) && class_exists( 'WC_Widget' ) && $widget instanceof WC_Widget ) {
-		$widget_file  = realpath( ( new ReflectionClass( $widget ) )->getFileName() );
-		$wc_dir       = realpath( WC_ABSPATH );
-		$is_wc_widget = $widget_file && $wc_dir && 0 === strpos( $widget_file, $wc_dir . DIRECTORY_SEPARATOR );
-	}
-	// WooCommerce brand widgets. A missing setting gets the default that their widget() uses, as a string
-	// for stripslashes().
-	$brand_defaults = array(
-		'WC_Widget_Brand_Description' => array( 'title' => '' ),
-		'WC_Widget_Brand_Nav'         => array(
-			'title'        => '',
-			'display_type' => 'list',
-		),
-		'WC_Widget_Brand_Thumbnails'  => array(
-			'title'      => '',
-			'columns'    => '1',
-			'exclude'    => '',
-			'orderby'    => 'name',
-			'hide_empty' => '0',
-			'number'     => '',
-		),
-	);
-	$is_woo         = $is_wc_widget || isset( $brand_defaults[ $widget_name ] );
-
-	/**
-	 * Filters the extra widget classes that [seedprodwpwidget] renders.
-	 *
-	 * Core widgets and WooCommerce's own widgets render by default. For an added class, the shortcode runs its
-	 * update() without unfiltered_html and filters each string value that holds a tag with wp_kses_post(). The
-	 * class must still sanitize its own settings in update() and escape its own output in widget(), because
-	 * the settings come from post content.
-	 *
-	 * @param string[] $classes Extra widget class names. Default empty.
-	 */
-	if ( ! $is_core && ! $is_woo && ! in_array( $widget_name, (array) apply_filters( 'seedprod_widget_shortcode_allowed_classes', array() ), true ) ) {
-		return $content;
-	}
+	$widget         = $wp_widget_factory->widgets[ $widget_name ];
+	$is_core        = 'core' === $live_type;
+	$is_wc_widget   = 'woocommerce' === $live_type;
+	$brand_defaults = seedprod_lite_get_widget_brand_defaults();
 
 	// An equal URL in the old instance stops the RSS widget update() from fetching the feed.
 	$old_instance = ( 'WP_Widget_RSS' === $widget_name && isset( $atts['url'] ) ) ? array( 'url' => $atts['url'] ) : array();
@@ -340,4 +281,112 @@ function seedprod_lite_wordpress_widget( $atts ) {
 	ob_end_clean();
 
 	return $content;
+}
+
+/**
+ * Get the default settings of the WooCommerce brand widgets.
+ *
+ * A missing setting gets the default that the widget() method uses, as a string for stripslashes().
+ *
+ * @return array Default settings, keyed by widget class name.
+ */
+function seedprod_lite_get_widget_brand_defaults() {
+	return array(
+		'WC_Widget_Brand_Description' => array( 'title' => '' ),
+		'WC_Widget_Brand_Nav'         => array(
+			'title'        => '',
+			'display_type' => 'list',
+		),
+		'WC_Widget_Brand_Thumbnails'  => array(
+			'title'      => '',
+			'columns'    => '1',
+			'exclude'    => '',
+			'orderby'    => 'name',
+			'hide_empty' => '0',
+			'number'     => '',
+		),
+	);
+}
+
+/**
+ * Get the widget classes that an administrator allows on live pages in the SeedProd settings.
+ *
+ * @return string[] Widget class names.
+ */
+function seedprod_lite_get_allowed_widget_classes() {
+	$classes = get_option( 'seedprod_allowed_widget_classes', array() );
+	return is_array( $classes ) ? array_values( array_filter( $classes, 'is_string' ) ) : array();
+}
+
+/**
+ * Get the reason that [seedprodwpwidget] renders a widget on the live page.
+ *
+ * @param string $widget_name Registered widget class name.
+ * @return string 'core', 'woocommerce', 'brand' or 'allowed'. An empty string when the widget does not render.
+ */
+function seedprod_lite_get_widget_live_type( $widget_name ) {
+	global $wp_widget_factory;
+
+	if ( ! is_string( $widget_name ) || ! isset( $wp_widget_factory->widgets[ $widget_name ] ) ) {
+		return '';
+	}
+
+	$widget = $wp_widget_factory->widgets[ $widget_name ];
+	if ( ! $widget instanceof WP_Widget ) {
+		return '';
+	}
+
+	// The base WP_Widget::update() returns its input unchanged, so it cannot sanitize.
+	$update = new ReflectionMethod( $widget, 'update' );
+	if ( 'WP_Widget' === $update->getDeclaringClass()->getName() ) {
+		/**
+		 * Filters whether [seedprodwpwidget] renders a widget class that does not override update().
+		 *
+		 * The class must also be in the seedprod_widget_shortcode_allowed_classes list. Its update() does not
+		 * sanitize, so the class must sanitize its settings and escape its own output. The shortcode filters
+		 * each string value that holds a tag with wp_kses_post().
+		 *
+		 * @param boolean $allow       True to render the widget. Default false.
+		 * @param string  $widget_name Widget class name.
+		 */
+		if ( ! apply_filters( 'seedprod_widget_shortcode_allow_base_update', false, $widget_name ) ) {
+			return '';
+		}
+	}
+
+	$core_classes = array( 'WP_Widget_Pages', 'WP_Widget_Calendar', 'WP_Widget_Archives', 'WP_Widget_Media_Audio', 'WP_Widget_Media_Image', 'WP_Widget_Media_Gallery', 'WP_Widget_Media_Video', 'WP_Widget_Meta', 'WP_Widget_Search', 'WP_Widget_Text', 'WP_Widget_Categories', 'WP_Widget_Recent_Posts', 'WP_Widget_Recent_Comments', 'WP_Widget_RSS', 'WP_Widget_Tag_Cloud', 'WP_Nav_Menu_Widget', 'WP_Widget_Custom_HTML', 'WP_Widget_Block' );
+	if ( in_array( $widget_name, $core_classes, true ) ) {
+		return 'core';
+	}
+
+	// Only WooCommerce's own WC_Widget classes. An extension widget needs the allow list below.
+	if ( defined( 'WC_ABSPATH' ) && class_exists( 'WC_Widget' ) && $widget instanceof WC_Widget ) {
+		$widget_file = realpath( ( new ReflectionClass( $widget ) )->getFileName() );
+		$wc_dir      = realpath( WC_ABSPATH );
+		if ( $widget_file && $wc_dir && 0 === strpos( $widget_file, $wc_dir . DIRECTORY_SEPARATOR ) ) {
+			return 'woocommerce';
+		}
+	}
+
+	$brand_defaults = seedprod_lite_get_widget_brand_defaults();
+	if ( isset( $brand_defaults[ $widget_name ] ) ) {
+		return 'brand';
+	}
+
+	/**
+	 * Filters the extra widget classes that [seedprodwpwidget] renders.
+	 *
+	 * Core widgets and WooCommerce's own widgets render by default. For an added class, the shortcode runs its
+	 * update() without unfiltered_html and filters each string value that holds a tag with wp_kses_post(). The
+	 * class must still sanitize its own settings in update() and escape its own output in widget(), because
+	 * the settings come from post content.
+	 *
+	 * @param string[] $classes Extra widget class names. Default: the widgets that an administrator allows in the SeedProd
+	 *                          settings. A callback that returns a new array replaces that list.
+	 */
+	if ( in_array( $widget_name, (array) apply_filters( 'seedprod_widget_shortcode_allowed_classes', seedprod_lite_get_allowed_widget_classes() ), true ) ) {
+		return 'allowed';
+	}
+
+	return '';
 }

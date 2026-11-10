@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.11
+Stable tag: 6.20.12
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,17 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.12 =
+
+* Fixed - The WordPress Widget block shows the same widgets in the builder as on the live page. Administrators can allow more widgets in SeedProd > Settings > Widgets on Live Pages.
+* Fixed - Pro: The [sp_custom_field] shortcode shows protected custom fields of the current post again.
+* Fixed - Pro: Post Custom Fields tags show custom fields only for posts that the visitor can see.
+* Fixed - Pro: The Posts block Manual Query lists only posts that the visitor can read, not other users' drafts or private posts.
+* Fixed - The copy and paste storage page accepts commands only from the page that embeds it.
+* Fixed - Pro: Theme templates run shortcodes once, so text from comments, search queries, reviews, menu labels and custom fields no longer runs as a shortcode.
+* Tweak - Pro: Optin forms pass a signed receipt from the SeedProd API to your site. Developers can require it with the seedprod_optin_require_receipt filter.
+* Fixed - The Stripe Payment block signs its price when you save the page. A quote in the payment description no longer breaks the checkout button.
 
 = 6.20.11 =
 

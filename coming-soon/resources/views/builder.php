@@ -847,7 +847,7 @@ $seedprod_data = array(
 
 
 	xdLocalStorage.init({
-		iframeUrl:'https://assets.seedprod.com/cross-domain-local-storage/cross-domain-local-storage.html',
+		iframeUrl:'https://assets.seedprod.com/cross-domain-local-storage/cross-domain-local-storage.html?v=2',
 		initCallback: function () {
 
 			xdLocalStorage.getItem('seedprod_section_data', function (data) {
