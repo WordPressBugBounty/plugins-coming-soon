@@ -78,7 +78,6 @@ var seedprodCookies = Cookies.noConflict();
 // optin form
 
 var sp_emplacementRecaptcha = [];
-var sp_option_id = "";
 jQuery("form[id^=sp-optin-form]").submit(function (e) {
   e.preventDefault();
   var form_id = jQuery(this).attr("id");
@@ -92,14 +91,14 @@ jQuery("form[id^=sp-optin-form]").submit(function (e) {
 });
 var sp_CaptchaCallback = function sp_CaptchaCallback() {
   jQuery("div[id^=recaptcha-]").each(function (index, el) {
-    sp_option_id = el.id.replace("recaptcha-", "");
-    sp_emplacementRecaptcha[sp_option_id] = grecaptcha.render(el, {
+    var sp_id = el.id.replace("recaptcha-", "");
+    sp_emplacementRecaptcha[sp_id] = grecaptcha.render(el, {
       sitekey: "6LdfOukUAAAAAMCOEFEZ9WOSKyoYrxJcgXsf66Xr",
       badge: "bottomright",
       type: "image",
       size: "invisible",
       callback: function callback(token) {
-        sp_send_request(token, sp_option_id);
+        sp_send_request(token, sp_id);
       }
     });
   });
@@ -362,21 +361,51 @@ jQuery(document).ready(function ($) {
       format = default_format;
     }
     var d = Date.create(parts[0]);
-    var regex = "\\[#" + tag + "]";
+    var regex = "\\[#" + tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]";
     var re = new RegExp(regex, "g");
-    $("body *").replaceText(re, d.format(format));
+    var date_text = d.format(format);
+    // A function keeps replace() from expanding $ patterns. true: insert the date as text, never as markup.
+    // The [q: handler writes the page out again. The browser does not escape the text of these elements then.
+    $("body *").not("script, style, noscript, xmp, iframe, noembed, noframes").replaceText(re, function () {
+      return date_text;
+    }, true);
   }
   $(".sp-dynamic-text").contents().unwrap();
 });
 
 // Dynamic Query Parameter
 jQuery(document).ready(function ($) {
+  // A body write runs the scripts in the body again. When this file loads in the body, this handler runs again too.
+  if (window.seedprod_pro_query_tags_done) {
+    return;
+  }
+  window.seedprod_pro_query_tags_done = true;
   var default_value = "";
+  // The browser writes out comments and the content of these elements without escaping, so tags there stay as they are.
+  // The scan reads each tag whole, in the form the browser writes it, so no match starts inside an attribute value.
+  // Tags in attribute values still get the value. A "<" in any other form leaves the page unchanged.
+  var raw_names = "script, style, noscript, xmp, iframe, noembed, noframes";
+  var attr = ' =?[^\\t\\n\\f\\r />=]*="[^"]*"';
+  var attrs = "(?:" + attr + ")*";
+  var raw_text = "<!--[\\s\\S]*?-->" + "|(<(" + raw_names.split(", ").join("|") + ")" + attrs + ">)[\\s\\S]*?(?:<\\/\\2>|$)" + "|<[a-zA-Z][^\\t\\n\\f\\r />]*" + attrs + ">" + "|<\\/[^\\t\\n\\f\\r />]*>" + "|<";
   var html = $("body").html();
   var newTxt = html.split("[q:");
+
+  // An element with one of these names that holds other elements is not raw text, so its end is not certain.
+  var nested = $("body").find(raw_names).filter(function () {
+    return this.children && this.children.length > 0;
+  });
+  if (nested.length) {
+    newTxt = [];
+  }
   for (var i = 1; i < newTxt.length; i++) {
     var def_val = default_value;
     var tag = newTxt[i].split("]")[0];
+
+    // A tag that crosses markup or an attribute boundary is not a dynamic text tag.
+    if (/[<>"]/.test(tag)) {
+      continue;
+    }
     var parts = tag.split("=");
     if (parts.length > 1) {
       def_val = parts[1];
@@ -384,7 +413,7 @@ jQuery(document).ready(function ($) {
       def_val = default_value;
     }
     var d = parts[0]; //Date.create(parts[0]);
-    var regex = "\\[q:" + tag + "]";
+    var regex = "\\[q:" + tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]";
     var re = new RegExp(regex, "g");
     var searchParams = new URLSearchParams(window.location.search);
     var paramdata = searchParams.get(d);
@@ -398,7 +427,52 @@ jQuery(document).ready(function ($) {
     //  console.log(def_val);
     //  console.log(paramdata);
     //$("body *").replaceText(re,seedprod_escapeHtml(def_val));
-    var replaced = $("body").html().replace(re, seedprod_escapeHtml(def_val));
+    // A function keeps replace() from expanding $ patterns in the value.
+    var value = seedprod_escapeHtml(def_val);
+    var to_value = function to_value() {
+      return value;
+    };
+    // The value goes after the first '="' of each attribute, never into a name.
+    var in_values = function in_values(start) {
+      return start.replace(new RegExp(attr, "g"), function (a) {
+        var at = a.indexOf('="', 2);
+        // Event handler attributes run as script. The browser reads srcdoc as a page. Tags there stay as they are.
+        if (/^(on|srcdoc$)/i.test(a.slice(1, at))) {
+          return a;
+        }
+        var next = a.slice(0, at) + a.slice(at).replace(re, to_value);
+        // A URL with a script scheme runs as script. Keep the attribute as it is when its new value has one.
+        // Browsers ignore spaces and control characters in the scheme. No escaped character can make a scheme.
+        // Some attributes hold a list of URLs split at ";", so each item is checked.
+        if (next !== a && /(^|;)(javascript|vbscript):/i.test(next.slice(at + 2, -1).replace(/[\x00-\x20]/g, ""))) {
+          return a;
+        }
+        return next;
+      });
+    };
+    var unsure = false;
+    var current = $("body").html();
+    var replaced = current.replace(new RegExp(raw_text + "|" + regex, "g"), function (match, start_tag, name) {
+      if (start_tag) {
+        // Leave the page unchanged when the end of a script is not certain.
+        var comment_at = name === "script" ? match.indexOf("<!--") : -1;
+        if (comment_at !== -1 && /<script[\s/>]/i.test(match.slice(comment_at))) {
+          unsure = true;
+        }
+        return in_values(start_tag) + match.slice(start_tag.length);
+      }
+      if (match.charAt(0) !== "<") {
+        return value;
+      }
+      if (match === "<") {
+        unsure = true;
+      }
+      return /^<[a-zA-Z]/.test(match) ? in_values(match) : match;
+    });
+    // A body write runs the scripts in the body again. Skip a write that changes nothing.
+    if (unsure || replaced === current) {
+      continue;
+    }
     $("body").html(replaced);
   }
   $(".sp-dynamic-text").contents().unwrap();

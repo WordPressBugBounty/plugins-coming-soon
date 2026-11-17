@@ -67,7 +67,7 @@ function seedprod_lite_process_image_filenames_import_cross_site( $data ) {
 		// checks the port itself, because older WordPress versions do not have this filter.
 		add_filter( 'http_allowed_safe_ports', $web_ports, PHP_INT_MAX );
 		try {
-			$new_url_id = seedprod_lite_insert_attachment_from_url( $plugin_img_url, null, $web_ports() );
+			$new_url_id = seedprod_lite_insert_attachment_from_url( $plugin_img_url, null, $web_ports(), current_user_can( 'unfiltered_html' ) );
 		} finally {
 			remove_filter( 'http_allowed_safe_ports', $web_ports, PHP_INT_MAX );
 		}

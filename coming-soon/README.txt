@@ -5,7 +5,7 @@ Tags: maintenance mode, coming soon page, landing page, website builder, page bu
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.12
+Stable tag: 6.20.13
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,12 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.13 =
+
+* Fixed - Pro: Only users who can post unfiltered HTML can upload SVG files. Cross-site copy and paste follows the same rule. Theme and landing page imports still add their SVG images.
+* Fixed - Pro: reCAPTCHA loads for optin forms in template parts, on theme pages and on landing, coming soon and maintenance pages. On a page with more than one optin form, each form submits its own entry.
+* Fixed - Dynamic text tags for query parameters show their values as plain text. Pro: Date tags do the same.
 
 = 6.20.12 =
 
